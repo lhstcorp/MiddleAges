@@ -2,7 +2,7 @@
 
 namespace MiddleAges.Data.Migrations
 {
-    public partial class Migration1 : Migration
+    public partial class Player_01 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace MiddleAges.Data.Migrations
                     PlayerId = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Exp = table.Column<long>(type: "bigint", nullable: false),
-                    Lvl = table.Column<int>(type: "int", nullable: false),
-                    Money = table.Column<long>(type: "bigint", nullable: false),
+                    Lvl = table.Column<int>(type: "int", nullable: false, defaultValueSql: "1"),
+                    Money = table.Column<long>(type: "bigint", nullable: false, defaultValueSql: "1000"),
                     ImageURL = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CurrentRegion = table.Column<int>(type: "int", nullable: false)
                 },
