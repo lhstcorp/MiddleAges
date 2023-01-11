@@ -1,4 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Authorization
+@using System.Security.Claims
+@using MiddleAges.ViewComponents
+
 @inject IAuthorizationService AuthorizationService
 
 <!DOCTYPE html>
@@ -14,16 +17,20 @@
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-            <div class="container">
+            <div class="container lhst-nav-container">
+
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <ul class="navbar-nav flex-grow-1">
+                        @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
+
+                        <ul class="navbar-nav flex-fill">
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
+                                <a class="nav-link text-dark header-menu" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
+                                <a class="nav-link text-dark header-menu" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
                             </li>
                         </ul>
                     }
@@ -31,8 +38,8 @@
                     {
                         <div class="flex-grow-1"></div>
                     }
-                        <partial name="_LoginPartial" />
-                    </div>
+                    <partial name="_LoginPartial" />
+                </div>
             </div>
         </nav>
     </header>
