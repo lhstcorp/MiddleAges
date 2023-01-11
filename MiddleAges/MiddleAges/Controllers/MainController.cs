@@ -27,6 +27,7 @@ namespace MiddleAges.Controllers
         public IActionResult Index()
         {
             Player player = _context.players.FirstOrDefault();
+            player.PlayerId = "kaka";
             return View("Main", player);
         }
 
