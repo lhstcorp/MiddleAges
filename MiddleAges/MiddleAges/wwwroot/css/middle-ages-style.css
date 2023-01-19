@@ -1,6 +1,7 @@
 ﻿body {
     background-color: antiquewhite;
     background-size: 100%;
+    min-width: 1000px!important;
 }
 
 .header-menu {
@@ -12,23 +13,45 @@
     height: 70px !important;
 }
 
-.navbar {
-    height: 100px;
-}
-
 .nav-avatar-img {
     height: 70px;
     width: 70px;
-    border-style: solid!important;
-    border-width: 1px!important;
-    border-color: black!important;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: black !important;
     border-radius: 45px;
+    vertical-align: bottom;
 }
 
 .player-overview-div-inline {
     display: inline;
 }
 
-.lhst-nav-container {
-    margin-left: 0px;
+
+.lhst_nav_row {
+    display: inline;
 }
+
+.lhst_person-nav-container-inline {
+    display: inline-block !important;
+}
+
+.lhst_person-div-overview-data {
+    margin: 0px;
+}
+
+.lhst_person-data-div-align {
+    position:absolute;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.lhst_overview-player-name {
+    color: brown;
+    font-weight: 700;
+}
+
+.lhst_nav-ul-li {
+    list-style-type: none;
+}
+

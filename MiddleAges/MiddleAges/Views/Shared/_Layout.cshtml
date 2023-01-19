@@ -15,34 +15,42 @@
     <link rel="stylesheet" href="~/css/middle-ages-style.css" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
-            <div class="container lhst-nav-container">
+    <div>
+        <div class="">
+            @* class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" *@
+            <div class="">
 
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="row">
+                    @* navbar-collapse collapse *@
 
                     @if (User.Identity.IsAuthenticated)
                     {
-                        @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
+                        <div class="col-md-4">
+                            @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
+                        </div>
 
-                        <ul class="navbar-nav flex-fill">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark header-menu" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark header-menu" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
-                            </li>
-                        </ul>
+                        <div class="col-md-4">
+                            <ul class="">
+                                <li class="nav-item lhst_nav-ul-li">
+                                    <a class="nav-link text-dark header-menu" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
+                                </li>
+                                <li class="nav-item lhst_nav-ul-li">
+                                    <a class="nav-link text-dark header-menu" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
+                                </li>
+                            </ul>
+                        </div>
                     }
                     else
                     {
                         <div class="flex-grow-1"></div>
                     }
+                <div class="col-md-4">
                     <partial name="_LoginPartial" />
                 </div>
+                </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
