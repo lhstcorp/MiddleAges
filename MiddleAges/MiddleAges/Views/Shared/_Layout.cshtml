@@ -10,44 +10,41 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MiddleAges</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/middle-ages-style.css" />
 </head>
 <body>
     <div>
-        <div class="">
+        <div class="header">
             @* class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" *@
-            <div class="">
+            
+            <div class="row">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="col-md-4 lhst_inline lhst_nav">
+                        @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
+                    </div>
 
-                <div class="row">
-                    @* navbar-collapse collapse *@
+                    <div class="lhst_inline lhst_nav">
+                        <ul class="lhst_nav">
+                            <li class="lhst_nav">
+                                <a class="nav-link text-dark header-menu lhst_nav" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
+                            </li>
+                            <li class="lhst_nav">
+                                <a class="nav-link text-dark header-menu lhst_nav" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
+                            </li>
+                        </ul>
+                    </div>
+                }
+                else
+                {
+                    <div class="flex-grow-1"></div>
+                }
 
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <div class="col-md-4">
-                            @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
-                        </div>
-
-                        <div class="col-md-4">
-                            <ul class="">
-                                <li class="nav-item lhst_nav-ul-li">
-                                    <a class="nav-link text-dark header-menu" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
-                                </li>
-                                <li class="nav-item lhst_nav-ul-li">
-                                    <a class="nav-link text-dark header-menu" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
-                                </li>
-                            </ul>
-                        </div>
-                    }
-                    else
-                    {
-                        <div class="flex-grow-1"></div>
-                    }
-                <div class="col-md-4">
-                    <partial name="_LoginPartial" />
-                </div>
-                </div>
+                    <div class="lhst_right-status-nav-container lhst_inline">
+                        <partial name="_LoginPartial" />
+                    </div>
             </div>
         </div>
     </div>
