@@ -2,6 +2,7 @@
     background-color: antiquewhite;
     background-size: 100%;
     min-width: 1000px!important;
+    margin: 0px;
 }
 
 .header-menu {
@@ -9,8 +10,8 @@
     border-width: 1px;
     border-color: black;
     border-radius: 45px;
-    width: 70px !important;
-    height: 70px !important;
+    width: 40px;
+    height: 40px;
 }
 
 .nav-avatar-img {
@@ -20,20 +21,15 @@
     border-width: 1px !important;
     border-color: black !important;
     border-radius: 45px;
-    vertical-align: bottom;
+    vertical-align: top;
 }
 
 .player-overview-div-inline {
     display: inline;
 }
 
-
-.lhst_nav_row {
-    display: inline;
-}
-
 .lhst_person-nav-container-inline {
-    display: inline-block !important;
+    display: inline-block;
 }
 
 .lhst_person-div-overview-data {
@@ -51,7 +47,48 @@
     font-weight: 700;
 }
 
-.lhst_nav-ul-li {
+ul.lhst_nav {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    vertical-align:central;
 }
+
+li.lhst_nav {
+    float: left;
+    margin-right: 10px;
+}
+
+li a.lhst_nav {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a.lhst_nav:hover {
+    background-color: #111111;
+}
+
+.lhst_inline {
+    display: inline-block;
+}
+
+.lhst_inline.lhst_nav {
+    margin: 15px 80px 15px 15px;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.header {
+    background-color: #333333;
+}
+
 
