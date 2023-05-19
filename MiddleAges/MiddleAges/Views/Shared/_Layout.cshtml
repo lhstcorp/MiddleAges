@@ -13,6 +13,7 @@
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/middle-ages-style.css" />
+    <link rel="stylesheet" href="~/css/map.css" />
 </head>
 <body>
     <div class="header">
@@ -51,12 +52,12 @@
 
     <div class="container">
         <div class="lhst_left-side-bar column lhst_vertical-alignment-top">
-        </div>
-        <div class=" column">
-            <main role="main" class="lhst_vertical-alignment-top lhst_main-section">
-                @RenderBody()
-            </main>
-        </div>
+
+        </div>        
+
+        <main role="main" class="lhst_vertical-alignment-top lhst_main-section column">
+            @RenderBody()
+        </main>
     </div>
 
     <footer class="footer text-muted">

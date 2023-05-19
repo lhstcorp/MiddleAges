@@ -1,7 +1,7 @@
 ﻿body {
     background-color: antiquewhite;
     background-size: 100%;
-    min-width: 1000px !important;
+    /*min-width: 2400px !important;*/
     margin: 0px;
 }
 
@@ -116,7 +116,7 @@ li a.lhst_nav:hover {
 .lhst_left-side-bar {
     background-color: #393939;
     width: 217px;
-    height: calc(100vh - 167px);    
+    height: calc(100vh - 167px);
 }
 
 .lhst_vertical-alignment-top {
@@ -149,4 +149,9 @@ footer {
 
 .lhst_privacy-btn {
     color: wheat;
+}
+
+.lhst_main-section {
+    width: calc(100% - 221px);
+    height: 600px;
 }
