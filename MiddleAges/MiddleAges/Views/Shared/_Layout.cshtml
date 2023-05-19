@@ -15,50 +15,53 @@
     <link rel="stylesheet" href="~/css/middle-ages-style.css" />
 </head>
 <body>
-    <div>
-        <div class="header">
-            @* class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" *@
+    <div class="header">
+        @* class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" *@
             
-            <div class="row">
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <div class="lhst_inline lhst_nav">
-                        @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
-                    </div>
+        <div class="row">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="lhst_inline lhst_nav">
+                    @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
+                </div>
 
-                    <div class="lhst_inline lhst_vertical-line"></div>
+                <div class="lhst_inline lhst_vertical-line"></div>
 
-                    <div class="lhst_inline lhst_nav">
-                        <ul class="lhst_nav">
-                            <li class="lhst_nav">
-                                <a class="nav-link text-dark header-menu lhst_nav main-btn" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
-                            </li>
-                            <li class="lhst_nav">
-                                <a class="nav-link text-dark header-menu lhst_nav map-btn" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
-                            </li>
-                        </ul>
-                    </div>
-                }
-                else
-                {
-                    <div class="flex-grow-1"></div>
-                }
+                <div class="lhst_inline lhst_nav">
+                    <ul class="lhst_nav">
+                        <li class="lhst_nav">
+                            <a class="nav-link text-dark header-menu lhst_nav main-btn" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
+                        </li>
+                        <li class="lhst_nav">
+                            <a class="nav-link text-dark header-menu lhst_nav map-btn" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div class="flex-grow-1"></div>
+            }
 
-                    <div class="lhst_right-status-nav-container lhst_inline">
-                        <partial name="_LoginPartial" />
-                    </div>
-            </div>
+                <div class="lhst_right-status-nav-container lhst_inline">
+                    <partial name="_LoginPartial" />
+                </div>
         </div>
     </div>
+
     <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        <div class="lhst_left-side-bar column lhst_vertical-alignment-top">
+        </div>
+        <div class=" column">
+            <main role="main" class="lhst_vertical-alignment-top lhst_main-section">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - MiddleAges - <a asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
+    <footer class="footer text-muted">
+        <div class="container lhst_footer-text">
+            &copy; 2023 - MiddleAges - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

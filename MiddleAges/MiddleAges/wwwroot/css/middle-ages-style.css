@@ -1,8 +1,12 @@
 ﻿body {
     background-color: antiquewhite;
     background-size: 100%;
-    min-width: 1000px!important;
+    min-width: 1000px !important;
     margin: 0px;
+}
+
+.header {
+    border-bottom: 1px solid;
 }
 
 .header-menu {
@@ -109,4 +113,40 @@ li a.lhst_nav:hover {
     margin: 5px 0px;
 }
 
+.lhst_left-side-bar {
+    background-color: #393939;
+    width: 217px;
+    height: calc(100vh - 167px);    
+}
 
+.lhst_vertical-alignment-top {
+    vertical-align: top;
+}
+
+.column {
+    display: inline-block;
+}
+
+.lhst_coins-img {
+    width: 17px;
+    height: 17px;
+}
+
+.lhst_coins-text {
+    vertical-align: top;
+    color: wheat;
+}
+
+footer {
+    background-color: #333333;
+    border-top: 1px solid;
+}
+
+.lhst_footer-text {
+    color: wheat;
+    margin-left: 5px;
+}
+
+.lhst_privacy-btn {
+    color: wheat;
+}
