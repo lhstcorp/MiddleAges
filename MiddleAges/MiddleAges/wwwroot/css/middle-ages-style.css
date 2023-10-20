@@ -155,3 +155,34 @@ footer {
     width: calc(100% - 221px);
     height: 600px;
 }
+
+.lhst_building_ext_card {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color:wheat;
+    height: 170px;
+    width: 130px;
+}
+
+.lhst_building_image {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    height: 120px;
+    width: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+}
+
+.lhst_possessions_titles {
+    margin: 3px;
+    font-weight: bold;
+    color: brown;
+}
+
+.lhst_card_properties {
+    margin: 2px;
+}
