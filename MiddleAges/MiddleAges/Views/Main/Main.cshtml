@@ -1,22 +1,13 @@
 ﻿@model MiddleAges.Entities.Player
+@using MiddleAges.ViewComponents
 
 @{
     ViewData["Title"] = "Home Page";
 }
 
 <div>
-    <h1>Buildings</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
-    @*@if (Model.Name == "Savely")
-    {
-        <p>Player name: @Model.Name</p>
-    }
-
-    @if (Model.Name == "Alexey")
-    {
-        <p>Player name: @Model.Name</p>
-    }
-
-    <p>@Model.PlayerId</p>*@
+    
+    <div>
+        @await Component.InvokeAsync(typeof(BuildingsViewComponent))
+    </div>
 </div>
