@@ -15,6 +15,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.Enums;
 
 namespace MiddleAges.Areas.Identity.Pages.Account
 {
@@ -101,7 +102,7 @@ namespace MiddleAges.Areas.Identity.Pages.Account
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                    this.CreatePlayer(user.Id);
+                    this.CreatePlayer(new Guid(user.Id));
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -123,11 +124,25 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private void CreatePlayer(string _userId)
+        private void CreatePlayer(Guid _userId)
         {
             Random rand = new Random();
             Player player = new Player { PlayerId = _userId, Name = Input.UserName, Exp = 0, Lvl = 1, Money = 1000, CurrentRegion = rand.Next(1, 11) };
-            _context.Add(player);
+            _context.players.Add(player);
+
+            Building building;
+
+            building = new Building { PlayerId = _userId, Type = (int)BuildingType.Estate, Lvl = 1 };
+            _context.buildings.Add(building);
+            building = new Building { PlayerId = _userId, Type = (int)BuildingType.Barracks, Lvl = 1 };
+            _context.buildings.Add(building);
+
+            Unit unit;
+
+            unit = new Unit { PlayerId = _userId, Type = (int)UnitType.Peasant, Lvl = 1, Count = 100 };
+            _context.units.Add(unit);
+            unit = new Unit { PlayerId = _userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0 };
+            _context.units.Add(unit);
             _context.SaveChangesAsync();
         }
     }

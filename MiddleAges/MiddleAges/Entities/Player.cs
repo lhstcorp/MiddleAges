@@ -10,7 +10,7 @@ namespace MiddleAges.Entities
     public class Player
     {
         [Key]
-        public string PlayerId { get; set; }
+        public Guid PlayerId { get; set; }
         public string Name { get; set; }
         [DefaultValue(0)]
         public long Exp { get; set; }
