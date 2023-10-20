@@ -23,8 +23,8 @@ namespace MiddleAges.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var user = _userManager.GetUserAsync(HttpContext.User).Result;
-            Player player = _context.players.FirstOrDefault(k => k.PlayerId == user.Id);
 
+            Player player = _context.players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
             return View("PlayerOverviewNav", player);
         }
     }
