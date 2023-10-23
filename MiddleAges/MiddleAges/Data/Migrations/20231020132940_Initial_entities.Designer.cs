@@ -10,16 +10,16 @@ using MiddleAges.Data;
 namespace MiddleAges.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230104150000_Migration1")]
-    partial class Migration1
+    [Migration("20231020132940_Initial_entities")]
+    partial class Initial_entities
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.0");
+                .HasAnnotation("ProductVersion", "5.0.17")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
@@ -53,7 +53,7 @@ namespace MiddleAges.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -142,7 +142,7 @@ namespace MiddleAges.Data.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -221,10 +221,31 @@ namespace MiddleAges.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("MiddleAges.Entities.Building", b =>
+                {
+                    b.Property<Guid>("BuildingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Lvl")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
+                    b.HasKey("BuildingId");
+
+                    b.ToTable("buildings");
+                });
+
             modelBuilder.Entity("MiddleAges.Entities.Player", b =>
                 {
-                    b.Property<string>("PlayerId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<Guid>("PlayerId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("CurrentRegion")
                         .HasColumnType("int");
@@ -247,6 +268,26 @@ namespace MiddleAges.Data.Migrations
                     b.HasKey("PlayerId");
 
                     b.ToTable("players");
+                });
+
+            modelBuilder.Entity("MiddleAges.Entities.Unit", b =>
+                {
+                    b.Property<Guid>("UnitId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("PeasantsCount")
+                        .HasColumnType("int");
+
+                    b.Property<Guid>("PlayerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("SoldiersCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("UnitId");
+
+                    b.ToTable("units");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

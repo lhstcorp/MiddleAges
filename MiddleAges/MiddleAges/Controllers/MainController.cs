@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
@@ -17,16 +18,21 @@ namespace MiddleAges.Controllers
     {
         private readonly ILogger<MainController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public MainController(ILogger<MainController> logger, ApplicationDbContext context)
+        public MainController(ILogger<MainController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
         {
-            Player player = _context.players.FirstOrDefault();
+            var user = _userManager.GetUserAsync(HttpContext.User).Result;
+
+            Player player = _context.players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+
             return View("Main", player);
         }
 

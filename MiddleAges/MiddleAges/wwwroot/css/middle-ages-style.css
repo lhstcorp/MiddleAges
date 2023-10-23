@@ -1,4 +1,188 @@
 ﻿body {
-    background-image: url("./img/medieval_town_map_orig.jpg");
+    background-color: antiquewhite;
     background-size: 100%;
+    /*min-width: 2400px !important;*/
+    margin: 0px;
+}
+
+.header {
+    border-bottom: 1px solid;
+}
+
+.header-menu {
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
+.header-menu.main-btn {
+    background-image: url("../img/menu-icons/main-icon.png");
+    background-size: 100%;
+}
+
+.header-menu.map-btn {
+    background-image: url("../img/menu-icons/map-icon.png");
+    background-size: 100%;
+}
+
+.nav-avatar-img {
+    height: 70px;
+    width: 70px;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: black !important;
+    border-radius: 45px;
+    vertical-align: top;
+}
+
+.player-overview-div-inline {
+    display: inline;
+}
+
+.lhst_person-nav-container-inline {
+    display: inline-block;
+}
+
+.lhst_person-div-overview-data {
+    margin: 0px;
+}
+
+.lhst_person-data-div-align {
+    position:absolute;
+    margin-left: 5px;
+    margin-top: 10px;
+}
+
+.lhst_overview-player-name {
+    color: brown;
+    font-weight: 700;
+}
+
+ul.lhst_nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    vertical-align:central;
+}
+
+li.lhst_nav {
+    float: left;
+    margin-right: 10px;
+}
+
+li a.lhst_nav {
+    text-align: center;
+    text-decoration: none;
+    width: 75px;
+    height: 75px;
+    color: white;
+    position: relative;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+li a.lhst_nav:hover {
+    color: white;
+    background-color: #111111;
+}
+
+.lhst_inline {
+    display: inline-block;
+}
+
+.lhst_inline.lhst_nav {
+    margin: 15px 130px 15px 15px;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.header {
+    background-color: #333333;
+}
+
+.lhst_vertical-line {
+    border-style: solid;
+    border-width: 0px 0.5px 0px 0px;
+    border-color: wheat;
+    margin: 5px 0px;
+}
+
+.lhst_left-side-bar {
+    background-color: #393939;
+    width: 217px;
+    height: calc(100vh - 167px);
+}
+
+.lhst_vertical-alignment-top {
+    vertical-align: top;
+}
+
+.column {
+    display: inline-block;
+}
+
+.lhst_coins-img {
+    width: 17px;
+    height: 17px;
+}
+
+.lhst_coins-text {
+    vertical-align: top;
+    color: wheat;
+}
+
+footer {
+    background-color: #333333;
+    border-top: 1px solid;
+}
+
+.lhst_footer-text {
+    color: wheat;
+    margin-left: 5px;
+}
+
+.lhst_privacy-btn {
+    color: wheat;
+}
+
+.lhst_main-section {
+    width: calc(100% - 221px);
+    height: 600px;
+}
+
+.lhst_building_ext_card {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    background-color:wheat;
+    height: 170px;
+    width: 130px;
+}
+
+.lhst_building_image {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    height: 120px;
+    width: 120px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+}
+
+.lhst_possessions_titles {
+    margin: 3px;
+    font-weight: bold;
+    color: brown;
+}
+
+.lhst_card_properties {
+    margin: 2px;
 }
