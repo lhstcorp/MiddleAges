@@ -25,5 +25,21 @@ namespace MiddleAges.Models
             return buildingName;
         }
 
+        public static string getUnitNameByType(int _unitType)
+        {
+            string unitName = "";
+
+            switch (_unitType)
+            {
+                case 1:
+                    unitName = "Peasant";
+                    break;
+                case 2:
+                    unitName = "Soldier";
+                    break;
+            }
+
+            return unitName;
+        }
     }
 }
