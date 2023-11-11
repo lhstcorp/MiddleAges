@@ -5,12 +5,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div>
-    <div class="lhst_left-side-bar column lhst_vertical-alignment-top">
+<div class="d-flex">
+    <div class="lhst_left-side-bar lhst_vertical-alignment-top">
 
     </div>
 
-    <div class="lhst_vertical-alignment-top lhst_main-section column">
+    <div class="lhst_vertical-alignment-top lhst_main-section ml-1">
         @await Component.InvokeAsync(typeof(BuildingsViewComponent))
         @await Component.InvokeAsync(typeof(UnitsViewComponent))
     </div>

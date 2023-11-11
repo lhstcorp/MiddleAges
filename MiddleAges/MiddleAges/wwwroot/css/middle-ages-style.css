@@ -96,10 +96,8 @@ li a.lhst_nav:hover {
 }
 
 .row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 
 .header {
@@ -115,8 +113,8 @@ li a.lhst_nav:hover {
 
 .lhst_left-side-bar {
     background-color: #393939;
-    width: 217px;
-    height: calc(100vh - 167px);
+    width: 229px;
+    min-width: 229px;
 }
 
 .lhst_vertical-alignment-top {
@@ -161,8 +159,7 @@ footer {
     border-width: 2px;
     border-color: black;
     background-color:wheat;
-    height: 170px;
-    width: 130px;
+    width: 130px;    
 }
 
 .lhst_building_image {
@@ -186,3 +183,21 @@ footer {
 .lhst_card_properties {
     margin: 2px;
 }
+
+.lhst_building_card_left_part {
+    width: 100px;
+}
+
+.lhst_btn_building_lvlup {
+    margin-bottom: 3px;
+}
+
+.lhst_btn_unit_recruit {
+    width: 50px;
+    margin-bottom: 3px;
+}
+
+.lhst_shadow_text {
+    text-shadow: 1px 0px 1px #000000, 0px 1px 1px #000000, -1px 0px 1px #000000, 0px 0px 1px #000000, 0px -1px 1px #000000;
+}
+
