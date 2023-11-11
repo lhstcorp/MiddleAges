@@ -16,11 +16,17 @@
                 }
 
                 <div>
-                    <p class="lhst_card_properties">@buildingName</p>
-                    <p class="lhst_card_properties">Level: @Model[i].Lvl/10</p>
-                    <form asp-controller="Building" asp-action="LvlUp" asp-route-buildingId="@Model[i].BuildingId">
-                        <input type="submit" value="+" />
-                    </form>
+                    <div class="lhst_inline lhst_building_card_left_part">
+                        <p class="lhst_card_properties">@buildingName</p>
+                        <p class="lhst_card_properties">Level: @Model[i].Lvl/10</p>
+                    </div>
+                    
+                    <div class="lhst_inline">
+                        <form asp-controller="Building" asp-action="LvlUp" asp-route-buildingId="@Model[i].BuildingId">
+                            <input class="lhst_btn_building_lvlup" type="submit" value="+" />
+                        </form>
+                    </div>
+                    
 
                 </div>
             </div>

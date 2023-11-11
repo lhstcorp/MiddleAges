@@ -4,18 +4,27 @@
 
 @for (int i = 0; i < Model.Count(); i++)
 {
-    <div class="lhst_building_ext_card lhst_inline">
-        <div class="lhst_building_image">
-            <img src="../img/units/@(Model[i].Type).png" width="120" height="120" class="myImg" alt="" />
-        </div>
+<div class="lhst_building_ext_card lhst_inline">
+    <div class="lhst_building_image">
+        <img src="../img/units/@(Model[i].Type).png" width="120" height="120" class="myImg" alt="" />
+    </div>
 
-        @{
-            var unitName = CommonLogic.getUnitNameByType(Model[i].Type);
-        }
+    @{
+        var unitName = CommonLogic.getUnitNameByType(Model[i].Type);
+    }
 
+    <div >
         <div>
             <p class="lhst_card_properties">@unitName</p>
             <p class="lhst_card_properties">Count: @Model[i].Count</p>
         </div>
+
+        <div>
+            <form asp-controller="Unit" asp-action="Recruit" asp-route-unitId="@Model[i].UnitId">
+                <input name="count" class="lhst_btn_unit_recruit" type="number" value="1"/>
+                <input type="submit" value="Recruit" />
+            </form>
+        </div>
     </div>
+</div>
 }
