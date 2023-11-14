@@ -44,7 +44,7 @@
 }
 
 .lhst_person-div-overview-data {
-    margin: 0px;
+    margin: 0px;    
 }
 
 .lhst_person-data-div-align {
@@ -72,19 +72,19 @@ li.lhst_nav {
 }
 
 li a.lhst_nav {
+    padding: 0px;
     text-align: center;
     text-decoration: none;
     width: 75px;
     height: 75px;
-    color: white;
+    color: white!important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
 }
 
 li a.lhst_nav:hover {
-    color: white;
-    background-color: #111111;
+    color: wheat!important;
 }
 
 .lhst_inline {
@@ -162,7 +162,7 @@ footer {
     width: 130px;    
 }
 
-.lhst_building_image {
+.lhst_main_data_image {
     border-style: solid;
     border-width: 2px;
     border-color: black;
@@ -172,10 +172,12 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-top: 3px;
+    margin-bottom: 4px;
 }
 
 .lhst_possessions_titles {
     margin: 3px;
+    font-size: 16px;
     font-weight: bold;
     color: brown;
 }
@@ -185,19 +187,57 @@ footer {
 }
 
 .lhst_building_card_left_part {
-    width: 100px;
+    width: 96px;
 }
 
 .lhst_btn_building_lvlup {
     margin-bottom: 3px;
+    padding: 0px;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(saddlebrown, black);
+    color: antiquewhite;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: revert;
 }
 
+    .lhst_btn_building_lvlup:hover {
+        background: radial-gradient(brown, black);
+        color: wheat;
+    }
+
 .lhst_btn_unit_recruit {
-    width: 50px;
+    background: radial-gradient(saddlebrown, black);
+    color: antiquewhite;
+    border-radius: 3px;
+    width: 58px;
+    height: 26.2px;
+    font-size: revert;
+}
+
+    .lhst_btn_unit_recruit:hover {
+        background: radial-gradient(brown, black);
+        color: wheat;
+    }
+
+.lhst_tb_unit_recruit {
+    width: 58px;
+    height: 26.2px;
     margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(saddlebrown, black);
+    color: antiquewhite;
+    border-radius: 5px;
 }
 
 .lhst_shadow_text {
     text-shadow: 1px 0px 1px #000000, 0px 1px 1px #000000, -1px 0px 1px #000000, 0px 0px 1px #000000, 0px -1px 1px #000000;
+}
+
+.lhst_money {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: normal;
 }
 

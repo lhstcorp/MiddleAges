@@ -6,12 +6,16 @@
     </div>    
 
     <div class="lhst_person-nav-container-inline lhst_person-data-div-align">
-            <div class="lhst_person-div-overview-data mb-1 lhst_overview-player-name">@Model.Name</div>
+            <div class="lhst_person-div-overview-data mb-1 lhst_overview-player-name">
+                <h2>@Model.Name</h2>                
+            </div>
             <div>
                 <div class="lhst_inline">
                     <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" />
                 </div>
-                <div class="lhst_inline lhst_person_div_overview_data lhst_coins-text">@Model.Money</div>
+                <div class="lhst_inline lhst_person_div_overview_data lhst_coins-text">
+                    <h2 class="lhst_money">@Model.Money</h2>
+                </div>
             </div>
     </div>    
 </div>
