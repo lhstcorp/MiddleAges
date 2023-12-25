@@ -59,8 +59,10 @@ function onPointerDown(event) {
 var viewBox = {
     x: 0,
     y: 0,
-    width: 1800,
-    height: 827.5
+    //width: 1800,
+    //height: 827.5
+    width: 550,
+    height: 490
 };
 
 // The distances calculated from the pointer will be stored here

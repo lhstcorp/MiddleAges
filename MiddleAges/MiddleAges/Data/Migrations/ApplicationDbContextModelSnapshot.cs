@@ -239,6 +239,44 @@ namespace MiddleAges.Data.Migrations
                     b.ToTable("buildings");
                 });
 
+            modelBuilder.Entity("MiddleAges.Entities.Country", b =>
+                {
+                    b.Property<Guid>("CountryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Color")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("RulerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("CountryId");
+
+                    b.ToTable("countries");
+                });
+
+            modelBuilder.Entity("MiddleAges.Entities.Land", b =>
+                {
+                    b.Property<int>("LandId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<Guid>("CountryId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("LandId");
+
+                    b.ToTable("lands");
+                });
+
             modelBuilder.Entity("MiddleAges.Entities.Player", b =>
                 {
                     b.Property<Guid>("PlayerId")
