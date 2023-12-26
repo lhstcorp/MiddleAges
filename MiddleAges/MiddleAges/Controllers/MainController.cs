@@ -31,7 +31,7 @@ namespace MiddleAges.Controllers
         {
             var user = _userManager.GetUserAsync(HttpContext.User).Result;
 
-            Player player = _context.players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
 
             return View("Main", player);
         }

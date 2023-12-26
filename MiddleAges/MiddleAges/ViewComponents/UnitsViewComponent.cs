@@ -24,7 +24,7 @@ namespace MiddleAges.ViewComponents
         {
             var user = _userManager.GetUserAsync(HttpContext.User).Result;
 
-            List<Unit> units = _context.units.Where(k => k.PlayerId.ToString() == user.Id).ToList();
+            List<Unit> units = _context.Units.Where(k => k.PlayerId.ToString() == user.Id).ToList();
             return View("Units", units);
         }
     }
