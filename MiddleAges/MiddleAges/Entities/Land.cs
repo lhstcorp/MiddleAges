@@ -9,8 +9,7 @@ namespace MiddleAges.Entities
     public class Land
     {
         [Key]
-        public int LandId { get; set; }
-        public string Name { get; set; }
+        public string LandId { get; set; } // same as Land Name
         public Guid CountryId { get; set; }
     }
 }

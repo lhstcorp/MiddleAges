@@ -35,10 +35,10 @@ namespace MiddleAges.Controllers
         [HttpPost]
         public async Task<IActionResult> Recruit(string unitId, int count)
         {
-            Unit unit = _context.units.FirstOrDefault(k => k.UnitId.ToString() == unitId);
+            Unit unit = _context.Units.FirstOrDefault(k => k.UnitId.ToString() == unitId);
 
             var user = await _userManager.GetUserAsync(HttpContext.User);
-            Player player = _context.players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
 
             long requiredMoney = unit.Type switch
             {

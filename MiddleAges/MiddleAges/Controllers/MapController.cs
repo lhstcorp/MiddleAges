@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MiddleAges.Controllers
@@ -26,7 +27,7 @@ namespace MiddleAges.Controllers
 
         public IActionResult Index()
         {
-            Player player = _context.players.FirstOrDefault();
+            Player player = _context.Players.FirstOrDefault();
             return View("Map", player);
         }
 
@@ -39,6 +40,18 @@ namespace MiddleAges.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+                
+        public JsonResult GetLandDataById(string id)
+        {
+            Land land = _context.Lands.FirstOrDefault(k => k.LandId == id);
+            
+            if (land == null)
+            {
+                return Json("NotFound");
+            }
+
+            return Json(JsonSerializer.Serialize(land));
         }
     }
 }

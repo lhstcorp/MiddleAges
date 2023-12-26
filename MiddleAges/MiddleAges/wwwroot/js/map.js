@@ -92,7 +92,7 @@ function onPointerMove(event) {
     // We apply the new viewBox values onto the SVG
     svg.setAttribute('viewBox', viewBoxString);
 
-    document.querySelector('.viewbox').innerHTML = viewBoxString;
+    //document.querySelector('.viewbox').innerHTML = viewBoxString;
 }
 
 function onPointerUp() {

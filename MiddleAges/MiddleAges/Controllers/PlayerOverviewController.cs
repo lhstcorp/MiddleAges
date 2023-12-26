@@ -29,7 +29,7 @@ namespace MiddleAges.Controllers
         public ActionResult Index()
         {
             var user = _userManager.GetUserAsync(HttpContext.User).Result;
-            Player player = _context.players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
             return View("_PlayerOverviewPartial", player);
         }
 

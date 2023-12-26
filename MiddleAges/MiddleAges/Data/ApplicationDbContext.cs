@@ -14,14 +14,14 @@ namespace MiddleAges.Data
         {
         }
 
-        public DbSet<Player> players { get; set; }
+        public DbSet<Player> Players { get; set; }
 
-        public DbSet<Building> buildings { get; set; }
+        public DbSet<Building> Buildings { get; set; }
 
-        public DbSet<Unit> units { get; set; }
+        public DbSet<Unit> Units { get; set; }
 
-        public DbSet<Land> lands { get; set; }
+        public DbSet<Land> Lands { get; set; }
 
-        public DbSet<Country> countries { get; set; }
+        public DbSet<Country> Countries { get; set; }
     }
 }

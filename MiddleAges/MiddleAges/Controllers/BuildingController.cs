@@ -29,10 +29,10 @@ namespace MiddleAges.Controllers
        [HttpPost]
         public async Task<IActionResult> LvlUp(string buildingId)
         {
-            Building building = _context.buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);         
+            Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);         
             
             var user = await _userManager.GetUserAsync(HttpContext.User);
-            Player player = _context.players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
 
             if (player.Money >= 100)
             {
