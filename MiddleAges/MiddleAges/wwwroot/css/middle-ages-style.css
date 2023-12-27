@@ -241,3 +241,12 @@ footer {
     font-weight: normal;
 }
 
+.lhst_map_region_icon_left_bar {
+    width: 100px;
+}
+
+lhst_left_side_bar_land_content {
+    margin: 5px;
+    align-content: center;
+}
+
