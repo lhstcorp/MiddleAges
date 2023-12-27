@@ -31,6 +31,9 @@ function fillLandSideBar(id) {
         if (data != 'NotFound') {
             var obj = JSON.parse(data);
             $('#selected_land_name').text(obj.LandId);
+
+            var url = '../img/map-regions-icons/'
+            $('#selected_land_coat_of_arms').attr('src', url + obj.LandId + '.png');
         }
         else {
             $('#selected_land_name').text('');
