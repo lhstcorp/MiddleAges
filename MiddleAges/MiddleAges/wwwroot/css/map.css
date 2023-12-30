@@ -1,6 +1,6 @@
 .lhst_svg-map {
-    max-height: 600px;
-    width: calc(100%);
+    position: fixed;
+    width: 100%;
 }
 
 polygon {

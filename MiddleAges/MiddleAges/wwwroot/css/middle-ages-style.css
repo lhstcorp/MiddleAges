@@ -7,6 +7,9 @@
 
 .header {
     border-bottom: 1px solid;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
 }
 
 .header-menu {
@@ -22,6 +25,11 @@
 
 .header-menu.map-btn {
     background-image: url("../img/menu-icons/map-icon.png");
+    background-size: 100%;
+}
+
+.header-menu.state-btn {
+    background-image: url("../img/menu-icons/country-icon.png");
     background-size: 100%;
 }
 
@@ -115,6 +123,9 @@ li a.lhst_nav:hover {
     background-color: #393939;
     width: 229px;
     min-width: 229px;
+    position: fixed;
+    height: 100%;
+    margin-top: 115px;
 }
 
 .lhst_vertical-alignment-top {
@@ -150,8 +161,14 @@ footer {
 }
 
 .lhst_main-section {
-    width: calc(100% - 221px);
-    height: 600px;
+    /*width: calc(100% - 221px);
+    height: calc(100% - 144px);*/
+    /*position: fixed;
+    top: 120px;
+    left: 235px;*/
+
+    margin-left: 229px;
+    margin-top: 115px;
 }
 
 .lhst_building_ext_card {
@@ -202,10 +219,10 @@ footer {
     font-size: revert;
 }
 
-    .lhst_btn_building_lvlup:hover {
-        background: radial-gradient(brown, black);
-        color: wheat;
-    }
+.lhst_btn_building_lvlup:hover {
+    background: radial-gradient(brown, black);
+    color: wheat;
+}
 
 .lhst_btn_unit_recruit {
     background: radial-gradient(saddlebrown, black);
@@ -216,10 +233,10 @@ footer {
     font-size: revert;
 }
 
-    .lhst_btn_unit_recruit:hover {
-        background: radial-gradient(brown, black);
-        color: wheat;
-    }
+.lhst_btn_unit_recruit:hover {
+    background: radial-gradient(brown, black);
+    color: wheat;
+}
 
 .lhst_tb_unit_recruit {
     width: 58px;
@@ -242,11 +259,28 @@ footer {
 }
 
 .lhst_map_region_icon_left_bar {
-    width: 100px;
+    height: 120px;
 }
 
-lhst_left_side_bar_land_content {
+.lhst_left_side_bar_land_content {
+    margin: 5px !important;
+}
+
+.lhst_selected_land_text_content {
     margin: 5px;
-    align-content: center;
+    vertical-align: top;
+    word-wrap: break-word;
 }
 
+.lhst_selected_land_name {
+    color: wheat;
+}
+
+.lhst_map_region_icon_left_bar_col {
+    padding: 0px !important;
+}
+
+.lhst_main_section_padding {
+    padding-left: 10px;
+    padding-top: 5px;
+}

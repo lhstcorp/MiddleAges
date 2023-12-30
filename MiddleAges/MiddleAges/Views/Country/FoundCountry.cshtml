@@ -1,5 +1,4 @@
 ﻿@model MiddleAges.Entities.Player
-@using MiddleAges.ViewComponents
 
 @{
     ViewData["Title"] = "middle ages";    
@@ -11,7 +10,9 @@
     </div>
 
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding">
-        @await Component.InvokeAsync(typeof(BuildingsViewComponent))
-        @await Component.InvokeAsync(typeof(UnitsViewComponent))
+        <p>State not founded</p>
+
+        <label for="countrycolor">Select color for the country:</label>
+        <input type="color" id="countrycolor" name="countrycolor" value="#ff0000">
     </div>
 </div>

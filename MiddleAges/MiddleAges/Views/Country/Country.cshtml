@@ -1,8 +1,7 @@
 ﻿@model MiddleAges.Entities.Player
-@using MiddleAges.ViewComponents
 
 @{
-    ViewData["Title"] = "middle ages";    
+    ViewData["Title"] = "middle ages";
 }
 
 <div class="d-flex">
@@ -11,7 +10,6 @@
     </div>
 
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding">
-        @await Component.InvokeAsync(typeof(BuildingsViewComponent))
-        @await Component.InvokeAsync(typeof(UnitsViewComponent))
+        <p>State founded</p>
     </div>
 </div>

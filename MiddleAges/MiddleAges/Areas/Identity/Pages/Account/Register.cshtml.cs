@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
+using MiddleAges.Models;
 
 namespace MiddleAges.Areas.Identity.Pages.Account
 {
@@ -127,7 +128,7 @@ namespace MiddleAges.Areas.Identity.Pages.Account
         private void CreatePlayer(Guid _userId)
         {
             Random rand = new Random();
-            Player player = new Player { PlayerId = _userId, Name = Input.UserName, Exp = 0, Lvl = 1, Money = 1000, CurrentRegion = rand.Next(1, 11) };
+            Player player = new Player { PlayerId = _userId, Name = Input.UserName, Exp = 0, Lvl = 1, Money = 1000, CurrentLand = CommonLogic.getRandomMapLandId() };
             _context.Players.Add(player);
 
             Building building;
