@@ -41,5 +41,19 @@ namespace MiddleAges.Models
 
             return unitName;
         }
+
+        public static string getRandomMapLandId()
+        {
+            List<string> landIds = new List<string>();
+            landIds.Add("Hrodna");
+            landIds.Add("Bierastavica");
+            landIds.Add("Masty");
+            landIds.Add("Vaŭkavysk");
+
+            Random randNum = new Random();
+            int aRandomPos = randNum.Next(landIds.Count);
+
+            return landIds[aRandomPos];
+        }
     }
 }

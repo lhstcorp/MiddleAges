@@ -19,6 +19,7 @@ namespace MiddleAges.Entities
         [DefaultValue(1000)]
         public double Money { get; set; }
         public string ImageURL { get; set; }
-        public int CurrentRegion { get; set; }
+        public string CurrentLand { get; set; }
     }
 }
+
