@@ -59,8 +59,8 @@ function onPointerDown(event) {
 var viewBox = {
     x: 0,
     y: 0,
-    width: 1800,
-    height: 827.5
+    width: 1000,
+    height: 890
 };
 
 // The distances calculated from the pointer will be stored here
@@ -92,7 +92,7 @@ function onPointerMove(event) {
     // We apply the new viewBox values onto the SVG
     svg.setAttribute('viewBox', viewBoxString);
 
-    document.querySelector('.viewbox').innerHTML = viewBoxString;
+    //document.querySelector('.viewbox').innerHTML = viewBoxString;
 }
 
 function onPointerUp() {

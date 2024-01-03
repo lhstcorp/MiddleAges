@@ -1,11 +1,9 @@
-.land {
-    fill: white;
-    fill-opacity: 1;
-    stroke: black;
-    stroke-opacity: 1;
-    stroke-width: 0.5;
+.lhst_svg-map {
+    position: fixed;
+    width: 100%;
 }
 
-.lhst_svg-map {
-    max-height: 600px;
+polygon {
+    stroke-width: 1;
+    stroke: white;
 }

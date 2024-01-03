@@ -7,6 +7,9 @@
 
 .header {
     border-bottom: 1px solid;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
 }
 
 .header-menu {
@@ -22,6 +25,11 @@
 
 .header-menu.map-btn {
     background-image: url("../img/menu-icons/map-icon.png");
+    background-size: 100%;
+}
+
+.header-menu.state-btn {
+    background-image: url("../img/menu-icons/country-icon.png");
     background-size: 100%;
 }
 
@@ -44,7 +52,7 @@
 }
 
 .lhst_person-div-overview-data {
-    margin: 0px;
+    margin: 0px;    
 }
 
 .lhst_person-data-div-align {
@@ -72,19 +80,19 @@ li.lhst_nav {
 }
 
 li a.lhst_nav {
+    padding: 0px;
     text-align: center;
     text-decoration: none;
     width: 75px;
     height: 75px;
-    color: white;
+    color: white!important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
 }
 
 li a.lhst_nav:hover {
-    color: white;
-    background-color: #111111;
+    color: wheat!important;
 }
 
 .lhst_inline {
@@ -96,10 +104,8 @@ li a.lhst_nav:hover {
 }
 
 .row {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
 }
 
 .header {
@@ -115,8 +121,11 @@ li a.lhst_nav:hover {
 
 .lhst_left-side-bar {
     background-color: #393939;
-    width: 217px;
-    height: calc(100vh - 167px);
+    width: 229px;
+    min-width: 229px;
+    position: fixed;
+    height: 100%;
+    margin-top: 115px;
 }
 
 .lhst_vertical-alignment-top {
@@ -152,8 +161,14 @@ footer {
 }
 
 .lhst_main-section {
-    width: calc(100% - 221px);
-    height: 600px;
+    /*width: calc(100% - 221px);
+    height: calc(100% - 144px);*/
+    /*position: fixed;
+    top: 120px;
+    left: 235px;*/
+
+    margin-left: 229px;
+    margin-top: 115px;
 }
 
 .lhst_building_ext_card {
@@ -161,11 +176,10 @@ footer {
     border-width: 2px;
     border-color: black;
     background-color:wheat;
-    height: 170px;
-    width: 130px;
+    width: 130px;    
 }
 
-.lhst_building_image {
+.lhst_main_data_image {
     border-style: solid;
     border-width: 2px;
     border-color: black;
@@ -175,14 +189,98 @@ footer {
     margin-left: auto;
     margin-right: auto;
     margin-top: 3px;
+    margin-bottom: 4px;
 }
 
 .lhst_possessions_titles {
     margin: 3px;
+    font-size: 16px;
     font-weight: bold;
     color: brown;
 }
 
 .lhst_card_properties {
     margin: 2px;
+}
+
+.lhst_building_card_left_part {
+    width: 96px;
+}
+
+.lhst_btn_building_lvlup {
+    margin-bottom: 3px;
+    padding: 0px;
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(saddlebrown, black);
+    color: antiquewhite;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: revert;
+}
+
+.lhst_btn_building_lvlup:hover {
+    background: radial-gradient(brown, black);
+    color: wheat;
+}
+
+.lhst_btn_unit_recruit {
+    background: radial-gradient(saddlebrown, black);
+    color: antiquewhite;
+    border-radius: 3px;
+    width: 58px;
+    height: 26.2px;
+    font-size: revert;
+}
+
+.lhst_btn_unit_recruit:hover {
+    background: radial-gradient(brown, black);
+    color: wheat;
+}
+
+.lhst_tb_unit_recruit {
+    width: 58px;
+    height: 26.2px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(saddlebrown, black);
+    color: antiquewhite;
+    border-radius: 5px;
+}
+
+.lhst_shadow_text {
+    text-shadow: 1px 0px 1px #000000, 0px 1px 1px #000000, -1px 0px 1px #000000, 0px 0px 1px #000000, 0px -1px 1px #000000;
+}
+
+.lhst_money {
+    margin-top: 6px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.lhst_map_region_icon_left_bar {
+    height: 120px;
+}
+
+.lhst_left_side_bar_land_content {
+    margin: 5px !important;
+}
+
+.lhst_selected_land_text_content {
+    margin: 5px;
+    vertical-align: top;
+    word-wrap: break-word;
+}
+
+.lhst_selected_land_name {
+    color: wheat;
+}
+
+.lhst_map_region_icon_left_bar_col {
+    padding: 0px !important;
+}
+
+.lhst_main_section_padding {
+    padding-left: 10px;
+    padding-top: 5px;
 }

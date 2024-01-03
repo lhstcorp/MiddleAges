@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
+using MiddleAges.Models;
 
 namespace MiddleAges.Areas.Identity.Pages.Account
 {
@@ -127,22 +128,22 @@ namespace MiddleAges.Areas.Identity.Pages.Account
         private void CreatePlayer(Guid _userId)
         {
             Random rand = new Random();
-            Player player = new Player { PlayerId = _userId, Name = Input.UserName, Exp = 0, Lvl = 1, Money = 1000, CurrentRegion = rand.Next(1, 11) };
-            _context.players.Add(player);
+            Player player = new Player { PlayerId = _userId, Name = Input.UserName, Exp = 0, Lvl = 1, Money = 1000, CurrentLand = CommonLogic.getRandomMapLandId() };
+            _context.Players.Add(player);
 
             Building building;
 
             building = new Building { PlayerId = _userId, Type = (int)BuildingType.Estate, Lvl = 1 };
-            _context.buildings.Add(building);
+            _context.Buildings.Add(building);
             building = new Building { PlayerId = _userId, Type = (int)BuildingType.Barracks, Lvl = 1 };
-            _context.buildings.Add(building);
+            _context.Buildings.Add(building);
 
             Unit unit;
 
             unit = new Unit { PlayerId = _userId, Type = (int)UnitType.Peasant, Lvl = 1, Count = 100 };
-            _context.units.Add(unit);
+            _context.Units.Add(unit);
             unit = new Unit { PlayerId = _userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0 };
-            _context.units.Add(unit);
+            _context.Units.Add(unit);
             _context.SaveChangesAsync();
         }
     }

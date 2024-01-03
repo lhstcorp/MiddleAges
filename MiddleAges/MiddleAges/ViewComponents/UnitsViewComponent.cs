@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace MiddleAges.ViewComponents
 {
-    public class BuildingsViewComponent : ViewComponent
+    public class UnitsViewComponent : ViewComponent
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
-        public BuildingsViewComponent(ApplicationDbContext context,
-                                      UserManager<IdentityUser> userManager)
+        public UnitsViewComponent(ApplicationDbContext context,
+                                  UserManager<IdentityUser> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -24,8 +24,8 @@ namespace MiddleAges.ViewComponents
         {
             var user = _userManager.GetUserAsync(HttpContext.User).Result;
 
-            List<Building> buildings = _context.Buildings.Where(k => k.PlayerId.ToString() == user.Id).ToList();
-            return View("Buildings", buildings);
+            List<Unit> units = _context.Units.Where(k => k.PlayerId.ToString() == user.Id).ToList();
+            return View("Units", units);
         }
     }
 }
