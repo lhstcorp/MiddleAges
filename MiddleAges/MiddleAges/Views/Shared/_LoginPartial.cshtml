@@ -8,7 +8,7 @@
         <a class="lhst_inline" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
 
         <form class="form-inline lhst_inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            <button type="submit" class="lhst_btn_logout">Logout</button>
         </form>
     }
     else

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.Enums;
 using MiddleAges.Models;
 using System;
 using System.Collections.Generic;
@@ -30,7 +32,8 @@ namespace MiddleAges.Controllers
             Player player = _context.Players.FirstOrDefault();
             return View("Map", player);
         }
-
+        
+        
         public IActionResult Privacy()
         {
             return View();

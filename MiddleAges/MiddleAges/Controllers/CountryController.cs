@@ -35,7 +35,9 @@ namespace MiddleAges.Controllers
             else
             {
                 return View("Country", player);
-            }            
+            }     
+            
+            
         }
     }
 }

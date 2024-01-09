@@ -238,6 +238,50 @@ footer {
     color: wheat;
 }
 
+.lhst_btn_logout {
+    background: radial-gradient(wheat, antiquewhite);
+    color: saddlebrown;
+    border-radius: 3px;
+    width: 58px;
+    height: 26.2px;
+    font-size: revert;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lhst_btn_logout:hover {
+    background: radial-gradient(ghostwhite, antiquewhite);
+    color: saddlebrown;
+}
+
+.lhst_btn_group_selected_land {
+    vertical-align: bottom;
+    text-align: center;
+    margin-top: 513px;
+    height: 100px;
+    border: antiquewhite;
+    border-style: outset;
+    border-block-width:3px;
+    margin-right:5px;
+    margin-left:5px;
+    margin-bottom:5px;
+   
+}
+
+.lhst_btn_moveToRegion {
+    background: radial-gradient(saddlebrown, black);
+    color: antiquewhite;
+    border-radius: 3px;
+    width: -webkit-fill-available;
+    height: 35px;
+    font-size: revert;
+    /*margin-top: 55px;*/
+}
+
+.lhst_btn_moveToRegion:hover {
+    background: radial-gradient(brown, black);
+    color: wheat;
+}
+
 .lhst_tb_unit_recruit {
     width: 58px;
     height: 26.2px;
