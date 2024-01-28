@@ -49,21 +49,21 @@
 }
 
 .lhst_scale img {
-    transition: 0.5s;
+    transition: 0.1s;
     display: block;
 }
 
 .lhst_scale img:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .lhst_scale a {
-    transition: 0.5s;
+    transition: 0.1s;
     display: block;
 }
 
 .lhst_scale a:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .player-overview-div-inline {
