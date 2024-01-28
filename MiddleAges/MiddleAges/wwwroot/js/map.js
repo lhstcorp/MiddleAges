@@ -81,14 +81,16 @@ function onPointerMove(event) {
     // Get the pointer position
     var pointerPosition = getPointFromEvent(event);
 
+    let [x, y, width, height] = svg.getAttribute('viewBox').split(' ').map(Number);
+
     // We calculate the distance between the pointer origin and the current position
     // The viewBox x & y values must be calculated from the original values and the distances
-    newViewBox.x = viewBox.x - (pointerPosition.x - pointerOrigin.x);
-    newViewBox.y = viewBox.y - (pointerPosition.y - pointerOrigin.y);
+    newViewBox.x = x - (pointerPosition.x - pointerOrigin.x) / (25 * viewBox.width / width);
+    newViewBox.y = y - (pointerPosition.y - pointerOrigin.y) / (25 * viewBox.height / height);
 
     // We create a string with the new viewBox values
     // The X & Y values are equal to the current viewBox minus the calculated distances
-    var viewBoxString = `${newViewBox.x} ${newViewBox.y} ${viewBox.width} ${viewBox.height}`;
+    var viewBoxString = `${newViewBox.x} ${newViewBox.y} ${width} ${height}`;
     // We apply the new viewBox values onto the SVG
     svg.setAttribute('viewBox', viewBoxString);
 
