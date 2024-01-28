@@ -43,12 +43,36 @@
     vertical-align: top;
 }
 
+.lhst_scale {
+    display: inline-block;
+    overflow: hidden;
+}
+
+.lhst_scale img {
+    transition: 0.5s;
+    display: block;
+}
+
+.lhst_scale img:hover {
+    transform: scale(1.1);
+}
+
+.lhst_scale a {
+    transition: 0.5s;
+    display: block;
+}
+
+.lhst_scale a:hover {
+    transform: scale(1.1);
+}
+
 .player-overview-div-inline {
     display: inline;
 }
 
 .lhst_person-nav-container-inline {
     display: inline-block;
+    overflow: hidden;
 }
 
 .lhst_person-div-overview-data {
@@ -267,6 +291,12 @@ footer {
    
 }
 
+.lhst_range_map {
+    vertical-align: bottom;
+    margin-top: 413px;
+    height: 100px;
+}
+
 .lhst_btn_moveToRegion {
     background: radial-gradient(saddlebrown, black);
     color: antiquewhite;
@@ -289,7 +319,7 @@ footer {
     margin-left: 4px;
     background: radial-gradient(saddlebrown, black);
     color: antiquewhite;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .lhst_shadow_text {
@@ -327,4 +357,10 @@ footer {
 .lhst_main_section_padding {
     padding-left: 10px;
     padding-top: 5px;
+}
+
+.lhst_tb_unit_recruit::-webkit-outer-spin-button,
+.lhst_tb_unit_recruit::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
