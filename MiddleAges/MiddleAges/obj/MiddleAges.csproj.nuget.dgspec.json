@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Valuev\\Documents\\GitHub\\MiddleAges\\MiddleAges\\MiddleAges\\MiddleAges.csproj": {}
+    "D:\\MiddleAges\\MiddleAges\\MiddleAges\\MiddleAges.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Valuev\\Documents\\GitHub\\MiddleAges\\MiddleAges\\MiddleAges\\MiddleAges.csproj": {
+    "D:\\MiddleAges\\MiddleAges\\MiddleAges\\MiddleAges.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Valuev\\Documents\\GitHub\\MiddleAges\\MiddleAges\\MiddleAges\\MiddleAges.csproj",
+        "projectUniqueName": "D:\\MiddleAges\\MiddleAges\\MiddleAges\\MiddleAges.csproj",
         "projectName": "MiddleAges",
-        "projectPath": "C:\\Users\\Valuev\\Documents\\GitHub\\MiddleAges\\MiddleAges\\MiddleAges\\MiddleAges.csproj",
-        "packagesPath": "C:\\Users\\Valuev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Valuev\\Documents\\GitHub\\MiddleAges\\MiddleAges\\MiddleAges\\obj\\",
+        "projectPath": "D:\\MiddleAges\\MiddleAges\\MiddleAges\\MiddleAges.csproj",
+        "packagesPath": "C:\\Users\\sma\\.nuget\\packages\\",
+        "outputPath": "D:\\MiddleAges\\MiddleAges\\MiddleAges\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Valuev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\sma\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -73,8 +73,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -86,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
