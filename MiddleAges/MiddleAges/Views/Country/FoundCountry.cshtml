@@ -10,9 +10,35 @@
     </div>
 
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding">
-        <p>State not founded</p>
+        <div class="lhst_inline lhst_independent_land_description_divs lhst_independent_land_description_divs_align">
+            <h2 class="lhst_independent_land_description_h2">This land is independent</h2>
+            <form asp-controller="Country" asp-action="FoundState">
+                <div>
+                    <label class="lhst_found_country_label" for="countryname">Enter country name:</label>
+                    <br />
+                    <input type="text" id="countryname" name="countrname" value="" />
+                </div>
 
-        <label for="countrycolor">Select color for the country:</label>
-        <input type="color" id="countrycolor" name="countrycolor" value="#ff0000">
+                <div>
+                    <label class="lhst_found_country_label" for="countrycolor">Select color for the country:</label>
+                    <br />
+                    <input class="lhst_color_picker" type="color" id="countrycolor" name="countrycolor" value="#ff0000">
+                </div>
+
+                <div>
+                    <p class="lhst_independent_land_description lhst_mt_35">Pay <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" /><span class="lhst_independent_land_description_money_amount">10000</span> solids and proclaim yourself the ruler of these lands. New state will be founded after this action.</p>
+                </div>
+
+                <input class="lhst_btn_found_state" type="submit" value="Become the ruler of these lands" />
+            </form>
+        </div>
+
+        <div class="lhst_inline lhst_independent_land_description_divs_align">
+            <img class="lhst_independent_land_description_image" src="../img/frescoes/knight-001.jpg" width="162" height="302" class="myImg" alt="" />
+        </div>
+
+        <div class="lhst_inline lhst_independent_land_description_divs lhst_independent_land_description_divs_align">
+            <p class="lhst_independent_land_description">@Model.CurrentLand is independent. Rich residents have created their own administration and rule the region together. You can bribe the majority for <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" /><span class="lhst_independent_land_description_money_amount">10000</span> solids and proclaim yourself the ruler of these lands.</p>
+        </div>        
     </div>
 </div>
