@@ -280,15 +280,24 @@ footer {
 .lhst_btn_group_selected_land {
     vertical-align: bottom;
     text-align: center;
-    margin-top: 513px;
-    height: 100px;
     border: antiquewhite;
     border-style: outset;
     border-block-width:3px;
     margin-right:5px;
     margin-left:5px;
     margin-bottom:5px;
-   
+    
+}
+
+.lhst_info_region_group_selected_land {
+    vertical-align: bottom;
+    text-align: left;
+    border: antiquewhite;
+    border-style: outset;
+    border-block-width: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
 }
 
 .lhst_range_map {
@@ -334,6 +343,27 @@ footer {
 
 .lhst_map_region_icon_left_bar {
     height: 120px;
+}
+
+.lhst_info_region_icon_left_bar {
+    display: inline-block;
+    
+    height: 50px;
+    margin: 5px;
+    /*float: left;*/
+}
+
+.lhst_info_region_text {
+    color: antiquewhite;
+    margin-left: 5px;
+    /* float: right;*/
+}
+
+.lhst_info_region_value {
+    display: inline-block;
+    font-size: 20px;
+    color: antiquewhite;
+    margin-left: 10px;
 }
 
 .lhst_left_side_bar_land_content {
