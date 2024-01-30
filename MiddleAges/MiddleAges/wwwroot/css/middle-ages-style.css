@@ -394,3 +394,71 @@ footer {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.lhst_independent_land_description {
+    width: 250px;
+    overflow-wrap: break-word;
+}
+
+.lhst_independent_land_description_money_amount {
+    color: gold;
+    font-weight: bold;
+}
+
+.lhst_independent_land_description_money_icon {
+    height: 10px;
+}
+
+.lhst_independent_land_description_divs {
+    height: 302px;
+    width: 282px;
+    margin-top: 10px;
+    padding: 15px;
+    background-color: #333333;
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: wheat;
+    color: wheat;
+}
+
+.lhst_independent_land_description_image {
+    border-radius: 7px;
+    border-width: 2px;
+    border-color: wheat;
+    margin-top: 10px;
+}
+
+.lhst_independent_land_description_h2 {
+    margin-bottom: 7px;
+}
+
+.lhst_independent_land_description_divs_align {
+    vertical-align: top;
+}
+
+.lhst_found_country_label {
+    margin-bottom: 0px;
+    font-size: 12px;
+}
+
+.lhst_btn_found_state {
+    background: radial-gradient(#f7f7c7, #6e6f61);
+    color: #333333;
+    border-radius: 7px;
+    border-width: medium;
+    border-color: wheat;
+    width: 220px;
+    height: 50px;
+    font-size: revert;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+.lhst_mt_35 {
+    margin-top: 35px;
+}
+
+.lhst_color_picker {
+    border-color: wheat;
+    color: wheat;
+}
