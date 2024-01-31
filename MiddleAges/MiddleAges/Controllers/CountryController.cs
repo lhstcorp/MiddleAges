@@ -39,5 +39,27 @@ namespace MiddleAges.Controllers
             
             
         }
+
+        [HttpPost]
+        public async Task<IActionResult> FoundState()
+        {
+            //Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);
+
+            //var user = await _userManager.GetUserAsync(HttpContext.User);
+            //Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+
+            //if (player.Money >= 100)
+            //{
+            //    player.Money -= 100;
+            //    building.Lvl += 1;
+
+            //    _context.Update(building);
+            //    _context.Update(player);
+
+            //    await _context.SaveChangesAsync();
+            //}
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
+        }
     }
 }
