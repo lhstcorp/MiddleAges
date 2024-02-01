@@ -33,6 +33,11 @@
     background-size: 100%;
 }
 
+.header-menu.settings-btn {
+    background-image: url("../img/default-icon/default-icon-001.png");
+    background-size: 100%;
+}
+
 
 .nav-avatar-img {
     height: 70px;
@@ -227,6 +232,7 @@ footer {
     margin-right: auto;
     margin-top: 3px;
     margin-bottom: 4px;
+    overflow: hidden;
 }
 
 .lhst_possessions_titles {
