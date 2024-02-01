@@ -1,9 +1,10 @@
 .lhst_svg-map {
     position: fixed;
     width: 100%;
+  
 }
 
 polygon {
     stroke-width: 1;
-    stroke: white;
+    stroke: antiquewhite;
 }

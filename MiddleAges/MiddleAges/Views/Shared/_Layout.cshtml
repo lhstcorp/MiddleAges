@@ -39,6 +39,9 @@
                         <li class="lhst_nav ">
                             <a class="nav-link text-dark header-menu lhst_nav state-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Country" asp-action="Index">Country</a>
                         </li>
+                        <li class="lhst_nav ">
+                            <a class="nav-link text-dark header-menu lhst_nav settings-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -64,9 +67,9 @@
     <footer class="footer text-muted">
         <div class="container lhst_footer-text">
             &copy; 2023 - MiddleAges - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
-            <marquee direction="right" scrollamount="12" class="lhst_marquee" > 
+            @* <marquee direction="right" scrollamount="12" class="lhst_marquee" > 
                 <img id="foot_marquee" src="../img/menu-icons/knight_run.gif" />
-            </marquee>
+            </marquee> *@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
