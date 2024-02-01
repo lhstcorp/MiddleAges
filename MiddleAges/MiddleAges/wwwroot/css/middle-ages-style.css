@@ -33,6 +33,12 @@
     background-size: 100%;
 }
 
+.header-menu.settings-btn {
+    background-image: url("../img/default-icon/default-icon-001.png");
+    background-size: 100%;
+}
+
+
 .nav-avatar-img {
     height: 70px;
     width: 70px;
@@ -56,6 +62,18 @@
 .lhst_scale img:hover {
     transform: scale(1.05);
 }
+
+.lhst_scale polygon {
+    transition: 0.1s;
+    display: block;
+    
+}
+
+.lhst_scale polygon:hover {
+    transform: scale(0.995);
+    
+}
+
 
 .lhst_scale a {
     transition: 0.1s;
@@ -214,6 +232,7 @@ footer {
     margin-right: auto;
     margin-top: 3px;
     margin-bottom: 4px;
+    overflow: hidden;
 }
 
 .lhst_possessions_titles {
@@ -342,6 +361,8 @@ footer {
 }
 
 .lhst_map_region_icon_left_bar {
+    display: inline-block;
+    
     height: 120px;
 }
 
@@ -372,12 +393,15 @@ footer {
 
 .lhst_selected_land_text_content {
     margin: 5px;
-    vertical-align: top;
+    text-align:center;
+    
     word-wrap: break-word;
 }
 
 .lhst_selected_land_name {
     color: wheat;
+    height: 30px;
+    
 }
 
 .lhst_map_region_icon_left_bar_col {
@@ -461,4 +485,15 @@ footer {
 .lhst_color_picker {
     border-color: wheat;
     color: wheat;
+}
+
+lhst_marquee {
+    display: inline-block;
+    vertical-align: bottom;
+
+}
+
+.lhst_marquee img {
+    display: inline-block;
+    height: 50px;
 }
