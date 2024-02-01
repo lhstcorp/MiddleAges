@@ -41,23 +41,38 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> FoundState()
+        public async Task<IActionResult> FoundState(string playerId, string countryname, string countrycolor)
         {
-            //Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);
+            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == playerId);
 
-            //var user = await _userManager.GetUserAsync(HttpContext.User);
-            //Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+            if (player.Money >= 10000)
+            {
+                player.Money -= 10000;
 
-            //if (player.Money >= 100)
-            //{
-            //    player.Money -= 100;
-            //    building.Lvl += 1;
+                Country country = new Country();
 
-            //    _context.Update(building);
-            //    _context.Update(player);
+                country.Name = countryname;
+                country.RulerId = player.PlayerId;
+                country.Color = countrycolor;
+                country.CapitalId = player.CurrentLand;
 
-            //    await _context.SaveChangesAsync();
-            //}
+                if (country.Name == "")
+                {
+                    country.Name = player.CurrentLand + "state";
+                }
+
+                _context.Update(player);
+                _context.Update(country);
+
+                await _context.SaveChangesAsync();
+
+                Land land = _context.Lands.FirstOrDefault(k => k.LandId == player.CurrentLand);
+                land.CountryId = country.CountryId;
+
+                _context.Update(land);
+
+                await _context.SaveChangesAsync();
+            }
 
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
         }
