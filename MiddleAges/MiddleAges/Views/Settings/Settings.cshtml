@@ -4,15 +4,18 @@
 @{
     ViewData["Title"] = "middle ages";    
 }
+<p class="lhst_avatar_possessions_titles">Avatar</p>
 
 <div class="d-flex">
-    <div class="lhst_left-side-bar lhst_vertical-alignment-top">
+    <div class="lhst_avatar_left-side-bar lhst_avatar_vertical-alignment-top">
 
     </div>
-
-    <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding">
-        <marquee direction="right" scrollamount="12" class="lhst_marquee">
-            <img id="foot_marquee" src="../img/menu-icons/knight_run.gif" />
-        </marquee>
-    </div>
+    @for (int i = 1; i < 12; i++)
+    {
+        <div class="lhst_building_ext_card lhst_inline">
+            <div class="lhst_main_data_image">
+                <img src="../img/avatars/@(i).jfif" width="117" height="117" class="myImg" alt="" />
+            </div>
+        </div>
+    }
 </div>
