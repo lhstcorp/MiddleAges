@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
@@ -56,5 +57,15 @@ namespace MiddleAges.Controllers
 
             return Json(JsonSerializer.Serialize(land));
         }
+
+
+        public JsonResult FetchLandColors()
+        {
+            var landIdColorPairList = _context.Lands.Include(l => l.Country)
+                .Select(l => new {LandId = l.LandId, Color = l.Country.Color});
+
+            return Json(landIdColorPairList);
+        }
+        
     }
 }

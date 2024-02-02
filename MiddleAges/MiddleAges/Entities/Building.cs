@@ -11,7 +11,6 @@ namespace MiddleAges.Entities
     {
         [Key]
         public Guid BuildingId { get; set; }
-        public Guid PlayerId { get; set; }
 
         /// <summary>
         /// 1 - Estates
@@ -21,5 +20,8 @@ namespace MiddleAges.Entities
 
         [DefaultValue(1)]
         public int Lvl { get; set; }
+
+        public string PlayerId { get; set; }
+        public Player Player { get; set; }   
     }
 }
