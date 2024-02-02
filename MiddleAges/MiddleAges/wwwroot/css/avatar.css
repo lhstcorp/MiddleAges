@@ -1,0 +1,25 @@
+.lhst_avatar_vertical-alignment-top {
+    vertical-align: top;
+}
+
+.lhst__avatar_main-section {
+    
+    margin-left: 229px;
+    margin-top: 120px;
+}
+
+.lhst_avatar_left-side-bar {
+    background-color: #393939;
+    width: 229px;
+    min-width: 229px;
+    position: fixed;
+    height: 100%;
+    margin-top: 115px;
+}
+
+.lhst_avatar_possessions_titles {
+    margin: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    color: brown;
+}
