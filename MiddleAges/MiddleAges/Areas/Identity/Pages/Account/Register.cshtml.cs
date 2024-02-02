@@ -23,15 +23,15 @@ namespace MiddleAges.Areas.Identity.Pages.Account
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<Player> _signInManager;
+        private readonly UserManager<Player> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         private readonly ApplicationDbContext _context;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<Player> userManager,
+            SignInManager<Player> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender,
             ApplicationDbContext context)
@@ -86,24 +86,24 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.UserName, Email = Input.Email };
-                var result = await _userManager.CreateAsync(user, Input.Password);
+                Player player = new Player { UserName = Input.UserName, Email = Input.Email, Exp = 0, Lvl = 1, Money = 1000, CurrentLand = CommonLogic.getRandomMapLandId()  };
+                var result = await _userManager.CreateAsync(player, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(player);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
                     var callbackUrl = Url.Page(
                         "/Account/ConfirmEmail",
                         pageHandler: null,
-                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
+                        values: new { area = "Identity", userId = player.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                    this.CreatePlayer(new Guid(user.Id));
+                    await InitPlayerData(player.Id);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -111,7 +111,7 @@ namespace MiddleAges.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        await _signInManager.SignInAsync(user, isPersistent: false);
+                        await _signInManager.SignInAsync(player, isPersistent: false);
                         return LocalRedirect(returnUrl);
                     }
                 }
@@ -125,26 +125,22 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private void CreatePlayer(Guid _userId)
+        private async Task InitPlayerData(string userId)
         {
-            Random rand = new Random();
-            Player player = new Player { PlayerId = _userId, Name = Input.UserName, Exp = 0, Lvl = 1, Money = 1000, CurrentLand = CommonLogic.getRandomMapLandId() };
-            _context.Players.Add(player);
-
             Building building;
 
-            building = new Building { PlayerId = _userId, Type = (int)BuildingType.Estate, Lvl = 1 };
+            building = new Building { PlayerId = userId, Type = (int)BuildingType.Estate, Lvl = 1 };
             _context.Buildings.Add(building);
-            building = new Building { PlayerId = _userId, Type = (int)BuildingType.Barracks, Lvl = 1 };
+            building = new Building { PlayerId = userId, Type = (int)BuildingType.Barracks, Lvl = 1 };
             _context.Buildings.Add(building);
 
             Unit unit;
 
-            unit = new Unit { PlayerId = _userId, Type = (int)UnitType.Peasant, Lvl = 1, Count = 100 };
+            unit = new Unit { PlayerId = userId, Type = (int)UnitType.Peasant, Lvl = 1, Count = 100 };
             _context.Units.Add(unit);
-            unit = new Unit { PlayerId = _userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0 };
+            unit = new Unit { PlayerId = userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0 };
             _context.Units.Add(unit);
-            _context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
         }
     }
 }

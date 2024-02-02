@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 namespace MiddleAges.Controllers
@@ -11,24 +12,23 @@ namespace MiddleAges.Controllers
     {
         private readonly ILogger<MainController> _logger;
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<Player> _userManager;
 
-        public CountryController(ILogger<MainController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public CountryController(ILogger<MainController> logger, ApplicationDbContext context, UserManager<Player> userManager)
         {
             _logger = logger;
             _context = context;
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var user = _userManager.GetUserAsync(HttpContext.User).Result;
+            var player = await _userManager.GetUserAsync(HttpContext.User);
 
-            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
             Land land = _context.Lands.FirstOrDefault(k => k.LandId == player.CurrentLand);
             Country country = _context.Countries.FirstOrDefault(k => k.CountryId.ToString() == land.CountryId.ToString());
 
-            if (country.Name == "Independent lands")
+            if (country?.Name == "Independent lands")
             {
                 return View("FoundCountry", player);
             }
@@ -43,16 +43,16 @@ namespace MiddleAges.Controllers
         [HttpPost]
         public async Task<IActionResult> FoundState(string playerId, string countryname, string countrycolor)
         {
-            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == playerId);
+            Player player = _context.Players.FirstOrDefault(k => k.Id == playerId);
 
-            if (player.Money >= 10000)
+            if (player?.Money >= 10000)
             {
                 player.Money -= 10000;
 
                 Country country = new Country();
 
                 country.Name = countryname;
-                country.RulerId = player.PlayerId;
+                country.RulerId = player.Id;
                 country.Color = countrycolor;
                 country.CapitalId = player.CurrentLand;
 

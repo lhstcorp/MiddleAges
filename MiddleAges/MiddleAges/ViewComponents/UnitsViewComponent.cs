@@ -12,9 +12,9 @@ namespace MiddleAges.ViewComponents
     public class UnitsViewComponent : ViewComponent
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<Player> _userManager;
         public UnitsViewComponent(ApplicationDbContext context,
-                                  UserManager<IdentityUser> userManager)
+                                  UserManager<Player> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -22,9 +22,9 @@ namespace MiddleAges.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var user = _userManager.GetUserAsync(HttpContext.User).Result;
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
 
-            List<Unit> units = _context.Units.Where(k => k.PlayerId.ToString() == user.Id).ToList();
+            List<Unit> units = _context.Units.Where(k => k.PlayerId == player.Id).ToList();
             return View("Units", units);
         }
     }
