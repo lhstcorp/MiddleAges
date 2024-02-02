@@ -12,9 +12,9 @@ namespace MiddleAges.ViewComponents
     public class PlayerOverviewNavViewComponent : ViewComponent
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<Player> _userManager;
         public PlayerOverviewNavViewComponent(ApplicationDbContext context,
-                                              UserManager<IdentityUser> userManager)
+                                              UserManager<Player> userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -22,9 +22,8 @@ namespace MiddleAges.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var user = _userManager.GetUserAsync(HttpContext.User).Result;
+            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
 
-            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
             return View("PlayerOverviewNav", player);
         }
     }
