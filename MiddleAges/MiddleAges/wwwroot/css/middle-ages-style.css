@@ -60,7 +60,16 @@
 }
 
 .lhst_scale img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+}
+
+.lhst_scale div {
+    transition: 0.1s;
+    display: block;
+}
+
+.lhst_scale div:hover {
+    transform: scale(1.1);
 }
 
 .lhst_scale polygon {
