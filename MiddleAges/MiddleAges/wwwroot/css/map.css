@@ -4,7 +4,16 @@
   
 }
 
-polygon {
+#global_region_map{
+    cursor: pointer;
+}
+
+#global_region_map polygon {
     stroke-width: 1;
-    stroke: antiquewhite;
+    stroke: #000;
+    fill: #fff;
+}
+
+#global_region_map polygon:hover {
+    filter: brightness(0.85);
 }

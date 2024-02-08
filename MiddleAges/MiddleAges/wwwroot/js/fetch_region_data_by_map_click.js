@@ -1,5 +1,5 @@
 ﻿$('#global_region_map').click(function (event) {
-    var id = $(event.target).attr('id');
+    let id = $(event.target).attr('id');
 
     if ($(event.target).hasClass('map_land')) {
 
@@ -10,7 +10,7 @@
 
 function fillLandSideBar(id) {
     $.ajax({
-        url: 'Map/GetLandDataById/' + id,
+        url: 'Map/GetLandDataById/' + id.replace('_', ' '),
         type: 'get',
         datatype: 'json',
         contentType: 'application/json;charset=utf-8',
@@ -29,10 +29,10 @@ function fillLandSideBar(id) {
     })
     .done(function (data) {
         if (data != 'NotFound') {
-            var obj = JSON.parse(data);
+            let obj = JSON.parse(data);
             $('#selected_land_name').text(obj.LandId);
 
-            var url = '../img/map-regions-icons/'
+            let url = '../img/map-regions-icons/'
             $('#selected_land_coat_of_arms').attr('src', url + obj.LandId + '.png');
         }
         else {
