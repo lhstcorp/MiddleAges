@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
@@ -38,6 +39,20 @@ namespace MiddleAges.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateAvatar(string playerId, string selectedImageId)
+        {
+            Player player = _context.Players.FirstOrDefault(k => k.Id == playerId);
+
+            player.ImageURL = selectedImageId;
+
+            //_context.Update(player);
+
+            //await _context.SaveChangesAsync();
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
         }
 
     }

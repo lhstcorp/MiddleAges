@@ -32,7 +32,7 @@ function fillLandSideBar(id) {
             let obj = JSON.parse(data);
             $('#selected_land_name').text(obj.LandId);
 
-            let url = '../img/map-regions-icons/'
+            let url = '../img/map-regions-icons/';
             $('#selected_land_coat_of_arms').attr('src', url + obj.LandId + '.png');
         }
         else {
