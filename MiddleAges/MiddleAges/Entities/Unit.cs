@@ -13,10 +13,12 @@ namespace MiddleAges.Entities
     public class Unit
     {
         [Key]
-        public Guid UnitId { get; set; }
-        public Guid PlayerId { get; set; }        
+        public Guid UnitId { get; set; }       
         public int Type { get; set; }
         public int Lvl { get; set; }
-        public int Count { get; set; }       
+        public int Count { get; set; }   
+        
+        public string PlayerId { get; set; }   
+        public Player Player { get; set; }   
     }
 }

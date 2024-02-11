@@ -15,11 +15,11 @@ namespace MiddleAges.Controllers
     {
         private readonly ILogger<PlayerOverviewController> _logger;
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<Player> _userManager;
 
         public PlayerOverviewController(ILogger<PlayerOverviewController> logger,
                                         ApplicationDbContext context,
-                                        UserManager<IdentityUser> userManager)
+                                        UserManager<Player> userManager)
         {
             _logger = logger;
             _context = context;
@@ -28,8 +28,7 @@ namespace MiddleAges.Controllers
         // GET: PlayerOverviewController
         public ActionResult Index()
         {
-            var user = _userManager.GetUserAsync(HttpContext.User).Result;
-            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
             return View("_PlayerOverviewPartial", player);
         }
 

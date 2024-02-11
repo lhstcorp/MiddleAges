@@ -18,9 +18,9 @@ namespace MiddleAges.Controllers
     {
         private readonly ILogger<MainController> _logger;
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<Player> _userManager;
 
-        public UnitController(ILogger<MainController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public UnitController(ILogger<MainController> logger, ApplicationDbContext context, UserManager<Player> userManager)
         {
             _logger = logger;
             _context = context;
@@ -37,8 +37,7 @@ namespace MiddleAges.Controllers
         {
             Unit unit = _context.Units.FirstOrDefault(k => k.UnitId.ToString() == unitId);
 
-            var user = await _userManager.GetUserAsync(HttpContext.User);
-            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
 
             long requiredMoney = unit.Type switch
             {

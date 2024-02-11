@@ -14,20 +14,18 @@ namespace MiddleAges.Controllers
     {
         private readonly ILogger<MainController> _logger;
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<Player> _userManager;
 
-        public SettingsController(ILogger<MainController> logger, ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public SettingsController(ILogger<MainController> logger, ApplicationDbContext context, UserManager<Player> userManager)
         {
             _logger = logger;
             _context = context;
             _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var user = _userManager.GetUserAsync(HttpContext.User).Result;
-
-            Player player = _context.Players.FirstOrDefault(k => k.PlayerId.ToString() == user.Id);
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
 
             return View("Settings", player);
         }

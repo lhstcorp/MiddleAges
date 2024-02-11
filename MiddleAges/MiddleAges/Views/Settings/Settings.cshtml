@@ -6,13 +6,42 @@
 }
 
 <div class="d-flex">
-    <div class="lhst_left-side-bar lhst_vertical-alignment-top">
+    <div class="lhst_avatar_left-side-bar lhst_avatar_vertical-alignment-top ">
 
     </div>
+    <div class="lhst_vertical-alignment-top lhst_main-section lhst_avatar_inline ">
 
-    <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding">
-        <marquee direction="right" scrollamount="12" class="lhst_marquee">
-            <img id="foot_marquee" src="../img/menu-icons/knight_run.gif" />
-        </marquee>
+        <div class="lhst_avatar_inline lhst_avatar_image_div lhst_avatar_independent_land_description_divs_align">
+            <div class="lhst_avatar_main_image">
+
+                <img src="../img/avatars/2.jfif" width="250" height="250" class="myImg" alt="" />
+                
+            </div>
+         
+                <input type="checkbox" class="lhst_checkbox_gender" id="check-male">
+                <label for="check-male" class="lhst_possessions_titles">Male</label>
+                <input type="checkbox" class="lhst_checkbox_gender" id="check-female">
+                <label for="check-female" class="lhst_possessions_titles">Female</label>
+         
+
+            <input class="lhst_btn_avatar_confirm" type="submit" value="Confirm" />
+        </div>
+
+        <div class="lhst_avatar_inline lhst_avatar_independent_land_description_divs lhst_avatar_independent_land_description_divs_align lhst_slider ">
+            @for (int i = 1; i < 27; i++)
+            {
+                <div class="lhst_avatar_main_data_image lhst_scale">
+                 
+
+                    <img src="../img/avatars/@(i).jfif" width="120" height="120" class="myImg " alt="" />
+
+                </div>
+                if (i % 4 == 0)
+                {
+                    <br />
+                }
+            
+            }
+        </div>
     </div>
 </div>

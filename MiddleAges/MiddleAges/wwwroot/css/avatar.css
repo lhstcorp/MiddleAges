@@ -1,0 +1,160 @@
+.lhst_avatar_vertical-alignment-top {
+    vertical-align: top;
+}
+
+.lhst_avatar_main-section {
+    
+    margin-left: 229px;
+    margin-top: 120px;
+}
+
+.lhst_avatar_left-side-bar {
+    background-color: #393939;
+    width: 229px;
+    min-width: 229px;
+    position: fixed;
+    height: 100%;
+    margin-top: 115px;
+}
+
+.lhst_avatar_possessions_titles {
+    margin: 3px;
+    font-size: 16px;
+    font-weight: bold;
+    color: brown;
+}
+
+.lhst_avatar_inline{
+    display: inline-block;
+}
+
+.lhst_avatar_main_data_image {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #434B4D;
+    border-radius: 10px;
+    height: 120px;
+    width: 120px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.lhst_avatar_main_image {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #434B4D;
+    border-radius: 10px;
+    height: 250px;
+    width: 250px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.lhst_avatar_independent_land_description_divs {
+    height: 550px;
+    width: 530px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #333333;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: wheat;
+    color: wheat;
+}
+
+.lhst_avatar_image_div {
+    text-align: center;
+    height: 550px;
+    width: 270px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #333333;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: wheat;
+    color: wheat;
+}
+
+.lhst_avatar_independent_land_description_divs_align {
+    vertical-align: top;
+}
+
+.lhst_slider {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    --scrollbar-color-thumb: #434B4D;
+    --scrollbar-color-track: #333333;
+    --scrollbar-width: thin;
+    --scrollbar-width-legacy: 15px;
+}
+
+/* Modern browsers with `scrollbar-*` support */
+@supports (scrollbar-width: auto) {
+    .lhst_slider {
+        scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+        scrollbar-width: var(--scrollbar-width);
+    }
+}
+
+/* Legacy browsers with `::-webkit-scrollbar-*` support */
+@supports selector(::-webkit-scrollbar) {
+    .lhst_slider::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb);
+    }
+
+    .lhst_slider::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track);
+    }
+
+    .lhst_slider::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy);
+    }
+}
+.lhst_slider::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.lhst_slider::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.lhst_slider:hover::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color-thumb);
+}
+
+.lhst_slider:hover::-webkit-scrollbar-track {
+    background: var(--scrollbar-color-track);
+}
+
+.lhst_slider:hover {
+    --fix: ; /* This custom property invalidates styles on hover, thereby enforcing a style recomputation. This is needed to work around a bug in Safari. */
+}
+
+.lhst_btn_avatar_confirm {
+    margin-bottom: 3px;
+    padding: 0px;
+    width: 174px;
+    height: 78px;
+    background: radial-gradient(saddlebrown, black);
+    color: antiquewhite;
+    border-radius: 9px;
+    font-weight: bold;
+    font-size: revert;
+}
+.lhst_btn_avatar_confirm:hover {
+    background: radial-gradient(brown, black);
+    color: wheat;
+}
+
+.lhst_checkbox_gender {
+    border:thick;
+    border-width:2px;
+    border-radius:5px;
+    border-color:green;
+    width: 30px;
+    height:30px;
+}
