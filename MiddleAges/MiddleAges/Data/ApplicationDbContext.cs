@@ -39,6 +39,14 @@ namespace MiddleAges.Data
                 .HasOne(q => q.Country)
                 .WithMany()
                 .HasForeignKey(q => q.CountryId);
+
+            builder.Entity<BorderLand>()
+                .HasKey(q => new { q.LandId, q.BorderLandId });
+
+            builder.Entity<BorderLand>()
+                .HasOne(q => q.Land)
+                .WithMany()
+                .HasForeignKey(q => q.LandId);
         }
 
         public DbSet<Player> Players { get; set; }
@@ -50,5 +58,7 @@ namespace MiddleAges.Data
         public DbSet<Land> Lands { get; set; }
 
         public DbSet<Country> Countries { get; set; }
+
+        public DbSet<BorderLand> BorderLands { get; set; }
     }
 }
