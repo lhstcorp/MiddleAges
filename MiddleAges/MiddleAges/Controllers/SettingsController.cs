@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Models;
+using System;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
@@ -42,15 +43,16 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpdateAvatar(string playerId, string selectedImageId)
+        public async Task<IActionResult> UpdateAvatar(string selectedImageId)
         {
-            Player player = _context.Players.FirstOrDefault(k => k.Id == playerId);
+         
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
 
             player.ImageURL = selectedImageId;
 
-            //_context.Update(player);
+            _context.Update(player);
+            await _context.SaveChangesAsync();
 
-            //await _context.SaveChangesAsync();
 
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
         }
