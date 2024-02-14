@@ -1,6 +1,19 @@
 ﻿@model List<MiddleAges.Entities.Unit>
+@using MiddleAges.Entities
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<Player> SignInManager
+@inject UserManager<Player> UserManager
 
-<p class="lhst_possessions_titles">Units</p>
+@* @{
+    var recruit = CommonLogic.getRecruitCountById();
+} *@
+
+<p class="lhst_possessions_titles mr-5">Units
+    <img src="../img/default-icon/farmer.png" width="20" height="20" class="mr-2 lhst_ml-65" alt="" />
+    Recruits: @Model[1].Count @* @recruit *@
+</p>
+
+
 
 @for (int i = 0; i < Model.Count(); i++)
 {
@@ -28,3 +41,4 @@
     </div>
 </div>
 }
+
