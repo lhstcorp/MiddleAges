@@ -507,3 +507,12 @@ lhst_marquee {
     height: 50px;
 }
 
+.lhst_test {
+    height: 25px;
+    width: 150px;
+    display:inline-block;
+}
+
+.lhst_ml-65 {
+    margin-left: 6.5rem !important;
+}

@@ -13,9 +13,9 @@
 
         <div class="lhst_avatar_inline lhst_avatar_image_div lhst_avatar_independent_land_description_divs_align">
             <div class="lhst_avatar_main_image">
-                <img id="avatar_selected_img" src="../img/avatars/1.jfif" width="250" height="250" alt="" />
+                <img id="avatar_selected_img" width="250" height="250" alt="" />
             </div>
-            <form asp-controller="Settings" asp-action="UpdateAvatar" asp-route-playerId="@Model.Id">
+            <form asp-controller="Settings" asp-action="UpdateAvatar" asp-route-selectedImageId="@Model.ImageURL">
 
                 @*<input type="checkbox" class="lhst_checkbox_gender" id="check-male">
                 <label for="check-male" class="lhst_possessions_titles">Male</label>

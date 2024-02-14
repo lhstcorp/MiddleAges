@@ -25,6 +25,23 @@ namespace MiddleAges.Models
             return buildingName;
         }
 
+        //public static string getRecruitCountById(int _id) 
+        //{
+        //    string recruitCount = "";
+
+        //    switch (_id)
+        //    {
+        //        case 1:
+        //            recruitCount = "5000";
+        //            break;
+        //        case 2:
+        //            recruitCount = "456";
+        //            break;
+        //    }
+
+        //    return recruitCount;
+        //}
+
         public static string getUnitNameByType(int _unitType)
         {
             string unitName = "";
