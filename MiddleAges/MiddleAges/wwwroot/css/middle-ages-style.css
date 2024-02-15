@@ -5,6 +5,7 @@
     margin: 0px;
 }
 
+
 .header {
     border-bottom: 1px solid;
     position: fixed;
@@ -38,10 +39,17 @@
     background-size: 100%;
 }
 
+.coins-btn {
+    background-image: url("../img/interface-icons/coins.png");
+    background-size: 100%;
+    height: 30px;
+    width: 20px;
+}
+
 
 .nav-avatar-img {
-    height: 70px;
-    width: 70px;
+    height: 100px;
+    width: 100px;
     border-style: solid !important;
     border-width: 1px !important;
     border-color: black !important;
@@ -150,8 +158,16 @@ li a.lhst_nav:hover {
     display: inline-block;
 }
 
-.lhst_inline.lhst_nav {
+.lhst_footer_margin {
     margin: 15px 130px 15px 15px;
+}
+
+.lhst_footer_avatar_scale{
+    width: 230px;
+    height: 120px;
+    padding-top: 4px;
+    padding-left: 10px;
+    
 }
 
 .row {
@@ -227,7 +243,7 @@ footer {
     border-width: 2px;
     border-color: black;
     background-color:wheat;
-    width: 130px;    
+    width: 130px;   
 }
 
 .lhst_main_data_image {
