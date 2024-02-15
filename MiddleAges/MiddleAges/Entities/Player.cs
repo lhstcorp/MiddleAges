@@ -18,6 +18,7 @@ namespace MiddleAges.Entities
         public double Money { get; set; }
         public string ImageURL { get; set; }
         public string CurrentLand { get; set; }
+        public int RecruitAmount { get; set; }
     }
 }
 

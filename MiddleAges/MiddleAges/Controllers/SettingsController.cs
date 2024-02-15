@@ -8,6 +8,8 @@ using MiddleAges.Models;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Json;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace MiddleAges.Controllers
@@ -42,19 +44,17 @@ namespace MiddleAges.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [HttpPost]
-        public async Task<IActionResult> UpdateAvatar(string selectedImageId)
+        public async Task<JsonResult> UpdateAvatar(string selectedImageId)
         {
-         
             Player player = await _userManager.GetUserAsync(HttpContext.User);
 
-            player.ImageURL = selectedImageId;
+            player.ImageURL = Regex.Match(selectedImageId, @"\d+").Value; ;
 
             _context.Update(player);
+
             await _context.SaveChangesAsync();
 
-
-            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
+            return Json("OK");
         }
 
     }
