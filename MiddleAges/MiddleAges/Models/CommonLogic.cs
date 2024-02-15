@@ -25,7 +25,7 @@ namespace MiddleAges.Models
             return buildingName;
         }
 
-        //public static string getRecruitCountById(int _id) 
+        //public static string getRecruitCountById(int _id)
         //{
         //    string recruitCount = "";
 
