@@ -1,0 +1,55 @@
+﻿.auth_background {
+    background-color: #453C37;
+}
+
+.auth_text_color {
+   color: #F6D9A1;
+}
+
+.auth_text_font {
+    font-family:Algerian;
+    font-size: 48px;
+    font-weight: 400;
+    border: black;
+    border-width: 3px;
+   
+}
+
+/*.auth_bgimage {
+    background-image: url("../img/interface-icons/register.jpg");
+    background-size: 100%;
+    height: 900px;
+    width: 900px;
+}*/
+
+.auth_height {
+    height: calc(~"100vh - 150px");
+}
+
+.auth_width {
+    width: 40vw;
+}
+
+.aith_width_img {
+    width: 40vw;
+}
+
+.auth_form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #F6D9A1;
+    background-color: #31201A;
+    background-clip: padding-box;
+    border: 0px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+::placeholder {
+    color: #F6D9A1;
+    opacity: 90%;
+}

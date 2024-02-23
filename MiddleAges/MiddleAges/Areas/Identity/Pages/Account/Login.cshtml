@@ -2,25 +2,28 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "MIDDLE AGES";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
+<body class="auth_background">
+
+
+    <div class="row auth_text_color d-inline-block auth_height">
+
+        <div class="d-inline-block lhst_vertical-alignment-top auth_width">
+            <p class="auth_text_font ml-3">@ViewData["Title"]</p>
             <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
+                <h4>LOGIN</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
+                <div class="form-group w-50">
+                    @* <label asp-for="Input.Email"></label> *@
+                    <input asp-for="Input.Email" class="auth_form-control" placeholder="EMAIL" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
+                <div class="form-group w-50">
+                    @* <label asp-for="Input.Password"></label> *@
+                    <input asp-for="Input.Password" class="auth_form-control" placeholder="PASSWORD"/>
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
@@ -46,9 +49,14 @@
                     </p>
                 </div>
             </form>
-        </section>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
+       
+        </div>
+        <div class="d-inline-block aith_width_img lhst_vertical-alignment-top">
+        
+            <img src="~/img/interface-icons/register.jpg" />
+        
+        </div>
+    @* <div class="col-md-6 col-md-offset-2">
         <section>
             <h4>Use another service to log in.</h4>
             <hr />
@@ -77,9 +85,9 @@
                 }
             }
         </section>
+    </div> *@
     </div>
-</div>
-
+</body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
