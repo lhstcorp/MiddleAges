@@ -20,7 +20,7 @@
 }
 
 .header-menu.main-btn {
-    background-image: url("../img/menu-icons/main-icon.png");
+    background-image: url("../img/menu-icons/main.jfif");
     background-size: 100%;
 }
 
@@ -35,7 +35,7 @@
 }
 
 .header-menu.settings-btn {
-    background-image: url("../img/default-icon/default-icon-001.png");
+    background-image: url("../img/menu-icons/settings.jfif");
     background-size: 100%;
 }
 
