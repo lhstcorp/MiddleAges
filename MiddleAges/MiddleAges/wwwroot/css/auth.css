@@ -7,12 +7,47 @@
 }
 
 .auth_text_font {
-    font-family:Algerian;
+    font-family: Algerian;
     font-size: 48px;
     font-weight: 400;
-    border: black;
-    border-width: 3px;
-   
+    text-shadow: 5px 5px 5px black;
+}
+
+.auth_text_font_but {
+    font-family: Algerian;
+    font-size: 48px;
+    font-weight: 300;
+
+}
+
+.auth_text_font_login {
+    font-family: Algerian;
+    font-size: 24px;
+    font-weight: 400;
+    text-shadow: 3px 3px 3px black;
+}
+
+.auth_text_font_text{
+    font-size: 12px;
+    font-weight: 200;
+    color: #F6D9A1;
+
+}
+
+.auth_text_font_a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #F6D9A1;
+    text-decoration: underline;
+}
+
+.auth_text_font_a:hover {
+    color: #DFBE7E;
+    
+}
+
+.auth_div_width {
+    width: 60%;
 }
 
 /*.auth_bgimage {
@@ -27,11 +62,13 @@
 }
 
 .auth_width {
-    width: 40vw;
+    width: 45vw;
 }
 
-.aith_width_img {
-    width: 40vw;
+.auth_width_img {
+    width: 46.5vw;
+   
+    
 }
 
 .auth_form-control {
@@ -46,10 +83,38 @@
     background-color: #31201A;
     background-clip: padding-box;
     border: 0px solid #ced4da;
-    border-radius: 0.25rem;
+    border-radius: 10px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 ::placeholder {
     color: #F6D9A1;
     opacity: 90%;
 }
+
+:focus::placeholder {
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+
+
+.auth_btn {
+    color: #2A1710;
+    background-color: #F6D9A1;
+    width: 100%;
+    font-family: Algerian;
+    font-size: 24px;
+    font-weight: 300;
+    border: black;
+    border-width: 2px;
+    border-radius: 10px;
+    
+}
+
+.auth_btn:hover {
+    color: #2A1710;
+    background-color: #DFBE7E;
+}
+
+
+

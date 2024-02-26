@@ -4,70 +4,66 @@
     ViewData["Title"] = "MIDDLE AGES";
 }
 
+<body class="auth_background">
 
-<div class="row auth_background auth_text_color w-100 h-100 d-inline-block">
-    <h1 class="auth_text_color ">@ViewData["Title"]</h1>
+    <div class="auth_text_color auth_height text-center ">
+       
+        <div class="d-inline-block auth_width text-center mt-5">
+            <p class="auth_text_font ml-3">@ViewData["Title"]</p>
+            <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="text-center">
+                <h4 class="auth_text_font_login text-center">Create a new account</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group w-50 text-center d-inline-flex">
+                    
+                    <input asp-for="Input.Email" class="auth_form-control " placeholder="EMAIL" />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group w-50 text-center d-inline-flex">
+                    
+                    <input asp-for="Input.UserName" class="auth_form-control " placeholder="USERNAME" />
+                    <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                </div>
+                <div class="form-group w-50 text-center d-inline-flex">
+                    
+                    <input asp-for="Input.Password" class="auth_form-control " placeholder="PASSWORD" />
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group w-50 text-center d-inline-flex">
+                    
+                    <input asp-for="Input.ConfirmPassword" class="auth_form-control " placeholder="CONFIRM PASSWORD" />
+                    <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                </div>
+                <div class="form-group w-50 text-center d-inline-flex">
+                    <button type="submit" class="btn auth_btn auth_text_font_but ">SIGN UP</button>
+                </div>
+                <hr />
+                <div class="form-group d-inline-flex auth_div_width">
+                    <p class="auth_text_font_text  w-100">Already have an account?</p>
+                    <p class="w-100 ">
+                        <a asp-page="./Login" class="auth_text_font_a " asp-route-returnUrl="@Model.ReturnUrl">Sign In</a>
+                    </p>
+                </div>
+                <br />
+                <div class="form-group d-inline-flex auth_div_width">
+                    <p class="w-50">
+                        <a id="forgot-password" class="auth_text_font_a " asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
 
-    <div class="col-md-4 ">
-        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-            <h4>Create a new account.</h4>
-            <hr />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Input.Email"></label>
-                <input asp-for="Input.Email" class="form-control" />
-                <span asp-validation-for="Input.Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.UserName"></label>
-                <input asp-for="Input.UserName" class="form-control" />
-                <span asp-validation-for="Input.UserName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.Password"></label>
-                <input asp-for="Input.Password" class="form-control" />
-                <span asp-validation-for="Input.Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Input.ConfirmPassword"></label>
-                <input asp-for="Input.ConfirmPassword" class="form-control" />
-                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
-            </div>
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
+                    @* <p class="w-50">
+                    <a id="resend-confirmation" class="auth_text_font_a" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                    </p> *@
+                </div>
+            </form>
+        </div>
+        <div class="lhst_vertical-alignment-top float-right text-right">
+
+            <img class="float-right text-right auth_width_img" src="~/img/interface-icons/register.jpg" />
+
+        </div>
+
     </div>
-    @* <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h4>Use another service to register.</h4>
-            <hr />
-            @{
-                if ((Model.ExternalLogins?.Count ?? 0) == 0)
-                {
-                    <div>
-                        <p>
-                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
-                            for details on setting up this ASP.NET application to support logging in via external services.
-                        </p>
-                    </div>
-                }
-                else
-                {
-                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
-                        <div>
-                            <p>
-                                @foreach (var provider in Model.ExternalLogins)
-                                {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
-                                }
-                            </p>
-                        </div>
-                    </form>
-                }
-            }
-        </section>
-    </div> *@
-</div>
-
+</body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
