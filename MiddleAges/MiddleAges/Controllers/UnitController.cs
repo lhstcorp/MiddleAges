@@ -33,14 +33,14 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Recruit(string unitId, int count, string buildingId)
+        public async Task<IActionResult> Recruit(string unitId, int count)
         {
             Unit unit = _context.Units.FirstOrDefault(k => k.UnitId.ToString() == unitId);
 
             Player player = await _userManager.GetUserAsync(HttpContext.User);
 
             //Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);
-            Building building = _context.Buildings.FirstOrDefault(k => k.PlayerId.ToString() == player.Id);
+            //Building building = _context.Buildings.FirstOrDefault(k => k.PlayerId.ToString() == player.Id);
 
 
             long requiredMoney = unit.Type switch
@@ -51,7 +51,7 @@ namespace MiddleAges.Controllers
             };
 
             if (player.Money >= requiredMoney
-             && requiredMoney > 0 && (building.Lvl*10) >= count)
+             && requiredMoney > 0)
             {
                 player.Money -= requiredMoney;
                 unit.Count += count;
