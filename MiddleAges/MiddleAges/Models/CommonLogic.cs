@@ -1,4 +1,5 @@
-﻿using MiddleAges.Enums;
+﻿using MiddleAges.Entities;
+using MiddleAges.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -57,6 +58,28 @@ namespace MiddleAges.Models
             }
 
             return unitName;
+        }
+
+        public static int getUnitPrice(int unitType)
+        {
+            int unitPrice = unitType switch
+            {
+                (int)UnitType.Peasant =>  (int)UnitPrice.Peasant,
+                (int)UnitType.Soldier =>  (int)UnitPrice.Soldier,
+                _ => 0
+            };
+            return unitPrice;
+        }
+
+        public static int getBuildingPrice(int buildingType)
+        {
+            int buildingPrice = buildingType switch
+            {
+                (int)BuildingType.Estate => (int)BuildingPrice.Estate,
+                (int)BuildingType.Barracks => (int)BuildingPrice.Barracks,
+                _ => 0
+            };
+            return buildingPrice;
         }
 
         public static string getRandomMapLandId()

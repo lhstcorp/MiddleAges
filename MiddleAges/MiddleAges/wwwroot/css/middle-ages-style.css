@@ -151,7 +151,8 @@ li a.lhst_nav {
 }
 
 li a.lhst_nav:hover {
-    color: wheat!important;
+    -webkit-text-stroke: 1px #3939;
+    -webkit-text-fill-color:#393939;
 }
 
 .lhst_inline {
@@ -176,18 +177,18 @@ li a.lhst_nav:hover {
 }
 
 .header {
-    background-color: #333333;
+    background-color: #232323;
 }
 
 .lhst_vertical-line {
     border-style: solid;
     border-width: 0px 0.5px 0px 0px;
-    border-color: wheat;
+    border-color: #6c757d;
     margin: 5px 0px;
 }
 
 .lhst_left-side-bar {
-    background-color: #393939;
+    background-color: #232323;
     width: 229px;
     min-width: 229px;
     position: fixed;
@@ -214,7 +215,7 @@ li a.lhst_nav:hover {
 }
 
 footer {
-    background-color: #333333;
+    background-color: #232323;
     border-top: 1px solid;
 }
 
@@ -241,15 +242,16 @@ footer {
 .lhst_building_ext_card {
     border-style: solid;
     border-width: 2px;
-    border-color: black;
-    background-color:wheat;
-    width: 130px;   
+    border-color: #2b2b2b;
+    background-color: #393939;
+    width: 130px;
+    border-radius: 6px;
 }
 
 .lhst_main_data_image {
     border-style: solid;
     border-width: 2px;
-    border-color: black;
+    border-color: #2b2b2b;
     height: 120px;
     width: 120px;
     display: block;
@@ -258,17 +260,20 @@ footer {
     margin-top: 3px;
     margin-bottom: 4px;
     overflow: hidden;
+    border-radius: 3px;
 }
+
 
 .lhst_possessions_titles {
     margin: 3px;
     font-size: 16px;
     font-weight: bold;
-    color: brown;
+    color: #393939;
 }
 
 .lhst_card_properties {
     margin: 2px;
+    color: wheat;
 }
 
 .lhst_building_card_left_part {
@@ -280,7 +285,7 @@ footer {
     padding: 0px;
     width: 24px;
     height: 24px;
-    background: radial-gradient(saddlebrown, black);
+    background: radial-gradient(#393939, black);
     color: antiquewhite;
     border-radius: 3px;
     font-weight: bold;
@@ -288,12 +293,12 @@ footer {
 }
 
 .lhst_btn_building_lvlup:hover {
-    background: radial-gradient(brown, black);
+    background: radial-gradient(#3939, black);
     color: wheat;
 }
 
 .lhst_btn_unit_recruit {
-    background: radial-gradient(saddlebrown, black);
+    background: radial-gradient(#393939, black);
     color: antiquewhite;
     border-radius: 3px;
     width: 58px;
@@ -302,7 +307,7 @@ footer {
 }
 
 .lhst_btn_unit_recruit:hover {
-    background: radial-gradient(brown, black);
+    background: radial-gradient(#3939, black);
     color: wheat;
 }
 
@@ -370,7 +375,7 @@ footer {
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(saddlebrown, black);
+    background: radial-gradient(#393939, black);
     color: antiquewhite;
     border-radius: 3px;
 }
