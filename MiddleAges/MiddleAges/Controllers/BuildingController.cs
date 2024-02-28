@@ -37,8 +37,8 @@ namespace MiddleAges.Controllers
 
             long requiredMoney = building.Type switch
             {
-                (int)BuildingType.Estate => (int)BuildingPrice.Estate,
-                (int)BuildingType.Barracks => (int)BuildingPrice.Barracks,
+                (int)BuildingType.Estate => (int)BuildingPrice.Estate ,
+                (int)BuildingType.Barracks => (int)BuildingPrice.Barracks ,
                 _ => 0
             };
 

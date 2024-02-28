@@ -117,7 +117,7 @@
 .lhst_person-data-div-align {
     position:absolute;
     margin-left: 5px;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 
 .lhst_overview-player-name {
@@ -144,15 +144,18 @@ li a.lhst_nav {
     text-decoration: none;
     width: 75px;
     height: 75px;
-    color: white!important;
+    color: antiquewhite !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-weight: bold;
 }
 
 li a.lhst_nav:hover {
     -webkit-text-stroke: 1px #3939;
     -webkit-text-fill-color:#393939;
+    font-weight: 200;
 }
 
 .lhst_inline {
@@ -183,8 +186,8 @@ li a.lhst_nav:hover {
 .lhst_vertical-line {
     border-style: solid;
     border-width: 0px 0.5px 0px 0px;
-    border-color: #6c757d;
-    margin: 5px 0px;
+    border-color: #393939;
+    margin: 0px 0px 0px -1px;
 }
 
 .lhst_left-side-bar {
@@ -312,18 +315,18 @@ footer {
 }
 
 .lhst_btn_logout {
-    background: radial-gradient(wheat, antiquewhite);
-    color: saddlebrown;
+    background: radial-gradient(#393939, black);
+    color: antiquewhite;
     border-radius: 3px;
     width: 58px;
     height: 26.2px;
     font-size: revert;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
 }
 
 .lhst_btn_logout:hover {
-    background: radial-gradient(ghostwhite, antiquewhite);
-    color: saddlebrown;
+    background: radial-gradient(#3939, black);
+    color: wheat;
 }
 
 .lhst_btn_group_selected_land {
@@ -346,7 +349,7 @@ footer {
     border-block-width: 3px;
     margin-right: 5px;
     margin-left: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 0.5em;
 }
 
 .lhst_range_map {
@@ -356,7 +359,7 @@ footer {
 }
 
 .lhst_btn_moveToRegion {
-    background: radial-gradient(saddlebrown, black);
+    background: radial-gradient(#393939, black);
     color: antiquewhite;
     border-radius: 3px;
     width: -webkit-fill-available;
@@ -366,7 +369,7 @@ footer {
 }
 
 .lhst_btn_moveToRegion:hover {
-    background: radial-gradient(brown, black);
+    background: radial-gradient(#3939, black);
     color: wheat;
 }
 
@@ -418,7 +421,7 @@ footer {
 }
 
 .lhst_left_side_bar_land_content {
-    margin: 5px !important;
+    margin: 0.5em !important;
 }
 
 .lhst_selected_land_text_content {
