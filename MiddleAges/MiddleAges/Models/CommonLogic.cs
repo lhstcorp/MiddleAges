@@ -1,4 +1,5 @@
-﻿using MiddleAges.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using MiddleAges.Entities;
 using MiddleAges.Enums;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ namespace MiddleAges.Models
 {
     public static class CommonLogic
     {
+        
         public static string getBuildingNameByType(int _buildingType)
         {
             string buildingName = "";
@@ -73,12 +75,16 @@ namespace MiddleAges.Models
 
         public static int getBuildingPrice(int buildingType)
         {
+
+           
             int buildingPrice = buildingType switch
             {
                 (int)BuildingType.Estate => (int)BuildingPrice.Estate,
                 (int)BuildingType.Barracks => (int)BuildingPrice.Barracks,
                 _ => 0
             };
+
+
             return buildingPrice;
         }
 
