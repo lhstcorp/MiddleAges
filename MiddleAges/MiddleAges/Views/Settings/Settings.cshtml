@@ -28,10 +28,10 @@
         </div>
 
         <div class="lhst_avatar_inline lhst_avatar_independent_land_description_divs lhst_avatar_independent_land_description_divs_align lhst_slider ">
-            @for (int i = 1; i < 27; i++)
+            @for (int i = 1; i < 48; i++)
             {
                 <div class="lhst_avatar_main_data_image lhst_scale">
-                    <img id="@i" src="../img/avatars/@(i).jfif" width="120" height="120" class="lhst_small_avatar_image_selection" alt="" />
+                    <img id="@i" src="../img/avatars/@(i).jfif" loading="lazy" width="120" height="120" class="lhst_small_avatar_image_selection" alt="" />
                 </div>
 
                 if (i % 4 == 0)
