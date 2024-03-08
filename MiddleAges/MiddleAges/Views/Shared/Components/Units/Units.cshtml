@@ -1,6 +1,8 @@
 ﻿@model List<MiddleAges.Entities.Unit>
 @using MiddleAges.Entities
 @using Microsoft.AspNetCore.Identity
+@using MiddleAges.Enums;
+@using MiddleAges.Models;
 @inject SignInManager<Player> SignInManager
 @inject UserManager<Player> UserManager
 
@@ -17,28 +19,38 @@
 
 @for (int i = 0; i < Model.Count(); i++)
 {
-<div class="lhst_building_ext_card lhst_inline">
-    <div class="lhst_main_data_image">
-        <img src="../img/units/@(Model[i].Type).png" width="117" height="117" class="myImg" alt="" />
-    </div>
+    <div class="lhst_building_ext_card lhst_inline image-parlax">
+        <div class="image-container">
+            <div class="lhst_main_data_image myImg front-side" width="117" height="117" style="background-image: url(../img/units/@(Model[i].Type).png)">
+            @* <img src="../img/units/@(Model[i].Type).png" width="117" height="117" class="myImg" alt="" /> *@
+                
+            </div>
+            <div class="back-side">
+                    <div class="lhst_inline inner">
+                        <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" />
+                        <p>Price: @CommonLogic.getUnitPrice(Model[i].Type)</p>
+                    </div>
+            </div>
+        </div>
+   
 
     @{
         var unitName = CommonLogic.getUnitNameByType(Model[i].Type);
     }
 
-    <div >
-        <div>
-            <p class="lhst_card_properties">@unitName</p>
-            <p class="lhst_card_properties">Count: @Model[i].Count</p>
-        </div>
+        <div >
+            <div>
+                <p class="lhst_card_properties">@unitName</p>
+                <p class="lhst_card_properties">Count: @Model[i].Count</p>
+            </div>
 
-        <div>
-            <form asp-controller="Unit" asp-action="Recruit" asp-route-unitId="@Model[i].UnitId">
-                <input name="count" class="lhst_tb_unit_recruit" type="number" value="1" max="1000" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                <input type="submit" class="lhst_btn_unit_recruit" value="Recruit" />
-            </form>
+            <div>
+                    <form asp-controller="Unit" asp-action="Recruit" asp-route-unitId="@Model[i].UnitId" >
+                    <input name="count" class="lhst_tb_unit_recruit" type="number" value="1" max="1000" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                    <input type="submit" class="lhst_btn_unit_recruit" value="Recruit" />
+                </form>
+            </div>
         </div>
     </div>
-</div>
 }
 

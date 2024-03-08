@@ -6,11 +6,19 @@
 
         @for (int i = 0; i < Model.Count(); i++)
         {
-            <div class="lhst_building_ext_card lhst_inline">
-                <div class="lhst_main_data_image">
-                    <img src="../img/buildings/@(Model[i].Type).png" width="117" height="117" class="myImg" alt="" />
+            <div class="lhst_building_ext_card lhst_inline image-parlax">
+                <div class="image-container">
+                    <div class="lhst_main_data_image  myImg front-side" width="117" height="117" style="background-image: url(../img/buildings/@(Model[i].Type).png)">
+                        @* <img src="../img/buildings/@(Model[i].Type).png" width="117" height="117" class="myImg" alt="" /> *@
+                    </div>
+                
+                    <div class="back-side">
+                        <div class="lhst_inline inner">
+                            <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" />
+                            <p>Price: @CommonLogic.getBuildingPrice(Model[i].Type)</p>
+                        </div>
+                    </div>
                 </div>
-
                 @{
                     var buildingName = CommonLogic.getBuildingNameByType(Model[i].Type);
                 }

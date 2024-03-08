@@ -39,6 +39,10 @@ namespace MiddleAges.Controllers
 
             Player player = await _userManager.GetUserAsync(HttpContext.User);
 
+            //Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);
+            //Building building = _context.Buildings.FirstOrDefault(k => k.PlayerId.ToString() == player.Id);
+
+
             long requiredMoney = unit.Type switch
             {
                 (int)UnitType.Peasant => count * (int)UnitPrice.Peasant,
@@ -57,6 +61,11 @@ namespace MiddleAges.Controllers
 
                 await _context.SaveChangesAsync();
             }
+
+            //else
+            //{
+            //    Exception exception = new Exception("Fucking fuck");
+            //}
 
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
         }

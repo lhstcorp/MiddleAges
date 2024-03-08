@@ -15,21 +15,23 @@
     <link rel="stylesheet" href="~/css/middle-ages-style.css" />
     <link rel="stylesheet" href="~/css/map.css" />
     <link rel="stylesheet" href="~/css/avatar.css" />
+    <link rel="stylesheet" href="~/css/auth.css"/>
+    <link rel="stylesheet" href="~/css/rotate-img.css" />
 </head>
 <body>
-    <div class="header">
+    <div class="header text-muted">
         @* class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" *@
             
         <div class="row">
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="lhst_inline lhst_nav">
+                <div class="lhst_inline lhst_nav lhst_footer_avatar_scale">
                     @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
                 </div>
 
                 <div class="lhst_inline lhst_vertical-line"></div>
- 
-                <div class="lhst_inline lhst_nav lhst_scale">
+
+                <div class="lhst_inline lhst_nav lhst_footer_margin lhst_scale">
                     <ul class="lhst_nav">
                         <li class="lhst_nav ">
                             <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
@@ -43,7 +45,11 @@
                         <li class="lhst_nav ">
                             <a class="nav-link text-dark header-menu lhst_nav settings-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
                         </li>
+                        <li class="lhst_nav ">
+                            <partial name="_LoginPartial" />
+                        </li>
                     </ul>
+                   
                 </div>
 
                 
@@ -53,9 +59,9 @@
                 <div class="flex-grow-1"></div>
             }
 
-            <div class="lhst_right-status-nav-container lhst_inline">
+            @* <div class="lhst_right-status-nav-container lhst_inline">
                 <partial name="_LoginPartial" />
-            </div>
+            </div> *@
         </div>
     </div>
 

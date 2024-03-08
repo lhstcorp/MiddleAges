@@ -2,53 +2,67 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "MIDDLE AGES";
 }
 
-<h1>@ViewData["Title"]</h1>
-<div class="row">
-    <div class="col-md-4">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
+<body class="auth_background">
+
+
+    <div class="auth_text_color auth_height text-center">
+
+        <div class="d-inline-block auth_width text-center mt-5 ">
+            <p class="auth_text_font ml-3">@ViewData["Title"]</p>
+            <form id="account" method="post" class="text-center">
+                <h4 class="auth_text_font_login text-center">LOGIN</h4>
                 <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
+                <div asp-validation-summary="All" class="text-danger "></div>
+                <div class="form-group w-50 text-center d-inline-flex">
+                    @* <label asp-for="Input.Email"></label> *@
+                    <input asp-for="Input.Email" class="auth_form-control " placeholder="EMAIL" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
+                <div class="form-group w-50 text-center d-inline-flex">
+                    @* <label asp-for="Input.Password"></label> *@
+                    <input asp-for="Input.Password" class="auth_form-control " placeholder="PASSWORD" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
-                <div class="form-group">
+                <div class="form-group w-50 text-center d-inline-flex">
+                    <button type="submit" class="btn auth_btn auth_text_font_but ">SIGN IN</button>
+                </div>
+                @* <div class="form-group">
                     <div class="checkbox">
                         <label asp-for="Input.RememberMe">
                             <input asp-for="Input.RememberMe" />
                             @Html.DisplayNameFor(m => m.Input.RememberMe)
                         </label>
                     </div>
+                </div> *@
+                <hr />
+                <div class="form-group d-inline-flex auth_div_width">
+                    <p class="auth_text_font_text  w-100">Don't have an account?</p>
+                    <p class="w-100 ">
+                        <a asp-page="./Register" class="auth_text_font_a " asp-route-returnUrl="@Model.ReturnUrl">Sign Up</a>
+                    </p>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                <br />
+                <div class="form-group d-inline-flex auth_div_width">
+                    <p class="w-50">
+                        <a id="forgot-password" class="auth_text_font_a " asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                    <p>
-                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p>
+                   
+                    @* <p class="w-50">
+                        <a id="resend-confirmation" class="auth_text_font_a" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                    </p> *@
                 </div>
             </form>
-        </section>
-    </div>
-    <div class="col-md-6 col-md-offset-2">
+       
+        </div>
+        <div class="lhst_vertical-alignment-top float-right text-right">
+        
+            <img class="float-right text-right  auth_width_img" src="~/img/interface-icons/register.jpg" />
+        
+        </div>
+    @* <div class="col-md-6 col-md-offset-2">
         <section>
             <h4>Use another service to log in.</h4>
             <hr />
@@ -77,9 +91,9 @@
                 }
             }
         </section>
+    </div> *@
     </div>
-</div>
-
+</body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

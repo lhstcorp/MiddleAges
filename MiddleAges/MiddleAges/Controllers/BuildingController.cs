@@ -5,6 +5,8 @@ using MiddleAges.Data;
 using MiddleAges.Entities;
 using System.Linq;
 using System.Threading.Tasks;
+using MiddleAges.Enums;
+using System.Drawing;
 
 namespace MiddleAges.Controllers
 {
@@ -26,16 +28,24 @@ namespace MiddleAges.Controllers
             return View();
         }
 
-       [HttpPost]
+        [HttpPost]
         public async Task<IActionResult> LvlUp(string buildingId)
         {
-            Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);         
-            
+            Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);
+
             var player = await _userManager.GetUserAsync(HttpContext.User);
 
-            if (player.Money >= 100)
+            long requiredMoney = building.Type switch
             {
-                player.Money -= 100;
+                (int)BuildingType.Estate => (int)BuildingPrice.Estate ,
+                (int)BuildingType.Barracks => (int)BuildingPrice.Barracks ,
+                _ => 0
+            };
+
+            if (player.Money >= requiredMoney
+             && requiredMoney > 0)
+            {
+                player.Money -= requiredMoney;
                 building.Lvl += 1;
 
                 _context.Update(building);
@@ -44,7 +54,9 @@ namespace MiddleAges.Controllers
                 await _context.SaveChangesAsync();
             }
 
+
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
         }
+
     }
 }

@@ -1,4 +1,6 @@
-﻿using MiddleAges.Enums;
+﻿using Microsoft.EntityFrameworkCore;
+using MiddleAges.Entities;
+using MiddleAges.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +10,7 @@ namespace MiddleAges.Models
 {
     public static class CommonLogic
     {
+        
         public static string getBuildingNameByType(int _buildingType)
         {
             string buildingName = "";
@@ -25,7 +28,7 @@ namespace MiddleAges.Models
             return buildingName;
         }
 
-        //public static string getRecruitCountById(int _id) 
+        //public static string getRecruitCountById(int _id)
         //{
         //    string recruitCount = "";
 
@@ -57,6 +60,32 @@ namespace MiddleAges.Models
             }
 
             return unitName;
+        }
+
+        public static int getUnitPrice(int unitType)
+        {
+            int unitPrice = unitType switch
+            {
+                (int)UnitType.Peasant =>  (int)UnitPrice.Peasant,
+                (int)UnitType.Soldier =>  (int)UnitPrice.Soldier,
+                _ => 0
+            };
+            return unitPrice;
+        }
+
+        public static int getBuildingPrice(int buildingType)
+        {
+
+           
+            int buildingPrice = buildingType switch
+            {
+                (int)BuildingType.Estate => (int)BuildingPrice.Estate,
+                (int)BuildingType.Barracks => (int)BuildingPrice.Barracks,
+                _ => 0
+            };
+
+
+            return buildingPrice;
         }
 
         public static string getRandomMapLandId()

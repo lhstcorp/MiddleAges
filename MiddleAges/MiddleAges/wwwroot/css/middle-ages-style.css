@@ -5,6 +5,7 @@
     margin: 0px;
 }
 
+
 .header {
     border-bottom: 1px solid;
     position: fixed;
@@ -19,7 +20,7 @@
 }
 
 .header-menu.main-btn {
-    background-image: url("../img/menu-icons/main-icon.png");
+    background-image: url("../img/menu-icons/main.jfif");
     background-size: 100%;
 }
 
@@ -34,14 +35,21 @@
 }
 
 .header-menu.settings-btn {
-    background-image: url("../img/default-icon/default-icon-001.png");
+    background-image: url("../img/menu-icons/settings.jfif");
     background-size: 100%;
+}
+
+.coins-btn {
+    background-image: url("../img/interface-icons/coins.png");
+    background-size: 100%;
+    height: 30px;
+    width: 20px;
 }
 
 
 .nav-avatar-img {
-    height: 70px;
-    width: 70px;
+    height: 100px;
+    width: 100px;
     border-style: solid !important;
     border-width: 1px !important;
     border-color: black !important;
@@ -109,7 +117,7 @@
 .lhst_person-data-div-align {
     position:absolute;
     margin-left: 5px;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 
 .lhst_overview-player-name {
@@ -136,22 +144,34 @@ li a.lhst_nav {
     text-decoration: none;
     width: 75px;
     height: 75px;
-    color: white!important;
+    color: antiquewhite !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-weight: bold;
 }
 
 li a.lhst_nav:hover {
-    color: wheat!important;
+    -webkit-text-stroke: 1px #3939;
+    -webkit-text-fill-color:#393939;
+    font-weight: 200;
 }
 
 .lhst_inline {
     display: inline-block;
 }
 
-.lhst_inline.lhst_nav {
+.lhst_footer_margin {
     margin: 15px 130px 15px 15px;
+}
+
+.lhst_footer_avatar_scale{
+    width: 230px;
+    height: 120px;
+    padding-top: 4px;
+    padding-left: 10px;
+    
 }
 
 .row {
@@ -160,18 +180,18 @@ li a.lhst_nav:hover {
 }
 
 .header {
-    background-color: #333333;
+    background-color: #232323;
 }
 
 .lhst_vertical-line {
     border-style: solid;
     border-width: 0px 0.5px 0px 0px;
-    border-color: wheat;
-    margin: 5px 0px;
+    border-color: #393939;
+    margin: 0px 0px 0px -1px;
 }
 
 .lhst_left-side-bar {
-    background-color: #393939;
+    background-color: #232323;
     width: 229px;
     min-width: 229px;
     position: fixed;
@@ -198,7 +218,7 @@ li a.lhst_nav:hover {
 }
 
 footer {
-    background-color: #333333;
+    background-color: #232323;
     border-top: 1px solid;
 }
 
@@ -225,15 +245,16 @@ footer {
 .lhst_building_ext_card {
     border-style: solid;
     border-width: 2px;
-    border-color: black;
-    background-color:wheat;
-    width: 130px;    
+    border-color: #2b2b2b;
+    background-color: #393939;
+    width: 130px;
+    border-radius: 6px;
 }
 
 .lhst_main_data_image {
     border-style: solid;
     border-width: 2px;
-    border-color: black;
+    border-color: #2b2b2b;
     height: 120px;
     width: 120px;
     display: block;
@@ -242,17 +263,20 @@ footer {
     margin-top: 3px;
     margin-bottom: 4px;
     overflow: hidden;
+    border-radius: 3px;
 }
+
 
 .lhst_possessions_titles {
     margin: 3px;
     font-size: 16px;
     font-weight: bold;
-    color: brown;
+    color: #393939;
 }
 
 .lhst_card_properties {
     margin: 2px;
+    color: wheat;
 }
 
 .lhst_building_card_left_part {
@@ -264,7 +288,7 @@ footer {
     padding: 0px;
     width: 24px;
     height: 24px;
-    background: radial-gradient(saddlebrown, black);
+    background: radial-gradient(#393939, black);
     color: antiquewhite;
     border-radius: 3px;
     font-weight: bold;
@@ -272,12 +296,12 @@ footer {
 }
 
 .lhst_btn_building_lvlup:hover {
-    background: radial-gradient(brown, black);
+    background: radial-gradient(#3939, black);
     color: wheat;
 }
 
 .lhst_btn_unit_recruit {
-    background: radial-gradient(saddlebrown, black);
+    background: radial-gradient(#393939, black);
     color: antiquewhite;
     border-radius: 3px;
     width: 58px;
@@ -286,23 +310,23 @@ footer {
 }
 
 .lhst_btn_unit_recruit:hover {
-    background: radial-gradient(brown, black);
+    background: radial-gradient(#3939, black);
     color: wheat;
 }
 
 .lhst_btn_logout {
-    background: radial-gradient(wheat, antiquewhite);
-    color: saddlebrown;
+    background: radial-gradient(#393939, black);
+    color: antiquewhite;
     border-radius: 3px;
     width: 58px;
     height: 26.2px;
     font-size: revert;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
 }
 
 .lhst_btn_logout:hover {
-    background: radial-gradient(ghostwhite, antiquewhite);
-    color: saddlebrown;
+    background: radial-gradient(#3939, black);
+    color: wheat;
 }
 
 .lhst_btn_group_selected_land {
@@ -325,7 +349,7 @@ footer {
     border-block-width: 3px;
     margin-right: 5px;
     margin-left: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 0.5em;
 }
 
 .lhst_range_map {
@@ -335,7 +359,7 @@ footer {
 }
 
 .lhst_btn_moveToRegion {
-    background: radial-gradient(saddlebrown, black);
+    background: radial-gradient(#393939, black);
     color: antiquewhite;
     border-radius: 3px;
     width: -webkit-fill-available;
@@ -345,7 +369,7 @@ footer {
 }
 
 .lhst_btn_moveToRegion:hover {
-    background: radial-gradient(brown, black);
+    background: radial-gradient(#3939, black);
     color: wheat;
 }
 
@@ -354,7 +378,7 @@ footer {
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(saddlebrown, black);
+    background: radial-gradient(#393939, black);
     color: antiquewhite;
     border-radius: 3px;
 }
@@ -397,7 +421,7 @@ footer {
 }
 
 .lhst_left_side_bar_land_content {
-    margin: 5px !important;
+    margin: 0.5em !important;
 }
 
 .lhst_selected_land_text_content {
