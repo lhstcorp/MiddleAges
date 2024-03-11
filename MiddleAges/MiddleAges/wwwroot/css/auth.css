@@ -58,17 +58,11 @@
 }*/
 
 .auth_height {
-    height: calc(~"100vh - 150px");
+    height: calc(100vh - 61px);
 }
 
 .auth_width {
-    width: 45vw;
-}
-
-.auth_width_img {
-    width: 46.5vw;
-   
-    
+    width: 35vw;
 }
 
 .auth_form-control {
