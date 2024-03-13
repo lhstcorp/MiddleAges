@@ -87,6 +87,7 @@ namespace MiddleAges.Models
 
             return buildingPrice;
         }
+                       
 
         public static string getRandomMapLandId()
         {
