@@ -1,3 +1,105 @@
-﻿.auth_background {
-    background-color: #453C37;
+﻿.lhst_country_div {
+    text-align: center;
+    height: 550px;
+    width: 370px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #232323;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: wheat;
+    color: wheat;
 }
+
+.lhst_country_img {
+    display: inline-block;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.country_ruler_width{
+    width:370px;
+}
+
+.lhst_country_king_size{
+    font-size:30px;
+    font-weight:700;
+    align-self:center;
+}
+
+.lhst_country_line{
+    width:350px;
+    height:1px;
+    background-color:wheat;
+}
+
+.lhst_country_history_line {
+    width: 690px;
+    height: 1px;
+    background-color: wheat;
+}
+
+.lhst_country_history_comment {
+    
+    height: 50px;
+    align-items:center;
+    
+}
+
+.country_nav-avatar-img {
+    height: 60px;
+  
+   /* border-style: solid !important;
+    border-width: 1px !important;
+    border-color: black !important;
+    border-radius: 7px;
+    vertical-align: top;*/
+}
+
+.lhst_country_info_region_value {
+    display: inline-block;
+    font-size: 14px;
+    color: antiquewhite;
+    margin-left: 5px;
+    align-self: center;
+}
+.country_bottom_text_width {
+    width: 120px;
+}
+.lhst_country_buttons_div {
+    text-align: center;
+    /*height: 100px;*/
+   /* width: 1050px;*/
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    background-color: #232323;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: wheat;
+    color: wheat;
+}
+
+.lhst_country_history_div {
+    text-align: left;
+    height: 430px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    background-color: #232323;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: wheat;
+    color: wheat;
+}
+
+.lhst_country_history_img{
+    border-radius:10px
+}
+
+.lhst_country_history_text{
+    margin:0px 0px 0px 10px;
+}
+

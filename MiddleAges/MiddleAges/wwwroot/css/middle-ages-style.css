@@ -142,28 +142,70 @@ ul.lhst_nav {
 
 li.lhst_nav {
     float: left;
-    margin-right: 10px;
+    margin: 5px;
 }
 
 li a.lhst_nav {
     padding: 0px;
     text-align: center;
     text-decoration: none;
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
     color: antiquewhite !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
     font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
     font-weight: bold;
+    border-radius:10px;
 }
 
 li a.lhst_nav:hover {
-    -webkit-text-stroke: 1px #3939;
+    -webkit-text-stroke: 1px #ffd700;
     -webkit-text-fill-color:#393939;
     font-weight: 200;
 }
+
+li menu.lhst_nav {
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+    height: 90px;
+    color: antiquewhite !important;
+    position: relative;
+    display: table-cell;
+    vertical-align: bottom;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+    li menu.lhst_nav:hover {
+        -webkit-text-stroke: 1px #ffd700;
+        -webkit-text-fill-color: #393939;
+        font-weight: 200;
+    }
+li button.lhst_nav {
+    padding: 0px;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+    height: 90px;
+    color: antiquewhite !important;
+    position: relative;
+    display: table-cell;
+    vertical-align: bottom;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+    li button.lhst_nav:hover {
+        -webkit-text-stroke: 1px #ffd700;
+        -webkit-text-fill-color: #393939;
+        font-weight: 200;
+    }
 
 .lhst_inline {
     display: inline-block;
@@ -246,7 +288,18 @@ footer {
     left: 235px;*/
 
     margin-left: 229px;
-    margin-top: 120px;
+    margin-top: 130px;
+}
+
+.lhst_main-section_mainmenu {
+    /*width: calc(100% - 221px);
+    height: calc(100% - 144px);*/
+    /*position: fixed;
+    top: 120px;
+    left: 235px;*/
+
+    margin-left: 239px;
+    margin-top: 140px;
 }
 
 .lhst_building_ext_card {
@@ -430,6 +483,7 @@ footer {
 
 .lhst_left_side_bar_land_content {
     margin: 0.5em !important;
+    padding-top:10px;
 }
 
 .lhst_selected_land_text_content {
@@ -449,10 +503,10 @@ footer {
     padding: 0px !important;
 }
 
-.lhst_main_section_padding {
+/*.lhst_main_section_padding {
     padding-left: 10px;
     padding-top: 5px;
-}
+}*/
 
 .lhst_tb_unit_recruit::-webkit-outer-spin-button,
 .lhst_tb_unit_recruit::-webkit-inner-spin-button {
