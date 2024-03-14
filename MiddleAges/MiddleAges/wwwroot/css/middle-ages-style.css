@@ -39,6 +39,41 @@
     background-size: 100%;
 }
 
+.header-menu.rename-btn {
+    background-image: url("../img/menu-icons/rename.jfif");
+    background-size: 100%;
+}
+
+.header-menu.color-btn {
+    background-image: url("../img/menu-icons/color.jfif");
+    background-size: 100%;
+}
+
+.header-menu.capital-btn {
+    background-image: url("../img/menu-icons/capital.jfif");
+    background-size: 100%;
+}
+
+.header-menu.transfer-btn {
+    background-image: url("../img/menu-icons/transfer.jfif");
+    background-size: 100%;
+}
+
+.header-menu.ruler-btn {
+    background-image: url("../img/menu-icons/ruler.jfif");
+    background-size: 100%;
+}
+
+.header-menu.war-btn {
+    background-image: url("../img/menu-icons/war.jfif");
+    background-size: 100%;
+}
+
+.header-menu.disband-btn {
+    background-image: url("../img/menu-icons/disband.jfif");
+    background-size: 100%;
+}
+
 .coins-btn {
     background-image: url("../img/interface-icons/coins.png");
     background-size: 100%;
@@ -101,6 +136,24 @@
     transform: scale(1.05);
 }
 
+/*.lhst_scale menu {
+    transition: 0.1s;
+    display: block;
+}
+
+.lhst_scale menu:hover {
+    transform: scale(1.05);
+}
+
+.lhst_scale button {
+    transition: 0.1s;
+    display: block;
+}
+
+.lhst_scale butoon:hover {
+    transform: scale(1.05);
+}*/
+
 .player-overview-div-inline {
     display: inline;
 }
@@ -160,11 +213,11 @@ li a.lhst_nav {
     border-radius:10px;
 }
 
-li a.lhst_nav:hover {
-    -webkit-text-stroke: 1px #ffd700;
-    -webkit-text-fill-color:#393939;
-    font-weight: 200;
-}
+    li a.lhst_nav:hover {
+        -webkit-text-stroke: thin #393939;
+        -webkit-text-fill-color: #ffd700;
+        font-weight: bold;
+    }
 
 li menu.lhst_nav {
     padding: 0px;
@@ -182,9 +235,9 @@ li menu.lhst_nav {
 }
 
     li menu.lhst_nav:hover {
-        -webkit-text-stroke: 1px #ffd700;
-        -webkit-text-fill-color: #393939;
-        font-weight: 200;
+        -webkit-text-stroke: thin #393939;
+        -webkit-text-fill-color: #ffd700;
+        font-weight: bold;
     }
 li button.lhst_nav {
     padding: 0px;
@@ -202,10 +255,11 @@ li button.lhst_nav {
 }
 
     li button.lhst_nav:hover {
-        -webkit-text-stroke: 1px #ffd700;
-        -webkit-text-fill-color: #393939;
-        font-weight: 200;
+        -webkit-text-stroke: thin #393939;
+        -webkit-text-fill-color: #ffd700;
+        font-weight: bold;
     }
+
 
 .lhst_inline {
     display: inline-block;

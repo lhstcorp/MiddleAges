@@ -36,7 +36,7 @@
 }
 
 .lhst_country_history_line {
-    width: 690px;
+    width: 694px;
     height: 1px;
     background-color: wheat;
 }
@@ -102,4 +102,12 @@
 .lhst_country_history_text{
     margin:0px 0px 0px 10px;
 }
+
+.lhst_country_scale {
+    transition: 0.1s;
+    display: block;
+}
+
+.lhst_country_scale:hover {
+    transform: scale(1.05)}
 
