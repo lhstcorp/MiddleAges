@@ -39,6 +39,11 @@
     background-size: 100%;
 }
 
+.header-menu.rating-btn {
+    background-image: url("../img/menu-icons/main-icon.png");
+    background-size: 100%;
+}
+
 .header-menu.rename-btn {
     background-image: url("../img/menu-icons/rename.jfif");
     background-size: 100%;

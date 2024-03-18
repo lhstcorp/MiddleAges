@@ -1,0 +1,61 @@
+﻿@model MiddleAges.Entities.Player
+
+
+
+<div class="d-flex">
+    <div class="lhst_left-side-bar lhst_vertical-alignment-top">
+    </div>
+
+    <div class="lhst_vertical-alignment-top lhst_main-section lhst_avatar_inline ">
+
+
+        <div class="lhst_avatar_inline align-top lhst_tabs_div lhst_nav tab">
+            <button class="tablinks" onclick="rating(event, 'Money')">Money</button>
+            <button class="tablinks" onclick="rating(event, 'XP')">XP</button>
+       
+
+            <div id="Money" class="tabcontent lhst_inTab lhst_slider">
+                @for (int i = 1; i <40; i++)
+                {
+                    <div class="lhst_country_history_comment text-left!important d-inline-flex">
+
+                        <img class="lhst_country_history_img" height="42" src="../img/avatars/@(Model.ImageURL).jfif" alt="">
+                        <p class="lhst_country_history_text">@i</p>
+                    
+                        <p class="lhst_country_history_text">@Model.UserName</p>
+                        <div class="lhst_inline ml-5">
+                            <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" />
+                        </div>
+                        <p class="lhst_country_history_text ">@Model.Money</p>
+
+                    </div>
+                    <div class="lhst_tabs_line mb-1">
+                    </div>
+                }
+            </div>
+
+            <div id="XP" class="tabcontent lhst_inTab lhst_slider">
+                @for (int i = 1; i < 40; i++)
+                {
+                    <div class="lhst_country_history_comment text-left!important d-inline-flex">
+
+                        <img class="lhst_country_history_img" height="42" src="../img/avatars/@(Model.ImageURL).jfif" alt="">
+                        <p class="lhst_country_history_text">@i</p>
+
+                        <p class="lhst_country_history_text">@Model.UserName</p>
+                        <div class="lhst_inline ml-5">
+                            <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" />
+                        </div>
+                        <p class="lhst_country_history_text ">@Model.Exp</p>
+
+                    </div>
+                    <div class="lhst_tabs_line mb-1">
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+
+    <script src="~/js/tabs.js" type="text/javascript" language="JavaScript"></script>
+</div>
