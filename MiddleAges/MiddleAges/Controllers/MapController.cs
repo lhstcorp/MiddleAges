@@ -21,16 +21,19 @@ namespace MiddleAges.Controllers
     {
         private readonly ILogger<MapController> _logger;
         private readonly ApplicationDbContext _context;
+        private readonly UserManager<Player> _userManager;
 
-        public MapController(ILogger<MapController> logger, ApplicationDbContext context)
+        public MapController(ILogger<MapController> logger, ApplicationDbContext context, UserManager<Player> userManager)
         {
             _logger = logger;
             _context = context;
+            _userManager = userManager;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            Player player = _context.Players.FirstOrDefault();
+            var player = await _userManager.GetUserAsync(HttpContext.User);
+
             return View("Map", player);
         }
         

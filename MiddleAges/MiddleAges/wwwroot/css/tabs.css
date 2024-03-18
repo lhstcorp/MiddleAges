@@ -5,31 +5,31 @@
     background-color: #393939;
 }
 
-    /* —тиль кнопок, которые используютс€ дл€ открыти€ содержимого вкладки */
-    .tab button {
-        background: radial-gradient(#393939, black);
-        border: none;
-        outline: none;
-        cursor: pointer;
-        padding: 14px 16px;
-        transition: 0.3s;
-        color: antiquewhite;
-        border-radius: 10px;
-        font-weight: bold;
-        font-size: revert;
-    }
+/* —тиль кнопок, которые используютс€ дл€ открыти€ содержимого вкладки */
+.tab button {
+    background: radial-gradient(#393939, black);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    color: antiquewhite;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: revert;
+}
 
-        /* »зменение цвета фона кнопок при наведении курсора */
-        .tab button:hover {
-            background: radial-gradient(#3939, black);
-            color: #ffd700;
-        }
+/* »зменение цвета фона кнопок при наведении курсора */
+.tab button:hover {
+    background: radial-gradient(#3939, black);
+    color: #ffd700;
+}
 
-        /* —оздание активного/текущего класса св€зи вкладки */
-        .tab button.active {
-            background: radial-gradient(#3939, black);
-            color: #ffd700;
-        }
+/* —оздание активного/текущего класса св€зи вкладки */
+.tab button.active {
+    background: radial-gradient(#3939, black);
+    color: #ffd700;
+}
 
 /* —тиль содержимого вкладки */
 .tabcontent {
