@@ -1,8 +1,13 @@
-﻿@using MiddleAges.Entities;
-@model MiddleAges.Entities.Player
+﻿@using MiddleAges.ViewModels;
+@using MiddleAges.Entities;
+@using Microsoft.AspNetCore.Identity;
+@model MiddleAges.ViewModels.CountryInfoViewModel;
+@inject UserManager<Player> UserManager
 
 @{
     ViewData["Title"] = "middle ages";
+
+    Player player = await UserManager.GetUserAsync(User);
 }
 
 <div class="d-flex">
@@ -12,17 +17,17 @@
 
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding d-inline-flex">
         <div class="lhst_avatar_inline lhst_country_div align-top">
-            <h2>@Model.CurrentLand</h2>
+            <h2>@Model.Country.Name</h2>
             <div class="col lhst_map_region_icon_left_bar_col">
                 <img id="selected_land_coat_of_arms" src="../img/map-regions-icons/Hrodna.png" class="lhst_country_img" alt="map region coat of arms" />
             </div>
             <div class="d-inline-flex country_ruler_width align-content-center">
                 <div class="lhst_person-nav-container-inline mr-5">
-                    <img id="player_avatar" class="nav-avatar-img" src="~/img/avatars/@(Model.ImageURL).jfif" alt="" />
+                    <img id="player_avatar" class="nav-avatar-img" src="~/img/avatars/@(Model.Ruler.ImageURL).jfif" alt="" />
                 </div>
 
-                <p class="lhst_country_king_size ">King @Model.UserName.ToUpper()</p>
-                
+                <p class="lhst_country_king_size ">King @Model.Ruler.UserName.ToUpper()</p>
+
             </div>
             <p class="mt-2 text-left mb-1">People resources</p>
             <div class="lhst_country_line">
@@ -57,11 +62,11 @@
             </div>
             <div class="d-inline-flex float-left">
                 <img id="player_avatar" class="country_nav-avatar-img mr-2" src="../img/map-regions-icons/Iue.png" alt="" />
-                
+
                 <img id="player_avatar" class="country_nav-avatar-img mr-2" src="../img/map-regions-icons/Hrodna.png" alt="" />
-                
+
                 <img id="player_avatar" class="country_nav-avatar-img mr-2" src="../img/map-regions-icons/Minsk.png" alt="" />
-                
+
             </div>
 
         </div>
@@ -72,13 +77,13 @@
 
                     @*ПЕРЕИМЕНОВАНИЕ*@
                     <li class="lhst_nav ">
-                       @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
+                        @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
                         <dialog class="lhst_dialog" id="renameCountryDialog">
                             <form method="dialog">
                                 <section>
                                     <p class="lhst_card_properties">
-                                        <label for="curLand">Current name: @Model.CurrentLand</label>
-                                        
+                                        <label for="curLand">Current name: @*@Model.CurrentLand*@</label>
+
                                     </p>
                                     <p class="lhst_card_properties">
                                         New name
@@ -112,7 +117,7 @@
                                     renameCountryDialog.close();
                                 });
                             })();
-                        </script>                        
+                        </script>
                     </li>
 
                     @*ИЗМНЕНЕНИЕ ЦВЕТА*@
@@ -166,17 +171,17 @@
                             <form method="dialog">
                                 <section>
                                     <p class="lhst_card_properties">
-                                        <label for="countrycapital">Current capital: @Model.CurrentLand</label>
+                                        <label for="countrycapital">Current capital: @*@Model.CurrentLand*@</label>
                                     </p>
                                     <p class="lhst_card_properties">
                                         New capital
                                         <select name="countrycapital" class="lhst_dialog_select_input">
-                                            @for (int i=0; i<3; i++)
+                                            @for (int i = 0; i < 3; i++)
                                             {
-                                                <option >@Model.CurrentLand</option>
+                                                <option>@*@Model.CurrentLand*@</option>
                                             }
                                         </select>
-                                        
+
                                     </p>
                                 </section>
                                 <menu class="text-center pl-0">
@@ -223,7 +228,7 @@
                                         <select name="countryLand" class="lhst_dialog_select_input">
                                             @for (int i = 0; i < 3; i++)
                                             {
-                                                <option>@Model.CurrentLand</option>
+                                                <option>@*@Model.CurrentLand*@</option>
                                             }
                                         </select>
 
@@ -233,7 +238,7 @@
                                         <select name="selectCountry" class="lhst_dialog_select_input">
                                             @for (int i = 0; i < 3; i++)
                                             {
-                                                <option>@Model.CurrentLand</option>
+                                                <option>@*@Model.CurrentLand*@</option>
                                             }
                                         </select>
 
@@ -276,14 +281,14 @@
                             <form method="dialog">
                                 <section>
                                     <p class="lhst_card_properties">
-                                        <label for="countryruler">Current ruler: @Model.UserName</label>
+                                        <label for="countryruler">Current ruler: @*@Model.UserName*@</label>
                                     </p>
                                     <p class="lhst_card_properties">
                                         New ruler
                                         <select name="countryruler" class="lhst_dialog_select_input">
                                             @for (int i = 0; i < 3; i++)
                                             {
-                                                <option>@Model.UserName</option>
+                                                <option>@*@Model.UserName*@</option>
                                             }
                                         </select>
 
@@ -334,7 +339,7 @@
                                         <select name="declarewar" class="lhst_dialog_select_input">
                                             @for (int i = 0; i < 3; i++)
                                             {
-                                                <option>@Model.CurrentLand</option>
+                                                <option>@*@Model.CurrentLand*@</option>
                                             }
                                         </select>
 
@@ -344,7 +349,7 @@
                                         <select name="selectEnemyCountry" class="lhst_dialog_select_input">
                                             @for (int i = 0; i < 3; i++)
                                             {
-                                                <option>@Model.CurrentLand</option>
+                                                <option>@*@Model.CurrentLand*@</option>
                                             }
                                         </select>
 
@@ -355,7 +360,7 @@
                                         <select name="selectEnemyLand" class="lhst_dialog_select_input">
                                             @for (int i = 0; i < 3; i++)
                                             {
-                                                <option>@Model.CurrentLand</option>
+                                                <option>@*@Model.CurrentLand*@</option>
                                             }
                                         </select>
 
@@ -398,12 +403,12 @@
                             <form method="dialog">
                                 <section>
                                     <p class="lhst_card_properties">
-                                        <label for="disband">Your country: @Model.CurrentLand</label>
+                                        <label for="disband">Your country: @*@Model.CurrentLand*@</label>
 
                                     </p>
                                     <p class="lhst_card_properties">
                                         You sure?
-                                        
+
                                     </p>
                                 </section>
                                 <menu class="text-center pl-0">
@@ -436,29 +441,29 @@
                         </script>
                     </li>
 
-                    
+
                 </ul>
             </div>
-            
-                <div class="lhst_avatar_inline lhst_country_history_div align-top lhst_nav lhst_slider">
-                    @for (int i = 0; i < 10; i++)
-                        {
-                            <div class="lhst_country_history_comment text-left!important d-inline-flex">
-                                <img class="lhst_country_history_img" id="country_history_img" height="42" src="../img/menu-icons/settings.jfif" alt="">
-                                <p class="lhst_country_history_text">Country was renamed to Zalupa Konskaya</p>
-                                
-                                    <time class="ml-5" datetime="2016-11-18T09:54">18.11.2016 9:54</time>
-                                
-                            </div>
-                            <div class="lhst_country_history_line mb-1">
-                            </div>
-                        }
-                </div>
-           
+
+            <div class="lhst_avatar_inline lhst_country_history_div align-top lhst_nav lhst_slider">
+                @for (int i = 0; i < 10; i++)
+                {
+                    <div class="lhst_country_history_comment text-left!important d-inline-flex">
+                        <img class="lhst_country_history_img" id="country_history_img" height="42" src="../img/menu-icons/settings.jfif" alt="">
+                        <p class="lhst_country_history_text">Country was renamed to Zalupa Konskaya</p>
+
+                        <time class="ml-5" datetime="2016-11-18T09:54">18.11.2016 9:54</time>
+
+                    </div>
+                    <div class="lhst_country_history_line mb-1">
+                    </div>
+                }
+            </div>
+
         </div>
-                            
+
     </div>
     @* <input id="update_avatar_btn" type="submit" class="lhst_btn_avatar_confirm" value="Disband" /> *@
 
-  
+
 </div>

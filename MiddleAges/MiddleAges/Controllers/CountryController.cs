@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 namespace MiddleAges.Controllers
@@ -25,8 +28,17 @@ namespace MiddleAges.Controllers
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
 
-            Land land = _context.Lands.FirstOrDefault(k => k.LandId == player.CurrentLand);
-            Country country = _context.Countries.FirstOrDefault(k => k.CountryId.ToString() == land.CountryId.ToString());
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+
+            List<Land> countryLands = await _context.Lands.Where(l => l.CountryId == country.CountryId).ToListAsync();
+
+            var countryInfoViewModel = new CountryInfoViewModel 
+            {
+                Country = country,
+                Lands = countryLands,
+                Ruler = country.Ruler
+            };
 
             if (country?.Name == "Independent lands")
             {
@@ -34,10 +46,8 @@ namespace MiddleAges.Controllers
             }
             else
             {
-                return View("Country", player);
+                return View("Country", countryInfoViewModel);
             }     
-            
-            
         }
 
         [HttpPost]
