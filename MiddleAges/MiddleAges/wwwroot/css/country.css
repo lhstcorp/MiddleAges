@@ -14,7 +14,7 @@
 
 .lhst_country_img {
     display: inline-block;
-    height: 200px;
+    height: 250px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -24,9 +24,9 @@
 }
 
 .lhst_country_king_size{
-    font-size:30px;
+    font-size:20px;
     font-weight:700;
-    align-self:center;
+    align-self:end;
 }
 
 .lhst_country_line{
@@ -109,5 +109,15 @@
 }
 
 .lhst_country_scale:hover {
-    transform: scale(1.05)}
+    transform: scale(1.05)}
+
+.lhst_king_nav-avatar-img {
+    height: 50px;
+    width: 50px;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-color: black !important;
+    border-radius: 7px;
+    vertical-align: top;
+}
 
