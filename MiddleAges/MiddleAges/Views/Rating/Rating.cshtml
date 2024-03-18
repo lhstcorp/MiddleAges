@@ -1,6 +1,13 @@
-﻿@model MiddleAges.Entities.Player
+﻿@using MiddleAges.Entities;
+@model List<MiddleAges.Entities.Player>
 
+@{
+    List<Player> playersOrderByMoney = new List<Player>();
+    playersOrderByMoney = Model.OrderByDescending(p => p.Money).ToList();
 
+    List<Player> playersOrderByXP = new List<Player>();
+    playersOrderByXP = Model.OrderByDescending(p => p.Exp).ToList();
+}
 
 <div class="d-flex">
     <div class="lhst_left-side-bar lhst_vertical-alignment-top">
@@ -8,25 +15,23 @@
 
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_avatar_inline ">
 
-
         <div class="lhst_avatar_inline align-top lhst_tabs_div lhst_nav tab">
             <button class="tablinks" onclick="rating(event, 'Money')">Money</button>
             <button class="tablinks" onclick="rating(event, 'XP')">XP</button>
-       
 
             <div id="Money" class="tabcontent lhst_inTab lhst_slider">
-                @for (int i = 1; i <40; i++)
+                @for (int i = 0; i < playersOrderByMoney.Count; i++)
                 {
                     <div class="lhst_country_history_comment text-left!important d-inline-flex">
 
-                        <img class="lhst_country_history_img" height="42" src="../img/avatars/@(Model.ImageURL).jfif" alt="">
-                        <p class="lhst_country_history_text">@i</p>
-                    
-                        <p class="lhst_country_history_text">@Model.UserName</p>
+                        <img class="lhst_country_history_img" height="42" src="../img/avatars/@(playersOrderByMoney[i].ImageURL).jfif" alt="">
+                        <p class="lhst_country_history_text">@(i+1)</p>
+
+                        <p class="lhst_country_history_text">@playersOrderByMoney[i].UserName</p>
                         <div class="lhst_inline ml-5">
                             <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" />
                         </div>
-                        <p class="lhst_country_history_text ">@Model.Money</p>
+                        <p class="lhst_country_history_text ">@playersOrderByMoney[i].Money</p>
 
                     </div>
                     <div class="lhst_tabs_line mb-1">
@@ -35,18 +40,18 @@
             </div>
 
             <div id="XP" class="tabcontent lhst_inTab lhst_slider">
-                @for (int i = 1; i < 40; i++)
+                @for (int i = 0; i < playersOrderByXP.Count; i++)
                 {
                     <div class="lhst_country_history_comment text-left!important d-inline-flex">
 
-                        <img class="lhst_country_history_img" height="42" src="../img/avatars/@(Model.ImageURL).jfif" alt="">
-                        <p class="lhst_country_history_text">@i</p>
+                        <img class="lhst_country_history_img" height="42" src="../img/avatars/@(playersOrderByXP[i].ImageURL).jfif" alt="">
+                        <p class="lhst_country_history_text">@(i+1)</p>
 
-                        <p class="lhst_country_history_text">@Model.UserName</p>
+                        <p class="lhst_country_history_text">@playersOrderByXP[i].UserName</p>
                         <div class="lhst_inline ml-5">
                             <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" />
                         </div>
-                        <p class="lhst_country_history_text ">@Model.Exp</p>
+                        <p class="lhst_country_history_text ">@playersOrderByXP[i].Exp</p>
 
                     </div>
                     <div class="lhst_tabs_line mb-1">

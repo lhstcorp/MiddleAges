@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
@@ -26,10 +27,11 @@ namespace MiddleAges.Controllers
             _userManager = userManager;
         }
         // GET: PlayerOverviewController
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
-            return View("Rating", player);
+            List<Player> players = await _context.Players.Where(p => p.Id != "").ToListAsync();
+
+            return View("Rating", players);
         }
 
         // GET: PlayerOverviewController/Details/5
