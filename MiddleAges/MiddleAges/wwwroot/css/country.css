@@ -1,6 +1,6 @@
 ﻿.lhst_country_div {
     text-align: center;
-    height: 550px;
+    /*height: 620px;*/
     width: 370px;
     margin-top: 10px;
     margin-left: 10px;
@@ -36,7 +36,7 @@
 }
 
 .lhst_country_history_line {
-    width: 694px;
+    width: 692px;
     height: 1px;
     background-color: wheat;
 }
