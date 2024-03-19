@@ -245,7 +245,7 @@ li menu.lhst_nav {
         font-weight: bold;
     }
 li button.lhst_nav {
-    padding: 0px;
+    padding-top: 50px;
     text-align: center;
     text-decoration: none;
     width: 90px;
@@ -660,4 +660,8 @@ lhst_marquee {
 
 .lhst_ml-65 {
     margin-left: 6.5rem !important;
+}
+
+.lhst_ratingName_width{
+    width:50px;
 }

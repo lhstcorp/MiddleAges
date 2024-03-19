@@ -38,10 +38,21 @@
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(#393939, black);
-    color: #3939;
+    background: radial-gradient(#393939, #232323);
+    color: wheat;
     border-radius: 3px;
     font-weight: bold;
 }
+
+.lhst_option:checked {
+    background: wheat linear-gradient(#393939, #232323);
+    color: #393939;
+}
+
+.lhst_option {
+    background: #232323 linear-gradient(#393939, #232323);
+    color: wheat;
+}
+
 
 
