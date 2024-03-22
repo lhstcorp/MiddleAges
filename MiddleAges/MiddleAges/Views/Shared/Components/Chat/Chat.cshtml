@@ -1,0 +1,32 @@
+﻿@model MiddleAges.Entities.Player
+
+<div id="okno" class="lhst_chat_div float-right align-bottom lhst_nav lhst_display_grid">
+    <button id="expandChatBtn" onclick="showPopup()" class="lhst_btn_unit_recruit">Chat</button>
+    <button id="minimizeChatBtn" onclick="hidePopup()" class="lhst_btn_unit_recruit">Chat2</button>
+ @*    <button onclick="hidePopup()">Chat2</button> *@
+    <div  class="lhst_chat_height lhst_slider">
+        @for (int i=0;i<35;i++)
+        {
+            <div class="align-items-center text-left!important d-inline-flex">
+                <img class="lhst_country_history_img" id="country_history_img" height="32" src="~/img/avatars/@(Model.ImageURL).jfif" alt="">
+                <div class="lhst_display_grid float-left">
+                <p class="lhst_country_history_text text-left lhst_username_text">@Model.UserName</p>
+                <p class="lhst_country_history_text text-left lhst_chat_text">я сходил покакать. вчера пацаны ебашил столько в мидл эйджес, пальцы отсохли</p>
+                </div>
+            
+                <time class="mr-2" datetime="T09:54">9:54</time>
+
+            </div>
+            <div class="lhst_chat_line mb-1">
+            </div>
+        }
+    </div>
+
+    <div class="d-inline-flex">
+        <input name="chat" maxlength="100" class="lhst_chat_input" rows="2"/>
+        <input class="lhst_button_input" type="submit" value="&#10148;" />
+    </div>
+    
+</div>
+
+

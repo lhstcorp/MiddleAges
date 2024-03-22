@@ -1,0 +1,64 @@
+.lhst_chat_div {
+    text-align: center;
+    height: calc(100vh - 212px);
+    /*width: 370px;*/
+    padding: 10px;
+    background-color: #232323;
+    /*background-color: #3939;*/
+    border-radius: 20px 0px 0px 20px;
+    border-width: 2px;
+    border-color: wheat;
+    color: wheat;
+    margin-top: 141px;
+    margin-bottom:10px;
+    font-size: 11px;
+    font-weight: 100;
+}
+
+.lhst_chat_line {
+    width:auto;
+    height: 1px;
+    background-color: wheat;
+}
+
+.lhst_chat_text{
+    width:200px;
+    font-weight:lighter;
+}
+
+.lhst_display_grid{
+    display:grid;
+}
+
+.lhst_username_text{
+    color:#3939;
+    font-size:14px;
+    font-weight:bold;
+}
+
+.lhst_chat_height{
+    height:100%;
+}
+
+.lhst_chat_input {
+    width: 80%;
+    height: 50px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(#393939, black);
+    color: antiquewhite;
+    border-radius: 10px;
+    resize: none;
+}
+
+.lhst_button_input {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(#393939, black);
+    color: antiquewhite;
+    border-radius: 25px;
+    font-weight: bold;
+    font-size: revert;
+}
