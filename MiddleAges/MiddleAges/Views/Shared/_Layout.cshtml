@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="~/css/rotate-img.css" />
     <link rel="stylesheet" href="~/css/country.css" />
     <link rel="stylesheet" href="~/css/dialogWindow.css" />
+    <link rel="stylesheet" href="~/css/chat.css" />
     
 </head>
 
@@ -33,6 +34,7 @@
             {
                 <div class="lhst_inline lhst_nav lhst_footer_avatar_scale">
                     @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
+                   
                 </div>
 
                 <div class="lhst_inline lhst_vertical-line"></div>
@@ -58,7 +60,7 @@
                             <partial name="_LoginPartial" />
                         </li>
                     </ul>
-                   
+                    
                 </div>
 
                 
@@ -67,19 +69,24 @@
             {
                 <div class="flex-grow-1"></div>
             }
+            
 
             @* <div class="lhst_right-status-nav-container lhst_inline">
                 <partial name="_LoginPartial" />
             </div> *@
         </div>
     </div>
+    <div class=" align-top float-right lhst_inline lhst_nav">
 
+        @await Component.InvokeAsync(typeof(ChatViewComponent))
+    </div>
     <div>
         <main class="lhst_vertical-alignment-top">
             @RenderBody()
         </main>
+        
     </div>
-
+    
     <footer class="footer text-muted d-inline-flex">
         <div class="container lhst_footer-text ">
             &copy; 2023 - MiddleAges - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
@@ -94,6 +101,8 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/showChat.js"></script>
+    <script src="~/js/hideChat.js"></script>
     @*<script src="~/js/snow.js" type="text/javascript" language="JavaScript"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
