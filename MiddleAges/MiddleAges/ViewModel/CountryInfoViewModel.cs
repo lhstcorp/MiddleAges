@@ -9,5 +9,7 @@ namespace MiddleAges.ViewModels
         public Country Country { get; set; }
         public List<Land> Lands { get; set; }
         public Player Ruler { get; set; }
+        public List<Country> OtherCountries { get; set; }
+        public List<Player> OtherRulers { get; set; }
     }
 }

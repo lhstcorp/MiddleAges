@@ -30,22 +30,28 @@ namespace MiddleAges.Controllers
 
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-
-            List<Land> countryLands = await _context.Lands.Where(l => l.CountryId == country.CountryId).ToListAsync();
-
-            var countryInfoViewModel = new CountryInfoViewModel 
-            {
-                Country = country,
-                Lands = countryLands,
-                Ruler = country.Ruler
-            };
-
+                    
             if (country?.Name == "Independent lands")
             {
                 return View("FoundCountry", player);
             }
             else
             {
+                List<Land> countryLands = await _context.Lands.Where(l => l.CountryId == country.CountryId).ToListAsync();
+
+                List<Country> otherCountries = await _context.Countries.Where(c => c.CountryId != country.CountryId).ToListAsync();
+
+                List<Player> otherRulers = await _context.Players.Where(p => p.Id != country.RulerId).ToListAsync();
+
+                var countryInfoViewModel = new CountryInfoViewModel
+                {
+                    Country = country,
+                    Lands = countryLands,
+                    Ruler = country.Ruler,
+                    OtherCountries = otherCountries,
+                    OtherRulers = otherRulers
+                };
+
                 return View("Country", countryInfoViewModel);
             }     
         }
