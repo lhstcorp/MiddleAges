@@ -76,10 +76,14 @@
             </div> *@
         </div>
     </div>
-    <div class=" align-top float-right lhst_inline lhst_nav">
 
-        @await Component.InvokeAsync(typeof(ChatViewComponent))
-    </div>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class=" align-top float-right lhst_inline lhst_nav">
+            @await Component.InvokeAsync(typeof(ChatViewComponent))
+        </div>
+    }
+
     <div>
         <main class="lhst_vertical-alignment-top">
             @RenderBody()

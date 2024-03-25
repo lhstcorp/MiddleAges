@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.Enums;
 using MiddleAges.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -90,7 +91,27 @@ namespace MiddleAges.Controllers
                 await _context.SaveChangesAsync();
             }
 
-            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Rename(Player player, Country country)
+        {
+            if (player.Id == country.RulerId)
+            {
+                Law law = new Law();
+
+                law.CountryId = country.CountryId;
+                law.PlayerId = player.Id;
+                law.Type = (int)LawType.Renaming;
+                law.PublishingDateTime = DateTime.UtcNow;
+
+                _context.Update(law);
+
+                await _context.SaveChangesAsync();
+            }
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
         }
     }
 }

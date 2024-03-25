@@ -61,12 +61,10 @@
             <div class="lhst_country_line mb-1">
             </div>
             <div class="d-inline-block float-left">
-                @for (int i=0; i<Model.Lands.Count;i++)
+                @for (int i = 0; i < Model.Lands.Count; i++)
                 {
                     <img id="player_avatar" class="country_nav-avatar-img mr-2 mb-2" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).jfif" alt="" />
                 }
-
-
             </div>
 
         </div>
@@ -77,47 +75,10 @@
 
                     @*ПЕРЕИМЕНОВАНИЕ*@
                     <li class="lhst_nav ">
-                        @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
-                        <dialog class="lhst_dialog" id="renameCountryDialog">
-                            <form method="dialog">
-                                <section>
-                                    <p class="lhst_card_properties">
-                                        <label for="curLand">Current name: @Model.Country.Name</label>
-
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        New name
-                                        <input name="curLand" class="lhst_dialog_rename_input" type="text" />
-                                    </p>
-                                </section>
-                                <menu class="text-center pl-0">
-                                    <button class="lhst_btn_unit_recruit" id="cancelName" type="reset">Cancel</button>
-                                    <button class="lhst_btn_unit_recruit" type="submit">Confirm</button>
-                                </menu>
-                            </form>
-                        </dialog>
 
                         <menu class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text ">
-                            <button class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text lhst_country_scale" id="renameCountry">Rename</button>
+                            <button class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text lhst_country_scale" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
                         </menu>
-
-                        <script>
-                            (function () {
-                                var updateButton = document.getElementById("renameCountry");
-                                var cancelButton = document.getElementById("cancelName");
-                                var renameCountryDialog = document.getElementById("renameCountryDialog");
-
-                                // Update button opens a modal dialog
-                                updateButton.addEventListener("click", function () {
-                                    renameCountryDialog.showModal();
-                                });
-
-                                // Form cancel button closes the dialog box
-                                cancelButton.addEventListener("click", function () {
-                                    renameCountryDialog.close();
-                                });
-                            })();
-                        </script>
                     </li>
 
                     @*ИЗМНЕНЕНИЕ ЦВЕТА*@
@@ -287,14 +248,14 @@
                                     <p class="lhst_card_properties">
                                         New ruler
                                         <select name="countryruler" class="lhst_dialog_select_input">
-                                           
-                                            
+
+
                                             @for (int i = 0; i < 5; i++)
                                             {
                                                 <option class="lhst_option">@Model.Ruler.UserName</option>
                                             }
                                         </select>
-                                        
+
 
                                     </p>
                                 </section>
@@ -469,5 +430,32 @@
     </div>
     @* <input id="update_avatar_btn" type="submit" class="lhst_btn_avatar_confirm" value="Disband" /> *@
 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/country_page_actions.js"></script>
+</div>
 
+<div class="modal" id="renamingCountryDialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-floating mb-3">
+                    <form asp-controller="Country" asp-action="Rename" asp-route-player="@player" asp-route-country="@Model.Country">
+                        <section>
+                            <p class="lhst_card_properties">
+                                <label for="curLand">Current name: @Model.Country.Name</label>
+                            </p>
+                            <p class="lhst_card_properties">
+                                New name
+                                <input name="curLand" class="lhst_dialog_rename_input" type="text" />
+                            </p>
+                        </section>
+                        <div class="text-center pl-0">
+                            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+                        </div>
+                    </form>
+                    <button class="lhst_btn_unit_recruit" onclick="hideRenamingCountryDialog()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
