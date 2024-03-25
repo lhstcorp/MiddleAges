@@ -19,7 +19,7 @@
         <div class="lhst_avatar_inline lhst_country_div align-top">
             <h2>@Model.Country.Name</h2>
             <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons/Hrodna.png" class="lhst_country_img" alt="map region coat of arms" />
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/Hrodna.jfif" class="lhst_country_img" alt="map region coat of arms" />
             </div>
             <div class="d-inline-flex country_ruler_width align-content-center">
                 <div class="lhst_person-nav-container-inline mr-5">
@@ -63,7 +63,7 @@
             <div class="d-inline-block float-left">
                 @for (int i=0; i<Model.Lands.Count;i++)
                 {
-                    <img id="player_avatar" class="country_nav-avatar-img mr-2 mb-2" src="../img/map-regions-icons/@(Model.Lands[i].LandId).png" alt="" />
+                    <img id="player_avatar" class="country_nav-avatar-img mr-2 mb-2" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).jfif" alt="" />
                 }
 
 
