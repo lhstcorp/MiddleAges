@@ -19,7 +19,7 @@
         <div class="lhst_avatar_inline lhst_country_div align-top">
             <h2>@Model.Country.Name</h2>
             <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/Hrodna.jfif" class="lhst_country_img" alt="map region coat of arms" />
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/Hrodna.png" class="lhst_country_img" alt="map region coat of arms" />
             </div>
             <div class="d-inline-flex country_ruler_width align-content-center">
                 <div class="lhst_person-nav-container-inline mr-5">
@@ -63,7 +63,7 @@
             <div class="d-inline-block float-left">
                 @for (int i = 0; i < Model.Lands.Count; i++)
                 {
-                    <img id="player_avatar" class="country_nav-avatar-img mr-2 mb-2" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).jfif" alt="" />
+                    <img id="player_avatar" class="country_nav-avatar-img mr-2 mb-2" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" />
                 }
             </div>
 
@@ -83,329 +83,58 @@
 
                     @*ИЗМНЕНЕНИЕ ЦВЕТА*@
                     <li class="lhst_nav ">
-                        @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
-                        <dialog class="lhst_dialog" id="changeColorCountryDialog">
-                            <form method="dialog">
-                                <section>
-                                    <p class="lhst_card_properties">
-                                        Current color:
-                                        <input class="lhst_color_picker" type="color" value="@Model.Country.Color" readonly>
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        New color
-                                        <input class="lhst_color_picker" type="color" id="countrycolor" name="countrycolor" value="#ff0000">
-                                    </p>
-                                </section>
-                                <menu class="text-center pl-0">
-                                    <button class="lhst_btn_unit_recruit" id="cancelColor" type="reset">Cancel</button>
-                                    <button class="lhst_btn_unit_recruit" type="submit">Confirm</button>
-                                </menu>
-                            </form>
-                        </dialog>
-
+                       
                         <menu class="nav-link text-dark header-menu lhst_nav color-btn lhst_shadow_text  ">
-                            <button class="nav-link text-dark header-menu lhst_nav color-btn lhst_shadow_text lhst_country_scale " id="recolorCountry">Change color</button>
+                            <button class="nav-link text-dark header-menu lhst_nav color-btn lhst_shadow_text lhst_country_scale " onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
                         </menu>
 
-                        <script>
-                            (function () {
-                                var updateButton = document.getElementById("recolorCountry");
-                                var cancelButton = document.getElementById("cancelColor");
-                                var changeColorCountryDialog = document.getElementById("changeColorCountryDialog");
-
-                                // Update button opens a modal dialog
-                                updateButton.addEventListener("click", function () {
-                                    changeColorCountryDialog.showModal();
-                                });
-
-                                // Form cancel button closes the dialog box
-                                cancelButton.addEventListener("click", function () {
-                                    changeColorCountryDialog.close();
-                                });
-                            })();
-                        </script>
                     </li>
 
                     @*Смена столицы*@
                     <li class="lhst_nav ">
-                        @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
-                        <dialog class="lhst_dialog" id="changeCapitalCountryDialog">
-                            <form method="dialog">
-                                <section>
-                                    <p class="lhst_card_properties">
-                                        <label for="countrycapital">Current capital: @Model.Country.CapitalId</label>
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        New capital
-                                        <select name="countrycapital" class="lhst_dialog_select_input">
-                                            @for (int i = 0; i < Model.Lands.Count; i++)
-                                            {
-                                                <option class="lhst_option">@Model.Lands[i].LandId</option>
-                                            }
-                                        </select>
-
-                                    </p>
-                                </section>
-                                <menu class="text-center pl-0">
-                                    <button class="lhst_btn_unit_recruit" id="cancelCapital" type="reset">Cancel</button>
-                                    <button class="lhst_btn_unit_recruit" type="submit">Confirm</button>
-                                </menu>
-                            </form>
-                        </dialog>
-
+                        
                         <menu class="nav-link text-dark header-menu lhst_nav capital-btn lhst_shadow_text  ">
-                            <button class="nav-link text-dark header-menu lhst_nav capital-btn lhst_shadow_text lhst_country_scale  " id="moveCapital">Change capital</button>
+                            <button class="nav-link text-dark header-menu lhst_nav capital-btn lhst_shadow_text lhst_country_scale" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
                         </menu>
 
-                        <script>
-                            (function () {
-                                var updateButton = document.getElementById("moveCapital");
-                                var cancelButton = document.getElementById("cancelCapital");
-                                var changeCapitalCountryDialog = document.getElementById("changeCapitalCountryDialog");
-
-                                // Update button opens a modal dialog
-                                updateButton.addEventListener("click", function () {
-                                    changeCapitalCountryDialog.showModal();
-                                });
-
-                                // Form cancel button closes the dialog box
-                                cancelButton.addEventListener("click", function () {
-                                    changeCapitalCountryDialog.close();
-                                });
-                            })();
-                        </script>
                     </li>
 
-                    @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
+                   @*  @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
                     <li class="lhst_nav ">
-                        @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
-                        <dialog class="lhst_dialog" id="transferLandCountryDialog">
-                            <form method="dialog">
-                                <section>
-                                    <p class="lhst_card_properties">
-                                        <label for="countryLand">Transfer Land</label>
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        Choose Land
-                                        <select name="countryLand" class="lhst_dialog_select_input">
-                                            @for (int i = 0; i < Model.Lands.Count; i++)
-                                            {
-                                                <option class="lhst_option">@Model.Lands[i].LandId</option>
-                                            }
-                                        </select>
-
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        Choose Country
-                                        <select name="selectCountry" class="lhst_dialog_select_input">
-                                            @for (int i = 0; i < 5; i++)
-                                            {
-                                                <option class="lhst_option">@Model.Country.Name</option>
-                                            }
-                                        </select>
-
-                                    </p>
-                                </section>
-                                <menu class="text-center pl-0">
-                                    <button class="lhst_btn_unit_recruit" id="cancelTransferLand" type="reset">Cancel</button>
-                                    <button class="lhst_btn_unit_recruit" type="submit">Confirm</button>
-                                </menu>
-                            </form>
-                        </dialog>
-
+                        
                         <menu class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text  ">
-                            <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale  " id="transferLand">Transfer Land</button>
+                            <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer Land</button>
                         </menu>
 
-                        <script>
-                            (function () {
-                                var updateButton = document.getElementById("transferLand");
-                                var cancelButton = document.getElementById("cancelTransferLand");
-                                var transferLandCountryDialog = document.getElementById("transferLandCountryDialog");
-
-                                // Update button opens a modal dialog
-                                updateButton.addEventListener("click", function () {
-                                    transferLandCountryDialog.showModal();
-                                });
-
-                                // Form cancel button closes the dialog box
-                                cancelButton.addEventListener("click", function () {
-                                    transferLandCountryDialog.close();
-                                });
-                            })();
-                        </script>
                     </li>
 
                     @*Смена правителя*@
                     <li class="lhst_nav ">
-                        @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
-                        <dialog class="lhst_dialog" id="changeRulerCountryDialog">
-                            <form method="dialog">
-                                <section>
-                                    <p class="lhst_card_properties">
-                                        <label for="countryruler">Current ruler: @Model.Ruler.UserName</label>
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        New ruler
-                                        <select name="countryruler" class="lhst_dialog_select_input">
-
-
-                                            @for (int i = 0; i < 5; i++)
-                                            {
-                                                <option class="lhst_option">@Model.Ruler.UserName</option>
-                                            }
-                                        </select>
-
-
-                                    </p>
-                                </section>
-                                <menu class="text-center pl-0">
-                                    <button class="lhst_btn_unit_recruit" id="cancelRuler" type="reset">Cancel</button>
-                                    <button class="lhst_btn_unit_recruit" type="submit">Confirm</button>
-                                </menu>
-                            </form>
-                        </dialog>
-
+                      
                         <menu class="nav-link text-dark header-menu lhst_nav ruler-btn lhst_shadow_text  ">
-                            <button class="nav-link text-dark header-menu lhst_nav ruler-btn lhst_shadow_text lhst_country_scale  " id="changeRuler">Change ruler</button>
+                            <button class="nav-link text-dark header-menu lhst_nav ruler-btn lhst_shadow_text lhst_country_scale" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
                         </menu>
 
-                        <script>
-                            (function () {
-                                var updateButton = document.getElementById("changeRuler");
-                                var cancelButton = document.getElementById("cancelRuler");
-                                var changeRulerCountryDialog = document.getElementById("changeRulerCountryDialog");
-
-                                // Update button opens a modal dialog
-                                updateButton.addEventListener("click", function () {
-                                    changeRulerCountryDialog.showModal();
-                                });
-
-                                // Form cancel button closes the dialog box
-                                cancelButton.addEventListener("click", function () {
-                                    changeRulerCountryDialog.close();
-                                });
-                            })();
-                        </script>
                     </li>
 
 
                     @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
                     <li class="lhst_nav ">
-                        @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
-                        <dialog class="lhst_dialog" id="declareWarCountryDialog">
-                            <form method="dialog">
-                                <section>
-                                    <p class="lhst_card_properties">
-                                        <label for="declarewar">Declare war</label>
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        Choose Your Land
-                                        <select name="declarewar" class="lhst_dialog_select_input">
-                                            @for (int i = 0; i < Model.Lands.Count; i++)
-                                            {
-                                                <option class="lhst_option">@Model.Lands[i].LandId</option>
-                                            }
-                                        </select>
-
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        Choose Enemy Country
-                                        <select name="selectEnemyCountry" class="lhst_dialog_select_input">
-                                            @for (int i = 0; i < 5; i++)
-                                            {
-                                                <option>@*@Model.CurrentLand*@</option>
-                                            }
-                                        </select>
-
-                                    </p>
-
-                                    <p class="lhst_card_properties">
-                                        Choose Enemy Land
-                                        <select name="selectEnemyLand" class="lhst_dialog_select_input">
-                                            @for (int i = 0; i < 3; i++)
-                                            {
-                                                <option class="lhst_option">@*@Model.CurrentLand*@</option>
-                                            }
-                                        </select>
-
-                                    </p>
-                                </section>
-                                <menu class="text-center pl-0">
-                                    <button class="lhst_btn_unit_recruit" id="cancelDeclareWar" type="reset">Cancel</button>
-                                    <button class="lhst_btn_unit_recruit" type="submit">Confirm</button>
-                                </menu>
-                            </form>
-                        </dialog>
-
+                       
                         <menu class="nav-link text-dark header-menu lhst_nav war-btn lhst_shadow_text  ">
-                            <button class="nav-link text-dark header-menu lhst_nav war-btn lhst_shadow_text lhst_country_scale  " id="declareWar">Declare War</button>
+                            <button class="nav-link text-dark header-menu lhst_nav war-btn lhst_shadow_text lhst_country_scale" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
                         </menu>
 
-                        <script>
-                            (function () {
-                                var updateButton = document.getElementById("declareWar");
-                                var cancelButton = document.getElementById("cancelDeclareWar");
-                                var declareWarCountryDialog = document.getElementById("declareWarCountryDialog");
-
-                                // Update button opens a modal dialog
-                                updateButton.addEventListener("click", function () {
-                                    declareWarCountryDialog.showModal();
-                                });
-
-                                // Form cancel button closes the dialog box
-                                cancelButton.addEventListener("click", function () {
-                                    declareWarCountryDialog.close();
-                                });
-                            })();
-                        </script>
                     </li>
 
                     @*распустить страну*@
                     <li class="lhst_nav ">
-                        @*  <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale " asp-area="" asp-controller="Main" asp-action="Index">Rename</a> *@
-                        <dialog class="lhst_dialog" id="disbandCountryDialog">
-                            <form method="dialog">
-                                <section>
-                                    <p class="lhst_card_properties">
-                                        <label for="disband">Your country: @Model.Country.Name</label>
-
-                                    </p>
-                                    <p class="lhst_card_properties">
-                                        You sure?
-
-                                    </p>
-                                </section>
-                                <menu class="text-center pl-0">
-                                    <button class="lhst_btn_unit_recruit" id="cancelDisband" type="reset">Cancel</button>
-                                    <button class="lhst_btn_unit_recruit" type="submit">Confirm</button>
-                                </menu>
-                            </form>
-                        </dialog>
-
+                        
                         <menu class="nav-link text-dark header-menu lhst_nav disband-btn lhst_shadow_text  ">
-                            <button class="nav-link text-dark header-menu lhst_nav disband-btn lhst_shadow_text lhst_country_scale  " id="disbandCountry">Disband</button>
+                            <button class="nav-link text-dark header-menu lhst_nav disband-btn lhst_shadow_text lhst_country_scale" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
                         </menu>
 
-                        <script>
-                            (function () {
-                                var updateButton = document.getElementById("disbandCountry");
-                                var cancelButton = document.getElementById("cancelDisband");
-                                var disbandCountryDialog = document.getElementById("disbandCountryDialog");
-
-                                // Update button opens a modal dialog
-                                updateButton.addEventListener("click", function () {
-                                    disbandCountryDialog.showModal();
-                                });
-
-                                // Form cancel button closes the dialog box
-                                cancelButton.addEventListener("click", function () {
-                                    disbandCountryDialog.close();
-                                });
-                            })();
-                        </script>
                     </li>
-
 
                 </ul>
             </div>
@@ -434,28 +163,204 @@
     <script src="~/js/country_page_actions.js"></script>
 </div>
 
-<div class="modal" id="renamingCountryDialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="form-floating mb-3">
-                    <form asp-controller="Country" asp-action="Rename" asp-route-player="@player" asp-route-country="@Model.Country">
-                        <section>
-                            <p class="lhst_card_properties">
-                                <label for="curLand">Current name: @Model.Country.Name</label>
-                            </p>
-                            <p class="lhst_card_properties">
-                                New name
-                                <input name="curLand" class="lhst_dialog_rename_input" type="text" />
-                            </p>
-                        </section>
-                        <div class="text-center pl-0">
-                            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
-                        </div>
-                    </form>
-                    <button class="lhst_btn_unit_recruit" onclick="hideRenamingCountryDialog()">Cancel</button>
-                </div>
-            </div>
-        </div>
+<div class="lhst_dialog modal" id="renamingCountryDialog">
+    <div class="text-right">
+    <button class="lhst_btn_dialog_cancel" onclick="hideRenamingCountryDialog()">x</button>
     </div>
+    <form asp-controller="Country" asp-action="Rename" asp-route-player="@player" asp-route-country="@Model.Country">
+        <section>
+            <p class="lhst_card_properties">
+                <label for="curLand">Current name: @Model.Country.Name</label>
+            </p>
+            <p class="lhst_card_properties">
+                New name
+                <input name="curLand" class="lhst_dialog_rename_input" type="text" />
+            </p>
+        </section>
+        <div class="text-center pl-0">
+            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+        </div>
+    </form>
+    
+</div>
+
+<div class="lhst_dialog modal" id="recoloringCountryDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideRecoloringCountryDialog()">x</button>
+    </div>
+    <form asp-controller="Country" asp-action="Recolor" asp-route-player="@player" asp-route-country="@Model.Country">
+        <section>
+            <p class="lhst_card_properties">
+                Current color:
+                <input class="lhst_color_picker" type="color" value="@Model.Country.Color" readonly>
+            </p>
+            <p class="lhst_card_properties">
+                New color
+                <input class="lhst_color_picker" type="color" id="countrycolor" name="countrycolor" value="#ff0000">
+            </p>
+        </section>
+        <div class="text-center pl-0">
+            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+        </div>
+    </form>
+   
+</div>
+
+<div class="lhst_dialog modal" id="changingCapitalCountryDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideChangingCapitalCountryDialog()">x</button>
+    </div>
+    <form asp-controller="Country" asp-action="ChangeCapital" asp-route-player="@player" asp-route-country="@Model.Country">
+        <section>
+            <p class="lhst_card_properties">
+                <label for="countrycapital">Current capital: @Model.Country.CapitalId</label>
+            </p>
+            <p class="lhst_card_properties">
+                New capital
+                <select name="countrycapital" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < Model.Lands.Count; i++)
+                    {
+                        <option class="lhst_option">@Model.Lands[i].LandId</option>
+                    }
+                </select>
+
+            </p>
+        </section>
+        <menu class="text-center pl-0">
+            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+        </menu>
+    </form>
+</div>
+
+<div class="lhst_dialog modal" id="transferingLandCountryDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideTransferingLandCountryDialog()">x</button>
+    </div>
+    <form asp-controller="Country" asp-action="TransferLand" asp-route-player="@player" asp-route-country="@Model.Country">
+        <section>
+            <p class="lhst_card_properties">
+                <label for="countryLand">Transfer Land</label>
+            </p>
+            <p class="lhst_card_properties">
+                Choose Land
+                <select name="countryLand" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < Model.Lands.Count; i++)
+                    {
+                        <option class="lhst_option">@Model.Lands[i].LandId</option>
+                    }
+                </select>
+
+            </p>
+            <p class="lhst_card_properties">
+                Choose Country
+                <select name="selectCountry" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <option class="lhst_option">@Model.Country.Name</option>
+                    }
+                </select>
+
+            </p>
+        </section>
+        <menu class="text-center pl-0">
+            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+        </menu>
+       
+    </form>
+</div>
+
+<div class="lhst_dialog modal" id="changingRulerCountryDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideChangingRulerCountryDialog()">x</button>
+    </div>
+    <form asp-controller="Country" asp-action="TransferLand" asp-route-player="@player" asp-route-country="@Model.Country">
+        <section>
+            <p class="lhst_card_properties">
+                <label for="countryruler">Current ruler: @Model.Ruler.UserName</label>
+            </p>
+            <p class="lhst_card_properties">
+                New ruler
+                <select name="countryruler" class="lhst_dialog_select_input">
+
+
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <option class="lhst_option">@Model.Ruler.UserName</option>
+                    }
+                </select>
+
+
+            </p>
+        </section>
+        <menu class="text-center pl-0">
+            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+        </menu>
+    </form>
+</div>
+
+<div class="lhst_dialog modal" id="declaringWarCountryDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideDeclaringWarCountryDialog()">x</button>
+    </div>
+    <form asp-controller="Country" asp-action="TransferLand" asp-route-player="@player" asp-route-country="@Model.Country">
+        <section>
+            <p class="lhst_card_properties">
+                <label for="declarewar">Declare war</label>
+            </p>
+            <p class="lhst_card_properties">
+                Choose Your Land
+                <select name="declarewar" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < Model.Lands.Count; i++)
+                    {
+                        <option class="lhst_option">@Model.Lands[i].LandId</option>
+                    }
+                </select>
+
+            </p>
+            <p class="lhst_card_properties">
+                Choose Enemy Country
+                <select name="selectEnemyCountry" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < 5; i++)
+                    {
+                        <option class="lhst_option">@*@Model.CurrentLand*@</option>
+                    }
+                </select>
+
+            </p>
+
+            <p class="lhst_card_properties">
+                Choose Enemy Land
+                <select name="selectEnemyLand" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < 3; i++)
+                    {
+                        <option class="lhst_option">@*@Model.CurrentLand*@</option>
+                    }
+                </select>
+
+            </p>
+        </section>
+        <menu class="text-center pl-0">
+            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+        </menu>
+    </form>
+</div>
+
+<div class="lhst_dialog modal" id="disbandingCountryDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideDisbandingCountryDialog()">x</button>
+    </div>
+    <form method="dialog">
+        <section>
+            <p class="lhst_card_properties">
+                <label for="disband">Your country: @Model.Country.Name</label>
+
+            </p>
+            <p class="lhst_card_properties">
+                You sure?
+            </p>
+        </section>
+        <menu class="text-center pl-0">
+             <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+        </menu>
+    </form>
 </div>
