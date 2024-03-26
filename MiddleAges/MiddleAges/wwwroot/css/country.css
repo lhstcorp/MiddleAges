@@ -109,7 +109,8 @@
 }
 
 .lhst_country_scale:hover {
-    transform: scale(1.05)}
+    transform: scale(1.05)
+}
 
 .lhst_king_nav-avatar-img {
     height: 50px;
@@ -119,5 +120,5 @@
     border-color: black !important;
     border-radius: 7px;
     vertical-align: top;
-}
+}
 
