@@ -33,7 +33,7 @@ function fillLandSideBar(id) {
             $('#selected_land_name').text(obj.LandId);
 
             let url = '../img/map-regions-icons-middle-ages/';
-            $('#selected_land_coat_of_arms').attr('src', url + obj.LandId + '.jfif');
+            $('#selected_land_coat_of_arms').attr('src', url + obj.LandId + '.png');
         }
         else {
             $('#selected_land_name').text('');
