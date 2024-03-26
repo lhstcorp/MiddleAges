@@ -95,8 +95,12 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Rename(Player player, Country country)
+        public async Task<IActionResult> Rename(string newName)
         {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+
             if (player.Id == country.RulerId)
             {
                 Law law = new Law();
@@ -104,9 +108,11 @@ namespace MiddleAges.Controllers
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;
                 law.Type = (int)LawType.Renaming;
-                law.PublishingDateTime = DateTime.UtcNow;
-
+                law.PublishingDateTime = DateTime.UtcNow; 
                 _context.Update(law);
+
+                country.Name = newName;
+                _context.Update(country);
 
                 await _context.SaveChangesAsync();
             }

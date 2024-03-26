@@ -167,14 +167,14 @@
     <div class="text-right">
     <button class="lhst_btn_dialog_cancel" onclick="hideRenamingCountryDialog()">x</button>
     </div>
-    <form asp-controller="Country" asp-action="Rename" asp-route-player="@player" asp-route-country="@Model.Country">
+    <form asp-controller="Country" asp-action="Rename">
         <section>
             <p class="lhst_card_properties">
                 <label for="curLand">Current name: @Model.Country.Name</label>
             </p>
             <p class="lhst_card_properties">
                 New name
-                <input name="curLand" class="lhst_dialog_rename_input" type="text" />
+                <input name="newName" class="lhst_dialog_rename_input" type="text" />
             </p>
         </section>
         <div class="text-center pl-0">
