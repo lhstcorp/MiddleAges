@@ -88,8 +88,39 @@ namespace MiddleAges.Models
 
             return buildingPrice;
         }
-                       
 
+        public static string getLawNameByType(int _lawType)
+        {
+            string lawType = "";
+
+            switch (_lawType)
+            {
+                case 1:
+                    lawType = " was renamed ";
+                    break;
+                case 2:
+                    lawType = " changed color to ";
+                    break;
+                case 3:
+                    lawType = " changed capital to ";
+                    break;
+                case 4:
+                    lawType = " transfered the land to";
+                    break;
+                case 5:
+                    lawType = " changed ruler to ";
+                    break;
+                case 6:
+                    lawType = " declared war on";
+                    break;
+                case 7:
+                    lawType = " disbanded";
+                    break;
+            }
+
+            return lawType;
+        }
+        
         public static string getRandomMapLandId()
         {
             List<string> landIds = new List<string>();

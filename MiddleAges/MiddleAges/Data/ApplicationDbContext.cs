@@ -75,5 +75,6 @@ namespace MiddleAges.Data
         public DbSet<Country> Countries { get; set; }
 
         public DbSet<BorderLand> BorderLands { get; set; }
+        public DbSet<Law> Laws { get; set; }
     }
 }

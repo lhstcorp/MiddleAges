@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
+using MiddleAges.Migrations;
 using MiddleAges.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -44,13 +45,16 @@ namespace MiddleAges.Controllers
 
                 List<Player> otherRulers = await _context.Players.Where(p => p.Id != country.RulerId).ToListAsync();
 
+                List<Law> laws = await _context.Laws.Where(z => z.CountryId == country.CountryId).ToListAsync();
+
                 var countryInfoViewModel = new CountryInfoViewModel
                 {
                     Country = country,
                     Lands = countryLands,
                     Ruler = country.Ruler,
                     OtherCountries = otherCountries,
-                    OtherRulers = otherRulers
+                    OtherRulers = otherRulers,
+                    Laws = laws
                 };
 
                 return View("Country", countryInfoViewModel);
@@ -119,5 +123,111 @@ namespace MiddleAges.Controllers
 
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Recolor(string newColor)
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+
+            if (player.Id == country.RulerId)
+            {
+                Law law = new Law();
+
+                law.CountryId = country.CountryId;
+                law.PlayerId = player.Id;
+                law.Type = (int)LawType.Recoloring;
+                law.PublishingDateTime = DateTime.UtcNow;
+                _context.Update(law);
+
+                country.Color = newColor;
+                _context.Update(country);
+
+                await _context.SaveChangesAsync();
+            }
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> ChangeCapital(string newcapital)
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+
+            if (player.Id == country.RulerId)
+            {
+                Law law = new Law();
+
+                law.CountryId = country.CountryId;
+                law.PlayerId = player.Id;
+                law.Type = (int)LawType.ChangingCapital;
+                law.PublishingDateTime = DateTime.UtcNow;
+                _context.Update(law);
+
+                country.CapitalId = newcapital;
+                _context.Update(country);
+
+                await _context.SaveChangesAsync();
+            }
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> TransferLand(string transferLand)
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+
+            if (player.Id == country.RulerId)
+            {
+                Law law = new Law();
+
+                law.CountryId = country.CountryId;
+                law.PlayerId = player.Id;
+                law.Type = (int)LawType.TransferingLand;
+                law.PublishingDateTime = DateTime.UtcNow;
+                _context.Update(law);
+
+                country.CapitalId = transferLand;
+                _context.Update(country);
+
+                await _context.SaveChangesAsync();
+            }
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangeRuler(string newruler)
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+
+            if (player.Id == country.RulerId)
+            {
+                Law law = new Law();
+
+                law.CountryId = country.CountryId;
+                law.PlayerId = player.Id;
+                law.Type = (int)LawType.ChangingRuler;
+                law.PublishingDateTime = DateTime.UtcNow;
+                _context.Update(law);
+
+                country.RulerId = newruler;
+                _context.Update(country);
+
+                await _context.SaveChangesAsync();
+            }
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
     }
 }

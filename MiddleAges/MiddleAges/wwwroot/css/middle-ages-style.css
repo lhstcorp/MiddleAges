@@ -45,37 +45,37 @@
 }
 
 .header-menu.rename-btn {
-    background-image: url("../img/menu-icons/rename.jfif");
+    background-image: url("../img/menu-icons/1.jfif");
     background-size: 100%;
 }
 
 .header-menu.color-btn {
-    background-image: url("../img/menu-icons/color.jfif");
+    background-image: url("../img/menu-icons/2.jfif");
     background-size: 100%;
 }
 
 .header-menu.capital-btn {
-    background-image: url("../img/menu-icons/capital.jfif");
+    background-image: url("../img/menu-icons/3.jfif");
     background-size: 100%;
 }
 
 .header-menu.transfer-btn {
-    background-image: url("../img/menu-icons/transfer.jfif");
+    background-image: url("../img/menu-icons/4.jfif");
     background-size: 100%;
 }
 
 .header-menu.ruler-btn {
-    background-image: url("../img/menu-icons/ruler.jfif");
+    background-image: url("../img/menu-icons/5.jfif");
     background-size: 100%;
 }
 
 .header-menu.war-btn {
-    background-image: url("../img/menu-icons/war.jfif");
+    background-image: url("../img/menu-icons/6.jfif");
     background-size: 100%;
 }
 
 .header-menu.disband-btn {
-    background-image: url("../img/menu-icons/disband.jfif");
+    background-image: url("../img/menu-icons/7.jfif");
     background-size: 100%;
 }
 
