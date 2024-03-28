@@ -45,7 +45,7 @@ namespace MiddleAges.Controllers
 
                 List<Player> otherRulers = await _context.Players.Where(p => p.Id != country.RulerId).ToListAsync();
 
-                List<Law> laws = await _context.Laws.Where(z => z.CountryId == country.CountryId).ToListAsync();
+                List<Law> laws = await _context.Laws.Where(l => l.CountryId == country.CountryId).ToListAsync();
 
                 var countryInfoViewModel = new CountryInfoViewModel
                 {
