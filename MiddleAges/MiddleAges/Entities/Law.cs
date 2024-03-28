@@ -14,7 +14,8 @@ namespace MiddleAges.Entities
         public int Type { get; set; }
         public string PlayerId { get; set; }
         public DateTime PublishingDateTime { get; set; }
-        public string NewValue { get; set; }
+        public string Value1 { get; set; }
+        public string Value2 { get; set; }
         public Country Country { get; set; }
         public Player Player { get; set; }
     }
