@@ -1,4 +1,39 @@
-﻿.lhst_country_div {
+﻿.header-menu.rename-btn {
+    background-image: url("../img/menu-icons/Renaming.jfif");
+    background-size: 100%;
+}
+
+.header-menu.color-btn {
+    background-image: url("../img/menu-icons/Recoloring.jfif");
+    background-size: 100%;
+}
+
+.header-menu.capital-btn {
+    background-image: url("../img/menu-icons/ChangingCapital.jfif");
+    background-size: 100%;
+}
+
+.header-menu.transfer-btn {
+    background-image: url("../img/menu-icons/TransferingLand.jfif");
+    background-size: 100%;
+}
+
+.header-menu.ruler-btn {
+    background-image: url("../img/menu-icons/ChangingRuler.jfif");
+    background-size: 100%;
+}
+
+.header-menu.war-btn {
+    background-image: url("../img/menu-icons/DeclaringWar.jfif");
+    background-size: 100%;
+}
+
+.header-menu.disband-btn {
+    background-image: url("../img/menu-icons/Disbanding.jfif");
+    background-size: 100%;
+}
+
+.lhst_country_div {
     text-align: center;
     /*height: 620px;*/
     width: 370px;

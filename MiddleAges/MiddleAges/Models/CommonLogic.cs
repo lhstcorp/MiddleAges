@@ -75,9 +75,7 @@ namespace MiddleAges.Models
         }
 
         public static int getBuildingPrice(int buildingType)
-        {
-
-           
+        {           
             int buildingPrice = buildingType switch
             {
                 (int)BuildingType.Estate => (int)BuildingPrice.Estate,
@@ -89,38 +87,40 @@ namespace MiddleAges.Models
             return buildingPrice;
         }
 
-        public static string getLawNameByType(int _lawType)
+        public static string getLawDescriptionByType(int lawType)
         {
-            string lawType = "";
-
-            switch (_lawType)
+            string lawDescription = lawType switch
             {
-                case 1:
-                    lawType = " was renamed ";
-                    break;
-                case 2:
-                    lawType = " changed color to ";
-                    break;
-                case 3:
-                    lawType = " changed capital to ";
-                    break;
-                case 4:
-                    lawType = " transfered the land to";
-                    break;
-                case 5:
-                    lawType = " changed ruler to ";
-                    break;
-                case 6:
-                    lawType = " declared war on";
-                    break;
-                case 7:
-                    lawType = " disbanded";
-                    break;
-            }
+                (int)LawType.Renaming => " was renamed ",
+                (int)LawType.Recoloring => " changed color to ",
+                (int)LawType.ChangingCapital => " changed capital to ",
+                (int)LawType.TransferingLand => " transfered the land to",
+                (int)LawType.ChangingRuler => " changed ruler to ",
+                (int)LawType.DeclaringWar => " declared war on",
+                (int)LawType.Disbanding => " disbanded",
+                _ => ""
+            };
 
-            return lawType;
+            return lawDescription;
         }
-        
+
+        public static string getLawNameByType(int lawType)
+        {
+            string lawName = lawType switch
+            {
+                (int)LawType.Renaming => "Renaming",
+                (int)LawType.Recoloring => "Recoloring",
+                (int)LawType.ChangingCapital => "ChangingCapital",
+                (int)LawType.TransferingLand => "TransferingLand",
+                (int)LawType.ChangingRuler => "ChangingRuler",
+                (int)LawType.DeclaringWar => "DeclaringWar",
+                (int)LawType.Disbanding => "Disbanding",
+                _ => ""
+            };
+
+            return lawName;
+        }
+
         public static string getRandomMapLandId()
         {
             List<string> landIds = new List<string>();
