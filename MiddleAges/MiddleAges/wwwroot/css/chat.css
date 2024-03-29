@@ -1,6 +1,6 @@
 .lhst_chat_div {
     text-align: center;
-    height: calc(100vh - 212px);
+    max-height: calc(100vh - 212px);
     /*width: 370px;*/
     padding: 10px;
     background-color: #232323;
@@ -22,7 +22,7 @@
 }
 
 .lhst_chat_text{
-    width:200px;
+    width:150px;
     font-weight:lighter;
 }
 

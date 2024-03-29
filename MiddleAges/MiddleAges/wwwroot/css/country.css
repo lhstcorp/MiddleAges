@@ -54,20 +54,19 @@
     margin-bottom: 10px;
 }
 
-.country_ruler_width{
-    width:370px;
+.country_ruler_width {
+    width: 370px;
 }
 
-.lhst_country_king_size{
-    font-size:20px;
-    font-weight:700;
-    align-self:end;
+.lhst_country_king_size {
+    font-size: 20px;
+    font-weight: 700;
+    align-self: end;
 }
 
-.lhst_country_line{
-    width:350px;
-    height:1px;
-    background-color:wheat;
+.lhst_country_line {
+    height: 1px;
+    background-color: wheat;
 }
 
 .lhst_country_history_line {
@@ -77,16 +76,13 @@
 }
 
 .lhst_country_history_comment {
-    
     height: 50px;
-    align-items:center;
-    
+    align-items: center;
 }
 
 .country_nav-avatar-img {
     height: 60px;
-  
-   /* border-style: solid !important;
+    /* border-style: solid !important;
     border-width: 1px !important;
     border-color: black !important;
     border-radius: 7px;
@@ -97,16 +93,17 @@
     display: inline-block;
     font-size: 14px;
     color: antiquewhite;
-    margin-left: 5px;
     align-self: center;
 }
+
 .country_bottom_text_width {
     width: 120px;
 }
+
 .lhst_country_buttons_div {
     text-align: center;
     /*height: 100px;*/
-   /* width: 1050px;*/
+    /* width: 1050px;*/
     margin-top: 10px;
     margin-left: 10px;
     padding: 5px;
@@ -130,13 +127,13 @@
     color: wheat;
 }
 
-.lhst_country_history_img{
-    border-radius:10px
+.lhst_country_history_img {
+    border-radius: 10px
 }
 
-.lhst_country_history_text{
-    width:300px;
-    margin:0px 0px 0px 10px;
+.lhst_country_history_text {
+   /* width: 300px;*/
+    margin: 0px 0px 0px 10px;
 }
 
 .lhst_country_scale {
@@ -144,17 +141,16 @@
     display: block;
 }
 
-.lhst_country_scale:hover {
-    transform: scale(1.05)
-}
+    .lhst_country_scale:hover {
+        transform: scale(1.05)
+    }
 
 .lhst_king_nav-avatar-img {
-    height: 50px;
-    width: 50px;
+    height: 80px;
+    width: 80px;
     border-style: solid !important;
     border-width: 1px !important;
     border-color: black !important;
     border-radius: 7px;
     vertical-align: top;
 }
-
