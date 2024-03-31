@@ -86,7 +86,7 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
-                Player player = new Player { UserName = Input.UserName, Email = Input.Email, Exp = 0, Lvl = 1, Money = 1000, CurrentLand = CommonLogic.getRandomMapLandId(), RecruitAmount = 100 };
+                Player player = new Player { UserName = Input.UserName, Email = Input.Email, Exp = 0, Lvl = 1, Money = 1000, ImageURL = new Random().Next(1, 15).ToString(), CurrentLand = CommonLogic.getRandomMapLandId(), RecruitAmount = 100 };
                 var result = await _userManager.CreateAsync(player, Input.Password);
                 if (result.Succeeded)
                 {
