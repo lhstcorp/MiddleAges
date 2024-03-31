@@ -12,5 +12,6 @@ namespace MiddleAges.ViewModels
         public List<Country> OtherCountries { get; set; }
         public List<Player> OtherRulers { get; set; }
         public List<Law> Laws { get; set; }
+        public List<Land> LandsToTranfer { get; set; }        
     }
 }

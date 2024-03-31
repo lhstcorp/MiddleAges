@@ -10,7 +10,7 @@
 
     Player player = await UserManager.GetUserAsync(User);
     List<Law> lawsOrderByTime = new List<Law>();
-    lawsOrderByTime = @Model.Laws.OrderByDescending(z => z.PublishingDateTime).ToList();
+    lawsOrderByTime = Model.Laws.OrderByDescending(z => z.PublishingDateTime).ToList();    
 }
 
 <div class="d-flex ">
@@ -66,7 +66,7 @@
             <div class="d-inline-block float-left">
                 @for (int i = 0; i < Model.Lands.Count; i++)
                 {
-                    <img id="player_avatar" class="country_nav-avatar-img mr-2 mb-2" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" />
+                    <img id="player_avatar" class="country_nav-avatar-img mb-2" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" />
                 }
             </div>
 
@@ -246,16 +246,16 @@
             <p class="lhst_card_properties">
                 Choose Land
                 <select name="transferLand" class="lhst_dialog_select_input">
-                    @for (int i = 0; i < Model.Lands.Count; i++)
+                    @for (int i = 0; i < Model.LandsToTranfer.Count; i++)
                     {
-                        <option class="lhst_option">@Model.Lands[i].LandId</option>
+                        <option class="lhst_option">@Model.LandsToTranfer[i].LandId</option>
                     }
                 </select>
 
             </p>
             <p class="lhst_card_properties">
                 Choose Country
-                <select name="selectCountry" class="lhst_dialog_select_input">
+                <select name="toCountry" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.OtherCountries.Count(); i++)
                     {
                         <option class="lhst_option">@Model.OtherCountries[i].Name</option>
@@ -278,20 +278,17 @@
     <form asp-controller="Country" asp-action="ChangeRuler">
         <section>
             <p class="lhst_card_properties">
-                <label for="newruler">Current ruler: @Model.Ruler.UserName</label>
+                <label for="newRulerName">Current ruler: @Model.Ruler.UserName</label>
             </p>
             <p class="lhst_card_properties">
                 New ruler
-                <select name="newruler" class="lhst_dialog_select_input">
+                <select name="newRulerName" class="lhst_dialog_select_input">
 
-
-                    @for (int i = 0; i < 4; i++)
+                    @for (int i = 0; i < Model.OtherRulers.Count(); i++)
                     {
-                        <option class="lhst_option">@Model.Ruler.UserName</option>
+                        <option class="lhst_option">@Model.OtherRulers[i]</option>
                     }
                 </select>
-
-
             </p>
         </section>
         <menu class="text-center pl-0">
@@ -358,7 +355,7 @@
 
             </p>
             <p class="lhst_card_properties">
-                You sure?
+                Are you sure to disband the country?
             </p>
         </section>
         <menu class="text-center pl-0">
