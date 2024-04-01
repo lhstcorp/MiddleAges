@@ -19,7 +19,7 @@
             <path id="BE-VWV" title="West Flanders" class="land" d="M160.4,42.39L162.91,71.35L162.91,71.35L158.77,96.98L168.63,106.66L153.21,125.68L175.56,141.61L169.26,169.48L178.32,173.76L169.64,185.61L181.78,187.82L176.73,197.02L190.13,216.09L178.07,227.85L178.07,227.85L158.63,245.6L148.13,231.56L123.13,231.37L123.13,231.37L117.84,220.98L92.42,226.07L92.42,226.07L88.8,214.56L76.41,219.75L81.02,225.82L57.85,233.06L61.92,246.39L61.92,246.39L47.74,240.45L34.84,214.74L17.8,214.1L10.85,202.67L9.05,181.12L17.14,172.59L0,128.86L124.26,53.82L124.77,43.66L127.12,54.29L127.18,43.41L132.98,50.62z" />
         </svg>*@
 
-    <div class="lhst_left-side-bar lhst_vertical-alignment-top">
+    <div class="lhst_left-side-bar lhst_slider_small_screen lhst_vertical-alignment-top">
         <div class="lhst_left_side_bar_land_content row justify-content-md-center">
             <div class="col lhst_map_region_icon_left_bar_col">
                 <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/Hrodna.png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" />
@@ -59,11 +59,15 @@
     </div>
 
     <div class="lhst_map-container lhst_vertical-alignment-top lhst_main-section" id="belarus-map">
-        <svg class="lhst_svg-map" viewBox="0 0 1000 890" id="lhst_svg_map">
+        <svg class="lhst_svg-map over" viewBox="0 0 1000 890" id="lhst_svg_map">
 
-            <g id="global_region_map">
+            <g id="global_region_map" class="overflow-hidden">
+                
                 <g id="hrodnenskaia-voblasts-subregions" class="lhst_scale">
-                    <polygon id="Hrodna" class="map_land" fill="" points="75,265 65,265 60,270 60,275 55,280 45,280 40,285 40,280 35,275 35,265 30,260 30,240 25,235 25,225 30,225 35,230 45,230 50,225 60,225 65,230 75,230"></polygon>
+                    
+                    <polygon id="Hrodna" class="map_land" fill="" points="75,265 65,265 60,270 60,275 55,280 45,280 40,285 40,280 35,275 35,265 30,260 30,240 25,235 25,225 30,225 35,230 45,230 50,225 60,225 65,230 75,230">
+                       @*  <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/Hrodna.png" class="lhst_map_emblem_img" alt="map region coat of arms" /> *@
+                    </polygon>
                     <polygon id="Bierastavica" class="map_land" fill="" points="40,285 40,290 45,295 45,310 50,315 60,305 60,285 55,280 45,280"></polygon>
                     <polygon id="Masty" class="map_land" points="60,285 65,285 70,280 75,280 85,290 85,295 100,295 105,290 110,295 115,290 110,285 110,275 105,270 100,275 90,265 85,270 80,270 75,265 65,265 60,270 60,275 55,280"></polygon>
                     <polygon id="Vaukavysk" class="map_land" points="85,300 90,305 90,310 95,315 95,320 90,325 75,310 65,310 60,305 60,285 65,285 70,280 75,280 85,290"></polygon>
@@ -80,6 +84,7 @@
                     <polygon id="Ashmjany" class="map_land" points="170,205 175,200 175,170 160,170 155,165 150,165 145,170 145,180 140,185 145,190 150,190 155,195 155,200 160,200 165,205"></polygon>
                     <polygon id="Smargon" class="map_land" points="175,200 185,200 195,190 195,185 200,180 200,175 205,170 205,160 200,160 195,155 195,150 190,145 185,145 180,150 180,155 185,160 180,165 175,165 175,170"></polygon>
                     <polygon id="Astravets" class="map_land" points="185,145 185,135 175,125 170,130 160,130 155,135 155,140 150,145 150,165 155,165 160,170 175,170 175,165 180,165 185,160 180,155 180,150"></polygon>
+                    
                 </g>
 
                 <g id="vitsebskaia-voblasts-subregions" class="lhst_scale">
@@ -196,10 +201,13 @@
                     <polygon id="Malaryta" class="map_land" points="40,445 45,445 50,450 50,455 55,455 60,450 75,435 75,420 80,415 75,410 65,410 60,410 55,410 50,415 50,420 45,425 45,430 40,435"></polygon>
                     <polygon id="Kobryn" class="map_land" points="75,420 95,420 100,415 100,410 95,405 95,380 100,380 95,375 95,370 90,370 85,375 80,370 75,370 70,375 60,375 60,385 65,390 65,395 70,400 65,405 65,410 75,410 80,415"></polygon>
                     <polygon id="Drahichyn" class="map_land" points="95,420 110,420 115,415 125,415 125,405 130,400 130,390 135,385 130,380 130,375 115,375 110,380 100,380 95,380 95,405 100,410 100,415"></polygon>
+                    
                 </g>
-
+                <div class="lhst_map_bg_img">
+                    <img src="~/img/menu-icons/belarus_map.png" />
+                </div>
             </g>
-
+            
             @*<g id="regions" class="hidden">
 
                     <polygon id="hrodnenskaia-voblasts" points="200,160 195,155 195,150 190,145 185,145 185,135 175,125 170,130 160,130 155,135 155,140 150,145 150,165 145,170 145,180 140,185 145,190 150,190 155,195 155,200 155,205 150,205 145,210 140,210 134.7,205 140,200 140,195 135,190 130,195 125,195 115,205 105,205 100,210 100,220 95,225 90,220 85,225 80,225 75,230 65,230 60,225 50,225 45,230 35,230 30,225 25,225 25,235 30,240 30,260 35,265 35,275 40,280 40,285 40,290 45,295 45,310 50,315 50,340 55,340 60,335 65,340 75,340 80,345 85,340 85,330 90,325 95,320 105,320 105,325 110,330 125,330 125,325 130,320 135,320 140,315 140,295 145,290 145,285 150,280 160,280 175,280 180,285 185,285 190,280 195,280 195,260 190,255 185,255 185,250 180,245 180,240 180,235 190,225 190,220 185,220 185,215 175,215 175,210 170,210 170,205 175,200 185,200 195,190 195,185 200,180 200,175 205,170 205,160"></polygon>
@@ -230,7 +238,7 @@
                 </g>*@
 
             @*<circle id="horad-minsk" cx="253" cy="231" r="8"></circle>*@
-            </g>
+           
         </svg>
     </div>
 

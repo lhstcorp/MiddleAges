@@ -45,6 +45,7 @@
     border-width: 2px;
     border-color: wheat;
     color: wheat;
+    min-width:370px;
 }
 
 .lhst_country_img {
@@ -78,6 +79,7 @@
 .lhst_country_history_comment {
     height: 50px;
     align-items: center;
+    display:ruby-text;
 }
 
 .country_nav-avatar-img {
@@ -116,7 +118,7 @@
 
 .lhst_country_history_div {
     text-align: left;
-    height: 430px;
+    height: 490px;
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
@@ -153,4 +155,59 @@
     border-color: black !important;
     border-radius: 7px;
     vertical-align: top;
+}
+
+.lhst_slider_small_screen {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    --scrollbar-color-thumb: #232323;
+    --scrollbar-color-track: #393939;
+    --scrollbar-width: thin;
+    --scrollbar-width-legacy: 15px;
+}
+
+/* Modern browsers with `scrollbar-*` support */
+@supports (scrollbar-width: auto) {
+    .lhst_slider_small_screen {
+        scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+        scrollbar-width: var(--scrollbar-width);
+    }
+}
+
+/* Legacy browsers with `::-webkit-scrollbar-*` support */
+@supports selector(::-webkit-scrollbar) {
+    .lhst_slider_small_screen::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb);
+    }
+
+    .lhst_slider_small_screen::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track);
+    }
+
+    .lhst_slider_small_screen::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy);
+    }
+}
+
+.lhst_slider_small_screen::-webkit-scrollbar-thumb {
+    background: transparent;
+}
+
+.lhst_slider_small_screen::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.lhst_slider_small_screen:hover::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color-thumb);
+}
+
+.lhst_slider_small_screen:hover::-webkit-scrollbar-track {
+    background: var(--scrollbar-color-track);
+}
+
+.lhst_slider_small_screen:hover {
+    --fix:; /* This custom property invalidates styles on hover, thereby enforcing a style recomputation. This is needed to work around a bug in Safari. */
 }
