@@ -41,11 +41,14 @@ namespace MiddleAges.Controllers
             {
                 List<Land> countryLands = await _context.Lands.Where(l => l.CountryId == country.CountryId).ToListAsync();
 
-                List<Country> otherCountries = await _context.Countries.Where(c => c.CountryId != country.CountryId).ToListAsync();
+                List<Country> otherCountries = await _context.Countries.Where(c => c.CountryId != country.CountryId && c.Name != "Independent lands").ToListAsync();
 
-                List<Player> otherRulers = await _context.Players.Where(p => p.Id != country.RulerId).ToListAsync();
+                List<Player> otherRulers = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).Where(p => p.Id != country.RulerId && p.Land.CountryId == country.CountryId).ToListAsync();
 
                 List<Law> laws = await _context.Laws.Where(l => l.CountryId == country.CountryId).ToListAsync();
+
+
+                List<Land> landsToTranfer = await _context.Lands.Where(l => l.CountryId == country.CountryId && l.LandId != country.CapitalId).ToListAsync();
 
                 var countryInfoViewModel = new CountryInfoViewModel
                 {
@@ -54,7 +57,8 @@ namespace MiddleAges.Controllers
                     Ruler = country.Ruler,
                     OtherCountries = otherCountries,
                     OtherRulers = otherRulers,
-                    Laws = laws
+                    Laws = laws,
+                    LandsToTranfer = landsToTranfer
                 };
 
                 return View("Country", countryInfoViewModel);
@@ -65,8 +69,11 @@ namespace MiddleAges.Controllers
         public async Task<IActionResult> FoundState(string playerId, string countryname, string countrycolor)
         {
             Player player = _context.Players.FirstOrDefault(k => k.Id == playerId);
+            Country existedCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Name == countryname);
 
-            if (player?.Money >= 10000)
+            if (player?.Money               >= 10000
+             && existedCountry              == null
+             && countryname                 != "IndependentLands")
             {
                 player.Money -= 10000;
 
@@ -178,7 +185,7 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> TransferLand(string transferLand)
+        public async Task<IActionResult> TransferLand(string transferLand, string toCountry)
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
@@ -186,25 +193,32 @@ namespace MiddleAges.Controllers
 
             if (player.Id == country.RulerId)
             {
-                Law law = new Law();
+                Land selectedTransferLand = await _context.Lands.FirstOrDefaultAsync(l => l.LandId == transferLand);
+                Country selectedCountryTo = await _context.Countries.FirstOrDefaultAsync(c => c.Name == toCountry);
 
-                law.CountryId = country.CountryId;
-                law.PlayerId = player.Id;
-                law.Type = (int)LawType.TransferingLand;
-                law.PublishingDateTime = DateTime.UtcNow;
-                _context.Update(law);
+                if (selectedTransferLand.LandId != ""
+                 && selectedCountryTo.CountryId != Guid.Empty)
+                { 
+                    Law law = new Law();
 
-                country.CapitalId = transferLand;
-                _context.Update(country);
+                    law.CountryId = country.CountryId;
+                    law.PlayerId = player.Id;
+                    law.Type = (int)LawType.TransferingLand;
+                    law.PublishingDateTime = DateTime.UtcNow;
+                    _context.Update(law);
 
-                await _context.SaveChangesAsync();
+                    selectedTransferLand.CountryId = selectedCountryTo.CountryId;
+                    _context.Update(selectedTransferLand);
+
+                    await _context.SaveChangesAsync();
+                }
             }
 
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
         }
 
         [HttpPost]
-        public async Task<IActionResult> ChangeRuler(string newruler)
+        public async Task<IActionResult> ChangeRuler(string newRulerName)
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
@@ -212,16 +226,54 @@ namespace MiddleAges.Controllers
 
             if (player.Id == country.RulerId)
             {
+                Player newRuler = await _context.Players.FirstOrDefaultAsync(p => p.UserName == newRulerName);
+
+                if (newRuler.Id != "")
+                {
+                    Law law = new Law();
+
+                    law.CountryId = country.CountryId;
+                    law.PlayerId = player.Id;
+                    law.Type = (int)LawType.ChangingRuler;
+                    law.PublishingDateTime = DateTime.UtcNow;
+                    _context.Update(law);
+
+                    country.RulerId = newRuler.Id;
+                    _context.Update(country);
+
+                    await _context.SaveChangesAsync();
+                }
+            }
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DisbandCountry()
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+            Country independentCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Name == "Independent lands");
+            List<Land> countryLands = await _context.Lands.Where(l => l.CountryId == country.CountryId).ToListAsync();
+
+            if (player.Id == country.RulerId)
+            {
                 Law law = new Law();
 
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;
-                law.Type = (int)LawType.ChangingRuler;
+                law.Type = (int)LawType.Disbanding;
                 law.PublishingDateTime = DateTime.UtcNow;
                 _context.Update(law);
 
-                country.RulerId = newruler;
-                _context.Update(country);
+                for (int i = 0; i < countryLands.Count; i++)
+                {
+                    countryLands[i].CountryId = independentCountry.CountryId;
+                    _context.Update(countryLands[i]);
+                }
+
+                _context.Remove(country);
 
                 await _context.SaveChangesAsync();
             }
