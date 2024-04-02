@@ -1,22 +1,23 @@
-﻿@model MiddleAges.Entities.Player
+﻿@using MiddleAges.Entities;
+@model List<MiddleAges.Entities.ChatMessage>
 
 <div class="lhst_chat_but_marg d-flex">
     <button id="showChatBtn" onclick="showPopup()" class="lhst_but_open_chat lhst_btn_unit_recruit align-bottom lhst_nav lhst_display_grid">&#8743; &emsp; &#8743;</button>
     <button id="hideChatBtn" onclick="hidePopup()" class="lhst_but_open_chat lhst_btn_unit_recruit align-bottom lhst_nav lhst_display_grid">&#8744; &emsp; &#8744;</button>
     <div id="okno" class="lhst_chat_div float-right align-bottom lhst_nav lhst_display_grid">
 
-     @*    <button onclick="hidePopup()">Chat2</button> *@
+        @*    <button onclick="hidePopup()">Chat2</button> *@
         <div class="lhst_chat_height lhst_slider">
-            @for (int i=0;i<35;i++)
+            @for (int i = 0; i < Model.Count; i++)
             {
                 <div class="align-items-center text-left!important d-inline-flex">
-                    <img class="lhst_country_history_img" id="country_history_img" height="32" src="~/img/avatars/@(Model.ImageURL).jfif" alt="">
+                    <img class="lhst_country_history_img" id="country_history_img" height="32" src="~/img/avatars/@(Model[i].Player.ImageURL).jfif" alt="">
                     <div class="lhst_display_grid float-left">
-                    <p class="lhst_country_history_text text-left lhst_username_text">@Model.UserName</p>
-                    <p class="lhst_country_history_text text-left lhst_chat_text">я сходил покакать. вчера пацаны ебашил столько в мидл эйджес, пальцы отсохли</p>
+                        <p class="lhst_country_history_text text-left lhst_username_text">@Model[i].Player.UserName</p>
+                        <p class="lhst_country_history_text text-left lhst_chat_text">@Model[i].MessageValue</p>
                     </div>
-            
-                    <time class="mr-2" datetime="T09:54">9:54</time>
+
+                    <time class="mr-2" datetime="T09:54">@Model[i].PublishingDateTime</time>
 
                 </div>
                 <div class="lhst_chat_line mb-1">
@@ -25,10 +26,12 @@
         </div>
 
         <div class="d-inline-flex">
-            <input name="chat" maxlength="100" class="lhst_chat_input" rows="2"/>
-            <input class="lhst_button_input" type="submit" value="&#10148;" />
+            <form asp-controller="Chat" asp-action="AddChatMessage">
+                <input name="messageValue" maxlength="100" class="lhst_chat_input" rows="2" />
+                <input class="lhst_button_input" type="submit" value="&#10148;" />
+            </form>
         </div>
-    
+
     </div>
 </div>
 

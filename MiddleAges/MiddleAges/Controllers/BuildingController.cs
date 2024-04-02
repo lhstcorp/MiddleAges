@@ -6,7 +6,6 @@ using MiddleAges.Entities;
 using System.Linq;
 using System.Threading.Tasks;
 using MiddleAges.Enums;
-using System.Drawing;
 
 namespace MiddleAges.Controllers
 {
