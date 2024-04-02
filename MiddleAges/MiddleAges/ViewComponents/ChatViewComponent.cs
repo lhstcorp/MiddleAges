@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +16,7 @@ namespace MiddleAges.ViewComponents
         private readonly ApplicationDbContext _context;
         private readonly UserManager<Player> _userManager;
         public ChatViewComponent(ApplicationDbContext context,
-                                              UserManager<Player> userManager)
+                                 UserManager<Player>  userManager)
         {
             _context = context;
             _userManager = userManager;
@@ -22,9 +24,9 @@ namespace MiddleAges.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
+            List<ChatMessage> chatMessages = await _context.ChatMessages.Include(p => p.Player).Where(m => m.ChatRoomType == (int)ChatRoomType.General).ToListAsync();
 
-            return View("Chat", player);
+            return View("Chat", chatMessages);
         }
     }
 }
