@@ -91,13 +91,13 @@ namespace MiddleAges.Models
         {
             string lawDescription = lawType switch
             {
-                (int)LawType.Renaming => " was renamed ",
-                (int)LawType.Recoloring => " changed color to ",
-                (int)LawType.ChangingCapital => " changed capital to ",
-                (int)LawType.TransferingLand => " transfered the land to",
-                (int)LawType.ChangingRuler => " changed ruler to ",
-                (int)LawType.DeclaringWar => " declared war on",
-                (int)LawType.Disbanding => " disbanded",
+                (int)LawType.Renaming => "Country was renamed from {0} to {1}",
+                (int)LawType.Recoloring => "Country changed color from {0} to {1} ",
+                (int)LawType.ChangingCapital => "Country changed capital from {0} to {1} ",
+                (int)LawType.TransferingLand => "Country transfered the land {0} to country {1} ",
+                (int)LawType.ChangingRuler => "The Ruler was changed from {0} to {1} ",
+                (int)LawType.DeclaringWar => "Country declared war on {0} ",
+                (int)LawType.Disbanding => "Country was disbanded",
                 _ => ""
             };
 

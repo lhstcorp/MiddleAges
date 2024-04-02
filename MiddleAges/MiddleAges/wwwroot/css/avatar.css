@@ -37,6 +37,7 @@
     width: 120px;
     display: inline-block;
     overflow: hidden;
+    
 }
 
 .lhst_avatar_main_image {
@@ -48,6 +49,7 @@
     width: 250px;
     display: inline-block;
     overflow: hidden;
+    
 }
 
 .lhst_avatar_independent_land_description_divs {
@@ -83,6 +85,7 @@
 
 .lhst_slider {
     overflow-y: scroll;
+    overflow-x:hidden;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
     --scrollbar-color-thumb: #232323;

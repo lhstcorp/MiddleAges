@@ -1,19 +1,27 @@
 .lhst_svg-map {
     position: fixed;
     width: 100%;
-  
 }
 
-#global_region_map{
+#global_region_map {
     cursor: pointer;
+    z-index:1200;
 }
 
 #global_region_map polygon {
     stroke-width: 1;
     stroke: #000;
     fill: #fff;
+    opacity:50%;
 }
+
 
 #global_region_map polygon:hover {
     filter: brightness(0.85);
 }
+
+#lhst_map_img {
+    z-index:1;
+}
+
+

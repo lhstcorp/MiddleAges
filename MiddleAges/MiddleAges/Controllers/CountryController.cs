@@ -119,7 +119,9 @@ namespace MiddleAges.Controllers
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;
                 law.Type = (int)LawType.Renaming;
-                law.PublishingDateTime = DateTime.UtcNow; 
+                law.PublishingDateTime = DateTime.UtcNow;
+                law.Value2 = country.Name;
+                law.Value1 = newName;
                 _context.Update(law);
 
                 country.Name = newName;
@@ -146,6 +148,8 @@ namespace MiddleAges.Controllers
                 law.PlayerId = player.Id;
                 law.Type = (int)LawType.Recoloring;
                 law.PublishingDateTime = DateTime.UtcNow;
+                law.Value2 = country.Color;
+                law.Value1 = newColor;
                 _context.Update(law);
 
                 country.Color = newColor;
@@ -173,6 +177,9 @@ namespace MiddleAges.Controllers
                 law.PlayerId = player.Id;
                 law.Type = (int)LawType.ChangingCapital;
                 law.PublishingDateTime = DateTime.UtcNow;
+                law.Value2 = country.CapitalId;
+                law.Value1 = newcapital;
+                
                 _context.Update(law);
 
                 country.CapitalId = newcapital;
@@ -205,6 +212,8 @@ namespace MiddleAges.Controllers
                     law.PlayerId = player.Id;
                     law.Type = (int)LawType.TransferingLand;
                     law.PublishingDateTime = DateTime.UtcNow;
+                    law.Value1 = transferLand;
+                    law.Value2 = toCountry;
                     _context.Update(law);
 
                     selectedTransferLand.CountryId = selectedCountryTo.CountryId;
@@ -236,6 +245,8 @@ namespace MiddleAges.Controllers
                     law.PlayerId = player.Id;
                     law.Type = (int)LawType.ChangingRuler;
                     law.PublishingDateTime = DateTime.UtcNow;
+                    law.Value2 = country.RulerId;
+                    law.Value1 = newRulerName;
                     _context.Update(law);
 
                     country.RulerId = newRuler.Id;
@@ -265,6 +276,7 @@ namespace MiddleAges.Controllers
                 law.PlayerId = player.Id;
                 law.Type = (int)LawType.Disbanding;
                 law.PublishingDateTime = DateTime.UtcNow;
+                
                 _context.Update(law);
 
                 for (int i = 0; i < countryLands.Count; i++)
