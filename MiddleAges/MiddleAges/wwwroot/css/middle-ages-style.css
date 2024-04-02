@@ -631,3 +631,8 @@ lhst_marquee {
     width:50px;
 }
 
+.lhst_background_image{
+    background-image:url(../img/menu-icons/backMap.jpg);
+    background-size:50%;
+    
+}

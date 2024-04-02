@@ -5,14 +5,14 @@
 
 #global_region_map {
     cursor: pointer;
-    
+    z-index:1200;
 }
 
 #global_region_map polygon {
     stroke-width: 1;
     stroke: #000;
     fill: #fff;
-    opacity:80%;
+    opacity:50%;
 }
 
 
@@ -20,12 +20,8 @@
     filter: brightness(0.85);
 }
 
-.lhst_map_bg_img{
-    overflow:hidden;
+#lhst_map_img {
+    z-index:1;
 }
 
-.lhst_map_emblem_img{
-    width:50px;
-    height:50px;
-    position:relative;
-}
+

@@ -45,7 +45,8 @@
     border-width: 2px;
     border-color: wheat;
     color: wheat;
-    min-width:370px;
+    min-width: 370px;
+    max-height: calc(100vh - 212px);
 }
 
 .lhst_country_img {
@@ -118,7 +119,7 @@
 
 .lhst_country_history_div {
     text-align: left;
-    height: 490px;
+   
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
@@ -127,6 +128,7 @@
     border-width: 2px;
     border-color: wheat;
     color: wheat;
+    max-height: calc(100vh - 294px);
 }
 
 .lhst_country_history_img {
