@@ -6,10 +6,7 @@
 }
 
 <body class="auth_background">
-
-
     <div class="auth_text_color text-center">
-
         <div class="d-inline-block auth_width text-center mt-5">
             <p class="auth_text_font ml-3">@ViewData["Title"]</p>
             <form id="account" method="post" class="text-center">
@@ -17,12 +14,10 @@
                 <hr />
                 <div asp-validation-summary="All" class="text-danger "></div>
                 <div class="form-group w-50 text-center d-inline-flex">
-                    @* <label asp-for="Input.Email"></label> *@
                     <input asp-for="Input.Email" class="auth_form-control " placeholder="EMAIL" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group w-50 text-center d-inline-flex">
-                    @* <label asp-for="Input.Password"></label> *@
                     <input asp-for="Input.Password" class="auth_form-control " placeholder="PASSWORD" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
@@ -39,7 +34,7 @@
                 </div> *@
                 <hr />
                 <div class="form-group d-inline-flex auth_div_width">
-                    <p class="auth_text_font_text  w-100">Don't have an account?</p>
+                    <p class="auth_text_font_text w-100">Don't have an account?</p>
                     <p class="w-100 ">
                         <a asp-page="./Register" class="auth_text_font_a " asp-route-returnUrl="@Model.ReturnUrl">Sign Up</a>
                     </p>
@@ -49,18 +44,14 @@
                     <p class="w-50">
                         <a id="forgot-password" class="auth_text_font_a " asp-page="./ForgotPassword">Forgot your password?</a>
                     </p>
-                   
                     @* <p class="w-50">
                         <a id="resend-confirmation" class="auth_text_font_a" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                     </p> *@
                 </div>
             </form>
-       
         </div>
         <div class="lhst_vertical-alignment-top float-right text-right">
-        
-            <img class="float-right text-right auth_height" src="~/img/interface-icons/register.jpg" />
-        
+            <img class="float-right text-right auth_height" src="~/img/interface-icons/register.jpg" alt="" loading="lazy"/>
         </div>
     @* <div class="col-md-6 col-md-offset-2">
         <section>

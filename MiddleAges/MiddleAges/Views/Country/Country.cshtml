@@ -17,34 +17,31 @@
     <div class="lhst_left-side-bar lhst_vertical-alignment-top ">
 
     </div>
-
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding d-inline-flex lhst_font_size">
         <div class="lhst_avatar_inline lhst_country_div align-top lhst_slider_small_screen">
             <p class="lhst_country_king_size" >@Model.Country.Name</p>
             <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/Hrodna.png" class="lhst_country_img" alt="map region coat of arms" />
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/Hrodna.png" class="lhst_country_img" alt="map region coat of arms" loading="lazy" />
             </div>
             <div class="d-inline-flex country_ruler_width align-content-center">
                 <div class="lhst_person-nav-container-inline mr-5">
-                    <img id="player_avatar" class="lhst_king_nav-avatar-img" src="~/img/avatars/@(Model.Ruler.ImageURL).jfif" alt="" />
+                    <img id="player_avatar" class="lhst_king_nav-avatar-img" src="~/img/avatars/@(Model.Ruler.ImageURL).jfif" alt="" loading="lazy" />
                 </div>
-
                 <p class="lhst_country_king_size ">King @Model.Ruler.UserName</p>
-
             </div>
             <p class="mt-2 text-left mb-1">People resources</p>
             <div class="lhst_country_line">
             </div>
             <div class="d-inline-flex float-left">
-                <img id="player_avatar" class="country_nav-avatar-img" src="~/img/default-icon/farmer.png" alt="" />
+                <img id="farmer_avatar" class="country_nav-avatar-img" src="~/img/default-icon/farmer.png" alt="" loading="lazy" />
                 <p class="lhst_country_info_region_value">
                     1234876
                 </p>
-                <img id="player_avatar" class="country_nav-avatar-img" src="~/img/default-icon/knight.png" alt="" />
+                <img id="knight_avatar" class="country_nav-avatar-img" src="~/img/default-icon/knight.png" alt="" loading="lazy" />
                 <p class="lhst_country_info_region_value">
                     1234876
                 </p>
-                <img id="player_avatar" class="country_nav-avatar-img" src="~/img/default-icon/farmer.png" alt="" />
+                <img id="players_avatar" class="country_nav-avatar-img" src="~/img/default-icon/players.png" alt="" loading="lazy" />
                 <p class="lhst_country_info_region_value">
                     1234876
                 </p>
@@ -66,105 +63,73 @@
             <div class="d-inline-block float-left">
                 @for (int i = 0; i < Model.Lands.Count; i++)
                 {
-                    <img id="player_avatar" class="country_nav-avatar-img mb-2" title="@(Model.Lands[i].LandId)" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" />
+                <img id = "countries_lands" class="country_nav-avatar-img mb-2" title="@(Model.Lands[i].LandId)" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" loading="lazy" />
                 }
             </div>
-
         </div>
-
         <div class="d-block">
             <div class="lhst_avatar_inline lhst_country_buttons_div align-top lhst_nav ">
                 <ul class="lhst_nav">
-
                     @*ПЕРЕИМЕНОВАНИЕ*@
                     <li class="lhst_nav ">
-
                         <menu class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text ">
                             <button class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text lhst_country_scale" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
                         </menu>
                     </li>
-
                     @*ИЗМНЕНЕНИЕ ЦВЕТА*@
                     <li class="lhst_nav ">
-                       
                         <menu class="nav-link text-dark header-menu lhst_nav color-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav color-btn lhst_shadow_text lhst_country_scale " onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
                         </menu>
-
                     </li>
-
                     @*Смена столицы*@
                     <li class="lhst_nav ">
-                        
                         <menu class="nav-link text-dark header-menu lhst_nav capital-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav capital-btn lhst_shadow_text lhst_country_scale" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
                         </menu>
-
                     </li>
-
                    @*  @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
                     <li class="lhst_nav ">
-                        
                         <menu class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer Land</button>
                         </menu>
-
                     </li>
-
                     @*Смена правителя*@
                     <li class="lhst_nav ">
-                      
                         <menu class="nav-link text-dark header-menu lhst_nav ruler-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav ruler-btn lhst_shadow_text lhst_country_scale" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
                         </menu>
-
                     </li>
-
-
                     @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
                     <li class="lhst_nav ">
-                       
                         <menu class="nav-link text-dark header-menu lhst_nav war-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav war-btn lhst_shadow_text lhst_country_scale" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
                         </menu>
-
                     </li>
-
                     @*распустить страну*@
                     <li class="lhst_nav ">
-                        
                         <menu class="nav-link text-dark header-menu lhst_nav disband-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav disband-btn lhst_shadow_text lhst_country_scale" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
                         </menu>
-
                     </li>
-
                 </ul>
             </div>
-
             <div class="lhst_avatar_inline lhst_country_history_div align-top lhst_nav lhst_slider ">
                 @for (int i = 0; i < lawsOrderByTime.Count(); i++)
                 {
                     <div class="lhst_country_history_comment text-left!important">
-                        <img class="lhst_country_history_img" id="country_history_img" height="42" src="../img/menu-icons/@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type)).jfif" alt="">
+                        <img class="lhst_country_history_img" title="@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type))" id="country_history_img" height="42" src="../img/menu-icons/@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type)).jfif" alt="" loading="lazy"/>
                         <p class="lhst_country_history_text">@String.Format(CommonLogic.getLawDescriptionByType(lawsOrderByTime[i].Type), lawsOrderByTime[i].Value2, lawsOrderByTime[i].Value1)</p>
-
                         <time class="float-right" datetime="2016-11-18T09:54">@lawsOrderByTime[i].PublishingDateTime</time>
                     </div>
-                    <div class="lhst_country_history_line mb-1">
-                    </div>
+                    <div class="lhst_country_history_line mb-1"></div>
                 }
             </div>
-
         </div>
-
     </div>
-    @* <input id="update_avatar_btn" type="submit" class="lhst_btn_avatar_confirm" value="Disband" /> *@
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/country_page_actions.js"></script>
 </div>
-
 <div class="lhst_dialog modal" id="renamingCountryDialog">
     <div class="text-right">
     <button class="lhst_btn_dialog_cancel" onclick="hideRenamingCountryDialog()">x</button>
@@ -172,7 +137,7 @@
     <form asp-controller="Country" asp-action="Rename">
         <section>
             <p class="lhst_card_properties">
-                <label for="curLand">Current name: @Model.Country.Name</label>
+                <label>Current name: @Model.Country.Name</label>
             </p>
             <p class="lhst_card_properties">
                 New name
@@ -183,9 +148,7 @@
             <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
         </div>
     </form>
-    
 </div>
-
 <div class="lhst_dialog modal" id="recoloringCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideRecoloringCountryDialog()">x</button>
@@ -194,7 +157,7 @@
         <section>
             <p class="lhst_card_properties">
                 Current color:
-                <input class="lhst_color_picker" type="color" value="@Model.Country.Color" readonly disabled>
+                <input class="lhst_color_picker" type="color" value="@Model.Country.Color" disabled>
             </p>
             <p class="lhst_card_properties">
                 New color
@@ -205,9 +168,7 @@
             <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
         </div>
     </form>
-   
 </div>
-
 <div class="lhst_dialog modal" id="changingCapitalCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideChangingCapitalCountryDialog()">x</button>
@@ -215,7 +176,7 @@
     <form asp-controller="Country" asp-action="ChangeCapital">
         <section>
             <p class="lhst_card_properties">
-                <label for="newcapital">Current capital: @Model.Country.CapitalId</label>
+                <label>Current capital: @Model.Country.CapitalId</label>
             </p>
             <p class="lhst_card_properties">
                 New capital
@@ -225,7 +186,6 @@
                         <option class="lhst_option">@Model.Lands[i].LandId</option>
                     }
                 </select>
-
             </p>
         </section>
         <menu class="text-center pl-0">
@@ -233,7 +193,6 @@
         </menu>
     </form>
 </div>
-
 <div class="lhst_dialog modal" id="transferingLandCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideTransferingLandCountryDialog()">x</button>
@@ -241,7 +200,7 @@
     <form asp-controller="Country" asp-action="TransferLand" >
         <section>
             <p class="lhst_card_properties">
-                <label for="transferLand">Transfer Land</label>
+                <label>Transfer Land</label>
             </p>
             <p class="lhst_card_properties">
                 Choose Land
@@ -251,7 +210,6 @@
                         <option class="lhst_option">@Model.LandsToTranfer[i].LandId</option>
                     }
                 </select>
-
             </p>
             <p class="lhst_card_properties">
                 Choose Country
@@ -261,16 +219,13 @@
                         <option class="lhst_option">@Model.OtherCountries[i].Name</option>
                     }
                 </select>
-
             </p>
         </section>
         <menu class="text-center pl-0">
             <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
         </menu>
-       
     </form>
 </div>
-
 <div class="lhst_dialog modal" id="changingRulerCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideChangingRulerCountryDialog()">x</button>
@@ -278,12 +233,11 @@
     <form asp-controller="Country" asp-action="ChangeRuler">
         <section>
             <p class="lhst_card_properties">
-                <label for="newRulerName">Current ruler: @Model.Ruler.UserName</label>
+                <label>Current ruler: @Model.Ruler.UserName</label>
             </p>
             <p class="lhst_card_properties">
                 New ruler
                 <select name="newRulerName" class="lhst_dialog_select_input">
-
                     @for (int i = 0; i < Model.OtherRulers.Count(); i++)
                     {
                         <option class="lhst_option">@Model.OtherRulers[i]</option>
@@ -296,7 +250,6 @@
         </menu>
     </form>
 </div>
-
 <div class="lhst_dialog modal" id="declaringWarCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideDeclaringWarCountryDialog()">x</button>
@@ -304,7 +257,7 @@
     <form asp-controller="Country" asp-action="DeclareWar" asp-route-player="@player" asp-route-country="@Model.Country">
         <section>
             <p class="lhst_card_properties">
-                <label for="declarewar">Declare war</label>
+                <label>Declare war</label>
             </p>
             <p class="lhst_card_properties">
                 Choose Your Land
@@ -314,7 +267,6 @@
                         <option class="lhst_option">@Model.Lands[i].LandId</option>
                     }
                 </select>
-
             </p>
             <p class="lhst_card_properties">
                 Choose Enemy Country
@@ -324,9 +276,7 @@
                         <option class="lhst_option">@*@Model.CurrentLand*@</option>
                     }
                 </select>
-
             </p>
-
             <p class="lhst_card_properties">
                 Choose Enemy Land
                 <select name="selectEnemyLand" class="lhst_dialog_select_input">
@@ -335,7 +285,6 @@
                         <option class="lhst_option">@*@Model.CurrentLand*@</option>
                     }
                 </select>
-
             </p>
         </section>
         <menu class="text-center pl-0">
@@ -343,7 +292,6 @@
         </menu>
     </form>
 </div>
-
 <div class="lhst_dialog modal" id="disbandingCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideDisbandingCountryDialog()">x</button>
@@ -351,8 +299,7 @@
     <form asp-controller="Country" asp-action="DisbandCountry">
         <section>
             <p class="lhst_card_properties">
-                <label for="disband">Your country: @Model.Country.Name</label>
-
+                <label>Your country: @Model.Country.Name</label>
             </p>
             <p class="lhst_card_properties">
                 Are you sure to disband the country?

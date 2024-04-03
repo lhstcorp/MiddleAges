@@ -2,10 +2,8 @@
     let id = $(event.target).attr('id');
 
     if ($(event.target).hasClass('map_land')) {
-
         fillLandSideBar(id);
     }
-    
 });
 
 function fillLandSideBar(id) {

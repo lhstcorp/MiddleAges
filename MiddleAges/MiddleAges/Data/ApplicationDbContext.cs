@@ -13,9 +13,7 @@ namespace MiddleAges.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-
         }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
@@ -70,18 +68,12 @@ namespace MiddleAges.Data
         }
 
         public DbSet<Player> Players { get; set; }
-
         public DbSet<Building> Buildings { get; set; }
-
         public DbSet<Unit> Units { get; set; }
-
         public DbSet<Land> Lands { get; set; }
-
         public DbSet<Country> Countries { get; set; }
-
         public DbSet<BorderLand> BorderLands { get; set; }
         public DbSet<Law> Laws { get; set; }
         public DbSet<ChatMessage> ChatMessages { get; set; }
-        
     }
 }

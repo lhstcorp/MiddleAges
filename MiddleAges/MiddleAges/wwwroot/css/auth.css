@@ -1,96 +1,85 @@
 ﻿.auth_background {
-    background-color: #453C37;
+    background-color: #453C37
 }
 
 .auth_text_color {
-   color: #F6D9A1;
+    color: #F6D9A1
 }
 
 .auth_text_font {
     font-family: Algerian;
     font-size: 48px;
     font-weight: 400;
-    text-shadow: 5px 5px 5px black;
+    text-shadow: 5px 5px 5px #000
 }
 
 .auth_text_font_but {
     font-family: Algerian;
     font-size: 48px;
-    font-weight: 300;
-
+    font-weight: 300
 }
 
 .auth_text_font_login {
     font-family: Algerian;
     font-size: 24px;
     font-weight: 400;
-    text-shadow: 3px 3px 3px black;
+    text-shadow: 3px 3px 3px #000
 }
 
-.auth_text_font_text{
+.auth_text_font_text {
     font-size: 12px;
     font-weight: 200;
-    color: #F6D9A1;
-
+    color: #F6D9A1
 }
 
 .auth_text_font_a {
     font-size: 14px;
     font-weight: 400;
     color: #F6D9A1;
-    text-decoration: underline;
+    text-decoration: underline
 }
 
 .auth_text_font_a:hover {
-    color: #DFBE7E;
-    
+    color: #DFBE7E
 }
 
 .auth_div_width {
-    width: 60%;
+    width: 60%
 }
 
-/*.auth_bgimage {
-    background-image: url("../img/interface-icons/register.jpg");
-    background-size: 100%;
-    height: 900px;
-    width: 900px;
-}*/
-
 .auth_height {
-    height: calc(100vh - 61px);
+    height: calc(100vh - 61px)
 }
 
 .auth_width {
-    width: 35vw;
+    width: 35vw
 }
 
 .auth_form-control {
     display: block;
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
-    padding: 0.375rem 0.75rem;
+    padding: .375rem .75rem;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #F6D9A1;
     background-color: #31201A;
     background-clip: padding-box;
-    border: 0px solid #ced4da;
+    border: 0 solid #ced4da;
     border-radius: 10px;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
 }
+
 ::placeholder {
     color: #F6D9A1;
-    opacity: 90%;
+    opacity: 90%
 }
 
 :focus::placeholder {
     opacity: 0;
-    transition: opacity 0.2s;
+    transition: opacity .2s
 }
-
-
 
 .auth_btn {
     color: #2A1710;
@@ -99,15 +88,12 @@
     font-family: Algerian;
     font-size: 24px;
     font-weight: 300;
-    border: black;
+    border: #000;
     border-width: 2px;
-    border-radius: 10px;
-    
+    border-radius: 10px
 }
 
 .auth_btn:hover {
     color: #2A1710;
-    background-color: #DFBE7E;
+    background-color: #DFBE7E
 }
-
-

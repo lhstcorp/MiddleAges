@@ -11,11 +11,9 @@ namespace MiddleAges.Models
 {
     public static class CommonLogic
     {
-        
         public static string getBuildingNameByType(int _buildingType)
         {
             string buildingName = "";
-
             switch(_buildingType)
             {
                 case 1:
@@ -25,10 +23,8 @@ namespace MiddleAges.Models
                     buildingName = "Barracks";
                     break;
             }
-
             return buildingName;
         }
-
         //public static string getRecruitCountById(int _id)
         //{
         //    string recruitCount = "";
@@ -45,11 +41,9 @@ namespace MiddleAges.Models
 
         //    return recruitCount;
         //}
-
         public static string getUnitNameByType(int _unitType)
         {
             string unitName = "";
-
             switch (_unitType)
             {
                 case 1:
@@ -59,10 +53,8 @@ namespace MiddleAges.Models
                     unitName = "Soldier";
                     break;
             }
-
             return unitName;
         }
-
         public static int getUnitPrice(int unitType)
         {
             int unitPrice = unitType switch
@@ -73,7 +65,6 @@ namespace MiddleAges.Models
             };
             return unitPrice;
         }
-
         public static int getBuildingPrice(int buildingType)
         {           
             int buildingPrice = buildingType switch
@@ -82,11 +73,8 @@ namespace MiddleAges.Models
                 (int)BuildingType.Barracks => (int)BuildingPrice.Barracks,
                 _ => 0
             };
-
-
             return buildingPrice;
         }
-
         public static string getLawDescriptionByType(int lawType)
         {
             string lawDescription = lawType switch
@@ -100,10 +88,8 @@ namespace MiddleAges.Models
                 (int)LawType.Disbanding => "Country was disbanded",
                 _ => ""
             };
-
             return lawDescription;
         }
-
         public static string getLawNameByType(int lawType)
         {
             string lawName = lawType switch
@@ -117,10 +103,8 @@ namespace MiddleAges.Models
                 (int)LawType.Disbanding => "Disbanding",
                 _ => ""
             };
-
             return lawName;
         }
-
         public static string getRandomMapLandId()
         {
             List<string> landIds = new List<string>();
@@ -242,14 +226,9 @@ namespace MiddleAges.Models
             landIds.Add("Zhabinka");
             landIds.Add("Zhlobin");
             landIds.Add("Zhytkavichy");
-            
-
             Random randNum = new Random();
             int aRandomPos = randNum.Next(landIds.Count);
-
             return landIds[aRandomPos];
         }
-
-        
     }
 }
