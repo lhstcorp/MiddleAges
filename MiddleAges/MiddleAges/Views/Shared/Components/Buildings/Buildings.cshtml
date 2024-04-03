@@ -1,20 +1,15 @@
 ﻿@model List<MiddleAges.Entities.Building>
 
     <div id="building-component">
-
         <p class="lhst_possessions_titles">Buildings</p>
-
         @for (int i = 0; i < Model.Count(); i++)
         {
             <div class="lhst_building_ext_card lhst_inline image-parlax">
                 <div class="image-container">
-                    <div class="lhst_main_data_image  myImg front-side" width="117" height="117" style="background-image: url(../img/buildings/@(Model[i].Type).png)">
-                        @* <img src="../img/buildings/@(Model[i].Type).png" width="117" height="117" class="myImg" alt="" /> *@
-                    </div>
-                
+                    <div class="lhst_main_data_image myImg front-side" width="117" height="117" style="background-image: url(../img/buildings/@(Model[i].Type).jpg)"></div>
                     <div class="back-side">
                         <div class="lhst_inline inner">
-                            <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" />
+                            <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt=""/>
                             <p>Price: @CommonLogic.getBuildingPrice(Model[i].Type)</p>
                         </div>
                     </div>
@@ -22,14 +17,11 @@
                 @{
                     var buildingName = CommonLogic.getBuildingNameByType(Model[i].Type);
                 }
-
                 <div>
                     <div class="lhst_inline lhst_building_card_left_part">
                         <p class="lhst_card_properties">@buildingName</p>
                         <p class="lhst_card_properties">Level: @Model[i].Lvl/10</p>
-                        
                     </div>
-                    
                     <div class="lhst_inline">
                         <form asp-controller="Building" asp-action="LvlUp" asp-route-buildingId="@Model[i].BuildingId">
                             <input class="lhst_btn_building_lvlup" type="submit" value="+" />
@@ -38,5 +30,4 @@
                 </div>
             </div>
         }
-
     </div>

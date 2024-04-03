@@ -25,7 +25,6 @@ namespace MiddleAges.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             List<ChatMessage> chatMessages = await _context.ChatMessages.Include(p => p.Player).Where(m => m.ChatRoomType == (int)ChatRoomType.General).ToListAsync();
-
             return View("Chat", chatMessages);
         }
     }

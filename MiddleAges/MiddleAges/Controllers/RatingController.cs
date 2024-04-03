@@ -17,7 +17,6 @@ namespace MiddleAges.Controllers
         private readonly ILogger<RatingController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<Player> _userManager;
-
         public RatingController(ILogger<RatingController> logger,
                                         ApplicationDbContext context,
                                         UserManager<Player> userManager)
@@ -30,22 +29,18 @@ namespace MiddleAges.Controllers
         public async Task<IActionResult> Index()
         {
             List<Player> players = await _context.Players.Where(p => p.Id != "").ToListAsync();
-
             return View("Rating", players);
         }
-
         // GET: PlayerOverviewController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
-
         // GET: PlayerOverviewController/Create
         public ActionResult Create()
         {
             return View();
         }
-
         // POST: PlayerOverviewController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -60,13 +55,11 @@ namespace MiddleAges.Controllers
                 return View();
             }
         }
-
         // GET: PlayerOverviewController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
-
         // POST: PlayerOverviewController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -81,13 +74,11 @@ namespace MiddleAges.Controllers
                 return View();
             }
         }
-
         // GET: PlayerOverviewController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
-
         // POST: PlayerOverviewController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]

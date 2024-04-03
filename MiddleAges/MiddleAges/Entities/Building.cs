@@ -11,16 +11,13 @@ namespace MiddleAges.Entities
     {
         [Key]
         public Guid BuildingId { get; set; }
-
         /// <summary>
         /// 1 - Estates
         /// 2 - Barracks
         /// </summary>
         public int Type { get; set; } 
-
         [DefaultValue(1)]
         public int Lvl { get; set; }
-
         public string PlayerId { get; set; }
         public Player Player { get; set; }   
     }

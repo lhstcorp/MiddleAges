@@ -19,26 +19,21 @@ namespace MiddleAges.Controllers
         private readonly ILogger<MainController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<Player> _userManager;
-
         public MainController(ILogger<MainController> logger, ApplicationDbContext context, UserManager<Player> userManager)
         {
             _logger = logger;
             _context = context;
             _userManager = userManager;
         }
-
         public async Task<IActionResult> Index()
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
-
             return View("Main", player);
         }
-
         public IActionResult Privacy()
         {
             return View();
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
