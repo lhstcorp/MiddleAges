@@ -11,21 +11,21 @@
     cursor: pointer;
     padding: 14px 16px;
     transition: .3s;
-    color: #faebd7;
+    color: #f4ebdb;
     border-radius: 10px;
     font-weight: 700;
     font-size: revert
 }
 
-.tab button:hover {
-    background: radial-gradient(#3939,black);
-    color: #ffd700
-}
+    .tab button:hover {
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08
+    }
 
-.tab button.active {
-    background: radial-gradient(#3939,black);
-    color: #ffd700
-}
+    .tab button.active {
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08
+    }
 
 .tabcontent {
     display: none

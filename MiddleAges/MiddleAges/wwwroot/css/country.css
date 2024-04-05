@@ -43,7 +43,7 @@
     border-radius: 20px;
     border-width: 2px;
     border-color: #f5deb3;
-    color: #f5deb3;
+    color: wheat;
     min-width: 370px;
     max-height: calc(100vh - 212px)
 }
@@ -89,7 +89,7 @@
 .lhst_country_info_region_value {
     display: inline-block;
     font-size: 14px;
-    color: #faebd7;
+    color: wheat;
     align-self: center
 }
 
@@ -106,7 +106,7 @@
     border-radius: 20px;
     border-width: 2px;
     border-color: #f5deb3;
-    color: #f5deb3
+    color: #f5deb3;
 }
 
 .lhst_country_history_div {
@@ -118,7 +118,7 @@
     border-radius: 20px;
     border-width: 2px;
     border-color: #f5deb3;
-    color: #f5deb3;
+    color: wheat;
     max-height: calc(100vh - 294px)
 }
 

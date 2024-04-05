@@ -122,14 +122,14 @@
     width: 174px;
     height: 78px;
     background: radial-gradient(#393939,black);
-    color: #faebd7;
+    color: #f4ebdb;
     border-radius: 9px;
     font-weight: 700;
     font-size: revert
 }
 
 .lhst_btn_avatar_confirm:hover {
-    background: radial-gradient(#3939,black);
+    background: radial-gradient(#2d9062,black);
     color: #f5deb3
 }
 

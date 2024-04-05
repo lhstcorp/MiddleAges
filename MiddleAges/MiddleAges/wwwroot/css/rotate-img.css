@@ -12,7 +12,8 @@
     height: auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
     text-align: center;
-    color: #f5deb3;
+    color: #faaf08;
+    text-shadow: 2px 1px #000000;
     -webkit-transition: -webkit-transform .7s cubic-bezier(0.4,0.2,0.2,1);
     transition: -webkit-transform .7s cubic-bezier(0.4,0.2,0.2,1);
     -o-transition: transform .7s cubic-bezier(0.4,0.2,0.2,1);
@@ -26,7 +27,7 @@
     background: #393939;
     background: -webkit-linear-gradient(45deg,#393939 0%,#000 100%);
     background: -o-linear-gradient(45deg,#393939 0%,#000 100%);
-    background: linear-gradient(45deg,#393939 0%,#000 100%)
+    background: radial-gradient(#2d9062 0%,#232323 90%)
 }
 
 .image-container:hover .front-side, .image-container:hover .back-side {

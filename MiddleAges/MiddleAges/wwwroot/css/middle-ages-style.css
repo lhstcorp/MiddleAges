@@ -1,5 +1,6 @@
 ﻿body {
-    background-color: #faebd7;
+    /*background-color: #faebd7;*/
+    background-color: #f4ebdb;
     background-size: 100%;
     margin: 0
 }
@@ -93,12 +94,21 @@
 
     .lhst_scale a {
         transition: .1s;
-        display: block
+        display: block;
+        border-width: 2px;
+        border-style: outset;
     }
 
         .lhst_scale a:hover {
-            transform: scale(1.05)
+            transform: scale(1.05);
+            border-color: #232323;
+            border-style:outset;
         }
+
+        .lhst_scale a:active {
+            border-style: inset;
+        }
+        
 
 .player-overview-div-inline {
     display: inline
@@ -125,7 +135,7 @@
 
     .lhst_overview-player-name:hover {
         font-family: Algerian;
-        color: #f5deb3
+        color: #faaf08
     }
 
 ul.lhst_nav {
@@ -147,7 +157,7 @@ li a.lhst_nav {
     text-decoration: none;
     width: 90px;
     height: 90px;
-    color: #faebd7 !important;
+    color: wheat !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
@@ -158,9 +168,10 @@ li a.lhst_nav {
 
     li a.lhst_nav:hover {
         -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #ffd700;
+        -webkit-text-fill-color: #faaf08;
         font-weight: 700
     }
+
 
 li menu.lhst_nav {
     padding: 0;
@@ -168,19 +179,20 @@ li menu.lhst_nav {
     text-decoration: none;
     width: 90px;
     height: 90px;
-    color: #faebd7 !important;
+    color: wheat !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
     font-weight: 700;
-    border-radius: 10px
+    border-radius: 10px;
+    border-style: none;
 }
 
     li menu.lhst_nav:hover {
         -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #ffd700;
-        font-weight: 700
+        -webkit-text-fill-color: #faaf08;
+        font-weight: 700;
     }
 
 li button.lhst_nav {
@@ -189,20 +201,23 @@ li button.lhst_nav {
     text-decoration: none;
     width: 90px;
     height: 90px;
-    color: #faebd7 !important;
+    color: wheat !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
     font-weight: 700;
-    border-radius: 10px
+    border-radius: 10px;
 }
 
     li button.lhst_nav:hover {
         -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #ffd700;
-        font-weight: 700
+        -webkit-text-fill-color: #faaf08;
+        font-weight: 700;
     }
+
+ 
+
 
 .lhst_inline {
     display: inline-block
@@ -290,7 +305,7 @@ footer {
     border-style: solid;
     border-width: 2px;
     border-color: #2b2b2b;
-    background-color: #393939;
+    background-color: #232323;
     width: 130px;
     border-radius: 6px
 }
@@ -311,7 +326,7 @@ footer {
     margin: 3px;
     font-size: 16px;
     font-weight: 700;
-    color: #393939
+    color: #232323;
 }
 
 .lhst_card_properties {
@@ -329,34 +344,34 @@ footer {
     width: 24px;
     height: 24px;
     background: radial-gradient(#393939,black);
-    color: #faebd7;
+    color: wheat;
     border-radius: 3px;
     font-weight: 700;
     font-size: revert
 }
 
     .lhst_btn_building_lvlup:hover {
-        background: radial-gradient(#3939,black);
-        color: #f5deb3
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08;
     }
 
 .lhst_btn_unit_recruit {
     background: radial-gradient(#393939,black);
-    color: #faebd7;
+    color: wheat;
     border-radius: 3px;
     width: 58px;
     height: 26.2px;
-    font-size: revert
+    font-size: revert;
 }
 
     .lhst_btn_unit_recruit:hover {
-        background: radial-gradient(#3939,black);
-        color: #f5deb3
+        background: radial-gradient(#2d9062 0%,#232323 90%);
+        color: #faaf08;
     }
 
 .lhst_btn_logout {
     background: radial-gradient(#393939,black);
-    color: #faebd7;
+    color: wheat;
     border-radius: 3px;
     width: 58px;
     height: 26.2px;
@@ -365,14 +380,14 @@ footer {
 }
 
     .lhst_btn_logout:hover {
-        background: radial-gradient(#3939,black);
-        color: #f5deb3
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08;
     }
 
 .lhst_btn_group_selected_land {
     vertical-align: bottom;
     text-align: center;
-    border: #faebd7;
+    border: #f5deb3;
     border-style: outset;
     border-block-width: 3px;
     margin-right: 5px;
@@ -383,7 +398,7 @@ footer {
 .lhst_info_region_group_selected_land {
     vertical-align: bottom;
     text-align: left;
-    border: #faebd7;
+    border: #f5deb3;
     border-style: outset;
     border-block-width: 3px;
     margin-right: 5px;
@@ -399,7 +414,7 @@ footer {
 
 .lhst_btn_moveToRegion {
     background: radial-gradient(#393939,black);
-    color: #faebd7;
+    color: wheat;
     border-radius: 3px;
     width: -webkit-fill-available;
     height: 35px;
@@ -407,8 +422,8 @@ footer {
 }
 
     .lhst_btn_moveToRegion:hover {
-        background: radial-gradient(#3939,black);
-        color: #f5deb3
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08;
     }
 
 .lhst_tb_unit_recruit {
@@ -417,7 +432,7 @@ footer {
     margin-bottom: 3px;
     margin-left: 4px;
     background: radial-gradient(#393939,black);
-    color: #faebd7;
+    color: wheat;
     border-radius: 3px
 }
 
@@ -443,14 +458,14 @@ footer {
 }
 
 .lhst_info_region_text {
-    color: #faebd7;
+    color: wheat;
     margin-left: 5px
 }
 
 .lhst_info_region_value {
     display: inline-block;
     font-size: 20px;
-    color: #faebd7;
+    color: wheat;
     margin-left: 10px
 }
 
@@ -485,7 +500,7 @@ footer {
 }
 
 .lhst_independent_land_description_money_amount {
-    color: #ffd700;
+    color: #faaf08;
     font-weight: 700
 }
 
@@ -579,3 +594,5 @@ lhst_marquee {
 .lhst_cursor_pointer{
     cursor:pointer;
 }
+
+

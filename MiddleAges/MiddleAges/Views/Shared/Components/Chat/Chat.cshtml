@@ -9,10 +9,10 @@
             @for (int i = 0; i < Model.Count; i++)
             {
                 <div class="align-items-center text-left!important d-inline-flex">
-                    <img class="lhst_country_history_img" id="country_history_img" height="32" src="~/img/avatars/@(Model[i].Player.ImageURL).jfif" alt="" loading="lazy">
+                    <img class="lhst_country_history_img" id="country_history_img" height="32" src="~/img/avatars/@(Model[i].Player.ImageURL).webp" alt="" loading="lazy">
                     <div class="lhst_display_grid float-left">
                         <p class="lhst_country_history_text text-left lhst_username_text">@Model[i].Player.UserName</p>
-                        <p class="lhst_country_history_text text-left lhst_chat_text">@Model[i].MessageValue</p>
+                        <p class="lhst_country_history_text text-left lhst_chat_text" >@Model[i].MessageValue</p>
                     </div>
                     <time class="mr-2" datetime="T09:54">@Model[i].PublishingDateTime</time>
                 </div>
@@ -21,12 +21,14 @@
             }
         </div>
         <div>
-            <form asp-controller="Chat" asp-action="AddChatMessage">
-                <input name="messageValue" maxlength="100" class="lhst_chat_input" rows="2" />
-                <input class="lhst_button_input" type="submit" value="&#10148;" />
+            <form id="chatForm" name="chatForm" asp-controller="Chat" asp-action="AddChatMessage">
+                <input id="messageValue" name="messageValue" type="text" maxlength="50" class="lhst_chat_input" placeholder="Message" rows="2" minlength="1" required/>
+                <input class="lhst_button_input" type="submit" id="submitChat" name="submitChat" value="&#10148;" />
+               
             </form>
         </div>
     </div>
+    <script src="~/js/chatLength.js"></script>
 </div>
 
 
