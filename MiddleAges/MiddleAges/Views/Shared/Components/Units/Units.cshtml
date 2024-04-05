@@ -6,13 +6,18 @@
 @inject SignInManager<Player> SignInManager
 @inject UserManager<Player> UserManager
 
-@* @{
+@{
+    Player player = await UserManager.GetUserAsync(User);
+    
+}
+@*
+    @{
     var recruit = CommonLogic.getRecruitCountById();
 } *@
 
 <p class="lhst_possessions_titles mr-5">Units
     <img src="../img/default-icon/farmer.png" width="20" height="20" class="mr-2 lhst_ml-65" alt="" />
-    Recruits: @Model[1].Count 
+    Recruits: @player.RecruitAmount
 </p>
 @for (int i = 0; i < Model.Count(); i++)
 {
@@ -26,22 +31,25 @@
                     </div>
             </div>
         </div>
-    @{
-        var unitName = CommonLogic.getUnitNameByType(Model[i].Type);
-    }
+        @{
+            int value1 = player.RecruitAmount / 2;
+            var unitName = CommonLogic.getUnitNameByType(Model[i].Type);
+            
+        }
         <div >
             <div>
                 <p class="lhst_card_properties">@unitName</p>
                 <p class="lhst_card_properties">Count: @Model[i].Count</p>
             </div>
             <div>
+                
                     <form asp-controller="Unit" asp-action="Recruit" asp-route-unitId="@Model[i].UnitId" >
-                    <input name="count" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="1000" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                    <input name="count" id="count" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@player.RecruitAmount" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
                     <datalist id="values">
-                        <option value="10"/>
-                        <option value="100" />
-                        <option value="1000" />
-                    </datalist>
+                        <option value=@player.RecruitAmount/5 />
+                        <option value=@value1 />
+                        <option value=@player.RecruitAmount />
+                    </datalist>    
                     <input type="submit" class="lhst_btn_unit_recruit" value="Recruit" />
                 </form>
             </div>

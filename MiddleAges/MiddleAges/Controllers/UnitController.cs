@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
@@ -43,14 +44,16 @@ namespace MiddleAges.Controllers
                 _ => 0
             };
             if (player.Money >= requiredMoney
-             && requiredMoney > 0)
+             && requiredMoney > 0 && player.RecruitAmount >= count)
             {
                 player.Money -= requiredMoney;
                 unit.Count += count;
+                player.RecruitAmount -= count;
                 _context.Update(unit);
                 _context.Update(player);
                 await _context.SaveChangesAsync();
             }
+           
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
         }
     }

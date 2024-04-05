@@ -28,14 +28,14 @@
     margin-bottom: 3px;
     margin-left: 4px;
     background: radial-gradient(#393939,black);
-    color: #faebd7;
+    color: #f4ebdb;
     border-radius: 3px
 }
 
-.lhst_dialog_rename_input:hover {
-    color: #f5deb3;
-    background: radial-gradient(#3939,black)
-}
+    .lhst_dialog_rename_input:hover {
+        color: #f5deb3;
+        background: radial-gradient(#2d9062,black)
+    }
 
 .lhst_dialog_select_input {
     width: 150px;
@@ -60,7 +60,7 @@
 
 .lhst_btn_dialog_cancel {
     background: radial-gradient(#393939,black);
-    color: #faebd7;
+    color: #f4ebdb;
     border-radius: 3px;
     font-size: x-small
 }
