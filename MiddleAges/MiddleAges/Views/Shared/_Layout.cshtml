@@ -23,23 +23,17 @@
     <link rel="stylesheet" href="~/css/dialogWindow.css" />
     <link rel="stylesheet" href="~/css/chat.css" />
     <link rel="stylesheet" href="~/css/media.css" />
-    
 </head>
 
 <body>
     <div class="header text-muted">
-        @* class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3" *@
-            
-        <div id="zhopa" class="row">
+        <div class="row">
             @if (User.Identity.IsAuthenticated)
             {
                 <div class="lhst_inline lhst_nav lhst_footer_avatar_scale">
                     @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
-                   
                 </div>
-
                 <div class="lhst_inline lhst_vertical-line"></div>
-
                 <div class="lhst_inline lhst_nav lhst_footer_margin lhst_scale">
                     <ul class="lhst_nav">
                         <li class="lhst_nav ">
@@ -61,44 +55,28 @@
                             <partial name="_LoginPartial" />
                         </li>
                     </ul>
-                    
                 </div>
-
-                
             }
             else
             {
                 <div class="flex-grow-1"></div>
             }
-            
-
-            @* <div class="lhst_right-status-nav-container lhst_inline">
-                <partial name="_LoginPartial" />
-            </div> *@
         </div>
     </div>
-
     @if (User.Identity.IsAuthenticated)
     {
         <div class=" align-top float-right lhst_inline lhst_nav">
             @await Component.InvokeAsync(typeof(ChatViewComponent))
         </div>
     }
-
     <div>
         <main class="lhst_vertical-alignment-top">
             @RenderBody()
         </main>
-        
     </div>
-    
     <footer class="footer text-muted d-inline-flex">
         <div class="container lhst_footer-text ">
             &copy; 2023 - MiddleAges - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
-            @* <marquee direction="right" scrollamount="12" class="lhst_marquee" > 
-                <img id="foot_marquee" src="../img/menu-icons/knight_run.gif" />
-            </marquee> *@
-            
         </div>
         <script src="https://yastatic.net/share2/share.js"></script>
         <div class="ya-share2 align-self-center" data-curtain data-lang="en" data-color-scheme="blackwhite" data-services="vkontakte,telegram,twitter,viber"></div>
@@ -107,7 +85,6 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/showChat.js"></script>
-    
     @*<script src="~/js/snow.js" type="text/javascript" language="JavaScript"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
 </body>

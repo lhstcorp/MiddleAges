@@ -1,31 +1,25 @@
 .lhst_dialog {
- /*   display: none;*/
-    /*position: absolute;*/
     left: 0;
     right: 0;
     margin: 40vh auto;
     border: solid;
     padding: 1em;
     background: #232323;
-    color: wheat;
+    color: #f5deb3;
     width: 300px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
     border-radius: 5px;
-    /* z-index: 1050;*/
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1050;
-   /* display: none;*/
-    /*width: 100%;
-    height: 100%;*/
     overflow: hidden;
     outline: 0;
-    height: auto !important;
+    height: auto !important
 }
 
-.lhst_dialog::backdrop{
-    background: rgba(0, 0, 0, 0.5);
+.lhst_dialog::backdrop {
+    background: rgba(0,0,0,0.5)
 }
 
 .lhst_dialog_rename_input {
@@ -33,47 +27,45 @@
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
-    border-radius: 3px;
+    background: radial-gradient(#393939,black);
+    color: #f4ebdb;
+    border-radius: 3px
 }
-.lhst_dialog_rename_input:hover {
-    
-    color: wheat;
-    background: radial-gradient(#3939, black);
-}
+
+    .lhst_dialog_rename_input:hover {
+        color: #f5deb3;
+        background: radial-gradient(#2d9062,black)
+    }
 
 .lhst_dialog_select_input {
     width: 150px;
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(#393939, #232323);
-    color: wheat;
+    background: radial-gradient(#393939,#232323);
+    color: #f5deb3;
     border-radius: 3px;
-    font-weight: bold;
+    font-weight: 700
 }
 
 .lhst_option:checked {
-    background: wheat linear-gradient(#393939, #232323);
-    color: #393939;
+    background: #f5deb3 linear-gradient(#393939,#232323);
+    color: #393939
 }
 
 .lhst_option {
-    background: #232323 linear-gradient(#393939, #232323);
-    color: wheat;
+    background: #232323 linear-gradient(#393939,#232323);
+    color: #f5deb3
 }
+
 .lhst_btn_dialog_cancel {
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
+    background: radial-gradient(#393939,black);
+    color: #f4ebdb;
     border-radius: 3px;
-   
-    font-size: x-small;
+    font-size: x-small
 }
 
 .lhst_btn_dialog_cancel:hover {
-    background: radial-gradient(#FF033E, black);
-    color: wheat;
+    background: radial-gradient(#FF033E,black);
+    color: #f5deb3
 }
-
-

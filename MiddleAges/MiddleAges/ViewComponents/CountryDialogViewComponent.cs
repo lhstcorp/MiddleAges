@@ -23,7 +23,6 @@ namespace MiddleAges.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
-
             List<Building> buildings = _context.Buildings.Where(k => k.PlayerId == player.Id).ToList();
             return View("Buildings", buildings);
         }

@@ -1,55 +1,60 @@
 .lhst_chat_div {
     text-align: center;
     max-height: calc(100vh - 212px);
-    /*width: 370px;*/
     padding: 10px;
     background-color: #232323;
-    /*background-color: #3939;*/
-    border-radius: 20px 0px 0px 20px;
+    border-radius: 20px 0 0 20px;
     border-width: 2px;
-    border-color: wheat;
+    border-color: #f5deb3;
     color: wheat;
-   /* margin-top: 141px;*/
-    margin-bottom:10px;
+    margin-bottom: 10px;
     font-size: 11px;
     font-weight: 100;
-    z-index:1100;
+    z-index: 1100;
 }
+
 
 .lhst_chat_line {
-    width:auto;
+    width: auto;
     height: 1px;
-    background-color: wheat;
+    background-color: #f5deb3
 }
 
-.lhst_chat_text{
-    width:150px;
-    font-weight:lighter;
+.lhst_chat_text {
+    width: 150px;
+    font-weight: lighter;
+    word-break:break-all;
 }
 
-.lhst_display_grid{
-    display:grid;
+.lhst_display_grid {
+    display: grid
 }
 
-.lhst_username_text{
-    color:#3939;
-    font-size:14px;
-    font-weight:bold;
+.lhst_username_text {
+    color: #2d9062;
+    font-size: 14px;
+    font-weight: 700
 }
 
-.lhst_chat_height{
-    height:100%;
+.lhst_chat_height {
+    height: 100%
 }
 
 .lhst_chat_input {
-    width: 80%;
+    width: 230px;
     height: 50px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
+    background-color: #393939;
+    color: wheat;
     border-radius: 10px;
+    padding-left:10px;
     resize: none;
+    border-style: none;
+}
+.lhst_chat_input::placeholder {
+    color:lightgray;
+    font-size:12px;
 }
 
 .lhst_button_input {
@@ -57,15 +62,21 @@
     height: 50px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
+    background-color:#393939;
+    color: lightgray;
     border-radius: 25px;
-    font-weight: bold;
+    font-weight: 700;
     font-size: revert;
+    box-shadow: none;
+    border-style: none;
 }
+    .lhst_button_input:hover {
+        background: radial-gradient(#2d9062,black);
+        color: wheat;
+    }
 
-.lhst_chat_but_marg{
-    margin-top:141px;
+.lhst_chat_but_marg {
+    margin-top: 141px
 }
 
 .lhst_but_open_chat {
@@ -73,6 +84,6 @@
     margin-top: calc(30vh);
     margin-right: -16px;
     white-space: pre;
-    font-size:small;
-    z-index:1100;
+    font-size: small;
+    z-index: 1100
 }

@@ -1,41 +1,40 @@
 ﻿.header-menu.rename-btn {
-    background-image: url("../img/menu-icons/Renaming.jfif");
-    background-size: 100%;
+    background-image: url(../img/menu-icons/Renaming.jfif);
+    background-size: 100%
 }
 
 .header-menu.color-btn {
-    background-image: url("../img/menu-icons/Recoloring.jfif");
-    background-size: 100%;
+    background-image: url(../img/menu-icons/Recoloring.jfif);
+    background-size: 100%
 }
 
 .header-menu.capital-btn {
-    background-image: url("../img/menu-icons/ChangingCapital.jfif");
-    background-size: 100%;
+    background-image: url(../img/menu-icons/ChangingCapital.jfif);
+    background-size: 100%
 }
 
 .header-menu.transfer-btn {
-    background-image: url("../img/menu-icons/TransferingLand.jfif");
-    background-size: 100%;
+    background-image: url(../img/menu-icons/TransferingLand.jfif);
+    background-size: 100%
 }
 
 .header-menu.ruler-btn {
-    background-image: url("../img/menu-icons/ChangingRuler.jfif");
-    background-size: 100%;
+    background-image: url(../img/menu-icons/ChangingRuler.jfif);
+    background-size: 100%
 }
 
 .header-menu.war-btn {
-    background-image: url("../img/menu-icons/DeclaringWar.jfif");
-    background-size: 100%;
+    background-image: url(../img/menu-icons/DeclaringWar.jfif);
+    background-size: 100%
 }
 
 .header-menu.disband-btn {
-    background-image: url("../img/menu-icons/Disbanding.jfif");
-    background-size: 100%;
+    background-image: url(../img/menu-icons/Disbanding.jfif);
+    background-size: 100%
 }
 
 .lhst_country_div {
     text-align: center;
-    /*height: 620px;*/
     width: 370px;
     margin-top: 10px;
     margin-left: 10px;
@@ -43,92 +42,84 @@
     background-color: #232323;
     border-radius: 20px;
     border-width: 2px;
-    border-color: wheat;
+    border-color: #f5deb3;
     color: wheat;
     min-width: 370px;
-    max-height: calc(100vh - 212px);
+    max-height: calc(100vh - 212px)
 }
 
 .lhst_country_img {
     display: inline-block;
     height: 250px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 10px
 }
 
 .country_ruler_width {
-    width: 370px;
+    width: 370px
 }
 
 .lhst_country_king_size {
     font-size: 20px;
     font-weight: 700;
-    align-self: end;
+    align-self: end
 }
 
 .lhst_country_line {
     height: 1px;
-    background-color: wheat;
+    background-color: #f5deb3
 }
 
 .lhst_country_history_line {
     width: 692px;
     height: 1px;
-    background-color: wheat;
+    background-color: #f5deb3
 }
 
 .lhst_country_history_comment {
     height: 50px;
     align-items: center;
-    display:ruby-text;
+    display: ruby-text
 }
 
 .country_nav-avatar-img {
-    height: 60px;
-    /* border-style: solid !important;
-    border-width: 1px !important;
-    border-color: black !important;
-    border-radius: 7px;
-    vertical-align: top;*/
+    height: 60px
 }
 
 .lhst_country_info_region_value {
     display: inline-block;
     font-size: 14px;
-    color: antiquewhite;
-    align-self: center;
+    color: wheat;
+    align-self: center
 }
 
 .country_bottom_text_width {
-    width: 120px;
+    width: 120px
 }
 
 .lhst_country_buttons_div {
     text-align: center;
-    /*height: 100px;*/
-    /* width: 1050px;*/
     margin-top: 10px;
     margin-left: 10px;
     padding: 5px;
     background-color: #232323;
     border-radius: 20px;
     border-width: 2px;
-    border-color: wheat;
-    color: wheat;
+    border-color: #f5deb3;
+    color: #f5deb3;
 }
 
 .lhst_country_history_div {
     text-align: left;
-   
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
     background-color: #232323;
     border-radius: 20px;
     border-width: 2px;
-    border-color: wheat;
+    border-color: #f5deb3;
     color: wheat;
-    max-height: calc(100vh - 294px);
+    max-height: calc(100vh - 294px)
 }
 
 .lhst_country_history_img {
@@ -136,27 +127,26 @@
 }
 
 .lhst_country_history_text {
-   /* width: 300px;*/
-    margin: 0px 0px 0px 10px;
+    margin: 0 0 0 10px
 }
 
 .lhst_country_scale {
-    transition: 0.1s;
-    display: block;
+    transition: .1s;
+    display: block
 }
 
-    .lhst_country_scale:hover {
-        transform: scale(1.05)
-    }
+.lhst_country_scale:hover {
+    transform: scale(1.05)
+}
 
 .lhst_king_nav-avatar-img {
     height: 80px;
     width: 80px;
     border-style: solid !important;
     border-width: 1px !important;
-    border-color: black !important;
+    border-color: #000 !important;
     border-radius: 7px;
-    vertical-align: top;
+    vertical-align: top
 }
 
 .lhst_slider_small_screen {
@@ -167,49 +157,30 @@
     --scrollbar-color-thumb: #232323;
     --scrollbar-color-track: #393939;
     --scrollbar-width: thin;
-    --scrollbar-width-legacy: 15px;
-}
-
-/* Modern browsers with `scrollbar-*` support */
-@supports (scrollbar-width: auto) {
-    .lhst_slider_small_screen {
-        scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-        scrollbar-width: var(--scrollbar-width);
-    }
-}
-
-/* Legacy browsers with `::-webkit-scrollbar-*` support */
-@supports selector(::-webkit-scrollbar) {
-    .lhst_slider_small_screen::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-color-thumb);
-    }
-
-    .lhst_slider_small_screen::-webkit-scrollbar-track {
-        background: var(--scrollbar-color-track);
-    }
-
-    .lhst_slider_small_screen::-webkit-scrollbar {
-        max-width: var(--scrollbar-width-legacy);
-        max-height: var(--scrollbar-width-legacy);
-    }
-}
-
-.lhst_slider_small_screen::-webkit-scrollbar-thumb {
-    background: transparent;
+    --scrollbar-width-legacy: 15px
 }
 
 .lhst_slider_small_screen::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--scrollbar-color-track)
+}
+
+.lhst_slider_small_screen::-webkit-scrollbar {
+    max-width: var(--scrollbar-width-legacy);
+    max-height: var(--scrollbar-width-legacy)
+}
+
+.lhst_slider_small_screen::-webkit-scrollbar-thumb {
+    background: transparent
+}
+
+.lhst_slider_small_screen::-webkit-scrollbar-track {
+    background: transparent
 }
 
 .lhst_slider_small_screen:hover::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-color-thumb);
+    background: var(--scrollbar-color-thumb)
 }
 
 .lhst_slider_small_screen:hover::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track);
-}
-
-.lhst_slider_small_screen:hover {
-    --fix:; /* This custom property invalidates styles on hover, thereby enforcing a style recomputation. This is needed to work around a bug in Safari. */
+    background: var(--scrollbar-color-track)
 }

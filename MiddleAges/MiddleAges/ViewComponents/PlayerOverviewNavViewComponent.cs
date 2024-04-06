@@ -23,7 +23,6 @@ namespace MiddleAges.ViewComponents
         public async Task<IViewComponentResult> InvokeAsync()
         {
             Player player = _userManager.GetUserAsync(HttpContext.User).Result;
-
             return View("PlayerOverviewNav", player);
         }
     }

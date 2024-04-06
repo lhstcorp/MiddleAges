@@ -10,7 +10,6 @@ namespace MiddleAges.Entities
     {
         [Key]
         public string LandId { get; set; } // same as Land Name
-
         public Guid CountryId { get; set; }
         public Country Country { get; set; }
     }

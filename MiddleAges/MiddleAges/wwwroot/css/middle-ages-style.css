@@ -1,266 +1,253 @@
 ﻿body {
-    background-color: antiquewhite;
+    /*background-color: #faebd7;*/
+    background-color: #f4ebdb;
     background-size: 100%;
-    /*min-width: 2400px !important;*/
-    margin: 0px;
+    margin: 0
 }
-
 
 .header {
     border-bottom: 1px solid;
     position: fixed;
     z-index: 1;
-    width: 100%;
+    width: 100%
 }
 
 .header-menu {
     border-style: solid;
     border-width: 1px;
-    border-color: black;
+    border-color: #000
 }
 
-.header-menu.main-btn {
-    background-image: url("../img/menu-icons/main.jfif");
-    background-size: 100%;
-}
+    .header-menu.main-btn {
+        background-image: url(../img/menu-icons/main.jfif);
+        background-size: 100%
+    }
 
-.header-menu.map-btn {
-    background-image: url("../img/menu-icons/map-icon.png");
-    background-size: 100%;
-}
+    .header-menu.map-btn {
+        background-image: url(../img/menu-icons/map-icon.png);
+        background-size: 100%
+    }
 
-.header-menu.state-btn {
-    background-image: url("../img/menu-icons/country-icon.png");
-    background-size: 100%;
-}
+    .header-menu.state-btn {
+        background-image: url(../img/menu-icons/country-icon.png);
+        background-size: 100%
+    }
 
-.header-menu.settings-btn {
-    background-image: url("../img/menu-icons/settings.jfif");
-    background-size: 100%;
-}
+    .header-menu.settings-btn {
+        background-image: url(../img/menu-icons/settings.jfif);
+        background-size: 100%
+    }
 
-.header-menu.rating-btn {
-    background-image: url("../img/menu-icons/main-icon.png");
-    background-size: 100%;
-}
+    .header-menu.rating-btn {
+        background-image: url(../img/menu-icons/main-icon.png);
+        background-size: 100%
+    }
 
 .coins-btn {
-    background-image: url("../img/interface-icons/coins.png");
+    background-image: url(../img/interface-icons/coins.png);
     background-size: 100%;
     height: 30px;
-    width: 20px;
+    width: 20px
 }
-
 
 .nav-avatar-img {
     height: 100px;
     width: 100px;
     border-style: solid !important;
     border-width: 1px !important;
-    border-color: black !important;
+    border-color: #000 !important;
     border-radius: 7px;
-    vertical-align: top;
+    vertical-align: top
 }
 
 .lhst_scale {
     display: inline-block;
-    overflow: hidden;
+    overflow: hidden
 }
 
-.lhst_scale img {
-    transition: 0.1s;
-    display: block;
-}
+    .lhst_scale img {
+        transition: .1s;
+        display: block
+    }
 
-.lhst_scale img:hover {
-    transform: scale(1.1);
-}
+        .lhst_scale img:hover {
+            transform: scale(1.1)
+        }
 
-.lhst_scale div {
-    transition: 0.1s;
-    display: block;
-}
+    .lhst_scale div {
+        transition: .1s;
+        display: block
+    }
 
-.lhst_scale div:hover {
-    transform: scale(1.1);
-}
+        .lhst_scale div:hover {
+            transform: scale(1.1)
+        }
 
-.lhst_scale polygon {
-    transition: 0.1s;
-    display: block;
-    
-}
+    .lhst_scale polygon {
+        transition: .1s;
+        display: block
+    }
 
-.lhst_scale polygon:hover {
-    transform: scale(0.995);
-    
-}
+        .lhst_scale polygon:hover {
+            transform: scale(0.995)
+        }
 
+    .lhst_scale a {
+        transition: .1s;
+        display: block;
+        border-width: 2px;
+        border-style: outset;
+    }
 
-.lhst_scale a {
-    transition: 0.1s;
-    display: block;
-}
+        .lhst_scale a:hover {
+            transform: scale(1.05);
+            border-color: #232323;
+            border-style:outset;
+        }
 
-.lhst_scale a:hover {
-    transform: scale(1.05);
-}
-
-/*.lhst_scale menu {
-    transition: 0.1s;
-    display: block;
-}
-
-.lhst_scale menu:hover {
-    transform: scale(1.05);
-}
-
-.lhst_scale button {
-    transition: 0.1s;
-    display: block;
-}
-
-.lhst_scale butoon:hover {
-    transform: scale(1.05);
-}*/
+        .lhst_scale a:active {
+            border-style: inset;
+        }
+        
 
 .player-overview-div-inline {
-    display: inline;
+    display: inline
 }
 
 .lhst_person-nav-container-inline {
     display: inline-block;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .lhst_person-div-overview-data {
-    margin: 0px;    
+    margin: 0
 }
 
 .lhst_person-data-div-align {
-    position:absolute;
-    margin-left: 5px;
-    /*margin-top: 10px;*/
+    position: absolute;
+    margin-left: 5px
 }
-
 
 .lhst_overview-player-name {
-    color: brown;
-    font-weight: 700;
+    color: #a52a2a;
+    font-weight: 700
 }
 
-.lhst_overview-player-name:hover{
-    font-family: Algerian;
-    color: wheat;
-    
-}
+    .lhst_overview-player-name:hover {
+        font-family: Algerian;
+        color: #faaf08
+    }
 
 ul.lhst_nav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    vertical-align:central;
+    vertical-align: central
 }
 
 li.lhst_nav {
     float: left;
-    margin: 5px;
+    margin: 5px
 }
 
 li a.lhst_nav {
-    padding: 0px;
+    padding: 0;
     text-align: center;
     text-decoration: none;
     width: 90px;
     height: 90px;
-    color: antiquewhite !important;
+    color: wheat !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
-    font-weight: bold;
-    border-radius:10px;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    font-weight: 700;
+    border-radius: 10px
 }
 
     li a.lhst_nav:hover {
         -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #ffd700;
-        font-weight: bold;
+        -webkit-text-fill-color: #faaf08;
+        font-weight: 700
     }
 
+
 li menu.lhst_nav {
-    padding: 0px;
+    padding: 0;
     text-align: center;
     text-decoration: none;
     width: 90px;
     height: 90px;
-    color: antiquewhite !important;
+    color: wheat !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
-    font-weight: bold;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    font-weight: 700;
     border-radius: 10px;
+    border-style: none;
 }
 
     li menu.lhst_nav:hover {
         -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #ffd700;
-        font-weight: bold;
+        -webkit-text-fill-color: #faaf08;
+        font-weight: 700;
     }
+
 li button.lhst_nav {
     padding-top: 50px;
     text-align: center;
     text-decoration: none;
     width: 90px;
     height: 90px;
-    color: antiquewhite !important;
+    color: wheat !important;
     position: relative;
     display: table-cell;
     vertical-align: bottom;
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
-    font-weight: bold;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    font-weight: 700;
     border-radius: 10px;
 }
 
     li button.lhst_nav:hover {
         -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #ffd700;
-        font-weight: bold;
+        -webkit-text-fill-color: #faaf08;
+        font-weight: 700;
     }
+
+ 
 
 
 .lhst_inline {
-    display: inline-block;
+    display: inline-block
 }
 
 .lhst_footer_margin {
-    margin: 15px 130px 15px 15px;
+    margin: 15px 130px 15px 15px
 }
 
-.lhst_footer_avatar_scale{
+.lhst_footer_avatar_scale {
     width: 230px;
     height: 120px;
     padding-top: 4px;
-    padding-left: 10px;
-    
+    padding-left: 10px
 }
 
 .row {
-    margin-left: 0px !important;
-    margin-right: 0px !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important
 }
 
 .header {
-    background-color: #232323;
+    background-color: #232323
 }
 
 .lhst_vertical-line {
     border-style: solid;
-    border-width: 0px 0.5px 0px 0px;
+    border-width: 0 .5px 0 0;
     border-color: #393939;
-    margin: 0px 0px 0px -1px;
+    margin: 0 0 0 -1px
 }
 
 .lhst_left-side-bar {
@@ -269,71 +256,58 @@ li button.lhst_nav {
     min-width: 229px;
     position: fixed;
     height: 100%;
-    margin-top: 115px;
+    margin-top: 115px
 }
 
 .lhst_vertical-alignment-top {
-    vertical-align: top;
+    vertical-align: top
 }
 
 .column {
-    display: inline-block;
+    display: inline-block
 }
 
 .lhst_coins-img {
     width: 17px;
-    height: 17px;
+    height: 17px
 }
 
 .lhst_coins-text {
     vertical-align: top;
-    color: wheat;
+    color: #f5deb3
 }
 
 footer {
     background-color: #232323;
-    border-top: 1px solid;
+    border-top: 1px solid
 }
 
 .lhst_footer-text {
-    color: wheat;
-    margin-left: 5px;
+    color: #f5deb3;
+    margin-left: 5px
 }
 
 .lhst_privacy-btn {
-    color: wheat;
+    color: #f5deb3
 }
 
 .lhst_main-section {
-    /*width: calc(100% - 221px);
-    height: calc(100% - 144px);*/
-    /*position: fixed;
-    top: 120px;
-    left: 235px;*/
-
     margin-left: 229px;
-    margin-top: 130px;
+    margin-top: 130px
 }
 
 .lhst_main-section_mainmenu {
-    /*width: calc(100% - 221px);
-    height: calc(100% - 144px);*/
-    /*position: fixed;
-    top: 120px;
-    left: 235px;*/
-
     margin-left: 239px;
-    margin-top: 140px;
+    margin-top: 140px
 }
 
 .lhst_building_ext_card {
     border-style: solid;
     border-width: 2px;
     border-color: #2b2b2b;
-    background-color: #393939;
+    background-color: #232323;
     width: 130px;
-    border-radius: 6px;
-
+    border-radius: 6px
 }
 
 .lhst_main_data_image {
@@ -343,213 +317,195 @@ footer {
     height: 120px;
     width: 120px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 3px;
-    margin-bottom: 4px;
     overflow: hidden;
     border-radius: 3px;
+    margin: 3px auto 4px
 }
-
 
 .lhst_possessions_titles {
     margin: 3px;
     font-size: 16px;
-    font-weight: bold;
-    color: #393939;
+    font-weight: 700;
+    color: #232323;
 }
 
 .lhst_card_properties {
     margin: 2px;
-    color: wheat;
+    color: #f5deb3
 }
 
 .lhst_building_card_left_part {
-    width: 96px;
+    width: 96px
 }
 
 .lhst_btn_building_lvlup {
     margin-bottom: 3px;
-    padding: 0px;
+    padding: 0;
     width: 24px;
     height: 24px;
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
+    background: radial-gradient(#393939,black);
+    color: wheat;
     border-radius: 3px;
-    font-weight: bold;
-    font-size: revert;
+    font-weight: 700;
+    font-size: revert
 }
 
-.lhst_btn_building_lvlup:hover {
-    background: radial-gradient(#3939, black);
-    color: wheat;
-}
+    .lhst_btn_building_lvlup:hover {
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08;
+    }
 
 .lhst_btn_unit_recruit {
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
+    background: radial-gradient(#393939,black);
+    color: wheat;
     border-radius: 3px;
     width: 58px;
     height: 26.2px;
     font-size: revert;
 }
 
-.lhst_btn_unit_recruit:hover {
-    background: radial-gradient(#3939, black);
-    color: wheat;
-}
+    .lhst_btn_unit_recruit:hover {
+        background: radial-gradient(#2d9062 0%,#232323 90%);
+        color: #faaf08;
+    }
 
 .lhst_btn_logout {
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
+    background: radial-gradient(#393939,black);
+    color: wheat;
     border-radius: 3px;
     width: 58px;
     height: 26.2px;
     font-size: revert;
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif
 }
 
-.lhst_btn_logout:hover {
-    background: radial-gradient(#3939, black);
-    color: wheat;
-}
+    .lhst_btn_logout:hover {
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08;
+    }
 
 .lhst_btn_group_selected_land {
     vertical-align: bottom;
     text-align: center;
-    border: antiquewhite;
+    border: #f5deb3;
     border-style: outset;
-    border-block-width:3px;
-    margin-right:5px;
-    margin-left:5px;
-    margin-bottom:5px;
-    
+    border-block-width: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px
 }
 
 .lhst_info_region_group_selected_land {
     vertical-align: bottom;
     text-align: left;
-    border: antiquewhite;
+    border: #f5deb3;
     border-style: outset;
     border-block-width: 3px;
     margin-right: 5px;
     margin-left: 5px;
-    margin-bottom: 0.5em;
+    margin-bottom: .5em
 }
 
 .lhst_range_map {
     vertical-align: bottom;
     margin-top: 413px;
-    height: 100px;
+    height: 100px
 }
 
 .lhst_btn_moveToRegion {
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
+    background: radial-gradient(#393939,black);
+    color: wheat;
     border-radius: 3px;
     width: -webkit-fill-available;
     height: 35px;
-    font-size: revert;
-    /*margin-top: 55px;*/
+    font-size: revert
 }
 
-.lhst_btn_moveToRegion:hover {
-    background: radial-gradient(#3939, black);
-    color: wheat;
-}
+    .lhst_btn_moveToRegion:hover {
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08;
+    }
 
 .lhst_tb_unit_recruit {
     width: 58px;
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
-    border-radius: 3px;
+    background: radial-gradient(#393939,black);
+    color: wheat;
+    border-radius: 3px
 }
 
 .lhst_shadow_text {
-    text-shadow: 1px 0px 1px #000000, 0px 1px 1px #000000, -1px 0px 1px #000000, 0px 0px 1px #000000, 0px -1px 1px #000000;
+    text-shadow: 1px 0 1px #000000,0 1px 1px #000000,-1px 0 1px #000000,0 0 1px #000000,0 -1px 1px #000
 }
 
 .lhst_money {
     margin-top: 6px;
     font-size: 14px;
-    font-weight: normal;
+    font-weight: 400
 }
 
 .lhst_map_region_icon_left_bar {
     display: inline-block;
-    
-    height: 100px;
+    height: 100px
 }
 
 .lhst_info_region_icon_left_bar {
     display: inline-block;
-    
     height: 50px;
-    margin: 5px;
-    /*float: left;*/
+    margin: 5px
 }
 
 .lhst_info_region_text {
-    color: antiquewhite;
-    margin-left: 5px;
-    /* float: right;*/
+    color: wheat;
+    margin-left: 5px
 }
 
 .lhst_info_region_value {
     display: inline-block;
     font-size: 20px;
-    color: antiquewhite;
-    margin-left: 10px;
+    color: wheat;
+    margin-left: 10px
 }
 
 .lhst_left_side_bar_land_content {
-    margin: 0.5em !important;
-    padding-top:10px;
+    margin: .5em !important;
+    padding-top: 10px
 }
 
 .lhst_selected_land_text_content {
     margin: 5px;
-    text-align:center;
-    
-    word-wrap: break-word;
+    text-align: center;
+    word-wrap: break-word
 }
 
 .lhst_selected_land_name {
-    color: wheat;
-    height: 30px;
-    
+    color: #f5deb3;
+    height: 30px
 }
 
 .lhst_map_region_icon_left_bar_col {
-    padding: 0px !important;
+    padding: 0 !important
 }
 
-/*.lhst_main_section_padding {
-    padding-left: 10px;
-    padding-top: 5px;
-}*/
-
-.lhst_tb_unit_recruit::-webkit-outer-spin-button,
-.lhst_tb_unit_recruit::-webkit-inner-spin-button {
+.lhst_tb_unit_recruit::-webkit-outer-spin-button, .lhst_tb_unit_recruit::-webkit-inner-spin-button {
     -webkit-appearance: none;
-    margin: 0;
+    margin: 0
 }
 
 .lhst_independent_land_description {
     width: 250px;
-    overflow-wrap: break-word;
+    overflow-wrap: break-word
 }
 
 .lhst_independent_land_description_money_amount {
-    color: gold;
-    font-weight: bold;
+    color: #faaf08;
+    font-weight: 700
 }
 
 .lhst_independent_land_description_money_icon {
-    height: 10px;
+    height: 10px
 }
 
 .lhst_independent_land_description_divs {
@@ -557,82 +513,86 @@ footer {
     width: 282px;
     margin-top: 10px;
     padding: 15px;
-    background-color: #333333;
+    background-color: #333;
     border-radius: 7px;
     border-width: 2px;
-    border-color: wheat;
-    color: wheat;
+    border-color: #f5deb3;
+    color: #f5deb3
 }
 
 .lhst_independent_land_description_image {
     border-radius: 7px;
     border-width: 2px;
-    border-color: wheat;
-    margin-top: 10px;
+    border-color: #f5deb3;
+    margin-top: 10px
 }
 
 .lhst_independent_land_description_h2 {
-    margin-bottom: 7px;
+    margin-bottom: 7px
 }
 
 .lhst_independent_land_description_divs_align {
-    vertical-align: top;
+    vertical-align: top
 }
 
 .lhst_found_country_label {
-    margin-bottom: 0px;
-    font-size: 12px;
+    margin-bottom: 0;
+    font-size: 12px
 }
 
 .lhst_btn_found_state {
-    background: radial-gradient(#f7f7c7, #6e6f61);
-    color: #333333;
+    background: radial-gradient(#f7f7c7,#6e6f61);
+    color: #333;
     border-radius: 7px;
     border-width: medium;
-    border-color: wheat;
+    border-color: #f5deb3;
     width: 220px;
     height: 50px;
     font-size: revert;
-    font-weight: bold;
-    overflow-wrap: break-word;
+    font-weight: 700;
+    overflow-wrap: break-word
 }
 
 .lhst_mt_35 {
-    margin-top: 35px;
+    margin-top: 35px
 }
 
 .lhst_color_picker {
-    border-color: wheat;
-    color: wheat;
+    border-color: #f5deb3;
+    color: #f5deb3
 }
 
 lhst_marquee {
     display: inline-block;
-    vertical-align: bottom;
-
+    vertical-align: bottom
 }
 
 .lhst_marquee img {
     display: inline-block;
-    height: 50px;
+    height: 50px
 }
 
 .lhst_test {
     height: 25px;
     width: 150px;
-    display:inline-block;
+    display: inline-block
 }
 
 .lhst_ml-65 {
-    margin-left: 6.5rem !important;
+    margin-left: 6.5rem !important
 }
 
-.lhst_ratingName_width{
-    width:50px;
+.lhst_ratingName_width {
+    width: 50px
 }
 
-.lhst_background_image{
-    background-image:url(../img/menu-icons/backMap.jpg);
-    background-size:50%;
-    
+.lhst_background_image {
+    background-image: url(../img/menu-icons/1234.jpg);
+    background-size: 50%
 }
+
+.lhst_cursor_pointer{
+    cursor:pointer;
+}
+
+

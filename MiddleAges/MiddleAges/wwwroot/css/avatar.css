@@ -1,11 +1,10 @@
 .lhst_avatar_vertical-alignment-top {
-    vertical-align: top;
+    vertical-align: top
 }
 
 .lhst_avatar_main-section {
-    
     margin-left: 229px;
-    margin-top: 120px;
+    margin-top: 120px
 }
 
 .lhst_avatar_left-side-bar {
@@ -14,18 +13,18 @@
     min-width: 229px;
     position: fixed;
     height: 100%;
-    margin-top: 115px;
+    margin-top: 115px
 }
 
 .lhst_avatar_possessions_titles {
     margin: 3px;
     font-size: 16px;
-    font-weight: bold;
-    color: brown;
+    font-weight: 700;
+    color: #a52a2a
 }
 
-.lhst_avatar_inline{
-    display: inline-block;
+.lhst_avatar_inline {
+    display: inline-block
 }
 
 .lhst_avatar_main_data_image {
@@ -36,8 +35,7 @@
     height: 120px;
     width: 120px;
     display: inline-block;
-    overflow: hidden;
-    
+    overflow: hidden
 }
 
 .lhst_avatar_main_image {
@@ -48,8 +46,7 @@
     height: 250px;
     width: 250px;
     display: inline-block;
-    overflow: hidden;
-    
+    overflow: hidden
 }
 
 .lhst_avatar_independent_land_description_divs {
@@ -61,8 +58,8 @@
     background-color: #232323;
     border-radius: 20px;
     border-width: 2px;
-    border-color: wheat;
-    color: wheat;
+    border-color: #f5deb3;
+    color: #f5deb3
 }
 
 .lhst_avatar_image_div {
@@ -75,93 +72,76 @@
     background-color: #232323;
     border-radius: 20px;
     border-width: 2px;
-    border-color: wheat;
-    color: wheat;
+    border-color: #f5deb3;
+    color: #f5deb3
 }
 
 .lhst_avatar_independent_land_description_divs_align {
-    vertical-align: top;
+    vertical-align: top
 }
 
 .lhst_slider {
     overflow-y: scroll;
-    overflow-x:hidden;
+    overflow-x: hidden;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
     --scrollbar-color-thumb: #232323;
     --scrollbar-color-track: #393939;
     --scrollbar-width: thin;
-    --scrollbar-width-legacy: 15px;
-}
-
-/* Modern browsers with `scrollbar-*` support */
-@supports (scrollbar-width: auto) {
-    .lhst_slider {
-        scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
-        scrollbar-width: var(--scrollbar-width);
-    }
-}
-
-/* Legacy browsers with `::-webkit-scrollbar-*` support */
-@supports selector(::-webkit-scrollbar) {
-    .lhst_slider::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-color-thumb);
-    }
-
-    .lhst_slider::-webkit-scrollbar-track {
-        background: var(--scrollbar-color-track);
-    }
-
-    .lhst_slider::-webkit-scrollbar {
-        max-width: var(--scrollbar-width-legacy);
-        max-height: var(--scrollbar-width-legacy);
-    }
-}
-.lhst_slider::-webkit-scrollbar-thumb {
-    background: transparent;
+    --scrollbar-width-legacy: 15px
 }
 
 .lhst_slider::-webkit-scrollbar-track {
-    background: transparent;
+    background: var(--scrollbar-color-track)
+}
+
+.lhst_slider::-webkit-scrollbar {
+    max-width: var(--scrollbar-width-legacy);
+    max-height: var(--scrollbar-width-legacy)
+}
+
+.lhst_slider::-webkit-scrollbar-thumb {
+    background: transparent
+}
+
+.lhst_slider::-webkit-scrollbar-track {
+    background: transparent
 }
 
 .lhst_slider:hover::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-color-thumb);
+    background: var(--scrollbar-color-thumb)
 }
 
 .lhst_slider:hover::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track);
-}
-
-.lhst_slider:hover {
-    --fix: ; /* This custom property invalidates styles on hover, thereby enforcing a style recomputation. This is needed to work around a bug in Safari. */
+    background: var(--scrollbar-color-track)
 }
 
 .lhst_btn_avatar_confirm {
     margin-bottom: 3px;
-    padding: 0px;
+    padding: 0;
     width: 174px;
     height: 78px;
-    background: radial-gradient(#393939, black);
-    color: antiquewhite;
+    background: radial-gradient(#393939,black);
+    color: #f4ebdb;
     border-radius: 9px;
-    font-weight: bold;
-    font-size: revert;
+    font-weight: 700;
+    font-size: revert
 }
+
 .lhst_btn_avatar_confirm:hover {
-    background: radial-gradient(#3939, black);
-    color: wheat;
+    background: radial-gradient(#2d9062,black);
+    color: #f5deb3
 }
 
 .lhst_checkbox_gender {
-    border:thick;
-    border-width:2px;
-    border-radius:5px;
-    border-color:green;
+    border: thick;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: green;
     width: 30px;
-    height:30px;
+    height: 30px
 }
 
 .lhst_small_avatar_image_selection:hover {
-    cursor: pointer;
+    cursor: pointer
 }

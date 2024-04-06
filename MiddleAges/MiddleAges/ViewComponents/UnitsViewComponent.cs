@@ -19,11 +19,9 @@ namespace MiddleAges.ViewComponents
             _context = context;
             _userManager = userManager;
         }
-
         public async Task<IViewComponentResult> InvokeAsync()
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
-
             List<Unit> units = _context.Units.Where(k => k.PlayerId == player.Id).ToList();
             return View("Units", units);
         }

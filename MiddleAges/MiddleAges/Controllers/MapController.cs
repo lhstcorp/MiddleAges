@@ -22,53 +22,41 @@ namespace MiddleAges.Controllers
         private readonly ILogger<MapController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<Player> _userManager;
-
         public MapController(ILogger<MapController> logger, ApplicationDbContext context, UserManager<Player> userManager)
         {
             _logger = logger;
             _context = context;
             _userManager = userManager;
         }
-
         public async Task<IActionResult> Index()
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
-
             return View("Map", player);
         }
-        
-        
         public IActionResult Privacy()
         {
             return View();
         }
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-                
+        }     
         public JsonResult GetLandDataById(string id)
         {
             Land land = _context.Lands.FirstOrDefault(k => k.LandId == id);
-            
             if (land == null)
             {
                 return Json("NotFound");
             }
-
             return Json(JsonSerializer.Serialize(land));
         }
-
-
         public JsonResult FetchLandColors()
         {
             var landIdColorPairList = _context.Lands.Include(l => l.Country)
                 .Select(l => new {LandId = l.LandId, Color = l.Country.Color});
-
             return Json(landIdColorPairList);
         }
-        
+
     }
 }
