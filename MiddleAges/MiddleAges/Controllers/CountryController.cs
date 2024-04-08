@@ -40,6 +40,10 @@ namespace MiddleAges.Controllers
                 List<Player> otherRulers = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).Where(p => p.Id != country.RulerId && p.Land.CountryId == country.CountryId).ToListAsync();
                 List<Law> laws = await _context.Laws.Where(l => l.CountryId == country.CountryId).ToListAsync();
                 List<Land> landsToTranfer = await _context.Lands.Where(l => l.CountryId == country.CountryId && l.LandId != country.CapitalId).ToListAsync();
+
+
+                List<Land> borderLands = new List<Land>();// = await _context.BorderLands.Include(l => l.Land).Where(bl => bl.CountryId == country.CountryId).ToListAsync();
+
                 var countryInfoViewModel = new CountryInfoViewModel
                 {
                     Country = country,
@@ -48,7 +52,8 @@ namespace MiddleAges.Controllers
                     OtherCountries = otherCountries,
                     OtherRulers = otherRulers,
                     Laws = laws,
-                    LandsToTranfer = landsToTranfer
+                    LandsToTranfer = landsToTranfer,
+                    BorderLands = borderLands
                 };
                 return View("Country", countryInfoViewModel);
             }     
