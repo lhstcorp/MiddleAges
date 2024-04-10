@@ -40,6 +40,39 @@ namespace MiddleAges.Controllers
                 List<Player> otherRulers = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).Where(p => p.Id != country.RulerId && p.Land.CountryId == country.CountryId).ToListAsync();
                 List<Law> laws = await _context.Laws.Where(l => l.CountryId == country.CountryId).ToListAsync();
                 List<Land> landsToTranfer = await _context.Lands.Where(l => l.CountryId == country.CountryId && l.LandId != country.CapitalId).ToListAsync();
+
+
+                //List<Land> borderLands = new List<Land>();// = await _context.BorderLands.Include(l => l.Land).Where(bl => bl.CountryId == country.CountryId).ToListAsync();
+
+                var result = await _context.BorderLands
+                                    .Join(_context.Lands,
+                                            bl => bl.LandId,
+                                            l => l.LandId,
+                                            (bl, l) => new { BorderLand = bl, Land = l })
+                                    .Join(_context.Countries,
+                                            combined => combined.Land.CountryId,
+                                            c => c.CountryId,
+                                            (combined, c) => new { combined.BorderLand, combined.Land, Country = c })
+                                    .Where(combined => combined.Land.CountryId == country.CountryId)
+                                    .Select(combined => new { BorderLand = combined.BorderLand, Land = combined.Land, Country = combined.Country }).ToListAsync();
+
+                
+                var borderLands = await _context.Lands
+                                    .Join(_context.BorderLands,
+                                            bll => bll.LandId,
+                                            bl => bl.BorderLandId,                                            
+                                            (bll, bl) => new { BLand = bll, BorderLand = bl })                    
+                                    .Join(_context.Lands,
+                                            combined => combined.BLand.LandId,
+                                            l => l.LandId,
+                                            (combined, l) => new { combined.BLand, combined.BorderLand, Land = l })
+                                    .Join(_context.Countries,
+                                            combined => combined.Land.CountryId,
+                                            c => c.CountryId,
+                                            (combined, c) => new { combined.BLand, combined.BorderLand, combined.Land, Country = c })
+                                    .Where(combined => combined.Land.CountryId == country.CountryId)
+                                    .Select(combined => new { BLand = combined.BLand, BorderLand = combined.BorderLand, Land = combined.Land, Country = combined.Country }).ToListAsync();
+                
                 var countryInfoViewModel = new CountryInfoViewModel
                 {
                     Country = country,
@@ -49,6 +82,7 @@ namespace MiddleAges.Controllers
                     OtherRulers = otherRulers,
                     Laws = laws,
                     LandsToTranfer = landsToTranfer
+                    //BorderLands = borderLands
                 };
                 return View("Country", countryInfoViewModel);
             }     
