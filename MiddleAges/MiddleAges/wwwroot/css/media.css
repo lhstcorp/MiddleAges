@@ -44,6 +44,10 @@
         max-height: calc(100vh - 212px)
     }
 
+    .lhst_wars_div {
+        max-height: calc(100vh - 212px)
+    }
+
     .lhst_left-side-bar {
         max-height: calc(100vh - 176px)
     }
@@ -75,6 +79,14 @@
         height: 150px;
         margin-top: 10px;
         margin-bottom: 10px
+    }
+
+    .lhst_wars_country_text {
+        font-size: 14px;
+    }
+
+    .lhst_wars_lands_text {
+        font-size: 10px;
     }
 
     .lhst_country_div {
