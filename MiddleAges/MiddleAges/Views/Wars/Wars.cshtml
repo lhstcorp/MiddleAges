@@ -1,0 +1,136 @@
+﻿@using MiddleAges.Entities;
+@model MiddleAges.ViewModels.CountryInfoViewModel;
+
+@{
+    ViewData["Title"] = "middle ages";
+
+}
+
+<div class="d-flex">
+    <div class="lhst_left-side-bar lhst_vertical-alignment-top"></div>
+    <div class="lhst_vertical-alignment-top lhst_main-section d-inline-block">
+        <div class="lhst_wars_div tab col-6">
+            <button class="warlinks" onclick="wars(event, 'CountryWars')">Country Wars</button>
+            <button class="warlinks" onclick="wars(event, 'WorldWars')">All Wars</button>
+            @* <div class="tabcontent lhst_inTab lhst_slider"> *@
+            <div id="WorldWars" class="lhst_slider mt-2 warcontent lhst_inTab ">
+                @for (int i = 0; i < 15; i++)
+                {
+                    <div class="row p-0">
+                        <div class="col-2 p-0">
+                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/Hrodna.png" alt="">
+                        </div>
+                        <div class="col-8 p-0">
+                            <div class="row mt-1 p-0">
+                                <div class="col-3 p-0">
+                                    <p class="lhst_wars_country_text mt-3">Avalonium</p>
+                                </div>
+                                <div class="col-2 p-0 float-right">
+                                    <p class="float-right mt-3">54363</p>
+                                </div>
+                                <div class="col-1 p-0">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
+                                </div>
+                                <div class="col-1 p-0">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
+                                </div>
+                                <div class="col-2 p-0">
+                                    <p class="mt-3">54363</p>
+                                </div>
+                                <div class="col-3 p-0">
+                                    <p class="lhst_wars_country_text mt-3">Savvochka</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-3 p-0">
+                                    <p class="lhst_wars_lands_text mt-3">Hrodna</p>
+                                </div>
+                                <div class="col-2 p-0 float-right">
+                                    <p class="float-right mt-3">123</p>
+                                </div>
+                                <div class="col-1 p-0">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
+                                </div>
+                                <div class="col-1 p-0">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
+                                </div>
+                                <div class="col-2 p-0 ">
+                                    <p class="mt-3">213</p>
+                                </div>
+                                <div class="col-3 p-0">
+                                    <p class="lhst_wars_lands_text mt-3">Vetka</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 float-right p-0">
+                                    <p class="float-right mt-1 mr-2">Left</p>
+                                </div>
+                                <div class="col-6 float-left p-0">
+                                    <time datetime="2016-11-18T09:54">24:00:00</time>
+                                </div>
+                            </div>
+                            <div class="row align-items-center p-0">
+                                <div class="col-12 text-center p-0">
+                                <input type="submit" class="lhst_btn_unit_recruit" value="Details" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 p-0">
+                            <img class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/Vetka.png" alt="">
+                        </div>
+
+                    </div>
+                }
+            </div>
+            <div id="CountryWars" class="lhst_slider mt-2 warcontent lhst_inTab">
+                @for (int i = 0; i < 15; i++)
+                {
+                    <div class="text-left d-inline-flex">
+                        <img class="lhst_country_history_img" height="82" src="../img/map-regions-icons-middle-ages/Hrodna.png" alt="">
+                        <div class="d-block">
+                            <p class="lhst_wars_country_text ">Avalonium</p>
+                            <p class="lhst_wars_lands_text ">Hrodna</p>
+                        </div>
+                        <div class="d-block">
+                            <div class="ml-3">
+                                <table>
+                                    <tr>
+                                        <td>41124</td>
+                                        <td><img class="lhst_country_history_img" height="22" src="../img/default-icon/knight.png" alt=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>124</td>
+                                        <td><img class="lhst_country_history_img" height="22" src="../img/default-icon/farmer.png" alt=""></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <p class="float-right mr-2 mt-1">Left</p>
+                        </div>
+                        <div class="lhst_vertical_line"></div>
+                        <div class="d-block">
+                            <div class="mr-3">
+                                <table>
+                                    <tr>
+                                        <td><img class="lhst_country_history_img" height="22" src="../img/default-icon/knight.png" alt=""></td>
+                                        <td>54361</td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="lhst_country_history_img" height="22" src="../img/default-icon/farmer.png" alt=""></td>
+                                        <td>143</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <time datetime="2016-11-18T09:54">24:00:00</time>
+                        </div>
+                        <div class="d-block">
+                            <p class="lhst_wars_country_text ">Savva vernis</p>
+                            <p class="lhst_wars_lands_text ">Vetka</p>
+                        </div>
+                        <img class="lhst_country_history_img" height="82" src="../img/map-regions-icons-middle-ages/Vetka.png" alt="">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="~/js/tabs.js" type="text/javascript" language="JavaScript"></script>
+</div>
