@@ -53,11 +53,19 @@
     }
 }
 
-@media screen and (max-width:890px) {
+@media screen and (max-width:1010px) {
     li a.lhst_nav {
         width: 60px;
         height: 60px;
         font-size: 11px
+    }
+}
+
+@media screen and (max-width:807px) {
+    li a.lhst_nav {
+        width: 30px;
+        height: 30px;
+        font-size: 8px
     }
 }
 
@@ -82,7 +90,7 @@
     }
 
     .lhst_wars_country_text {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .lhst_wars_lands_text {
