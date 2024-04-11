@@ -16,7 +16,8 @@
 }
 
 .lhst_wars_country_text{
-    font-size:20px;
+    font-size:14px;
+    word-wrap:break-word;
 }
 
 .lhst_wars_lands_text {
@@ -36,4 +37,8 @@
 
 .lhst_war_country_img{
     width:100%;
+}
+
+.lhst_row_height{
+    height:30px;
 }
