@@ -259,30 +259,11 @@
             <p class="lhst_card_properties">
                 <label>Declare war</label>
             </p>
-            <p class="lhst_card_properties">
-                Choose Your Land
-                <select name="declarewar" class="lhst_dialog_select_input">
-                    @for (int i = 0; i < Model.Lands.Count; i++)
+            <p class="lhst_card_properties">                
+                <select name="warCombination" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < Model.BorderLands.Count; i++)
                     {
-                        <option class="lhst_option">@Model.Lands[i].LandId</option>
-                    }
-                </select>
-            </p>
-            <p class="lhst_card_properties">
-                Choose Enemy Country
-                <select name="selectEnemyCountry" class="lhst_dialog_select_input">
-                    @for (int i = 0; i < 5; i++)
-                    {
-                        <option class="lhst_option">@*@Model.CurrentLand*@</option>
-                    }
-                </select>
-            </p>
-            <p class="lhst_card_properties">
-                Choose Enemy Land
-                <select name="selectEnemyLand" class="lhst_dialog_select_input">
-                    @for (int i = 0; i < 3; i++)
-                    {
-                        <option class="lhst_option">@*@Model.CurrentLand*@</option>
+                        <option class="lhst_option">@Model.BorderLands[i].LandId - @Model.BorderLands[i].BorderLandId</option>
                     }
                 </select>
             </p>

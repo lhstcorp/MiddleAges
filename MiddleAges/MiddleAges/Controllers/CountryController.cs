@@ -41,38 +41,31 @@ namespace MiddleAges.Controllers
                 List<Law> laws = await _context.Laws.Where(l => l.CountryId == country.CountryId).ToListAsync();
                 List<Land> landsToTranfer = await _context.Lands.Where(l => l.CountryId == country.CountryId && l.LandId != country.CapitalId).ToListAsync();
 
+                Country independentCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Name == "Independent lands");
 
-                //List<Land> borderLands = new List<Land>();// = await _context.BorderLands.Include(l => l.Land).Where(bl => bl.CountryId == country.CountryId).ToListAsync();
+                var borderLandsQuery = await _context.Lands
+                                                .Include(l => l.Country)
+                                                .Join(_context.BorderLands,
+                                                        bll => bll.LandId,
+                                                        bl => bl.BorderLandId,                                            
+                                                        (bll, bl) => new { BLand = bll, BorderLand = bl })
+                                                .Where(combined => combined.BLand.CountryId != independentCountry.CountryId 
+                                                               &&  combined.BLand.CountryId != country.CountryId)
+                                                .Join(_context.Lands,
+                                                        combined => combined.BorderLand.LandId,
+                                                        l => l.LandId,
+                                                        (combined, l) => new { combined.BLand, combined.BorderLand, Land = l })
+                                                .Join(_context.Countries,
+                                                        combined => combined.Land.CountryId,
+                                                        c => c.CountryId,
+                                                        (combined, c) => new { combined.BLand, combined.BorderLand, combined.Land, Country = c })
+                                                .Where(combined => combined.Land.CountryId == country.CountryId)
+                                                .Select(combined => new { BLand = combined.BLand, BorderLand = combined.BorderLand, Land = combined.Land, Country = combined.Country }).ToListAsync();
 
-                var result = await _context.BorderLands
-                                    .Join(_context.Lands,
-                                            bl => bl.LandId,
-                                            l => l.LandId,
-                                            (bl, l) => new { BorderLand = bl, Land = l })
-                                    .Join(_context.Countries,
-                                            combined => combined.Land.CountryId,
-                                            c => c.CountryId,
-                                            (combined, c) => new { combined.BorderLand, combined.Land, Country = c })
-                                    .Where(combined => combined.Land.CountryId == country.CountryId)
-                                    .Select(combined => new { BorderLand = combined.BorderLand, Land = combined.Land, Country = combined.Country }).ToListAsync();
+                //List<Land> borderLands = borderLandsQuery.Select(q => q.BLand).ToList();
+                List<BorderLand> borderLands = borderLandsQuery.Select(q => q.BorderLand).ToList();
 
-                
-                var borderLands = await _context.Lands
-                                    .Join(_context.BorderLands,
-                                            bll => bll.LandId,
-                                            bl => bl.BorderLandId,                                            
-                                            (bll, bl) => new { BLand = bll, BorderLand = bl })                    
-                                    .Join(_context.Lands,
-                                            combined => combined.BLand.LandId,
-                                            l => l.LandId,
-                                            (combined, l) => new { combined.BLand, combined.BorderLand, Land = l })
-                                    .Join(_context.Countries,
-                                            combined => combined.Land.CountryId,
-                                            c => c.CountryId,
-                                            (combined, c) => new { combined.BLand, combined.BorderLand, combined.Land, Country = c })
-                                    .Where(combined => combined.Land.CountryId == country.CountryId)
-                                    .Select(combined => new { BLand = combined.BLand, BorderLand = combined.BorderLand, Land = combined.Land, Country = combined.Country }).ToListAsync();
-                
+
                 var countryInfoViewModel = new CountryInfoViewModel
                 {
                     Country = country,
@@ -81,8 +74,8 @@ namespace MiddleAges.Controllers
                     OtherCountries = otherCountries,
                     OtherRulers = otherRulers,
                     Laws = laws,
-                    LandsToTranfer = landsToTranfer
-                    //BorderLands = borderLands
+                    LandsToTranfer = landsToTranfer,
+                    BorderLands = borderLands
                 };
                 return View("Country", countryInfoViewModel);
             }     
@@ -94,7 +87,8 @@ namespace MiddleAges.Controllers
             Country existedCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Name == countryname);
             if (player?.Money               >= 10000
              && existedCountry              == null
-             && countryname                 != "IndependentLands")
+             && countryname                 != "IndependentLands"
+             && countryname.Length          <= 22)
             {
                 player.Money -= 10000;
                 Country country = new Country();
