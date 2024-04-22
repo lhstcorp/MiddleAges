@@ -187,7 +187,8 @@ namespace MiddleAges.Controllers
                 Land selectedTransferLand = await _context.Lands.FirstOrDefaultAsync(l => l.LandId == transferLand);
                 Country selectedCountryTo = await _context.Countries.FirstOrDefaultAsync(c => c.Name == toCountry);
                 if (selectedTransferLand.LandId != ""
-                 && selectedCountryTo.CountryId != Guid.Empty)
+                 && selectedCountryTo.CountryId != Guid.Empty
+                 && selectedTransferLand.CountryId == country.CountryId)
                 { 
                     Law law = new Law();
                     law.CountryId = country.CountryId;
@@ -204,6 +205,7 @@ namespace MiddleAges.Controllers
             }
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
         }
+
         [HttpPost]
         public async Task<IActionResult> ChangeRuler(string newRulerName)
         {
@@ -219,9 +221,9 @@ namespace MiddleAges.Controllers
                     law.CountryId = country.CountryId;
                     law.PlayerId = player.Id;
                     law.Type = (int)LawType.ChangingRuler;
-                    law.PublishingDateTime = DateTime.UtcNow;
-                    law.Value2 = country.RulerId;
+                    law.PublishingDateTime = DateTime.UtcNow;                    
                     law.Value1 = newRulerName;
+                    law.Value2 = country.RulerId;
                     _context.Update(law);
                     country.RulerId = newRuler.Id;
                     _context.Update(country);
@@ -230,6 +232,54 @@ namespace MiddleAges.Controllers
             }
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
         }
+
+        [HttpPost]
+        public async Task<IActionResult> DeclareWar(string warCombination)
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+            if (player.Id == country.RulerId)
+            {
+                string[] lands = warCombination.Split(" - ");
+
+                Land landFrom = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == lands[0]);
+                Land landTo = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == lands[1]);
+
+                War warCheck = await _context.Wars.FirstOrDefaultAsync(w => (w.LandIdFrom == landFrom.LandId
+                                                                         || w.LandIdTo   == landFrom.LandId
+                                                                         || w.LandIdFrom == landTo.LandId
+                                                                         || w.LandIdTo   == landTo.LandId)
+                                                                         && w.IsEnded    == false);
+
+                if (landFrom != null
+                 && landTo != null
+                 && landFrom.CountryId == country.CountryId
+                 && landTo.CountryId != country.CountryId
+                 && warCheck == null)
+                {
+                    Law law = new Law();
+                    law.CountryId = country.CountryId;
+                    law.PlayerId = player.Id;
+                    law.Type = (int)LawType.DeclaringWar;
+                    law.PublishingDateTime = DateTime.UtcNow;
+                    law.Value1 = landFrom.LandId;
+                    law.Value2 = landTo.LandId;
+                    _context.Update(law);
+                                        
+                    War war = new War();
+                    war.LandIdFrom = landFrom.LandId;
+                    war.LandIdTo = landTo.LandId;
+                    war.StartDateTime = DateTime.UtcNow.AddHours(24);
+
+                    _context.Update(war);
+                    
+                    await _context.SaveChangesAsync();
+                }
+            }
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
         [HttpPost]
         public async Task<IActionResult> DisbandCountry()
         {

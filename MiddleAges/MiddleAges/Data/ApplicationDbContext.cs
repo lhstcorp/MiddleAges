@@ -75,5 +75,6 @@ namespace MiddleAges.Data
         public DbSet<BorderLand> BorderLands { get; set; }
         public DbSet<Law> Laws { get; set; }
         public DbSet<ChatMessage> ChatMessages { get; set; }
+        public DbSet<War> Wars { get; set; }
     }
 }
