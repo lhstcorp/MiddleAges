@@ -11,8 +11,8 @@
 #global_region_map polygon {
     stroke-width: 1;
     stroke: #232323;
-    fill: #fff;
-    opacity:70%;
+    fill: transparent;
+    opacity:60%;
 }
 
 

@@ -68,8 +68,9 @@
     background-clip: padding-box;
     border: 0 solid #ced4da;
     border-radius: 10px;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out, background-color 0s 600000s, color 0s 600000s !important;
 }
+
 
 ::placeholder {
     color: #F6D9A1;
@@ -97,3 +98,5 @@
     color: #2A1710;
     background-color: #DFBE7E
 }
+
+
