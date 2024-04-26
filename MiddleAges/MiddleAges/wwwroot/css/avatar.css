@@ -88,7 +88,7 @@
     --scrollbar-color-thumb: #232323;
     --scrollbar-color-track: #393939;
     --scrollbar-width: thin;
-    --scrollbar-width-legacy: 15px
+    --scrollbar-width-legacy: 0px
 }
 
 .lhst_slider::-webkit-scrollbar-track {

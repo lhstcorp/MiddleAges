@@ -1,5 +1,5 @@
 ﻿@using MiddleAges.Entities;
-@model List<MiddleAges.Entities.ChatMessage>
+@model List<MiddleAges.Entities.ChatMessage>;
 
 <div class="lhst_chat_but_marg d-inline-flex">
     <button id="showChatBtn" onclick="showPopup()" class="lhst_but_open_chat lhst_btn_unit_recruit align-bottom lhst_nav lhst_display_grid">&#8743; &emsp; &#8743;</button>
@@ -11,7 +11,7 @@
                 <div class="align-items-center text-left!important d-inline-flex">
                     <img class="lhst_country_history_img" id="country_history_img" height="32" src="~/img/avatars/@(Model[i].Player.ImageURL).webp" alt="" loading="lazy">
                     <div class="lhst_display_grid float-left">
-                        <p class="animation-text lhst_country_history_text text-left lhst_username_text">@Model[i].Player.UserName</p>
+                        <p id="showPlayerInfo" onclick="showPlayerInfoDialog()" class="animation-text lhst_country_history_text text-left lhst_username_text lhst_cursor_pointer">@Model[i].Player.UserName</p>
                         <p class="lhst_country_history_text text-left lhst_chat_text">@Model[i].MessageValue</p>
                     </div>
                     <time class="mr-2" datetime="T09:54">@Model[i].PublishingDateTime</time>
@@ -29,6 +29,50 @@
         </div>
     </div>
     <script src="~/js/chatLength.js"></script>
+    <script src="~/js/showChat.js"></script>
 </div>
+<div class="lhst_dialog modal" id="playerInfoDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hidePlayerInfoDialog()">x</button>
+    </div>
+    <form asp-controller="Player" >
+        <section>
+            <div class="row p-0 d-flex">
+                
+                <img src="../img/avatars/1.webp" width="20" height="20" alt="">
+                
+                <p class="lhst_card_properties">
+                    <label>Alex</label>
+                </p>
+                
+                <img src="../img/map-regions-icons-middle-ages/Brest.png" width="20" height="20" alt="">
+               
+                <p class="lhst_card_properties">
+                    <label>PepeTheFrogCompany</label>
+                </p>
+             </div>
+            <div class="row p-0 d-flex">
+                <img src="../img/default-icon/farmer.png" width="20" height="20" alt="">
+                <p class="lhst_card_properties">
+                    <label>Population</label>
+                </p>
 
+                <p class="lhst_card_properties">
+                    <label>54435</label>
+                </p>
+            </div>
+            <div class="row p-0 d-flex">
+                <img src="../img/default-icon/knight.png" width="20" height="20" alt="">
+                <p class="lhst_card_properties">
+                    <label>Knights</label>
+                </p>
+
+                <p class="lhst_card_properties">
+                    <label>432</label>
+                </p>
+            </div>
+        </section>
+       
+    </form>
+</div>
 

@@ -12,3 +12,10 @@ function hidePopup() {
     hideButton.style.display = "none";
     showButton.style.display = "grid";
 }
+
+function showPlayerInfoDialog() {
+    $('#playerInfoDialog').modal('show');
+}
+function hidePlayerInfoDialog() {
+    $('#playerInfoDialog').modal('hide');
+}
