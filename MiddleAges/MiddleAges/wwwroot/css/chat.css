@@ -43,6 +43,7 @@
 .lhst_chat_input {
     width: 230px;
     height: 50px;
+    margin-top: 13px;
     margin-bottom: 3px;
     margin-left: 4px;
     background-color: #393939;
@@ -87,3 +88,21 @@
     font-size: small;
     z-index: 1100
 }
+
+/*@keyframes color-change {
+    0% {
+        color: #2d9062;
+    }
+
+    50% {
+        color: #faaf08;
+    }
+
+    100% {
+        color: #2d9062;
+    }
+}
+
+.animation-text {
+    animation: color-change 5s infinite;
+}*/

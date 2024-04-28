@@ -14,11 +14,11 @@
                 <hr />
                 <div asp-validation-summary="All" class="text-danger "></div>
                 <div class="form-group w-50 text-center d-inline-flex">
-                    <input asp-for="Input.Email" class="auth_form-control " placeholder="EMAIL" />
+                    <input asp-for="Input.Email" class="auth_form-control" placeholder="EMAIL" type="email" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group w-50 text-center d-inline-flex">
-                    <input asp-for="Input.Password" class="auth_form-control " placeholder="PASSWORD" />
+                    <input asp-for="Input.Password" class="auth_form-control" placeholder="PASSWORD" type="password" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group w-50 text-center d-inline-flex">

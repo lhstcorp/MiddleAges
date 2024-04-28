@@ -1,0 +1,44 @@
+.lhst_vertical_line {
+    width: 1px;
+    background-color: #f5deb3;
+    height:30px;
+}
+
+.lhst_wars_div {
+    height:100%;
+    margin-top: 10px;
+    margin-left: 10px;
+    background-color: #232323;
+    border-radius: 20px;
+    color: #f5deb3;
+    padding: 5px;
+   /* width:510px;*/
+}
+
+.lhst_wars_country_text{
+    font-size:14px;
+    word-wrap:break-word;
+}
+
+.lhst_wars_lands_text {
+    font-size:12px;
+}
+
+.lhst_inWars {
+    text-align: left;
+    background-color: #232323;
+    border-radius: 20px;
+    color: #f5deb3
+}
+
+.warcontent{
+    display:none;
+}
+
+.lhst_war_country_img{
+    width:100%;
+}
+
+.lhst_row_height{
+    height:30px;
+}
