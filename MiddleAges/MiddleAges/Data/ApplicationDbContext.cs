@@ -65,6 +65,21 @@ namespace MiddleAges.Data
                 .HasOne(q => q.Player)
                 .WithMany()
                 .HasForeignKey(q => q.PlayerId);
+
+            builder.Entity<Army>()
+                .HasOne(q => q.Player)
+                .WithMany()
+                .HasForeignKey(q => q.PlayerId);
+
+            builder.Entity<Army>()
+                .HasOne(q => q.War)
+                .WithMany()
+                .HasForeignKey(q => q.WarId);
+
+            builder.Entity<Army>()
+                .HasOne(q => q.Land)
+                .WithMany()
+                .HasForeignKey(q => q.LandId);
         }
 
         public DbSet<Player> Players { get; set; }
@@ -76,5 +91,6 @@ namespace MiddleAges.Data
         public DbSet<Law> Laws { get; set; }
         public DbSet<ChatMessage> ChatMessages { get; set; }
         public DbSet<War> Wars { get; set; }
+        public DbSet<Army> Armies { get; set; }
     }
 }
