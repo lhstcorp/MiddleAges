@@ -140,6 +140,7 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             _context.Units.Add(unit);
             unit = new Unit { PlayerId = userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0 };
             _context.Units.Add(unit);
+
             await _context.SaveChangesAsync();
         }
     }
