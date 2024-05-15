@@ -12,7 +12,6 @@ function fillLandSideBar(id) {
         type: 'get',
         datatype: 'json',
         contentType: 'application/json;charset=utf-8',
-        cache: false,
         success: function (response) {
             if (response == null || response == undefined || response.length == 0) {
                 return 'NotFound';
