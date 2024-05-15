@@ -62,7 +62,6 @@ namespace MiddleAges.Controllers
                                                 .Where(combined => combined.Land.CountryId == country.CountryId)
                                                 .Select(combined => new { BLand = combined.BLand, BorderLand = combined.BorderLand, Land = combined.Land, Country = combined.Country }).ToListAsync();
 
-                //List<Land> borderLands = borderLandsQuery.Select(q => q.BLand).ToList();
                 List<BorderLand> borderLands = borderLandsQuery.Select(q => q.BorderLand).ToList();
 
 
