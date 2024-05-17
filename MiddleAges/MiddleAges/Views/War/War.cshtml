@@ -180,7 +180,7 @@
                     <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
                 </div>
                 <div class="col-2 p-0 text-right">
-                    <p class="text-right lhst_country_info_region_value">937</p>
+                    <p id="soldiersCountLeft" class="text-right lhst_country_info_region_value">937</p>
                 </div>
                 <div class="col-1 p-0">
                     <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
@@ -189,7 +189,7 @@
                     <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
                 </div>
                 <div class="col-2 p-0">
-                    <p class="lhst_country_info_region_value">647</p>
+                    <p id="soldiersCountRight" class="lhst_country_info_region_value">647</p>
                 </div>
                 <div id="countryToName" class="col-3 p-0">
                     <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
@@ -200,7 +200,7 @@
                     <p id="landFromName" class="lhst_wars_lands_text ">LandFrom</p>
                 </div>
                 <div class="col-2 p-0 text-right">
-                    <p class="text-right lhst_country_info_region_value">43</p>
+                    <p id="armiesCountLeft" class="text-right lhst_country_info_region_value">0</p>
                 </div>
                 <div class="col-1 p-0">
                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
@@ -209,7 +209,7 @@
                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
                 </div>
                 <div class="col-2 p-0 ">
-                    <p class="lhst_country_info_region_value">12</p>
+                    <p id="armiesCountRight" class="lhst_country_info_region_value">12</p>
                 </div>
                 <div class="col-3 p-0">
                     <p id="landToName" class="lhst_wars_lands_text ">LandTo</p>
@@ -239,21 +239,22 @@
 
     </div>
     <div class="row p-0">
-        <div id="attackersDiv" class="col-6 p0">
-            @for (int i = 0; i < 10; i++)
+        <div id="attackersDiv" class="col-6 p0 pt-3">
+            @*@for (int i = 0; i < 10; i++)
             {
+
                 <div>
                     <img class="lhst_country_history_img" height="32" src="~/img/avatars/1.webp" alt="" loading="lazy">
                     <p class="lhst_country_info_region_value">96537</p>
                 </div>                
-            }
+            }*@
         </div>
-        <div id="defendersDiv" class="col-6 p0">
-            @for (int i = 0; i < 10; i++)
+        <div id="defendersDiv" class="col-6 p0 pt-3">
+            @*@for (int i = 0; i < 10; i++)
             {
                 <img class="lhst_country_history_img" height="32" src="~/img/avatars/1.webp" alt="" loading="lazy">
                 <p class="lhst_country_info_region_value">54937</p>
-            }
+            }*@
         </div>
     </div>
 

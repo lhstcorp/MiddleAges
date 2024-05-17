@@ -117,14 +117,26 @@ namespace MiddleAges.Controllers
             return Json(JsonSerializer.Serialize(warInfoViewModel));
         }
 
-        public class SendTroopsResult
+        public JsonResult GetArmiesByWarId(string id)
         {
-            public Guid WarId { get; set; }
-            public int SoldiersCount { get; set; }
+            List<Army> armies = _context.Armies.Include(a => a.Player).Where(a => a.WarId.ToString() == id).ToList();
+            List<Army> attackersArmies = armies.FindAll(a => a.Side == ArmySide.Attackers);
+            List<Army> defendersArmies = armies.FindAll(a => a.Side == ArmySide.Defenders);
+
+            WarArmiesViewModel warArmiesViewModel = new WarArmiesViewModel
+            {
+                AttackersArmies = attackersArmies,
+                DefendersArmies = defendersArmies,
+                AttackersSoldiersCount = attackersArmies.Sum(a => a.SoldiersCount),
+                DefendersSoldiersCount = defendersArmies.Sum(a => a.SoldiersCount),
+            };
+
+            return Json(JsonSerializer.Serialize(warArmiesViewModel));
         }
 
         public async Task<IActionResult> SendTroops(string warId, string soldiersCount)
         {
+            string result = "Error";
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             War war = await _context.Wars.FirstOrDefaultAsync(w => w.WarId.ToString() == warId);
             Unit soldierUnit = await _context.Units.FirstOrDefaultAsync(u => u.PlayerId == player.Id && u.Type == (int)UnitType.Soldier);
@@ -140,21 +152,38 @@ namespace MiddleAges.Controllers
              && war.IsEnded == false
              && soldiersEntered > 0)
             {
-                Army army = new Army
+                ArmySide armySide = war.LandIdFrom == player.CurrentLand ? ArmySide.Attackers : ArmySide.Defenders;
+
+                Army playerArmyInThisWar = await _context.Armies.FirstOrDefaultAsync(
+                                                                    a => a.WarId.ToString() == warId 
+                                                                      && a.Side == armySide
+                                                                      && a.PlayerId == player.Id);
+
+                if (playerArmyInThisWar == null)
                 {
-                    WarId = war.WarId,
-                    PlayerId = player.Id,
-                    SoldiersCount = soldiersEntered,
-                    LandId =  player.CurrentLand,
-                    Side = war.LandIdFrom == player.CurrentLand ? ArmySide.Attackers : ArmySide.Defenders
-                };
+                    Army army = new Army
+                    {
+                        WarId = war.WarId,
+                        PlayerId = player.Id,
+                        SoldiersCount = soldiersEntered,
+                        LandId = player.CurrentLand,
+                        Side = armySide
+                    };
 
-                _context.Update(army);
-                await _context.SaveChangesAsync();
+                    _context.Update(army);
+                }
+                else
+                {
+                    playerArmyInThisWar.SoldiersCount += soldiersEntered;
+                    _context.Update(playerArmyInThisWar);
+                }
                 
-            }
+                await _context.SaveChangesAsync();
 
-            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+                result = "Ok";
+            }
+            
+            return Json(JsonSerializer.Serialize(result));
         }
     }
 }
