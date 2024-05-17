@@ -1,4 +1,7 @@
 ﻿var warId;
+const coatOfArmsUrl = '../img/map-regions-icons-middle-ages/';
+const playerAvatarsUrl = '../img/avatars/';
+const unexpectedErrorMessage = "Something went wrong";
 
 $(document).ready(function () {
     $(document).on("click", ".warDetailsBtn", openDetailsWar);    
@@ -8,6 +11,7 @@ function openDetailsWar() {
     warId = $(this).data("warid");
 
     getWarById(warId);
+    getArmiesByWarId(warId);
 }
 
 function getWarById(id) {
@@ -31,27 +35,98 @@ function getWarById(id) {
     .done(function (data) {
         if (data != 'NotFound') {
             let obj = JSON.parse(data);
-            populateDialog(obj);
-            showDetailsWar();
+            populateWarData(obj);
         }
         else {
-            $('#selected_land_name').text('');
+            alert(unexpectedErrorMessage);
         }
     })
     .fail(function (data) {
-        hideDetailsWar();
+        alert(unexpectedErrorMessage);
     });
 }
 
-function populateDialog(obj) {
+function getArmiesByWarId(id) {
+    $.ajax({
+        url: 'War/GetArmiesByWarId/' + id,
+        type: 'get',
+        datatype: 'json',
+        contentType: 'application/json;charset=utf-8',
+        success: function (response) {
+            if (response == null || response == undefined || response.length == 0) {
+                return 'NotFound';
+            }
+            else {
+                return response;
+            }
+        },
+        error: function (response) {
+            return 'NotFound';
+        }
+    })
+        .done(function (data) {
+            if (data != 'NotFound') {
+                let obj = JSON.parse(data);
+                populateArmyData(obj);
+                showDetailsWar();
+            }
+            else {
+                alert(unexpectedErrorMessage);
+            }
+        })
+        .fail(function (data) {
+            alert(unexpectedErrorMessage);
+            hideDetailsWar();
+        });
+}
+
+function populateWarData(obj) {
     $('#countryFromName').text(obj.CountryFrom.Name);
     $('#landFromName').text(obj.LandFrom.LandId);
     $('#countryToName').text(obj.CountryTo.Name);
-    $('#landToName').text(obj.LandTo.LandId);
+    $('#landToName').text(obj.LandTo.LandId);    
     
-    let url = '../img/map-regions-icons-middle-ages/';
-    $('#imgFrom').attr('src', url + obj.LandFrom.LandId + '.png');
-    $('#imgTo').attr('src', url + obj.LandTo.LandId + '.png');
+    $('#imgFrom').attr('src', coatOfArmsUrl + obj.LandFrom.LandId + '.png');
+    $('#imgTo').attr('src', coatOfArmsUrl + obj.LandTo.LandId + '.png');
+}
+
+function populateArmyData(obj) {
+    $('#armiesCountLeft').text(obj.AttackersArmies.length);
+    $('#armiesCountRight').text(obj.DefendersArmies.length);
+    $('#soldiersCountLeft').text(obj.AttackersSoldiersCount);
+    $('#soldiersCountRight').text(obj.DefendersSoldiersCount);
+
+    populateArmySideDiv("attackersDiv", obj.AttackersArmies); //populates attackers armies
+    populateArmySideDiv("defendersDiv", obj.DefendersArmies); //populates defenders armies
+}
+
+function populateArmySideDiv(divName, armyList) {
+    const armySideDiv = document.getElementById(divName);
+
+    for (let i = 0; i < armyList.length; i++) {
+        const armyNode = document.createElement("div");
+
+        const playerImg = document.createElement("img");
+        playerImg.src = playerAvatarsUrl + armyList[i].Player.ImageURL + '.webp'
+        playerImg.height = 32;
+        playerImg.loading = "lazy";
+        playerImg.classList.add("lhst_country_history_img");
+        armyNode.appendChild(playerImg);
+
+        const soldiersInArmy = document.createElement("p");
+        soldiersInArmy.innerHTML = armyList[i].SoldiersCount;
+        soldiersInArmy.classList.add("lhst_country_info_region_value");
+        soldiersInArmy.classList.add("pl-1");
+        armyNode.appendChild(soldiersInArmy);
+
+        armySideDiv.appendChild(armyNode);
+    }
+}
+
+function refreshWarData() {
+    $('#attackersDiv').empty();
+    getWarById(warId);
+    getArmiesByWarId(warId);
 }
 
 function sendTroopsLeftSide() {
@@ -81,24 +156,23 @@ function sendTroops(soldiersCount) {
         //data: JSON.stringify(params),
         success: function (response) {
             if (response == null || response == undefined || response.length == 0) {
-                return 'NotFound';
+                return 'Error';
             }
             else {
                 return response;
             }
         },
         error: function (response) {
-            return 'NotFound';
+            return 'Error';
         }
     })
     .done(function (data) {
-        if (data != 'NotFound') {
-            let obj = JSON.parse(data);
-            populateDialog(obj);
-            showDetailsWar();
+        let obj = JSON.parse(data);
+        if (obj != 'Error') {
+            refreshWarData();
         }
         else {
-            $('#selected_land_name').text('');
+            alert("No troops were sent to the battle.");
         }
     })
     .fail(function (data) {
