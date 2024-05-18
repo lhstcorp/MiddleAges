@@ -355,10 +355,10 @@ footer {
     font-size: revert
 }
 
-    .lhst_btn_building_lvlup:hover {
-        background: radial-gradient(#2d9062,black);
-        color: #faaf08;
-    }
+.lhst_btn_building_lvlup:hover {
+    background: radial-gradient(#2d9062,black);
+    color: #faaf08;
+}
 
 .lhst_btn_unit_recruit {
     background: radial-gradient(#393939,black);

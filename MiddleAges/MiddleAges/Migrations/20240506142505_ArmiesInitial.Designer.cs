@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiddleAges.Data;
 
 namespace MiddleAges.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240506142505_ArmiesInitial")]
+    partial class ArmiesInitial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -160,14 +162,30 @@ namespace MiddleAges.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("PlayerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("SoldiersCount")
+                        .HasColumnType("int");
+
+                    b.HasKey("ArmyId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("Armies");
+                });
+
+            modelBuilder.Entity("MiddleAges.Entities.ArmyInBattle", b =>
+                {
+                    b.Property<Guid>("ArmyId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<string>("LandId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("PlayerId")
                         .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("Side")
-                        .HasColumnType("int");
 
                     b.Property<int>("SoldiersCount")
                         .HasColumnType("int");
@@ -183,7 +201,7 @@ namespace MiddleAges.Migrations
 
                     b.HasIndex("WarId");
 
-                    b.ToTable("Armies");
+                    b.ToTable("ArmiesInBattle");
                 });
 
             modelBuilder.Entity("MiddleAges.Entities.BorderLand", b =>
@@ -510,6 +528,15 @@ namespace MiddleAges.Migrations
                 });
 
             modelBuilder.Entity("MiddleAges.Entities.Army", b =>
+                {
+                    b.HasOne("MiddleAges.Entities.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId");
+
+                    b.Navigation("Player");
+                });
+
+            modelBuilder.Entity("MiddleAges.Entities.ArmyInBattle", b =>
                 {
                     b.HasOne("MiddleAges.Entities.Land", "Land")
                         .WithMany()
