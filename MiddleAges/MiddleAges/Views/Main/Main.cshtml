@@ -7,7 +7,15 @@
 
 <div class="d-flex">
     <div class="lhst_left-side-bar lhst_vertical-alignment-top">
-
+        <div class="lhst_left_side_bar_land_content row justify-content-md-center">
+            <div class="col lhst_map_region_icon_left_bar_col">
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
+            </div>
+            <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
+                <p class="lhst_current_land_name mb-0">@Model.Land.Country.Name</p>
+                <p class="lhst_current_land_name">@Model.CurrentLand</p>
+            </div>
+        </div>
     </div>
     <div class="lhst_vertical-alignment-top lhst_main-section_mainmenu lhst_main_section_padding">
         @await Component.InvokeAsync(typeof(BuildingsViewComponent))

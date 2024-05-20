@@ -1,6 +1,7 @@
 ﻿var warId;
 const coatOfArmsUrl = '../img/map-regions-icons-middle-ages/';
 const playerAvatarsUrl = '../img/avatars/';
+const interfaceIconsUrl = '../img/interface-icons/';
 const unexpectedErrorMessage = "Something went wrong";
 
 $(document).ready(function () {
@@ -10,8 +11,7 @@ $(document).ready(function () {
 function openDetailsWar() {
     warId = $(this).data("warid");
 
-    getWarById(warId);
-    getArmiesByWarId(warId);
+    refreshWarData();
 }
 
 function getWarById(id) {
@@ -65,8 +65,8 @@ function getArmiesByWarId(id) {
         }
     })
         .done(function (data) {
-            if (data != 'NotFound') {
-                let obj = JSON.parse(data);
+            let obj = JSON.parse(data);
+            if (obj != 'NotFound') { 
                 populateArmyData(obj);
                 showDetailsWar();
             }
@@ -96,11 +96,11 @@ function populateArmyData(obj) {
     $('#soldiersCountLeft').text(obj.AttackersSoldiersCount);
     $('#soldiersCountRight').text(obj.DefendersSoldiersCount);
 
-    populateArmySideDiv("attackersDiv", obj.AttackersArmies); //populates attackers armies
-    populateArmySideDiv("defendersDiv", obj.DefendersArmies); //populates defenders armies
+    populateArmySideDiv("attackersDiv", obj.AttackersArmies, obj.Player); //populates attackers armies
+    populateArmySideDiv("defendersDiv", obj.DefendersArmies, obj.Player); //populates defenders armies
 }
 
-function populateArmySideDiv(divName, armyList) {
+function populateArmySideDiv(divName, armyList, currentPlayer) {
     const armySideDiv = document.getElementById(divName);
 
     for (let i = 0; i < armyList.length; i++) {
@@ -119,12 +119,26 @@ function populateArmySideDiv(divName, armyList) {
         soldiersInArmy.classList.add("pl-1");
         armyNode.appendChild(soldiersInArmy);
 
+        if (armyList[i].Player.Id === currentPlayer.Id) {
+            const disbandArmyImg = document.createElement("img");
+            disbandArmyImg.src = interfaceIconsUrl + 'red-diagonal-cross.png'
+            disbandArmyImg.height = 20;
+            disbandArmyImg.loading = "lazy";
+            disbandArmyImg.classList.add("lhst_country_history_img");
+            disbandArmyImg.classList.add("pl-1");
+            disbandArmyImg.dataset.armyid = armyList[i].ArmyId;
+            disbandArmyImg.classList.add("lhst_cursor_pointer");
+            disbandArmyImg.onclick = disbandPlayerArmy;
+            armyNode.appendChild(disbandArmyImg);
+        }
+
         armySideDiv.appendChild(armyNode);
     }
 }
 
 function refreshWarData() {
     $('#attackersDiv').empty();
+    $('#defendersDiv').empty();
     getWarById(warId);
     getArmiesByWarId(warId);
 }
@@ -142,10 +156,6 @@ function sendTroopsRightSide() {
 }
 
 function sendTroops(soldiersCount) {
-    var params = new Object();
-    params.warId = warId;
-    params.soldiersCount = soldiersCount;
-
     $.ajax({
         url: 'War/SendTroops',
         type: 'post',
@@ -153,7 +163,6 @@ function sendTroops(soldiersCount) {
         data: {
             warId: warId,
             soldiersCount: soldiersCount},
-        //data: JSON.stringify(params),
         success: function (response) {
             if (response == null || response == undefined || response.length == 0) {
                 return 'Error';
@@ -178,6 +187,42 @@ function sendTroops(soldiersCount) {
     .fail(function (data) {
         hideDetailsWar();
     });
+}
+
+function disbandPlayerArmy() {
+    var armyId = $(this).data("armyid");
+
+    $.ajax({
+        url: 'War/DisbandPlayerArmy/' + armyId,
+        type: 'post',
+        datatype: 'json',
+        data: {
+            armyId: armyId
+        },
+        success: function (response) {
+            if (response == null || response == undefined || response.length == 0) {
+                return 'Error';
+            }
+            else {
+                return response;
+            }
+        },
+        error: function (response) {
+            return 'Error';
+        }
+    })
+        .done(function (data) {
+            let obj = JSON.parse(data);
+            if (obj != 'Error') {
+                refreshWarData();
+            }
+            else {
+                alert("The army wasn't disbanded.");
+            }
+        })
+        .fail(function (data) {
+            hideDetailsWar();
+        });
 }
 
 function showDetailsWar() {

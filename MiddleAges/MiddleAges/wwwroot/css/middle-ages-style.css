@@ -369,10 +369,10 @@ footer {
     font-size: revert;
 }
 
-    .lhst_btn_unit_recruit:hover {
-        background: radial-gradient(#2d9062 0%,#232323 90%);
-        color: #faaf08;
-    }
+.lhst_btn_unit_recruit:hover {
+    background: radial-gradient(#2d9062 0%,#232323 90%);
+    color: #faaf08;
+}
 
 .lhst_btn_logout {
     background: radial-gradient(#393939,black);
@@ -384,10 +384,10 @@ footer {
     font-family: 'Sitka Display','Arial',Arial,sans-serif
 }
 
-    .lhst_btn_logout:hover {
-        background: radial-gradient(#2d9062,black);
-        color: #faaf08;
-    }
+.lhst_btn_logout:hover {
+    background: radial-gradient(#2d9062,black);
+    color: #faaf08;
+}
 
 .lhst_btn_group_selected_land {
     vertical-align: bottom;
@@ -485,9 +485,18 @@ footer {
     word-wrap: break-word
 }
 
+.lhst_current_land_text_content {
+    margin-bottom: 0px;
+    word-wrap: break-word
+}
+
 .lhst_selected_land_name {
     color: #f5deb3;
     height: 30px
+}
+
+.lhst_current_land_name {
+    color: #f5deb3;
 }
 
 .lhst_map_region_icon_left_bar_col {
