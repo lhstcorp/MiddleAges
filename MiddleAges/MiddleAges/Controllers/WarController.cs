@@ -119,6 +119,7 @@ namespace MiddleAges.Controllers
 
         public JsonResult GetArmiesByWarId(string id)
         {
+            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
             List<Army> armies = _context.Armies.Include(a => a.Player).Where(a => a.WarId.ToString() == id).ToList();
             List<Army> attackersArmies = armies.FindAll(a => a.Side == ArmySide.Attackers);
             List<Army> defendersArmies = armies.FindAll(a => a.Side == ArmySide.Defenders);
@@ -129,6 +130,7 @@ namespace MiddleAges.Controllers
                 DefendersArmies = defendersArmies,
                 AttackersSoldiersCount = attackersArmies.Sum(a => a.SoldiersCount),
                 DefendersSoldiersCount = defendersArmies.Sum(a => a.SoldiersCount),
+                Player = player
             };
 
             return Json(JsonSerializer.Serialize(warArmiesViewModel));
@@ -183,6 +185,26 @@ namespace MiddleAges.Controllers
                 result = "Ok";
             }
             
+            return Json(JsonSerializer.Serialize(result));
+        }
+
+        public async Task<IActionResult> DisbandPlayerArmy(string armyId)
+        {
+            string result = "Error";
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Army army = await _context.Armies.FirstOrDefaultAsync(a => a.ArmyId.ToString() == armyId);
+
+            if (player != null
+             && army != null
+             && player.Id == army.PlayerId)
+            {
+                _context.Remove(army);
+
+                await _context.SaveChangesAsync();
+
+                result = "Ok";
+            }
+
             return Json(JsonSerializer.Serialize(result));
         }
     }
