@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
@@ -28,6 +29,8 @@ namespace MiddleAges.Controllers
         public async Task<IActionResult> Index()
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
+
+            player = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(p => p.Id == player.Id);
             return View("Main", player);
         }
         public IActionResult Privacy()

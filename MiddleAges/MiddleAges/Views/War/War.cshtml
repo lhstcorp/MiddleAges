@@ -72,21 +72,27 @@
                                     <p class="float-right mr-2 lhst_country_info_region_value">Left</p>
                                 </div>
                                 <div class="col-2 float-left p-0">
-                                    <time datetime="2016-11-18T09:54" class="lhst_country_info_region_value">24:00:00</time>
+                                    @if (allWars[i].War.StartDateTime.AddHours(24) > DateTime.UtcNow)
+                                    {
+                                    <time datetime="2016-11-18T09:54" class="lhst_country_info_region_value">allWars[i].War.StartDateTime.AddHours(24) - DateTime.UtcNow</time>
+                                    }
+                                    else if (!allWars[i].War.IsEnded)
+                                    {
+                                        <p class="lhst_country_info_region_value">Started</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="lhst_country_info_region_value">Ended</p>
+                                    }
                                 </div>
                                 <div class="col-6 float-left p-0">
-                                    <button type="button"
-                                            data-warid=@allWars[i].War.WarId
-                                            class="lhst_btn_unit_recruit warDetailsBtn">
-                                        Details
-                                    </button>
+                                    <input type="submit" class="lhst_btn_unit_recruit warDetailsBtn" data-warid=@allWars[i].War.WarId value="Details"/>
                                 </div>
                             </div>
                         </div>
                         <div class="col-2 p-0">
                             <img class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/Vetka.png" alt="">
                         </div>
-
                     </div>
                 }
             </div>
@@ -146,7 +152,7 @@
                                     <time datetime="2016-11-18T09:54" class="lhst_country_info_region_value">12:53:32</time>
                                 </div>
                                 <div class="col-6 float-left p-0">
-                                    <input id="" type="submit" class="lhst_btn_unit_recruit" onclick="openDetailsWar()" value="Details" />
+                                    <input type="submit" class="lhst_btn_unit_recruit" onclick="openDetailsWar()" value="Details" />
                                 </div>
                             </div>
                         </div>
