@@ -58,6 +58,10 @@ namespace MiddleAges.Controllers
             List<Country> countriesFrom = warsQuery.Select(q => q.CountryFrom).ToList();
             List<Country> countriesTo = warsQuery.Select(q => q.CountryTo).ToList();
 
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+
+            player = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(p => p.Id == player.Id);
+
             List<WarInfoViewModel> warInfoViewModelList = new List<WarInfoViewModel>();
 
             for (int i = 0; i < wars.Count; i++)
@@ -68,7 +72,9 @@ namespace MiddleAges.Controllers
                     LandFrom = landsFrom[i],
                     LandTo = landsTo[i],
                     CountryFrom = countriesFrom[i],
-                    CountryTo = countriesTo[i]
+                    CountryTo = countriesTo[i],
+                    Player = player,
+                    WarArmiesViewModel = this.GetWarArmiesViewModelByWarId(wars[i].WarId)
                 };
 
                 warInfoViewModelList.Add(warInfoViewModel);
@@ -134,6 +140,25 @@ namespace MiddleAges.Controllers
             };
 
             return Json(JsonSerializer.Serialize(warArmiesViewModel));
+        }
+
+        public WarArmiesViewModel GetWarArmiesViewModelByWarId(Guid id)
+        {
+            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
+            List<Army> armies = _context.Armies.Include(a => a.Player).Where(a => a.WarId == id).ToList();
+            List<Army> attackersArmies = armies.FindAll(a => a.Side == ArmySide.Attackers);
+            List<Army> defendersArmies = armies.FindAll(a => a.Side == ArmySide.Defenders);
+
+            WarArmiesViewModel warArmiesViewModel = new WarArmiesViewModel
+            {
+                AttackersArmies = attackersArmies,
+                DefendersArmies = defendersArmies,
+                AttackersSoldiersCount = attackersArmies.Sum(a => a.SoldiersCount),
+                DefendersSoldiersCount = defendersArmies.Sum(a => a.SoldiersCount),
+                Player = player
+            };
+
+            return warArmiesViewModel;
         }
 
         public async Task<IActionResult> SendTroops(string warId, string soldiersCount)

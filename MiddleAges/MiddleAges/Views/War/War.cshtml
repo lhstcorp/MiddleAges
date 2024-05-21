@@ -11,7 +11,13 @@
     allWars = Model;
 
     List<WarInfoViewModel> countryWars = new List<WarInfoViewModel>();
-    countryWars = Model;
+    if (allWars.Count > 0)
+    {
+        Guid playerCountryId = allWars[0].Player.Land.Country.CountryId;
+
+        countryWars = allWars.FindAll(w => w.CountryFrom.CountryId == playerCountryId
+                                        || w.CountryTo.CountryId == playerCountryId);
+    }
 
 }
 
@@ -100,7 +106,7 @@
                 }
             </div>
             <div id="CountryWars" class="lhst_slider mt-2 warcontent lhst_inTab">
-                @for (int i = 0; i < 15; i++)
+                @for (int i = 0; i < countryWars.Count; i++)
                 {
                     <div class="row p-0">
                         <div class="col-2 p-0">
@@ -112,7 +118,7 @@
                                     <p class="lhst_wars_country_text ">KekLolBeck</p>
                                 </div>
                                 <div class="col-2 p-0 text-right">
-                                    <p class="text-right lhst_country_info_region_value">937</p>
+                                    <p class="text-right lhst_country_info_region_value">@countryWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
                                 </div>
                                 <div class="col-1 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
@@ -121,7 +127,7 @@
                                     <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <p class="lhst_country_info_region_value">647</p>
+                                    <p class="lhst_country_info_region_value">@countryWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
                                 </div>
                                 <div class="col-3 p-0">
                                     <p class="lhst_wars_country_text ">PepeTheFrogMyDudes</p>
@@ -132,7 +138,7 @@
                                     <p class="lhst_wars_lands_text ">Brest</p>
                                 </div>
                                 <div class="col-2 p-0 text-right">
-                                    <p class="text-right lhst_country_info_region_value">43</p>
+                                    <p class="text-right lhst_country_info_region_value">@countryWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
                                 </div>
                                 <div class="col-1 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
@@ -141,7 +147,7 @@
                                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
                                 </div>
                                 <div class="col-2 p-0 ">
-                                    <p class="lhst_country_info_region_value">12</p>
+                                    <p class="lhst_country_info_region_value">@countryWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
                                 </div>
                                 <div class="col-3 p-0">
                                     <p class="lhst_wars_lands_text ">Lahoisk</p>
@@ -155,7 +161,7 @@
                                     <time datetime="2016-11-18T09:54" class="lhst_country_info_region_value">12:53:32</time>
                                 </div>
                                 <div class="col-6 float-left p-0">
-                                    <input type="submit" class="lhst_btn_unit_recruit" onclick="openDetailsWar()" value="Details" />
+                                    <input type="submit" class="lhst_btn_unit_recruit warDetailsBtn" data-warid=@countryWars[i].War.WarId value="Details" />
                                 </div>
                             </div>
                         </div>
