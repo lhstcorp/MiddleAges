@@ -10,6 +10,9 @@
     List<WarInfoViewModel> allWars = new List<WarInfoViewModel>();
     allWars = Model;
 
+    List<WarInfoViewModel> countryWars = new List<WarInfoViewModel>();
+    countryWars = Model;
+
 }
 
 <div class="d-flex">
@@ -29,7 +32,7 @@
                         <div class="col-8 p-0">
                             <div class="row p-0 lhst_row_height">
                                 <div class="col-3 p-0">
-                                    <p class="lhst_wars_country_text ">Avalonium</p>
+                                    <p class="lhst_wars_country_text ">@allWars[i].CountryFrom.Name</p>
                                 </div>
                                 <div class="col-2 p-0 text-right">
                                     <p class="text-right lhst_country_info_region_value">54363</p>
@@ -44,12 +47,12 @@
                                     <p class="lhst_country_info_region_value">54363</p>
                                 </div>
                                 <div class="col-3 p-0">
-                                    <p class="lhst_wars_country_text ">Savvochka</p>
+                                    <p class="lhst_wars_country_text ">@allWars[i].CountryTo.Name</p>
                                 </div>
                             </div>
                             <div class="row lhst_row_height">
                                 <div class="col-3 p-0">
-                                    <p class="lhst_wars_lands_text ">Hrodna</p>
+                                    <p class="lhst_wars_lands_text ">@allWars[i].LandFrom.LandId</p>
                                 </div>
                                 <div class="col-2 p-0 text-right">
                                     <p class="text-right lhst_country_info_region_value">123</p>
@@ -64,7 +67,7 @@
                                     <p class="lhst_country_info_region_value">213</p>
                                 </div>
                                 <div class="col-3 p-0">
-                                    <p class="lhst_wars_lands_text ">Vetka</p>
+                                    <p class="lhst_wars_lands_text ">@allWars[i].LandTo.LandId</p>
                                 </div>
                             </div>
                             <div class="row lhst_row_height">
