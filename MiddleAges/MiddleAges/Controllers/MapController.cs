@@ -58,5 +58,26 @@ namespace MiddleAges.Controllers
             return Json(landIdColorPairList);
         }
 
+        public async Task<IActionResult> MoveToLand(string landId)
+        {
+            string result = "Error";
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(a => a.LandId == landId);
+
+            if (player != null
+             && land != null
+             && player.CurrentLand != land.LandId)
+            {
+                player.CurrentLand = land.LandId;
+
+                _context.Update(player);
+
+                await _context.SaveChangesAsync();
+
+                result = "Ok";
+            }
+
+            return Json(JsonSerializer.Serialize(result));
+        }
     }
 }
