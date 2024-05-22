@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.Timed_Hosted_Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,8 @@ namespace MiddleAges
             services.AddAuthentication();
             services.AddAuthorization();
             services.AddRazorPages();
+
+            services.AddHostedService<RecruitBackgroundService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
