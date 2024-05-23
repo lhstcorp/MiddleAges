@@ -59,13 +59,27 @@
         height: 60px;
         font-size: 11px
     }
+    
 }
 
 @media screen and (max-width:807px) {
+
+    .lhst_row_height {
+        margin-top: 1px;
+    }
+
     li a.lhst_nav {
         width: 30px;
         height: 30px;
         font-size: 8px
+    }
+
+    .lhst_wars_country_text {
+        font-size: 9px;
+    }
+
+    .lhst_wars_lands_text {
+        font-size: 6px;
     }
 }
 
@@ -90,11 +104,11 @@
     }
 
     .lhst_wars_country_text {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .lhst_wars_lands_text {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .lhst_country_div {
@@ -183,5 +197,17 @@
         height: 50px;
         align-items: center;
         display: flex
+    }
+
+    .lhst_row_height {
+        margin-top: 10px;
+    }
+
+    .lhst_wars_country_text {
+        font-size: 12px;
+    }
+
+    .lhst_wars_lands_text {
+        font-size: 10px;
     }
 }
