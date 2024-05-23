@@ -7,12 +7,13 @@ using System.Threading.Tasks;
 namespace MiddleAges.ViewModels
 {
     public class WarInfoViewModel
-    {
+    {        
         public War War { get; set; }
         public Land LandFrom { get; set; }
         public Land LandTo { get; set; }
         public Country CountryFrom { get; set; }
         public Country CountryTo { get; set; }
-        // List<Army>
+        public Player Player { get; set; }
+        public WarArmiesViewModel WarArmiesViewModel { get; set; }
     }
 }

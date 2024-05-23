@@ -3,7 +3,6 @@
 @using MiddleAges.Enums;
 @using Microsoft.AspNetCore.Identity;
 @model MiddleAges.Entities.Player
-@inject UserManager<Player> UserMana
 
 @{
     ViewData["Title"] = "Home Page";
@@ -50,9 +49,7 @@
             </p>
         </div>
         <div class="lhst_btn_group_selected_land">
-            <input type="submit" class="lhst_btn_moveToRegion" value="Move to" />
-            <input type="submit" class="lhst_btn_moveToRegion" value="Cringe" />
-            <input type="submit" class="lhst_btn_moveToRegion" value="Hallelujah" />
+            <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.CurrentLand value="Move to" onclick="moveToLand()"/>
         </div>
     </div>
     <div class="lhst_map-container lhst_vertical-alignment-top lhst_main-section" id="belarus-map">
