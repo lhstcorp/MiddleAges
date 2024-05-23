@@ -595,4 +595,19 @@ lhst_marquee {
     cursor:pointer;
 }
 
+.lhst_leftSideBar_country_name {
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    margin-top:30px;
+}
+
+.lhst_leftSideBar_land_name {
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 200;
+    margin-top: 5px;
+}
+
+
 
