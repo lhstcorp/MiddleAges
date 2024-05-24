@@ -5,7 +5,7 @@
 }
 
 .lhst_wars_div {
-    height:100%;
+/*    height:100%;*/
     margin-top: 10px;
     margin-left: 10px;
     background-color: #232323;
@@ -13,15 +13,16 @@
     color: #f5deb3;
     padding: 5px;
    /* width:510px;*/
+/*    display: flex;*/
 }
 
 .lhst_wars_country_text{
-    font-size:14px;
+    font-size:16px;
     word-wrap:break-word;
 }
 
 .lhst_wars_lands_text {
-    font-size:12px;
+    font-size:14px;
 }
 
 .lhst_inWars {
@@ -41,4 +42,5 @@
 
 .lhst_row_height{
     height:30px;
+    margin-top: 20px;
 }
