@@ -23,10 +23,20 @@ namespace MiddleAges.Data
                 .WithMany()
                 .HasForeignKey(q => q.PlayerId);
 
+            builder.Entity<Unit>()
+                .HasOne(q => q.Land)
+                .WithMany()
+                .HasForeignKey(q => q.LandId);
+
             builder.Entity<Building>()
                 .HasOne(q => q.Player)
                 .WithMany()
                 .HasForeignKey(q => q.PlayerId);
+
+            builder.Entity<Building>()
+                .HasOne(q => q.Land)
+                .WithMany()
+                .HasForeignKey(q => q.LandId);
 
             builder.Entity<Country>()
                 .HasOne(q => q.Ruler)

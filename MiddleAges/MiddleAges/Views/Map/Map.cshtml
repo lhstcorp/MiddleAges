@@ -1,8 +1,8 @@
-﻿@using MiddleAges.ViewModels;
-@using MiddleAges.Entities;
+﻿@using MiddleAges.Entities;
+@using MiddleAges.ViewModels;
 @using MiddleAges.Enums;
 @using Microsoft.AspNetCore.Identity;
-@model MiddleAges.Entities.Player
+@model MiddleAges.ViewModels.MapSelectedLandViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -26,36 +26,29 @@
     <div class="lhst_left-side-bar lhst_slider_small_screen lhst_vertical-alignment-top">
         <div class="lhst_left_side_bar_land_content row justify-content-md-center">
             <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy"/>
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
             </div>
             <div class="col lhst_selected_land_text_content lhst_map_region_icon_left_bar_col">
-                <p id="selected_land_name" class="lhst_selected_land_name">@Model.CurrentLand</p>
+                <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
+                <p id="selected_land_name" class="lhst_selected_land_name">@Model.Land.LandId</p>
             </div>
         </div>
         <div class="lhst_info_region_group_selected_land">
-            <img id="population" src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar" alt="" loading="lazy" />
-            <p class="lhst_info_region_value">
-                1234876
-            </p>
-            <p class="lhst_info_region_text">
-                POPULATION
-            </p>
-            <img id="knights" src="../img/default-icon/knight.png" class="lhst_info_region_icon_left_bar" alt="" loading="lazy" />
-            <p class="lhst_info_region_value lhst_cursor_pointer" onclick="openResidentsCountryDialog()" > 
-                675672
-            </p> 
-            <p class="lhst_info_region_text">
-                KNIGHTS
-            </p>
+            <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar" alt="" loading="lazy" />
+            <p id="population" class="lhst_info_region_value">@Model.Population</p>
+            <p class="lhst_info_region_text">Population</p>
+            <img src="../img/default-icon/knight.png" class="lhst_info_region_icon_left_bar" alt="" loading="lazy" />
+            <p id="lordsCount" class="lhst_info_region_value lhst_cursor_pointer" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
+            <p class="lhst_info_region_text">Lords</p>
         </div>
         <div class="lhst_btn_group_selected_land">
-            <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.CurrentLand value="Move to" onclick="moveToLand()"/>
+            <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId value="Move to" onclick="moveToLand()" />
         </div>
     </div>
     <div class="lhst_map-container lhst_vertical-alignment-top lhst_main-section" id="belarus-map">
         <svg class="lhst_svg-map over lhst_background_image" viewBox="0 0 1000 890" id="lhst_svg_map">
             <image x="-1" y="13" width="553" height="541" id="lhst_map_img" xlink:href="/img/menu-icons/map5.png" loading="lazy" />
-            <g id="global_region_map" >
+            <g id="global_region_map">
                 <g id="hrodnenskaia-voblasts-subregions" class="lhst_scale">
                     <polygon id="Hrodna" class="map_land" fill="" points="75,265 65,265 60,270 60,275 55,280 45,280 40,285 40,280 35,275 35,265 30,260 30,240 25,235 25,225 30,225 35,230 45,230 50,225 60,225 65,230 75,230"></polygon>
                     <polygon id="Bierastavica" class="map_land" fill="" points="40,285 40,290 45,295 45,310 50,315 60,305 60,285 55,280 45,280"></polygon>
@@ -184,7 +177,7 @@
                     <polygon id="Zhabinka" class="map_land" points="60,410 65,410 65,405 70,400 65,395 65,390 60,385 60,375 55,380 45,380 45,390 50,395 50,400"></polygon>
                     <polygon id="Malaryta" class="map_land" points="40,445 45,445 50,450 50,455 55,455 60,450 75,435 75,420 80,415 75,410 65,410 60,410 55,410 50,415 50,420 45,425 45,430 40,435"></polygon>
                     <polygon id="Kobryn" class="map_land" points="75,420 95,420 100,415 100,410 95,405 95,380 100,380 95,375 95,370 90,370 85,375 80,370 75,370 70,375 60,375 60,385 65,390 65,395 70,400 65,405 65,410 75,410 80,415"></polygon>
-                    <polygon id="Drahichyn" class="map_land" points="95,420 110,420 115,415 125,415 125,405 130,400 130,390 135,385 130,380 130,375 115,375 110,380 100,380 95,380 95,405 100,410 100,415"></polygon>                   
+                    <polygon id="Drahichyn" class="map_land" points="95,420 110,420 115,415 125,415 125,405 130,400 130,390 135,385 130,380 130,375 115,375 110,380 100,380 95,380 95,405 100,410 100,415"></polygon>
                 </g>
             </g>
         </svg>
@@ -200,18 +193,18 @@
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideResidentsCountryDialog()">x</button>
     </div>
-   
-        <section>
-            <p class="lhst_card_properties">
-                <label>Current name: @Model.UserName</label>
-            </p>
-            <p class="lhst_card_properties">
-                New name
-                <input class="lhst_dialog_rename_input" type="text" />
-            </p>
-        </section>
-        <div class="text-center pl-0">
-            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
-        </div>
-    
+
+    <section>
+        <p class="lhst_card_properties">
+            <label>Current name: @Model.Player.UserName</label>
+        </p>
+        <p class="lhst_card_properties">
+            New name
+            <input class="lhst_dialog_rename_input" type="text" />
+        </p>
+    </section>
+    <div class="text-center pl-0">
+        <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+    </div>
+
 </div>

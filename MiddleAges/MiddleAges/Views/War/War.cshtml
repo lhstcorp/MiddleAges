@@ -25,10 +25,10 @@
     <div class="lhst_left-side-bar lhst_vertical-alignment-top"></div>
     <div class="lhst_vertical-alignment-top lhst_main-section d-inline-block">
         <div class="lhst_wars_div tab">
-            <button class="warlinks" onclick="wars(event, 'CountryWars')">Country Wars</button>
-            <button class="warlinks" onclick="wars(event, 'WorldWars')">All Wars</button>
+            <button id="countryWarsBtn" class="active" onclick="openCountryWarsTab()">Country Wars</button>
+            <button id="worldWarsBtn" onclick="openWorldWarsTab()">All Wars</button>
             @* <div class="tabcontent lhst_inTab lhst_slider"> *@
-            <div id="WorldWars" class="lhst_slider mt-2 warcontent lhst_inTab lhst_slider_small_screen">
+            <div id="worldWarsTab" class="lhst_slider mt-2 warcontent lhst_inTab lhst_slider_small_screen d-none">
                 @for (int i = 0; i < allWars.Count; i++)
                 {
                     <div class="row p-0">
@@ -83,7 +83,7 @@
                                 <div class="col-2 float-left p-0">
                                     @if (allWars[i].War.StartDateTime.AddHours(24) > DateTime.UtcNow)
                                     {
-                                    <time datetime="2016-11-18T09:54" class="lhst_country_info_region_value">allWars[i].War.StartDateTime.AddHours(24) - DateTime.UtcNow</time>
+                                        <time datetime="2016-11-18T09:54" class="lhst_country_info_region_value">allWars[i].War.StartDateTime.AddHours(24) - DateTime.UtcNow</time>
                                     }
                                     else if (!allWars[i].War.IsEnded)
                                     {
@@ -95,7 +95,7 @@
                                     }
                                 </div>
                                 <div class="col-6 float-left p-0">
-                                    <input type="submit" class="lhst_btn_unit_recruit warDetailsBtn" data-warid=@allWars[i].War.WarId value="Details"/>
+                                    <input type="submit" class="lhst_btn_unit_recruit warDetailsBtn" data-warid=@allWars[i].War.WarId value="Details" />
                                 </div>
                             </div>
                         </div>
@@ -105,12 +105,12 @@
                     </div>
                 }
             </div>
-            <div id="CountryWars" class="lhst_slider mt-2 warcontent lhst_inTab lhst_slider_small_screen">
+            <div id="countryWarsTab" class="lhst_slider mt-2 warcontent lhst_inTab lhst_slider_small_screen d-block">
                 @for (int i = 0; i < countryWars.Count; i++)
                 {
                     <div class="row p-0">
                         <div class="col-2 p-0">
-                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandFrom.LandId).png" alt="">
+                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandFrom.LandId).png" alt="">
                         </div>
                         <div class="col-8 p-0">
                             <div class="row p-0 lhst_row_height">
@@ -158,11 +158,11 @@
                                     <p class="float-right mr-2 lhst_country_info_region_value">Left</p>
                                 </div>
                                 <div class="col-2 float-left p-0">
-                                    @if (allWars[i].War.StartDateTime.AddHours(24) > DateTime.UtcNow)
+                                    @if (countryWars[i].War.StartDateTime.AddHours(24) > DateTime.UtcNow)
                                     {
                                         <time datetime="2016-11-18T09:54" class="lhst_country_info_region_value">allWars[i].War.StartDateTime.AddHours(24) - DateTime.UtcNow</time>
                                     }
-                                    else if (!allWars[i].War.IsEnded)
+                                    else if (!countryWars[i].War.IsEnded)
                                     {
                                         <p class="lhst_country_info_region_value">Started</p>
                                     }
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                         <div class="col-2 p-0 float-right">
-                            <img class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="">
+                            <img class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandTo.LandId).png" alt="">
                         </div>
 
                     </div>
@@ -186,7 +186,7 @@
         </div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/tabs.js" type="text/javascript" language="JavaScript"></script>
+    <script src="~/js/war.js"></script>
     <script src="~/js/wars_details.js"></script>
 </div>
 
