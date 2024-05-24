@@ -103,7 +103,7 @@ namespace MiddleAges.Areas.Identity.Pages.Account
                     await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
                         $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-                    await InitPlayerData(player.Id);
+                    await InitPlayerData(player.Id, player.CurrentLand);
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -125,20 +125,20 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             return Page();
         }
 
-        private async Task InitPlayerData(string userId)
+        private async Task InitPlayerData(string userId, string currentLandId)
         {
             Building building;
 
-            building = new Building { PlayerId = userId, Type = (int)BuildingType.Estate, Lvl = 1 };
+            building = new Building { PlayerId = userId, Type = (int)BuildingType.Estate, Lvl = 1, LandId = currentLandId };
             _context.Buildings.Add(building);
-            building = new Building { PlayerId = userId, Type = (int)BuildingType.Barracks, Lvl = 1 };
+            building = new Building { PlayerId = userId, Type = (int)BuildingType.Barracks, Lvl = 1, LandId = currentLandId };
             _context.Buildings.Add(building);
 
             Unit unit;
 
-            unit = new Unit { PlayerId = userId, Type = (int)UnitType.Peasant, Lvl = 1, Count = 100 };
+            unit = new Unit { PlayerId = userId, Type = (int)UnitType.Peasant, Lvl = 1, Count = 100, LandId = currentLandId };
             _context.Units.Add(unit);
-            unit = new Unit { PlayerId = userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0 };
+            unit = new Unit { PlayerId = userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0, LandId = currentLandId };
             _context.Units.Add(unit);
 
             await _context.SaveChangesAsync();
