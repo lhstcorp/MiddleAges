@@ -60,12 +60,21 @@ namespace MiddleAges.Controllers
 
         public JsonResult GetLandDataById(string id)
         {
-            Land land = _context.Lands.FirstOrDefault(k => k.LandId == id);
+            Land land = _context.Lands.Include(c => c.Country).FirstOrDefault(l => l.LandId == id);
+
             if (land == null)
             {
                 return Json("NotFound");
             }
-            return Json(JsonSerializer.Serialize(land));
+
+            MapSelectedLandViewModel mapSelectedLandViewModel = new MapSelectedLandViewModel();
+
+            mapSelectedLandViewModel.Land = land;
+            mapSelectedLandViewModel.Country = land.Country;
+            mapSelectedLandViewModel.Population = GetLandPopulation(land.LandId).Result;
+            mapSelectedLandViewModel.LordsCount = GetLandLordsCount(land.LandId).Result;
+
+            return Json(JsonSerializer.Serialize(mapSelectedLandViewModel));
         }
 
         public JsonResult FetchLandColors()
