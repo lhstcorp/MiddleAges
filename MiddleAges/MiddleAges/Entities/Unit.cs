@@ -17,7 +17,9 @@ namespace MiddleAges.Entities
         public int Type { get; set; }
         public int Lvl { get; set; }
         public int Count { get; set; }           
-        public string PlayerId { get; set; }   
-        public Player Player { get; set; }   
+        public string PlayerId { get; set; }
+        public string LandId { get; set; }
+        public Player Player { get; set; }
+        public Land Land { get; set; }
     }
 }
