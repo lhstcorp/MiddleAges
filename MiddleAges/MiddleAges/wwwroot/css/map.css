@@ -28,8 +28,6 @@
     background: radial-gradient(#393939, black);
     color: wheat;
     border-radius: 3px;
-    width: -webkit-fill-available;
-    height: 35px;
     font-size: revert
 }
 

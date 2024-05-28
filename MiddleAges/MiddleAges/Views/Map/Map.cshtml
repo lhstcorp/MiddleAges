@@ -28,20 +28,20 @@
             <div class="col lhst_map_region_icon_left_bar_col">
                 <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
             </div>
-            <div class="col lhst_selected_land_text_content lhst_map_region_icon_left_bar_col">
+            <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
                 <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
-                <p id="selected_land_name" class="lhst_selected_land_name">@Model.Land.LandId</p>
+                <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name">@Model.Land.LandId</p>
             </div>
         </div>
-        <div class="lhst_info_region_group_selected_land">
-            <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar" alt="" loading="lazy" />
-            <p id="population" class="lhst_info_region_value">@Model.Population</p>
-            <p class="lhst_info_region_text">Population</p>
-            <img src="../img/default-icon/knight.png" class="lhst_info_region_icon_left_bar" alt="" loading="lazy" />
-            <p id="lordsCount" class="lhst_info_region_value lhst_cursor_pointer" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
-            <p class="lhst_info_region_text">Lords</p>
+        <div >
+            <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar" title="Population" alt="" loading="lazy" />
+            <p id="population" class="lhst_info_region_value" title="Population">@Model.Population</p>
+          
+            <img src="../img/default-icon/knight.png" class="lhst_info_region_icon_left_bar" title="Lords" alt="" loading="lazy" />
+            <p id="lordsCount" class="lhst_info_region_value lhst_cursor_pointer" title="Lords" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
+          
         </div>
-        <div class="lhst_btn_group_selected_land">
+        <div>
             <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId value="Move to" onclick="moveToLand()" />
         </div>
     </div>

@@ -64,10 +64,6 @@
 
 @media screen and (max-width:807px) {
 
-    .lhst_row_height {
-        margin-top: 1px;
-    }
-
     li a.lhst_nav {
         width: 30px;
         height: 30px;
@@ -175,7 +171,7 @@
 
     .lhst_avatar_independent_land_description_divs {
         height: 350px;
-        width: 320px;
+        width: 310px;
         max-height: calc(100vh - 212px)
     }
 
@@ -197,10 +193,6 @@
         height: 50px;
         align-items: center;
         display: flex
-    }
-
-    .lhst_row_height {
-        margin-top: 10px;
     }
 
     .lhst_wars_country_text {
