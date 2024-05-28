@@ -27,14 +27,21 @@ function fillLandSideBar(id) {
     .done(function (data) {
         if (data != 'NotFound') {
             let obj = JSON.parse(data);
-            $('#selected_land_name').text(obj.LandId);
+            $('#selected_country_name').text(obj.Land.Country.Name);
+            $('#selected_land_name').text(obj.Land.LandId);
+            $('#population').text(obj.Population);
+            $('#lordsCount').text(obj.LordsCount);
 
             let url = '../img/map-regions-icons-middle-ages/';
-            $('#selected_land_coat_of_arms').attr('src', url + obj.LandId + '.png');
-            $('#moveToBtn').data("selectedland", obj.LandId);
+            $('#selected_land_coat_of_arms').attr('src', url + obj.Land.LandId + '.png');
+            
+            $('#moveToBtn').data("selectedland", obj.Land.LandId);
         }
         else {
+            $('#selected_country_name').text('');
             $('#selected_land_name').text('');
+            $('#population').text('0');
+            $('#lordsCount').text('0');
         }
     })
     .fail(function (data) {
