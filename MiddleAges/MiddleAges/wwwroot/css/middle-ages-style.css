@@ -18,35 +18,35 @@
     border-color: #000
 }
 
-    .header-menu.main-btn {
-        background-image: url(../img/menu-icons/main.jfif);
-        background-size: 100%
-    }
+.header-menu.main-btn {
+    background-image: url(../img/menu-icons/main.jfif);
+    background-size: 100%
+}
 
-    .header-menu.map-btn {
-        background-image: url(../img/menu-icons/map-icon.png);
-        background-size: 100%
-    }
+.header-menu.map-btn {
+    background-image: url(../img/menu-icons/map-icon.png);
+    background-size: 100%
+}
 
-    .header-menu.state-btn {
-        background-image: url(../img/menu-icons/country-icon.png);
-        background-size: 100%
-    }
+.header-menu.state-btn {
+    background-image: url(../img/menu-icons/country-icon.png);
+    background-size: 100%
+}
 
-    .header-menu.settings-btn {
-        background-image: url(../img/menu-icons/settings.jfif);
-        background-size: 100%
-    }
+.header-menu.settings-btn {
+    background-image: url(../img/menu-icons/settings.jfif);
+    background-size: 100%
+}
 
-    .header-menu.rating-btn {
-        background-image: url(../img/menu-icons/main-icon.png);
-        background-size: 100%
-    }
+.header-menu.rating-btn {
+    background-image: url(../img/menu-icons/main-icon.png);
+    background-size: 100%
+}
 
-    .header-menu.wars-btn {
-        background-image: url(../img/interface-icons/register.jpg);
-        background-size: 100%
-    }
+.header-menu.wars-btn {
+    background-image: url(../img/interface-icons/register.jpg);
+    background-size: 100%
+}
 
 .coins-btn {
     background-image: url(../img/interface-icons/coins.png);
@@ -70,49 +70,49 @@
     overflow: hidden
 }
 
-    .lhst_scale img {
-        transition: .1s;
-        display: block
-    }
+.lhst_scale img {
+    transition: .1s;
+    display: block
+}
 
-        .lhst_scale img:hover {
-            transform: scale(1.1)
-        }
+.lhst_scale img:hover {
+    transform: scale(1.1)
+}
 
-    .lhst_scale div {
-        transition: .1s;
-        display: block
-    }
+.lhst_scale div {
+    transition: .1s;
+    display: block
+}
 
-        .lhst_scale div:hover {
-            transform: scale(1.1)
-        }
+.lhst_scale div:hover {
+    transform: scale(1.1)
+}
 
-    .lhst_scale polygon {
-        transition: .1s;
-        display: block
-    }
+.lhst_scale polygon {
+    transition: .1s;
+    display: block
+}
 
-        .lhst_scale polygon:hover {
-            transform: scale(0.995)
-        }
+.lhst_scale polygon:hover {
+    transform: scale(0.995)
+}
 
-    .lhst_scale a {
-        transition: .1s;
-        display: block;
-        border-width: 2px;
-        border-style: outset;
-    }
+.lhst_scale a {
+    transition: .1s;
+    display: block;
+    border-width: 2px;
+    border-style: outset;
+}
 
-        .lhst_scale a:hover {
-            transform: scale(1.05);
-            border-color: #232323;
-            border-style:outset;
-        }
+.lhst_scale a:hover {
+    transform: scale(1.05);
+    border-color: #232323;
+    border-style:outset;
+}
 
-        .lhst_scale a:active {
-            border-style: inset;
-        }
+.lhst_scale a:active {
+    border-style: inset;
+}
         
 
 .player-overview-div-inline {
@@ -138,10 +138,10 @@
     font-weight: 700
 }
 
-    .lhst_overview-player-name:hover {
-        font-family: Algerian;
-        color: #faaf08
-    }
+.lhst_overview-player-name:hover {
+    font-family: Algerian;
+    color: #faaf08
+}
 
 ul.lhst_nav {
     list-style-type: none;
@@ -171,11 +171,11 @@ li a.lhst_nav {
     border-radius: 10px
 }
 
-    li a.lhst_nav:hover {
-        -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #faaf08;
-        font-weight: 700
-    }
+li a.lhst_nav:hover {
+    -webkit-text-stroke: thin #393939;
+    -webkit-text-fill-color: #faaf08;
+    font-weight: 700
+}
 
 
 li menu.lhst_nav {
@@ -194,11 +194,11 @@ li menu.lhst_nav {
     border-style: none;
 }
 
-    li menu.lhst_nav:hover {
-        -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #faaf08;
-        font-weight: 700;
-    }
+li menu.lhst_nav:hover {
+    -webkit-text-stroke: thin #393939;
+    -webkit-text-fill-color: #faaf08;
+    font-weight: 700;
+}
 
 li button.lhst_nav {
     padding-top: 50px;
@@ -215,14 +215,11 @@ li button.lhst_nav {
     border-radius: 10px;
 }
 
-    li button.lhst_nav:hover {
-        -webkit-text-stroke: thin #393939;
-        -webkit-text-fill-color: #faaf08;
-        font-weight: 700;
-    }
-
- 
-
+li button.lhst_nav:hover {
+    -webkit-text-stroke: thin #393939;
+    -webkit-text-fill-color: #faaf08;
+    font-weight: 700;
+}
 
 .lhst_inline {
     display: inline-block
@@ -608,6 +605,3 @@ lhst_marquee {
     font-weight: 200;
     margin-top: 5px;
 }
-
-
-

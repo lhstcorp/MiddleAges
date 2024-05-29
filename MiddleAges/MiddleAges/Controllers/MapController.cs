@@ -120,5 +120,43 @@ namespace MiddleAges.Controllers
 
             return lordsCount;
         }
+
+        public async Task<IActionResult> SettleDown(string landId)
+        {
+            string result = "Error";
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(a => a.LandId == landId);
+
+            if (player != null
+             && land != null
+             && player.CurrentLand == land.LandId)
+            {
+                player.CurrentLand = land.LandId;
+
+                _context.Update(player);
+
+                List<Unit> units = await _context.Units.Where(u => u.PlayerId == player.Id).ToListAsync();
+
+                foreach (Unit u in units)
+                {
+                    u.LandId = land.LandId;
+                    _context.Update(u);
+                }
+
+                List<Building> buildings = await _context.Buildings.Where(b => b.PlayerId == player.Id).ToListAsync();
+
+                foreach (Building b in buildings)
+                {
+                    b.LandId = land.LandId;
+                    _context.Update(b);
+                }
+
+                await _context.SaveChangesAsync();
+
+                result = "Ok";
+            }
+
+            return Json(JsonSerializer.Serialize(result));
+        }
     }
 }
