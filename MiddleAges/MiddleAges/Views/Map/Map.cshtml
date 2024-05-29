@@ -33,16 +33,17 @@
                 <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name">@Model.Land.LandId</p>
             </div>
         </div>
-        <div >
+        <div>
             <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar" title="Population" alt="" loading="lazy" />
             <p id="population" class="lhst_info_region_value" title="Population">@Model.Population</p>
-          
+
             <img src="../img/default-icon/knight.png" class="lhst_info_region_icon_left_bar" title="Lords" alt="" loading="lazy" />
             <p id="lordsCount" class="lhst_info_region_value lhst_cursor_pointer" title="Lords" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
-          
+
         </div>
         <div>
             <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId value="Move to" onclick="moveToLand()" />
+            <input id="settleBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId value="Settle" onclick="moveToLand()" />
         </div>
     </div>
     <div class="lhst_map-container lhst_vertical-alignment-top lhst_main-section" id="belarus-map">
@@ -184,6 +185,7 @@
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/map.js"></script>
+    <script src="~/js/map_actions.js"></script>
     <script src="~/js/country_page_actions.js"></script>
     <script src="~/js/fetch_region_data_by_map_click.js"></script>
     <script src="~/js/fetch_map_data_on_init.js"></script>

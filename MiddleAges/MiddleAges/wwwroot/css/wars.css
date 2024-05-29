@@ -19,10 +19,13 @@
 .lhst_wars_country_text{
     font-size:16px;
     word-wrap:break-word;
+    margin-top: 10%;
+    margin-bottom: 0px;
 }
 
 .lhst_wars_lands_text {
-    font-size:14px;
+    font-size: 14px;
+    margin-bottom: 0px;
 }
 
 .lhst_inWars {
