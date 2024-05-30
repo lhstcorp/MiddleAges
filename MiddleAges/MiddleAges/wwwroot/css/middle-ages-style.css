@@ -440,9 +440,7 @@ footer {
 }
 
 .lhst_info_region_icon_left_bar {
-    display: inline-block;
     height: 30px;
-    margin: 5px
 }
 
 .lhst_info_region_text {
@@ -604,4 +602,16 @@ lhst_marquee {
     font-size: 14px;
     font-weight: 200;
     margin-top: 5px;
+}
+
+.lhst_clr-wheat {
+    color: wheat;
+}
+
+.lhst_line {
+    height: 1px;
+    width: auto;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    background-color: wheat;
 }
