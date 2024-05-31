@@ -84,6 +84,28 @@ namespace MiddleAges.Controllers
             return Json(landIdColorPairList);
         }
 
+        public JsonResult FetchWars()
+        {
+            var warList = _context.Wars
+                                .Join(_context.Lands,
+                                        w => w.LandIdFrom,
+                                        lf => lf.LandId,
+                                        (w, lf) => new { War = w, LandFrom = lf })
+                                .Join(_context.Lands,
+                                        combined => combined.War.LandIdTo,
+                                        lt => lt.LandId,
+                                        (combined, lt) => new { combined.War, combined.LandFrom, LandTo = lt });
+
+            return Json(warList);
+        }
+        public JsonResult FetchPlayer()
+        {
+            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
+            player = _context.Players.Include(p => p.Land).FirstOrDefault(p => p.Id == player.Id);
+
+            return Json(player);
+        }
+
         public async Task<IActionResult> MoveToLand(string landId)
         {
             string result = "Error";
@@ -129,9 +151,10 @@ namespace MiddleAges.Controllers
 
             if (player != null
              && land != null
-             && player.CurrentLand == land.LandId)
+             && player.CurrentLand == land.LandId
+             && player.ResidenceLand != land.LandId)
             {
-                player.CurrentLand = land.LandId;
+                player.ResidenceLand = land.LandId;
 
                 _context.Update(player);
 
