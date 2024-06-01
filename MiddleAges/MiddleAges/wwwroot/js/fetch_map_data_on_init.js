@@ -124,29 +124,37 @@ function loadPlayerLocations() {
     .done(function (data) {
         if (data != null) {
             drawLocationsIcon(data.currentLand, data.residenceLand);
+            initLocationBtnEnableability(data.currentLand, data.residenceLand);
         }
     })
 }
 
 function drawLocationsIcon(currentLand, residenceLand) {
-    const currentLandPolygon = document.getElementById(currentLand);
-    const residenceLandPolygon = document.getElementById(residenceLand);
+    const currentLandPolygon = document.getElementById(currentLand.replace(' ', '_'));
+    const residenceLandPolygon = document.getElementById(residenceLand.replace(' ', '_'));
 
     let currentLandCenter = getPolygonCenter(currentLandPolygon.animatedPoints);
     let residenceLandCenter = getPolygonCenter(residenceLandPolygon.animatedPoints);
 
+    drawCurrentLand(currentLandCenter);
+    drawResidence(residenceLandCenter);  
+
+    /*
     if (residenceLand == currentLand) {
-        drawResidence(residenceLandCenter);
+        drawCurrentLand(currentLandCenter);
+        drawResidence(residenceLandCenter);        
     }
     else {
         drawResidence(residenceLandCenter);
         drawCurrentLand(currentLandCenter);
     }
+    */
 }
 
 function drawResidence(residenceLandCenter) {
     var map = document.getElementById("global_region_map");
     var residenceLandSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    residenceLandSvg.id = "residenceIcon";
 
     var residenceLandPoint = svg.createSVGPoint();
 
@@ -156,7 +164,7 @@ function drawResidence(residenceLandCenter) {
     residenceLandSvg.setAttribute('x', residenceLandPoint.x);
     residenceLandSvg.setAttribute('y', residenceLandPoint.y);
 
-    var residenceLandImg = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+    var residenceLandImg = document.createElementNS('http://www.w3.org/2000/svg', 'image');    
     residenceLandImg.setAttribute('href', '../img/interface-icons/map-icons/residence.svg');
     residenceLandSvg.appendChild(residenceLandImg);
 
@@ -166,6 +174,7 @@ function drawResidence(residenceLandCenter) {
 function drawCurrentLand(currentLandCenter) {
     var map = document.getElementById("global_region_map");
     var currentLandSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    currentLandSvg.id = "currentLandIcon";
 
     var currentLandPoint = svg.createSVGPoint();
 
@@ -175,9 +184,20 @@ function drawCurrentLand(currentLandCenter) {
     currentLandSvg.setAttribute('x', currentLandPoint.x);
     currentLandSvg.setAttribute('y', currentLandPoint.y);
 
-    var currentLandImg = document.createElementNS('http://www.w3.org/2000/svg', 'image');
+    var currentLandImg = document.createElementNS('http://www.w3.org/2000/svg', 'image');    
     currentLandImg.setAttribute('href', '../img/interface-icons/map-icons/currentland.svg');
     currentLandSvg.appendChild(currentLandImg);
 
     map.appendChild(currentLandSvg);
+}
+
+function initLocationBtnEnableability(currentLand, residenceLand) {
+    const moveToBtn = document.getElementById("moveToBtn");
+    const settleBtn = document.getElementById("settleBtn");
+
+    moveToBtn.disabled = true;
+
+    if (currentLand == residenceLand) {
+        settleBtn.disabled = true;
+    }
 }
