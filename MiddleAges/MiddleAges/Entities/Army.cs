@@ -15,6 +15,8 @@ namespace MiddleAges.Entities
         public Guid WarId { get; set; }
         public string LandId { get; set; }
         public int SoldiersCount { get; set; }
+        public int SoldiersKilled { get; set; }
+        public int SoldiersLost { get; set; }
         public ArmySide Side { get; set; }
         public Player Player { get; set; }
         public War War { get; set; }
