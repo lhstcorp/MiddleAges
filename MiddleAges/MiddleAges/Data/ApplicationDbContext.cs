@@ -107,5 +107,6 @@ namespace MiddleAges.Data
         public DbSet<ChatMessage> ChatMessages { get; set; }
         public DbSet<War> Wars { get; set; }
         public DbSet<Army> Armies { get; set; }
+        public DbSet<PlayerStatistics> PlayerStatistics { get; set; }
     }
 }
