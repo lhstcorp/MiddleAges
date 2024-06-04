@@ -57,6 +57,7 @@ namespace MiddleAges
             services.AddRazorPages();
 
             services.AddHostedService<RecruitBackgroundService>();
+            services.AddHostedService<WarBackgroundService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

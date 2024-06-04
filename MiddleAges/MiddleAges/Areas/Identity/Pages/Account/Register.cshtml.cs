@@ -142,6 +142,9 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             unit = new Unit { PlayerId = userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0, LandId = currentLandId };
             _context.Units.Add(unit);
 
+            PlayerStatistics playerStatistics = new PlayerStatistics { PlayerId = userId, SoldiersKilled = 0, SoldiersLost = 0 };
+            _context.PlayerStatistics.Add(playerStatistics);
+
             await _context.SaveChangesAsync();
         }
     }
