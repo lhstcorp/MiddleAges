@@ -47,4 +47,12 @@ function hideResidentsCountryDialog() {
     $('#residentsCountryDialog').modal('hide');
 }
 
+function openTaxesingCountryDialog() {
+    $('#taxesCountryDialog').modal('show');
+}
+function hideTaxesingCountryDialog() {
+    $('#taxesCountryDialog').modal('hide');
+}
+
+
 
