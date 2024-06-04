@@ -84,6 +84,28 @@ namespace MiddleAges.Controllers
             return Json(landIdColorPairList);
         }
 
+        public JsonResult FetchWars()
+        {
+            var warList = _context.Wars
+                                .Join(_context.Lands,
+                                        w => w.LandIdFrom,
+                                        lf => lf.LandId,
+                                        (w, lf) => new { War = w, LandFrom = lf })
+                                .Join(_context.Lands,
+                                        combined => combined.War.LandIdTo,
+                                        lt => lt.LandId,
+                                        (combined, lt) => new { combined.War, combined.LandFrom, LandTo = lt });
+
+            return Json(warList);
+        }
+        public JsonResult FetchPlayer()
+        {
+            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
+            player = _context.Players.Include(p => p.Land).FirstOrDefault(p => p.Id == player.Id);
+
+            return Json(player);
+        }
+
         public async Task<IActionResult> MoveToLand(string landId)
         {
             string result = "Error";
@@ -119,6 +141,45 @@ namespace MiddleAges.Controllers
             int lordsCount = await _context.Players.Where(p => p.CurrentLand == landId).CountAsync();
 
             return lordsCount;
+        }
+
+        public async Task<IActionResult> SettleDown(string landId)
+        {
+            string result = "Error";
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(a => a.LandId == landId);
+
+            if (player != null
+             && land != null
+             && player.CurrentLand == land.LandId
+             && player.ResidenceLand != land.LandId)
+            {
+                player.ResidenceLand = land.LandId;
+
+                _context.Update(player);
+
+                List<Unit> units = await _context.Units.Where(u => u.PlayerId == player.Id).ToListAsync();
+
+                foreach (Unit u in units)
+                {
+                    u.LandId = land.LandId;
+                    _context.Update(u);
+                }
+
+                List<Building> buildings = await _context.Buildings.Where(b => b.PlayerId == player.Id).ToListAsync();
+
+                foreach (Building b in buildings)
+                {
+                    b.LandId = land.LandId;
+                    _context.Update(b);
+                }
+
+                await _context.SaveChangesAsync();
+
+                result = "Ok";
+            }
+
+            return Json(JsonSerializer.Serialize(result));
         }
     }
 }

@@ -90,6 +90,11 @@ namespace MiddleAges.Data
                 .HasOne(q => q.Land)
                 .WithMany()
                 .HasForeignKey(q => q.LandId);
+
+            builder.Entity<PlayerStatistics>()
+                .HasOne(q => q.Player)
+                .WithMany()
+                .HasForeignKey(q => q.PlayerId);
         }
 
         public DbSet<Player> Players { get; set; }
