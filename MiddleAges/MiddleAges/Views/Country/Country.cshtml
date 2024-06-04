@@ -74,6 +74,12 @@
                     <li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text ">
                             <button class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text lhst_country_scale" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
+                            <script>
+                                const button = document.getElementById("openRenameCountryDialog");
+                                if (@Model.Ruler.Id != @player.Id) {
+                                    button.style.display = "none";
+                                }
+                            </script>
                         </menu>
                     </li>
                     @*ИЗМНЕНЕНИЕ ЦВЕТА*@
@@ -92,6 +98,12 @@
                     <li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer Land</button>
+                        </menu>
+                    </li>
+                    @*  @*Установление налога*@
+                    <li class="lhst_nav ">
+                        <menu class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text  ">
+                            <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale" onclick="openTaxesingCountryDialog()" id="openTaxesCountryDialog">Taxes</button>
                         </menu>
                     </li>
                     @*Смена правителя*@
@@ -148,6 +160,7 @@
             <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
         </div>
     </form>
+   
 </div>
 <div class="lhst_dialog modal" id="recoloringCountryDialog">
     <div class="text-right">
@@ -219,6 +232,34 @@
                         <option class="lhst_option">@Model.OtherCountries[i].Name</option>
                     }
                 </select>
+            </p>
+        </section>
+        <menu class="text-center pl-0">
+            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+        </menu>
+    </form>
+</div>
+<div class="lhst_dialog modal" id="taxesCountryDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideTaxesingCountryDialog()">x</button>
+    </div>
+    <form asp-controller="Country" asp-action="Taxes">
+        <section>
+            <p class="lhst_card_properties">
+                <label>Taxes</label>
+            </p>
+            <p class="lhst_card_properties">
+                Choose Land
+                <select name="transferLand" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < Model.LandsToTranfer.Count; i++)
+                    {
+                        <option class="lhst_option">@Model.LandsToTranfer[i].LandId</option>
+                    }
+                </select>
+            </p>
+            <p class="lhst_card_properties">
+                Tax
+                <input name="newName" class="lhst_dialog_rename_input" type="text" />
             </p>
         </section>
         <menu class="text-center pl-0">
