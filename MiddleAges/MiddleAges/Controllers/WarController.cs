@@ -34,6 +34,7 @@ namespace MiddleAges.Controllers
         public async Task<IActionResult> Index()
         {
             var warsQuery = await _context.Wars
+                                    .Where(w => w.IsEnded == false)
                                     .Join(_context.Lands,
                                             w => w.LandIdFrom,
                                             lf => lf.LandId,
@@ -177,7 +178,9 @@ namespace MiddleAges.Controllers
              && soldierUnit.Count - soldiersInUse >= soldiersEntered
              && war    != null
              && war.IsEnded == false
-             && soldiersEntered > 0)
+             && soldiersEntered > 0
+             && (war.LandIdFrom == player.CurrentLand
+              || war.LandIdTo   == player.CurrentLand))
             {
                 ArmySide armySide = war.LandIdFrom == player.CurrentLand ? ArmySide.Attackers : ArmySide.Defenders;
 

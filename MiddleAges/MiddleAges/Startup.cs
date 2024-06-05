@@ -55,9 +55,10 @@ namespace MiddleAges
             services.AddAuthentication();
             services.AddAuthorization();
             services.AddRazorPages();
-
+                        
             services.AddHostedService<RecruitBackgroundService>();
             services.AddHostedService<WarBackgroundService>();
+            services.AddHostedService<PlayerLvlBackgroundService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

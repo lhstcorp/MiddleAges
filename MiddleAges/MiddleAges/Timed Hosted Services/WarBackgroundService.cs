@@ -39,14 +39,17 @@ namespace MiddleAges.Timed_Hosted_Services
             {
                 _context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                List<War> wars = _context.Wars.Where(w => w.IsEnded == false && w.StartDateTime.AddHours(24) < DateTime.UtcNow).ToList();
+                List<War> wars = _context.Wars.Where(w => w.IsEnded == false && w.StartDateTime < DateTime.UtcNow).ToList();
 
-                foreach (var war in wars)
+                if (wars.Count > 0)
                 {
-                    CalculateWar(war);
-                }
+                    foreach (var war in wars)
+                    {
+                        CalculateWar(war);
+                    }
 
-                _context.SaveChanges();
+                    _context.SaveChanges();
+                }
             }
         }
 
@@ -79,8 +82,8 @@ namespace MiddleAges.Timed_Hosted_Services
                 const double lossPerc = 0.2;
 
                 Random rnd = new Random();
-                double cubeValueA = rnd.Next(-50, 51) / 100;
-                double cubeValueD = rnd.Next(-50, 51) / 100;
+                double cubeValueA = Convert.ToDouble(rnd.Next(-50, 51)) / 100.00;
+                double cubeValueD = Convert.ToDouble(rnd.Next(-50, 51)) / 100.00;
 
                 double attackersLossProportionPerc = defendersPerc + defendersPerc * cubeValueA;
                 double defendersLossProportionPerc = attackersPerc + attackersPerc * cubeValueD;
@@ -97,7 +100,7 @@ namespace MiddleAges.Timed_Hosted_Services
                     CalculateArmy(army, defendersSoldiersCount, deathCount, defendersLossProportionPerc, attackersLossProportionPerc);
                 }
 
-                TryEndWar(war);
+                TryEndWar(war);                
             }
         }
 
@@ -110,22 +113,16 @@ namespace MiddleAges.Timed_Hosted_Services
             if (army.SoldiersCount - soldiersLost <= 0)
             {
                 soldiersLost = army.SoldiersCount;
-                DeleteArmy(army);                
             }
-            else
-            {
-                army.SoldiersCount -= Convert.ToInt32(soldiersLost);
-                _context.Update(army);
-            }
-                      
+
+            army.SoldiersCount -= Convert.ToInt32(soldiersLost);
+            army.SoldiersLost += Convert.ToInt32(soldiersLost);
+            army.SoldiersKilled += Convert.ToInt32(soldiersKilled);
+            _context.Update(army);
+
             UpdatePlayerStatistics(army.PlayerId, soldiersLost, soldiersKilled);
             UpdatePlayerExp(army.PlayerId, soldiersLost, soldiersKilled);
             UpdatePlayerUnits(army.PlayerId, soldiersLost);
-        }
-
-        private void DeleteArmy(Army army)
-        {
-            _context.Remove(army);
         }
 
         private void UpdatePlayerStatistics(string playerId, double soldiersLost, double soldiersKilled)
@@ -164,7 +161,7 @@ namespace MiddleAges.Timed_Hosted_Services
         {
             bool ret = false;
 
-            if (attackersSoldiersCount == 0 
+            if (attackersSoldiersCount == 0
              && defendersSoldiersCount == 0)
             {
                 war.IsEnded = true;
@@ -173,18 +170,15 @@ namespace MiddleAges.Timed_Hosted_Services
                 _context.Update(war);
 
                 ret = true;
-                
             }
             else if (attackersSoldiersCount == 0)
             {
                 EndWar(war, WarResult.Defeat, war.LandIdTo, war.LandIdFrom);
-
                 ret = true;
             }
             else if (defendersSoldiersCount == 0)
             {
-                EndWar(war, WarResult.Victory, war.LandIdFrom, war.LandIdTo);
-
+                EndWar(war, WarResult.Victory, war.LandIdFrom, war.LandIdTo);                
                 ret = true;
             }
 
@@ -199,8 +193,11 @@ namespace MiddleAges.Timed_Hosted_Services
             CheckLastCountryLand(defeatLand);
             TransferLandToVictoryCountry(defeatLand, victoryLand.Country);
 
+            war.IsEnded = true;
             war.WarResult = (int)result;
             _context.Update(war);
+
+            DisbandWarArmies(war);
         }
 
         private void TransferLandToVictoryCountry(Land defeatLand, Country victoryCountry)
@@ -216,13 +213,48 @@ namespace MiddleAges.Timed_Hosted_Services
             if (countryLandsCount == 1)
             {
                 Country country = new Country();
+                country = defeatLand.Country;
                 _context.Remove(country);
+
+                Country independentCountry = _context.Countries.FirstOrDefault(c => c.Name == "Independent lands");
+                defeatLand.CountryId = independentCountry.CountryId;
+                _context.Update(defeatLand);
             }
+            else
+            {
+                if (CheckDefeatLandIsCapital(defeatLand))
+                {
+                    ChangeCountryCapital(defeatLand);
+                }
+            }
+        }
+
+        private bool CheckDefeatLandIsCapital(Land defeatLand)
+        {
+            bool ret = false;
+
+            Country country = _context.Countries.FirstOrDefault(c => c.CapitalId == defeatLand.LandId);
+
+            if (country != null)
+            {
+                ret = true;
+            }
+
+            return ret;
+        }
+
+        private void ChangeCountryCapital(Land defeatLand)
+        {
+            Land newCapital = _context.Lands.FirstOrDefault(l => l.CountryId == defeatLand.CountryId 
+                                                              && l.LandId != defeatLand.LandId);
+
+            defeatLand.Country.CapitalId = newCapital.LandId;
+            _context.Update(defeatLand.Country);
         }
 
         private void TryEndWar(War war)
         {
-            List<Army> armies = _context.Armies.Include(a => a.Player).Where(a => a.WarId == war.WarId).ToList();
+            List<Army> armies = _context.Armies.Where(a => a.WarId == war.WarId).ToList();
             List<Army> attackersArmies = armies.FindAll(a => a.Side == ArmySide.Attackers);
             List<Army> defendersArmies = armies.FindAll(a => a.Side == ArmySide.Defenders);
 
@@ -230,6 +262,16 @@ namespace MiddleAges.Timed_Hosted_Services
             double defendersSoldiersCount = defendersArmies.Sum(a => a.SoldiersCount);
 
             CheckEndOfWar(war, attackersSoldiersCount, defendersSoldiersCount);
+        }
+
+        private void DisbandWarArmies(War war)
+        {
+            List<Army> armies = _context.Armies.Where(a => a.WarId == war.WarId).ToList();
+
+            foreach (var army in armies)
+            {
+                _context.Remove(army);
+            }
         }
     }
 }
