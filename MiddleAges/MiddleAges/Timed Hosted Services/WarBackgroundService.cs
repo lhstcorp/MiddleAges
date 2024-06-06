@@ -190,8 +190,21 @@ namespace MiddleAges.Timed_Hosted_Services
             Land victoryLand = _context.Lands.Include(l => l.Country).FirstOrDefault(l => l.LandId == victoryLandId);
             Land defeatLand = _context.Lands.Include(l => l.Country).FirstOrDefault(l => l.LandId == defeatLandId);
 
-            CheckLastCountryLand(defeatLand);
-            TransferLandToVictoryCountry(defeatLand, victoryLand.Country);
+            if (war.IsRevolt)
+            {
+                CheckLastCountryLand(defeatLand);
+
+                if (result == WarResult.Victory) //if the rebels got success
+                {
+                    Country rebelCountry = CreateNewRebelCountry(war, defeatLand);
+                    TransferLandToVictoryCountry(defeatLand, rebelCountry);
+                }
+            }
+            else
+            {
+                CheckLastCountryLand(defeatLand);
+                TransferLandToVictoryCountry(defeatLand, victoryLand.Country);
+            }
 
             war.IsEnded = true;
             war.WarResult = (int)result;
@@ -272,6 +285,20 @@ namespace MiddleAges.Timed_Hosted_Services
             {
                 _context.Remove(army);
             }
+        }
+
+        private Country CreateNewRebelCountry(War war, Land defeatLand)
+        {
+            Country country = new Country();
+
+            country.Name = "Rebel state";
+            country.CapitalId = defeatLand.LandId;
+            country.Color = "#000000";
+            country.RulerId = war.RebelId;
+
+            _context.Add(country);
+
+            return country;
         }
     }
 }

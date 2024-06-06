@@ -18,5 +18,8 @@ namespace MiddleAges.Entities
         public bool IsEnded { get; set; }
         [DefaultValue(0)]
         public int WarResult { get; set; }
+        public bool IsRevolt { get; set; }
+        public string RebelId { get; set; }
+        public Player Player { get; set; }
     }
 }

@@ -37,6 +37,7 @@ function fillLandSideBar(id) {
             
             $('#moveToBtn').data("selectedland", obj.Land.LandId.replace(' ', '_'));
             $('#settleBtn').data("selectedland", obj.Land.LandId.replace(' ', '_'));
+            $('#startAnUprisingBtn').data("selectedland", obj.Land.LandId.replace(' ', '_'));
 
             setLocationBtnEnableability(obj.Land.LandId);
         }
@@ -75,15 +76,25 @@ function setLocationBtnEnableability(landId) {
         if (data != null) {
             const moveToBtn = document.getElementById("moveToBtn");
             const settleBtn = document.getElementById("settleBtn");
+            const startAnUprisingBtn = document.getElementById("startAnUprisingBtn");
 
             moveToBtn.disabled = true;
             settleBtn.disabled = true;
+            startAnUprisingBtn.disabled = true;
 
             if (data.currentLand != landId) {
                 moveToBtn.disabled = false;
             }
             else if (data.currentLand != data.residenceLand){
                 settleBtn.disabled = false;
+            }
+
+            if (data.currentLand != landId
+             || data.money < 100) {
+                startAnUprisingBtn.disabled = true;
+            }
+            else {
+                startAnUprisingBtn.disabled = false;
             }
         }
     })

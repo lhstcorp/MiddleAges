@@ -333,7 +333,7 @@ footer {
 
 .lhst_card_properties {
     margin: 2px;
-    color: #f5deb3
+    color: #f5deb3;
 }
 
 .lhst_building_card_left_part {
@@ -614,4 +614,15 @@ lhst_marquee {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
     background-color: wheat;
+}
+
+.lhst_production_card {
+    width: 250px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #2b2b2b;
+    background-color: #232323;
+    border-radius: 6px;
+    color: wheat;
+    padding: 1rem;
 }

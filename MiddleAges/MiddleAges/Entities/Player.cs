@@ -20,6 +20,8 @@ namespace MiddleAges.Entities
         public string CurrentLand { get; set; }
         public string ResidenceLand { get; set; }
         public int RecruitAmount { get; set; }
+        public DateTime EndDateTimeProduction { get; set; }
+        public double MoneyProduced { get; set; } //meaning today
         public Land Land { get; set; }
     }
 }
