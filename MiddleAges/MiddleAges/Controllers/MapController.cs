@@ -182,5 +182,41 @@ namespace MiddleAges.Controllers
 
             return Json(JsonSerializer.Serialize(result));
         }
+
+        public async Task<IActionResult> StartAnUprising(string landId)
+        {
+            string result = "Error";
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.Include(l => l.Country).FirstOrDefaultAsync(a => a.LandId == landId);
+            War warCheck = await _context.Wars.FirstOrDefaultAsync(w => (w.LandIdFrom == landId
+                                                                      || w.LandIdTo == landId)
+                                                                      && w.IsEnded == false);
+
+            if (player != null
+             && land != null
+             && player.CurrentLand == land.LandId
+             && player.Money > 100
+             && warCheck == null
+             && land.Country.Name != "Independent lands")
+            {
+                player.Money -= 100;
+                _context.Update(player);
+
+                War war = new War();
+                war.LandIdFrom = land.LandId;
+                war.LandIdTo = land.LandId;
+                war.StartDateTime = DateTime.UtcNow.AddHours(24);
+                war.IsRevolt = true;
+                war.RebelId = player.Id;
+
+                _context.Update(war);
+
+                await _context.SaveChangesAsync();
+
+                result = "Ok";
+            }
+
+            return Json(JsonSerializer.Serialize(result));
+        }
     }
 }

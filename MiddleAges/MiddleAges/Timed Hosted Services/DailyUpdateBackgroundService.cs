@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace MiddleAges.Timed_Hosted_Services
 {
-    public class PlayerLvlBackgroundService : IHostedService, IDisposable
+    public class DailyUpdateBackgroundService : IHostedService, IDisposable
     {
         ApplicationDbContext _context;
 
@@ -20,7 +20,7 @@ namespace MiddleAges.Timed_Hosted_Services
 
         private Timer? _timer = null;
 
-        public PlayerLvlBackgroundService(IServiceScopeFactory scopeFactory)
+        public DailyUpdateBackgroundService(IServiceScopeFactory scopeFactory)
         {
             _scopeFactory = scopeFactory;
         }
@@ -28,7 +28,7 @@ namespace MiddleAges.Timed_Hosted_Services
         public Task StartAsync(CancellationToken stoppingToken)
         {
             _timer = new Timer(DoWork, null, TimeSpan.Zero,
-                TimeSpan.FromMinutes(1));
+                TimeSpan.FromDays(1));
 
             return Task.CompletedTask;
         }
@@ -39,17 +39,10 @@ namespace MiddleAges.Timed_Hosted_Services
             {
                 _context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                List<Player> players = _context.Players.ToList();
+                UpdateProductionLimits();
+                UpdatePlayerMoneyProduced();
 
-                if (players.Count > 0)
-                {
-                    foreach (var player in players)
-                    {
-                        CalculateLvl(player);
-                    }
-
-                    _context.SaveChanges();
-                }
+                _context.SaveChanges();
             }
         }
 
@@ -65,20 +58,33 @@ namespace MiddleAges.Timed_Hosted_Services
             _timer?.Dispose();
         }
 
-        private void CalculateLvl(Player player)
+        public void UpdateProductionLimits()
         {
-            long playerExp = player.Exp;
+            List<Land> lands = _context.Lands.ToList();
 
-            if (player.Exp > 2)
+            if (lands.Count > 0)
             {
-                int newLvl = Convert.ToInt32(Math.Floor(Math.Log(playerExp, 1.3)));
-
-                if (player.Lvl != newLvl)
+                foreach (var land in lands)
                 {
-                    player.Lvl = newLvl;
+                    land.ProductionLimit = 1000;
+
+                    _context.Update(land);
+                }
+            }
+        }
+
+        public void UpdatePlayerMoneyProduced()
+        {
+            List<Player> players = _context.Players.ToList();
+
+            if (players.Count > 0)
+            {
+                foreach (var player in players)
+                {
+                    player.MoneyProduced = 0;
 
                     _context.Update(player);
-                }                
+                }
             }
         }
     }

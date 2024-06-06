@@ -162,7 +162,7 @@ namespace MiddleAges.Controllers
             return warArmiesViewModel;
         }
 
-        public async Task<IActionResult> SendTroops(string warId, string soldiersCount)
+        public async Task<IActionResult> SendTroops(string warId, string soldiersCount, string armySideValue)
         {
             string result = "Error";
             Player player = await _userManager.GetUserAsync(HttpContext.User);
@@ -182,7 +182,7 @@ namespace MiddleAges.Controllers
              && (war.LandIdFrom == player.CurrentLand
               || war.LandIdTo   == player.CurrentLand))
             {
-                ArmySide armySide = war.LandIdFrom == player.CurrentLand ? ArmySide.Attackers : ArmySide.Defenders;
+                ArmySide armySide = armySideValue == "l" ? ArmySide.Attackers : ArmySide.Defenders;
 
                 Army playerArmyInThisWar = await _context.Armies.FirstOrDefaultAsync(
                                                                     a => a.WarId.ToString() == warId 

@@ -74,21 +74,34 @@ function drawWarIcon(war, landFrom, landTo) {
     let landToCenter = getPolygonCenter(landToPolygon.animatedPoints);
 
     var map = document.getElementById("global_region_map");
-    var warFlame = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    var warSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
 
-    var flamePoint = svg.createSVGPoint();
+    var warPoint = svg.createSVGPoint();
 
-    flamePoint.x = (landFromCenter[0] + landToCenter[0]) / 2 - 10;
-    flamePoint.y = (landFromCenter[1] + landToCenter[1]) / 2 - 20;
+    if (war.isRevolt == true) {
+        warPoint.x = landFromCenter[0] - 10;
+        warPoint.y = landFromCenter[1] - 15;
+    }
+    else {
+        warPoint.x = (landFromCenter[0] + landToCenter[0]) / 2 - 10;
+        warPoint.y = (landFromCenter[1] + landToCenter[1]) / 2 - 20;
+    }
+       
+    warSvg.setAttribute('x', warPoint.x);
+    warSvg.setAttribute('y', warPoint.y);
 
-    warFlame.setAttribute('x', flamePoint.x);
-    warFlame.setAttribute('y', flamePoint.y);
+    var warImg = document.createElementNS('http://www.w3.org/2000/svg', 'image');
 
-    var flameImg = document.createElementNS('http://www.w3.org/2000/svg', 'image');
-    flameImg.setAttribute('href', '../img/interface-icons/map-icons/flame.svg');
-    warFlame.appendChild(flameImg);
+    if (war.isRevolt == true) {
+        warImg.setAttribute('href', '../img/interface-icons/map-icons/revolt.svg');
+    }
+    else {
+        warImg.setAttribute('href', '../img/interface-icons/map-icons/flame.svg');
+    }
+    
+    warSvg.appendChild(warImg);
 
-    map.appendChild(warFlame);
+    map.appendChild(warSvg);
 }
 
 function getPolygonCenter(points) {
