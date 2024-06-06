@@ -87,6 +87,7 @@ namespace MiddleAges.Controllers
         public JsonResult FetchWars()
         {
             var warList = _context.Wars
+                                .Where(w => w.IsEnded == false)
                                 .Join(_context.Lands,
                                         w => w.LandIdFrom,
                                         lf => lf.LandId,

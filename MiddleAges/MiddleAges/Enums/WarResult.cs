@@ -8,6 +8,7 @@ namespace MiddleAges.Enums
     public enum WarResult
     {
         Victory = 1,
-        Defeat = 2
+        Defeat = 2,
+        Draw = 3
     }
 }
