@@ -26,19 +26,22 @@
             <p class="lhst_possessions_titles">Production</p>
             <div class="lhst_production_card">
                 <p class="w-100 flex-wrap mb-2 font-weight-normal">Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</p>
-                <input id="productionBtn" type="submit" class="lhst_btn_moveToRegion mb-2" value="Start production" onclick="restartProduction()" />
                 @{
                     string productionStatusString;
+                    string productionBtnText;
 
                     if (Model.EndDateTimeProduction < DateTime.UtcNow)
                     {
+                        productionBtnText = "Start production";
                         productionStatusString = "Production has not yet started";
                     }
                     else
                     {
+                        productionBtnText = "Restart production";
                         productionStatusString = "Production will end at: " + Model.EndDateTimeProduction;
                     }
 
+                    <input id="productionBtn" type="submit" class="lhst_btn_moveToRegion mb-2" value="@productionBtnText" onclick="restartProduction()" />
                     <p id="productionStatusStr" class="w-100 flex-wrap mb-2 font-weight-normal">@productionStatusString</p>
                 }
 

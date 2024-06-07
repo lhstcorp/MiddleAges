@@ -233,29 +233,29 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Taxes(string tax)
+        public async Task<IActionResult> SetTaxes(string landId, int taxValue)
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
-            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
-            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-            //if (player.Id == country.RulerId)
-            //{
-            //    Player newRuler = await _context.Players.FirstOrDefaultAsync(p => p.UserName == newRulerName);
-            //    if (newRuler.Id != "")
-            //    {
-            //        Law law = new Law();
-            //        law.CountryId = country.CountryId;
-            //        law.PlayerId = player.Id;
-            //        law.Type = (int)LawType.ChangingRuler;
-            //        law.PublishingDateTime = DateTime.UtcNow;
-            //        law.Value1 = newRulerName;
-            //        law.Value2 = country.RulerId;
-            //        _context.Update(law);
-            //        country.RulerId = newRuler.Id;
-            //        _context.Update(country);
-            //        await _context.SaveChangesAsync();
-            //    }
-            //}
+            Land land = await _context.Lands.FirstOrDefaultAsync(l => l.LandId == landId);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(c => c.CountryId == land.CountryId);
+
+            if (player.Id == country.RulerId)
+            {
+                Law law = new Law();
+                law.CountryId = country.CountryId;
+                law.PlayerId = player.Id;
+                law.Type = (int)LawType.SetLandTaxes;
+                law.PublishingDateTime = DateTime.UtcNow;                
+                law.Value1 = taxValue.ToString();
+                law.Value2 = landId;
+                _context.Add(law);
+
+                land.Taxes = taxValue;
+                _context.Update(land);
+
+                await _context.SaveChangesAsync();               
+            }
+
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
         }
 

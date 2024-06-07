@@ -13,6 +13,7 @@ namespace MiddleAges.Enums
         TransferingLand = 4,
         ChangingRuler = 5,
         DeclaringWar = 6,
-        Disbanding = 7
+        Disbanding = 7,
+        SetLandTaxes = 8
     }
 }

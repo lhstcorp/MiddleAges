@@ -46,11 +46,10 @@ function openResidentsCountryDialog() {
 function hideResidentsCountryDialog() {
     $('#residentsCountryDialog').modal('hide');
 }
-
-function openTaxesingCountryDialog() {
+function openTaxesCountryDialog() {
     $('#taxesCountryDialog').modal('show');
 }
-function hideTaxesingCountryDialog() {
+function hideTaxesCountryDialog() {
     $('#taxesCountryDialog').modal('hide');
 }
 
