@@ -57,6 +57,7 @@ namespace MiddleAges
             services.AddRazorPages();
 
             services.AddHostedService<DailyUpdateBackgroundService>();
+            services.AddHostedService<ProductionBackgroundService>();                       
             services.AddHostedService<RecruitBackgroundService>();
             services.AddHostedService<WarBackgroundService>();
             services.AddHostedService<PlayerLvlBackgroundService>();
