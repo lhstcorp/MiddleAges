@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
+using MiddleAges.ViewModels;
 
 namespace MiddleAges.Controllers
 {
@@ -34,7 +35,15 @@ namespace MiddleAges.Controllers
             var player = await _userManager.GetUserAsync(HttpContext.User);
 
             player = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(p => p.Id == player.Id);
-            return View("Main", player);
+
+            Land residenceLand = await _context.Lands.Include(l => l.Country).FirstOrDefaultAsync(l => l.LandId == player.ResidenceLand);
+
+            MainInfoViewModel mainInfoViewModel = new MainInfoViewModel
+            {
+                Player = player,
+                ResidenceLand = residenceLand
+            };
+            return View("Main", mainInfoViewModel);
         }
 
         public IActionResult Privacy()
