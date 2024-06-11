@@ -35,72 +35,67 @@
                         <div class="col-2 p-0">
                             <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandFrom.LandId).png" alt="">
                         </div>
-                        <div class="col-8 p-0">
-                            <div class="row p-0 lhst_row_height">
-                                <div class="col-3 p-0">
-                                    <p class="lhst_wars_country_text ">@allWars[i].CountryFrom.Name</p>
+                        <div class="col-2 p-0">
+                            <p class="lhst_wars_country_text ">@allWars[i].CountryFrom.Name</p>
+                            <p class="lhst_wars_lands_text ">@allWars[i].LandFrom.LandId</p>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="row p-0">
+                                <div class="col-4 p-0 text-right">
+                                    <p class="text-right lhst_country_info_region_value mb-0">@allWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
                                 </div>
-                                <div class="col-2 p-0 text-right">
-                                    <p class="text-right lhst_country_info_region_value">@allWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
-                                </div>
-                                <div class="col-1 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
-                                </div>
-                                <div class="col-1 p-0">
+                                <div class="col-2 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
                                 </div>
                                 <div class="col-2 p-0">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
+                                </div>
+                                <div class="col-4 p-0">
                                     <p class="lhst_country_info_region_value">@allWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
                                 </div>
-                                <div class="col-3 p-0">
-                                    <p class="lhst_wars_country_text text-right">@allWars[i].CountryTo.Name</p>
-                                </div>
                             </div>
-                            <div class="row lhst_row_height">
-                                <div class="col-3 p-0">
-                                    <p class="lhst_wars_lands_text ">@allWars[i].LandFrom.LandId</p>
+                            <div class="row p-0">
+                                <div class="col-4 p-0 text-right">
+                                    <p class="text-right lhst_country_info_region_value mb-0">@allWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
                                 </div>
-                                <div class="col-2 p-0 text-right">
-                                    <p class="text-right lhst_country_info_region_value">@allWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
-                                </div>
-                                <div class="col-1 p-0">
+                                <div class="col-2 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
                                 </div>
-                                <div class="col-1 p-0">
+                                <div class="col-2 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
                                 </div>
                                 <div class="col-2 p-0 ">
                                     <p class="lhst_country_info_region_value">@allWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
                                 </div>
-                                <div class="col-3 p-0">
-                                    <p class="lhst_wars_lands_text text-right">@allWars[i].LandTo.LandId</p>
-                                </div>
                             </div>
-                            <div class="row lhst_row_height">
-                                <div class="col-4 float-right p-0 mt-1">
-                                    <p class="float-right mr-2 lhst_country_info_region_value">Left</p>
-                                </div>
-                                <div class="col-2 float-left p-0">
+                            <div class="row">
+                                <div class="col-6 float-right p-0">
                                     @if (allWars[i].War.StartDateTime.AddHours(24) > DateTime.UtcNow)
                                     {
-                                        <time datetime="2016-11-18T09:54" class="lhst_country_info_region_value">allWars[i].War.StartDateTime.AddHours(24) - DateTime.UtcNow</time>
+                                        TimeSpan ts = allWars[i].War.StartDateTime - DateTime.UtcNow;
+                                        string leftTime = new DateTime(ts.Ticks).ToString("HH:mm:ss");
+                                        <p class="float-right mr-2 lhst_country_info_region_value mb-0 mt-2">Left: @leftTime</p>
                                     }
                                     else if (!allWars[i].War.IsEnded)
                                     {
-                                        <p class="lhst_country_info_region_value">Started</p>
+                                        <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">Started</p>
                                     }
                                     else
                                     {
-                                        <p class="lhst_country_info_region_value">Ended</p>
+                                        <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">Ended</p>
                                     }
                                 </div>
                                 <div class="col-6 float-left p-0">
-                                    <input type="submit" class="lhst_btn_unit_recruit warDetailsBtn" data-warid=@allWars[i].War.WarId value="Details" />
+                                    <input type="submit" class="lhst_btn_unit_recruit warDetailsBtn ml-2" data-warid=@allWars[i].War.WarId value="Details" />
                                 </div>
                             </div>
                         </div>
+                        <div class="col-2 p-0 text-right">
+                            <p class="lhst_wars_country_text ">@allWars[i].CountryTo.Name</p>
+                            <p class="lhst_wars_lands_text ">@allWars[i].LandTo.LandId</p>
+                        </div>
                         <div class="col-2 p-0">
-                            <img class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="">
+                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="">
                         </div>
                     </div>
                 }
