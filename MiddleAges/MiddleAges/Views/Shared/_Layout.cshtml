@@ -89,6 +89,10 @@
         <div class="container lhst_footer-text ">
             &copy; 2023 - MiddleAges - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
         </div>
+        <div class="container align-self-center lhst_footer-text d-flex mt-3">
+            <p class="mr-1">Server time:</p>
+            <p id="serverTime" ></p>
+        </div>
         <script src="https://yastatic.net/share2/share.js"></script>
         <div class="ya-share2 align-self-center mr-3" data-curtain data-lang="en" data-color-scheme="blackwhite" data-services="vkontakte,telegram,twitter,viber"></div>
     </footer>
@@ -96,7 +100,7 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/showChat.js"></script>
-    
+    <script src="~/js/server_time.js"></script>
 
     @*<script src="~/js/snow.js" type="text/javascript" language="JavaScript"></script>*@
     @await RenderSectionAsync("Scripts", required: false)
