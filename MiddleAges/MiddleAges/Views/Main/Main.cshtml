@@ -1,4 +1,4 @@
-﻿@model MiddleAges.Entities.Player
+﻿@model MiddleAges.ViewModels.MainInfoViewModel
 @using MiddleAges.ViewComponents
 
 @{
@@ -9,16 +9,49 @@
     <div class="lhst_left-side-bar lhst_vertical-alignment-top">
         <div class="lhst_left_side_bar_land_content row justify-content-md-center">
             <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Player.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
             </div>
             <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
-                <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Land.Country.Name</p>
-                <p class="lhst_current_land_name lhst_leftSideBar_land_name">@Model.CurrentLand</p>
+                <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
+                <p class="lhst_current_land_name lhst_leftSideBar_land_name">@Model.Player.CurrentLand</p>
             </div>
         </div>
     </div>
     <div class="lhst_vertical-alignment-top lhst_main-section_mainmenu lhst_main_section_padding">
-        @await Component.InvokeAsync(typeof(BuildingsViewComponent))
-        @await Component.InvokeAsync(typeof(UnitsViewComponent))
+        <div class="float-left">
+            @await Component.InvokeAsync(typeof(BuildingsViewComponent))
+            @await Component.InvokeAsync(typeof(UnitsViewComponent))
+        </div>
+        <div class="float-left">
+            <p class="lhst_possessions_titles">Production</p>
+            <div class="lhst_production_card">
+                <p class="w-100 flex-wrap mb-2 font-weight-normal">Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</p>
+                @{
+                    string productionStatusString;
+                    string productionBtnText;
+
+                    if (Model.Player.EndDateTimeProduction < DateTime.UtcNow)
+                    {
+                        productionBtnText = "Start production";
+                        productionStatusString = "Production has not yet started";
+                    }
+                    else
+                    {
+                        productionBtnText = "Restart production";
+                        productionStatusString = "Production will end at: " + Model.Player.EndDateTimeProduction;
+                    }
+
+                    <input id="productionBtn" type="submit" class="lhst_btn_moveToRegion mb-2" value="@productionBtnText" onclick="restartProduction()" />
+                    <p id="productionStatusStr" class="w-100 flex-wrap mb-2 font-weight-normal">@productionStatusString</p>
+                }
+
+                <div class="lhst_line ml-0 mr-0 mb-2"></div>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Earned money today: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @Math.Round(@Model.Player.MoneyProduced, 2).ToString().Replace(',', '.')</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Remaining land limit: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @Math.Round(@Model.ResidenceLand.ProductionLimit, 2).ToString().Replace(',', '.')</span></p>
+                <p class="w-100 flex-wrap mb-0 font-weight-normal">Residence prod land: <span class="lhst_clr-brown">@Model.ResidenceLand.LandId</span></p>
+            </div>
+        </div>
     </div>
+
+    <script src="~/js/main.js"></script>
 </div>

@@ -146,23 +146,24 @@ function refreshWarData() {
 function sendTroopsLeftSide() {
     let soldiersCountLeftValue = $('#soldiersCountLeftValue').val();
 
-    sendTroops(soldiersCountLeftValue);
+    sendTroops(soldiersCountLeftValue, "l");
 }
 
 function sendTroopsRightSide() {
     let soldiersCountRightValue = $('#soldiersCountRightValue').val();
 
-    sendTroops(soldiersCountRightValue);
+    sendTroops(soldiersCountRightValue, "r");
 }
 
-function sendTroops(soldiersCount) {
+function sendTroops(soldiersCount, armySide) {
     $.ajax({
         url: 'War/SendTroops',
         type: 'post',
         datatype: 'json',
         data: {
             warId: warId,
-            soldiersCount: soldiersCount},
+            soldiersCount: soldiersCount,
+            armySideValue: armySide},
         success: function (response) {
             if (response == null || response == undefined || response.length == 0) {
                 return 'Error';

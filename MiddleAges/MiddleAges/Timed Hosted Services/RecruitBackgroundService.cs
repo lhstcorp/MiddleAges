@@ -23,7 +23,7 @@ namespace MiddleAges.Timed_Hosted_Services
 
         public Task StartAsync(CancellationToken stoppingToken)
         {          
-            _timer = new Timer(DoWork, null, TimeSpan.Zero,
+            _timer = new Timer(DoWork, null, TimeSpan.FromSeconds(10),
                 TimeSpan.FromHours(1));
 
             return Task.CompletedTask;

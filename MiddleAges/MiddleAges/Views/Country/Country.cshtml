@@ -19,12 +19,12 @@
     </div>
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding d-inline-flex lhst_font_size">
         <div class="lhst_avatar_inline lhst_country_div align-top lhst_slider_small_screen">
-            <p class="lhst_country_king_size" >@Model.Country.Name</p>
+            <p class="lhst_country_king_size mb-0" >@Model.Country.Name</p>
             <div class="col lhst_map_region_icon_left_bar_col">
                 <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Country.CapitalId).png" class="lhst_country_img" alt="map region coat of arms" loading="lazy" />
             </div>
-            <div class="d-inline-flex country_ruler_width align-content-center">
-                <div class="lhst_person-nav-container-inline mr-5">
+            <div class="row">
+                <div class="lhst_person-nav-container-inline mr-1">
                     <img id="player_avatar" class="lhst_king_nav-avatar-img" src="~/img/avatars/@(Model.Ruler.ImageURL).webp" alt="" loading="lazy" />
                 </div>
                 <p class="lhst_country_king_size ">King @Model.Ruler.UserName</p>
@@ -103,7 +103,7 @@
                     @*  @*Установление налога*@
                     <li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text  ">
-                            <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale" onclick="openTaxesingCountryDialog()" id="openTaxesCountryDialog">Taxes</button>
+                            <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
                         </menu>
                     </li>
                     @*Смена правителя*@
@@ -241,25 +241,25 @@
 </div>
 <div class="lhst_dialog modal" id="taxesCountryDialog">
     <div class="text-right">
-        <button class="lhst_btn_dialog_cancel" onclick="hideTaxesingCountryDialog()">x</button>
+        <button class="lhst_btn_dialog_cancel" onclick="hideTaxesCountryDialog()">x</button>
     </div>
-    <form asp-controller="Country" asp-action="Taxes">
+    <form asp-controller="Country" asp-action="SetTaxes">
         <section>
             <p class="lhst_card_properties">
-                <label>Taxes</label>
+                <label>Set Taxes</label>
             </p>
             <p class="lhst_card_properties">
                 Choose Land
-                <select name="transferLand" class="lhst_dialog_select_input">
-                    @for (int i = 0; i < Model.LandsToTranfer.Count; i++)
+                <select name="landId" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < Model.Lands.Count; i++)
                     {
-                        <option class="lhst_option">@Model.LandsToTranfer[i].LandId</option>
+                        <option class="lhst_option">@Model.Lands[i].LandId</option>
                     }
                 </select>
             </p>
             <p class="lhst_card_properties">
-                Tax
-                <input name="newName" class="lhst_dialog_rename_input" type="number" max="99" min="0" />
+                Tax Value %
+                <input name="taxValue" class="lhst_dialog_rename_input" type="number" max="100" min="0" />
             </p>
         </section>
         <menu class="text-center pl-0">

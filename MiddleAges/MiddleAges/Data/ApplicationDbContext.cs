@@ -95,6 +95,11 @@ namespace MiddleAges.Data
                 .HasOne(q => q.Player)
                 .WithMany()
                 .HasForeignKey(q => q.PlayerId);
+
+            builder.Entity<War>()
+                .HasOne(q => q.Player)
+                .WithMany()
+                .HasForeignKey(q => q.RebelId);
         }
 
         public DbSet<Player> Players { get; set; }
