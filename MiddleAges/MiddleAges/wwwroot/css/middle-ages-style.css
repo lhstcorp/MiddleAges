@@ -572,7 +572,7 @@ lhst_marquee {
 }
 
 .lhst_ratingName_width {
-    width: 50px
+    width: 100px
 }
 
 .lhst_background_image {
@@ -603,7 +603,11 @@ lhst_marquee {
 }
 
 .lhst_clr-brown {
-    color: firebrick;
+    color: #FF033E;
+}
+
+.lhst_clr-green {
+    color: #2d9062;
 }
 
 .lhst_line {

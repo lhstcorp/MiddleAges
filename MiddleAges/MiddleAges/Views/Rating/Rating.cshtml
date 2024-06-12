@@ -27,7 +27,7 @@
                         <div class="lhst_inline ml-5">
                             <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt="" loading="lazy" />
                         </div>
-                        <p class="lhst_country_history_text ">@playersOrderByMoney[i].Money</p>
+                        <p class="lhst_country_history_text ">@Math.Round(playersOrderByMoney[i].Money,2)</p>
                     </div>
                     <div class="lhst_tabs_line mb-1"></div>
                 }

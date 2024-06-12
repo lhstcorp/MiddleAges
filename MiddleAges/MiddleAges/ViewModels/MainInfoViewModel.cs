@@ -10,5 +10,6 @@ namespace MiddleAges.ViewModels
     {
         public Player Player { get; set; }
         public Land ResidenceLand { get; set; }
+        public List<Unit> Units { get; set; }
     }
 }

@@ -38,10 +38,13 @@ namespace MiddleAges.Controllers
 
             Land residenceLand = await _context.Lands.Include(l => l.Country).FirstOrDefaultAsync(l => l.LandId == player.ResidenceLand);
 
+            List<Unit> units = await _context.Units.Where(u => u.PlayerId == player.Id).ToListAsync();
+
             MainInfoViewModel mainInfoViewModel = new MainInfoViewModel
             {
                 Player = player,
-                ResidenceLand = residenceLand
+                ResidenceLand = residenceLand,
+                Units = units
             };
             return View("Main", mainInfoViewModel);
         }

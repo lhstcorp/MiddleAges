@@ -56,5 +56,29 @@ namespace MiddleAges.Controllers
            
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
         }
+        [HttpPost]
+        public async Task<IActionResult> Dismiss(string unitId, int dismiss)
+        {
+            Unit unit = _context.Units.FirstOrDefault(k => k.UnitId.ToString() == unitId);
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            //Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);
+            //Building building = _context.Buildings.FirstOrDefault(k => k.PlayerId.ToString() == player.Id);
+            double returnMoney = unit.Type switch
+            {
+                (int)UnitType.Peasant => dismiss * (double)UnitPrice.Peasant/2.00,
+                (int)UnitType.Soldier => dismiss * (double)UnitPrice.Soldier/2.00,
+                _ => 0
+            };
+            if (unit.Count > 0 && unit.Count >= dismiss)
+            {
+                player.Money += returnMoney;
+                unit.Count -= dismiss;
+                player.RecruitAmount += dismiss;
+                _context.Update(unit);
+                _context.Update(player);
+                await _context.SaveChangesAsync();
+            }
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Main"));
+        }
     }
 }
