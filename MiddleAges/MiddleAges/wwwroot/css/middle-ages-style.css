@@ -628,3 +628,25 @@ lhst_marquee {
     color: wheat;
     padding: 1rem;
 }
+
+.lhst_btn_war_modal {
+    align-content:end;
+    background: radial-gradient(#393939,black);
+    color: wheat;
+    border-radius: 3px;
+    width: 48px;
+    margin-left: 3px;
+    height: 26.2px;
+    font-size: revert;
+}
+
+.lhst_tb_war_modal {
+    align-content: end;
+    width: 48px;
+    height: 26.2px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(#393939,black);
+    color: wheat;
+    border-radius: 3px
+}
