@@ -22,6 +22,7 @@ namespace MiddleAges.Entities
         public int RecruitAmount { get; set; }
         public DateTime EndDateTimeProduction { get; set; }
         public double MoneyProduced { get; set; } //meaning today
+        public double MoneySpent { get; set; } //meaning today
         public Land Land { get; set; }
     }
 }
