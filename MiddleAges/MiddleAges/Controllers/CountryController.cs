@@ -64,6 +64,7 @@ namespace MiddleAges.Controllers
 
                 List<BorderLand> borderLands = borderLandsQuery.Select(q => q.BorderLand).ToList();
 
+                List<Unit> countryUnits = await GetCountryUnits(country.CountryId);
 
                 var countryInfoViewModel = new CountryInfoViewModel
                 {
@@ -74,7 +75,10 @@ namespace MiddleAges.Controllers
                     OtherRulers = otherRulers,
                     Laws = laws,
                     LandsToTranfer = landsToTranfer,
-                    BorderLands = borderLands
+                    BorderLands = borderLands,
+                    PeasantsCount = countryUnits.Where(u => u.Type == (int)UnitType.Peasant).Sum(u => u.Count),
+                    SoldiersCount = countryUnits.Where(u => u.Type == (int)UnitType.Soldier).Sum(u => u.Count),
+                    LordsCount = countryUnits.GroupBy(u => u.PlayerId).Count()
                 };
                 return View("Country", countryInfoViewModel);
             }     
@@ -331,6 +335,18 @@ namespace MiddleAges.Controllers
                 await _context.SaveChangesAsync();
             }
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
+        private async Task<List<Unit>> GetCountryUnits(Guid countryId)
+        {
+            List<Unit> countryUnits = await _context.Units
+                                                .Join(_context.Lands,
+                                                    u => u.LandId,
+                                                    l => l.LandId,
+                                                    (u, l) => new { Unit = u, Land = l })
+                                                .Where(combined => combined.Land.CountryId == countryId).Select(q => q.Unit).ToListAsync();
+
+            return countryUnits;
         }
     }
 }

@@ -14,5 +14,8 @@ namespace MiddleAges.ViewModels
         public List<Law> Laws { get; set; }
         public List<Land> LandsToTranfer { get; set; }        
         public List<BorderLand> BorderLands { get; set; }
+        public long PeasantsCount { get; set; }
+        public long SoldiersCount { get; set; }
+        public long LordsCount { get; set; }
     }
 }
