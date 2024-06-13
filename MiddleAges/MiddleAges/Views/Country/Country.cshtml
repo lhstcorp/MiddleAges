@@ -29,41 +29,48 @@
                 </div>
                 <p class="lhst_country_king_size ">King @Model.Ruler.UserName</p>
             </div>
-            <p class="mt-2 text-left mb-1">People resources</p>
-            <div class="lhst_country_line">
+
+            <div class="row">
+                <div class="col-6 pl-0 pr-2">
+                    <p class="mt-2 text-left mb-1">People resources</p>
+                    <div class="lhst_country_line mb-1">
+                    </div>
+                    <div>
+                        <div class="row">
+                            <img class="country_card-population-img" src="~/img/default-icon/farmer.png" alt="" loading="lazy" />
+                            <p class="lhst_country_info_region_value ml-1 mb-0">@Model.PeasantsCount</p>
+                        </div>
+                        <div class="row">
+                            <img class="country_card-population-img" src="~/img/default-icon/knight.png" alt="" loading="lazy" />
+                            <p class="lhst_country_info_region_value ml-1 mb-0">@Model.SoldiersCount</p>
+                        </div>
+                        <div class="row">
+                            <img class="country_card-population-img" src="~/img/default-icon/players.png" alt="" loading="lazy" />
+                            <p class="lhst_country_info_region_value ml-1 mb-0">@Model.LordsCount</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 pl-2 pr-0">
+                    <p class="mt-2 text-left mb-1">Treasure</p>
+                    <div class="lhst_country_line mb-1">
+                    </div>
+                    <div>
+                        <div class="row" style="height: 30px;">
+                            <img class="country_card-money-img" src="~/img/interface-icons/coins.png" alt="" loading="lazy" />
+                            <p class="lhst_country_info_region_value ml-1 mb-0">@Math.Round(Model.Country.Money, 2)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="d-inline-flex float-left">
-                <img id="farmer_avatar" class="country_nav-avatar-img" src="~/img/default-icon/farmer.png" alt="" loading="lazy" />
-                <p class="lhst_country_info_region_value">
-                    1234876
-                </p>
-                <img id="knight_avatar" class="country_nav-avatar-img" src="~/img/default-icon/knight.png" alt="" loading="lazy" />
-                <p class="lhst_country_info_region_value">
-                    1234876
-                </p>
-                <img id="players_avatar" class="country_nav-avatar-img" src="~/img/default-icon/players.png" alt="" loading="lazy" />
-                <p class="lhst_country_info_region_value">
-                    1234876
-                </p>
-            </div>
-            <div class="d-inline-flex float-left align-content-center">
-                <p class="lhst_country_info_region_value country_bottom_text_width text-left">
-                    Population
-                </p>
-                <p class="lhst_country_info_region_value country_bottom_text_width text-left">
-                    Knights
-                </p>
-                <p class="lhst_country_info_region_value country_bottom_text_width text-left">
-                    Players
-                </p>
-            </div>
+
             <p class="mt-2 text-left mb-1">Lands</p>
             <div class="lhst_country_line mb-1">
             </div>
             <div class="d-inline-block float-left">
                 @for (int i = 0; i < Model.Lands.Count; i++)
                 {
-                <img id = "countries_lands" class="country_nav-avatar-img mb-2" title="@(Model.Lands[i].LandId)" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" loading="lazy" />
+                    <img id="countries_lands" class="country_card-land-img mb-2" title="@(Model.Lands[i].LandId)" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" loading="lazy" />
                 }
             </div>
         </div>

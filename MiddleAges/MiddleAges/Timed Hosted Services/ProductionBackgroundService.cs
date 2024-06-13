@@ -16,6 +16,7 @@ namespace MiddleAges.Timed_Hosted_Services
     {
         ApplicationDbContext _context;
         const double _peasantHourSalary = 0.01;
+        const double _soldierHourExpense = 0.02;
 
         private readonly IServiceScopeFactory _scopeFactory;
 
@@ -40,13 +41,18 @@ namespace MiddleAges.Timed_Hosted_Services
             {
                 _context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                List<Player> players = _context.Players.Where(p => p.EndDateTimeProduction > DateTime.UtcNow).ToList();
+                List<Player> players = _context.Players.ToList();
 
                 if (players.Count > 0)
                 {
                     foreach (var player in players)
                     {
-                        CalculateProductionIncome(player);
+                        if (player.EndDateTimeProduction > DateTime.UtcNow)
+                        {
+                            CalculateProductionIncome(player);
+                        }
+
+                        CalculatePlayerExpenses(player);
                     }
 
                     _context.SaveChanges();
@@ -94,6 +100,20 @@ namespace MiddleAges.Timed_Hosted_Services
                 country.Money += hourIncome * land.Taxes / 100.00;
 
                 _context.Update(country);
+            }
+        }
+
+        private void CalculatePlayerExpenses(Player player)
+        {
+            Unit soldiers = _context.Units.FirstOrDefault(u => u.PlayerId == player.Id && u.Type == (int)UnitType.Soldier);
+
+            if (soldiers.Count > 0)
+            {
+                double hourExpense = soldiers.Count * _soldierHourExpense;
+                player.Money -= hourExpense;                
+                player.MoneySpent += hourExpense;
+
+                _context.Update(player);                                
             }
         }
     }

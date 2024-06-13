@@ -40,7 +40,7 @@ namespace MiddleAges.Timed_Hosted_Services
                 _context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
                 UpdateProductionLimits();
-                UpdatePlayerMoneyProduced();
+                UpdatePlayerDailyData();
 
                 _context.SaveChanges();
             }
@@ -73,7 +73,7 @@ namespace MiddleAges.Timed_Hosted_Services
             }
         }
 
-        public void UpdatePlayerMoneyProduced()
+        public void UpdatePlayerDailyData()
         {
             List<Player> players = _context.Players.ToList();
 
@@ -82,6 +82,7 @@ namespace MiddleAges.Timed_Hosted_Services
                 foreach (var player in players)
                 {
                     player.MoneyProduced = 0;
+                    player.MoneySpent = 0;
 
                     _context.Update(player);
                 }

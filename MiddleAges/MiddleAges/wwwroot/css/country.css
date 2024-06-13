@@ -78,8 +78,16 @@
     display: ruby-text
 }
 
-.country_nav-avatar-img {
-    height: 60px
+.country_card-population-img {
+    height: 30px
+}
+
+.country_card-money-img {
+    height: 25px;
+}
+
+.country_card-land-img {
+    height: 45px
 }
 
 .lhst_country_info_region_value {
