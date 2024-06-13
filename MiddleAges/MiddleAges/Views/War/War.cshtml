@@ -189,68 +189,64 @@
         <div class="col-2 p-0">
             <img id="imgFrom" class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/Hrodna.png" alt="">
         </div>
-        <div class="col-8 p-0">
-            <div class="row p-0 lhst_row_height">
-                <div class="col-3 p-0">
-                    <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
-                </div>
-                <div class="col-2 p-0 text-right">
+        <div class="col-2 p-0">
+            <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
+            <p id="landFromName" class="lhst_wars_lands_text ">LandFrom</p>
+        </div>
+        <div class="col-4 p-0">
+            <div class="row p-0">
+                <div class="col-4 p-0 text-right">
                     <p id="soldiersCountLeft" class="text-right lhst_country_info_region_value">937</p>
                 </div>
-                <div class="col-1 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
-                </div>
-                <div class="col-1 p-0">
+                <div class="col-2 p-0">
                     <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
                 </div>
                 <div class="col-2 p-0">
+                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" alt="">
+                </div>
+                <div class="col-4 p-0">
                     <p id="soldiersCountRight" class="lhst_country_info_region_value">647</p>
                 </div>
-                <div id="countryToName" class="col-3 p-0">
-                    <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
-                </div>
             </div>
-            <div class="row lhst_row_height">
-                <div class="col-3 p-0">
-                    <p id="landFromName" class="lhst_wars_lands_text ">LandFrom</p>
-                </div>
-                <div class="col-2 p-0 text-right">
+            <div class="row p-0">
+                <div class="col-4 p-0 text-right">
                     <p id="armiesCountLeft" class="text-right lhst_country_info_region_value">0</p>
                 </div>
-                <div class="col-1 p-0">
+                <div class="col-2 p-0">
                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
                 </div>
-                <div class="col-1 p-0">
+                <div class="col-2 p-0">
                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" alt="">
                 </div>
-                <div class="col-2 p-0 ">
+                <div class="col-4 p-0 ">
                     <p id="armiesCountRight" class="lhst_country_info_region_value">12</p>
                 </div>
+            </div>
+            <div class="row p-0">
                 <div class="col-3 p-0">
-                    <p id="landToName" class="lhst_wars_lands_text ">LandTo</p>
+                    <input id="soldiersCountLeftValue" name="unitsAmountLeftCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                </div>
+                <div class="col-3 p-0 text-right">
+                    <input type="submit" class="lhst_btn_war_modal" onclick="sendTroopsLeftSide()" value="Send" />
+                </div>
+                <div class="col-3 p-0">
+                    <input type="submit" class="lhst_btn_war_modal" onclick="sendTroopsRightSide()" value="Send" />
+                </div>
+                <div class="col-3 p-0">
+                    <input id="soldiersCountRightValue" name="unitsAmountRightCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
                 </div>
             </div>
-            @*<form asp-controller="War" asp-action="SendTroops">*@
-                <div class="row lhst_row_height mt-3">
-                    <div class="col-4 p-0">
-                        <input id="soldiersCountLeftValue" name="unitsAmountLeftCountryWarInput" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                    </div>
-                    <div class="col-2 p-0">
-                        <input type="submit" class="lhst_btn_unit_recruit" onclick="sendTroopsLeftSide()" value="Send" />
-                    </div>
-                    <div class="col-2 p-0">
-                        <input type="submit" class="lhst_btn_unit_recruit" onclick="sendTroopsRightSide()" value="Send" />
-                    </div>
-                    <div class="col-4 p-0 text-right">
-                        <input id="soldiersCountRightValue" name="unitsAmountRightCountryWarInput" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                    </div>
-                </div>
-            @*</form>*@
-
         </div>
+
+        <div class="col-2 p-0 text-right">
+            <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
+            <p id="landToName" class="lhst_wars_lands_text ">LandTo</p>
+        </div>
+
         <div class="col-2 p-0 float-right">
             <img id="imgTo" class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/Lahoisk.png" alt="">
         </div>
+        
 
     </div>
     <div class="row p-0 overflow-auto">
