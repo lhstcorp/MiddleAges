@@ -73,7 +73,11 @@
                                     @if (allWars[i].War.StartDateTime.AddHours(24) > DateTime.UtcNow)
                                     {
                                         TimeSpan ts = allWars[i].War.StartDateTime - DateTime.UtcNow;
-                                        string leftTime = new DateTime(ts.Ticks).ToString("HH:mm:ss");
+                                        string leftTime = "";
+                                        if (ts > TimeSpan.Zero)
+                                        {
+                                            leftTime = new DateTime(ts.Ticks).ToString("HH:mm:ss");
+                                        }
                                         <p class="float-right mr-2 lhst_country_info_region_value mb-0 mt-2">Left: @leftTime</p>
                                     }
                                     else if (!allWars[i].War.IsEnded)

@@ -37,12 +37,12 @@
         <div class="row">
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="lhst_inline lhst_nav lhst_footer_avatar_scale">
+                <div class="lhst_inline lhst_nav lhst_header_avatar_scale">
                     @await Component.InvokeAsync(typeof(PlayerOverviewNavViewComponent))
                 </div>
                 <div class="lhst_inline lhst_vertical-line"></div>
-                <div class="lhst_inline lhst_nav lhst_footer_margin lhst_scale">
-                    <ul class="lhst_nav">
+                <div class="lhst_inline lhst_nav lhst_header_margin lhst_scale">
+                    <ul class="lhst_nav p-0">
                         <li class="lhst_nav ">
                             <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
                         </li>

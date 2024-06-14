@@ -143,14 +143,6 @@
     color: #faaf08
 }
 
-ul.lhst_nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    vertical-align: central
-}
-
 li.lhst_nav {
     float: left;
     margin: 5px
@@ -225,11 +217,11 @@ li button.lhst_nav:hover {
     display: inline-block
 }
 
-.lhst_footer_margin {
-    margin: 15px 130px 15px 15px
+.lhst_header_margin {
+    margin: 15px 15px 15px 15px
 }
 
-.lhst_footer_avatar_scale {
+.lhst_header_avatar_scale {
     width: 230px;
     height: 120px;
     padding-top: 4px;

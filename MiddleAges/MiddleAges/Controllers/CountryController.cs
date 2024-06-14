@@ -163,7 +163,11 @@ namespace MiddleAges.Controllers
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-            if (player.Id == country.RulerId)
+            War war = await _context.Wars.FirstOrDefaultAsync(w => (w.LandIdFrom == country.CapitalId
+                                                                 || w.LandIdTo == country.CapitalId)
+                                                                 && w.IsEnded == false);
+            if (player.Id == country.RulerId
+             && war == null)
             {
                 Law law = new Law();
                 law.CountryId = country.CountryId;

@@ -59,7 +59,7 @@
                     <div>
                         <div class="row" style="height: 30px;">
                             <img class="country_card-money-img" src="~/img/interface-icons/coins.png" alt="" loading="lazy" />
-                            <p class="lhst_country_info_region_value ml-1 mb-0">@Math.Round(Model.Country.Money, 2)</p>
+                            <p class="lhst_country_info_region_value ml-1 mb-0">@Math.Round(Model.Country.Money, 2).ToString().Replace(',', '.')</p>
                         </div>
                     </div>
                 </div>
@@ -75,11 +75,11 @@
                 }
             </div>
         </div>
-        <div class="d-inline">
-            <div class="d-block lhst_slider-horizontal lhst_country_buttons_div align-top lhst_nav ">
-                <ul class="lhst_nav lhst_ul_height">
+        <div>
+            <!--<div class="d-block lhst_slider-horizontal lhst_country_buttons_div align-top lhst_nav ">
+                <ul class="lhst_nav lhst_ul_height">-->
                     @*ПЕРЕИМЕНОВАНИЕ*@
-                    <li class="lhst_nav ">
+                    <!--<li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text ">
                             <button class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text lhst_country_scale" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
                             <script>
@@ -89,52 +89,74 @@
                                 }
                             </script>
                         </menu>
-                    </li>
+                    </li>-->
                     @*ИЗМНЕНЕНИЕ ЦВЕТА*@
-                    <li class="lhst_nav ">
+                    <!--<li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav color-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav color-btn lhst_shadow_text lhst_country_scale " onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
                         </menu>
-                    </li>
+                    </li>-->
                     @*Смена столицы*@
-                    <li class="lhst_nav ">
+                    <!--<li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav capital-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav capital-btn lhst_shadow_text lhst_country_scale" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
                         </menu>
-                    </li>
+                    </li>-->
                    @*  @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
-                    <li class="lhst_nav ">
+                    <!--<li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer Land</button>
                         </menu>
-                    </li>
+                    </li>-->
                     @*  @*Установление налога*@
-                    <li class="lhst_nav ">
+                    <!--<li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav taxes-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav taxes-btn lhst_shadow_text lhst_country_scale" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
                         </menu>
-                    </li>
+                    </li>-->
                     @*Смена правителя*@
-                    <li class="lhst_nav ">
+                    <!--<li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav ruler-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav ruler-btn lhst_shadow_text lhst_country_scale" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
                         </menu>
-                    </li>
+                    </li>-->
                     @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
-                    <li class="lhst_nav ">
+                    <!--<li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav war-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav war-btn lhst_shadow_text lhst_country_scale" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
                         </menu>
-                    </li>
+                    </li>-->
                     @*распустить страну*@
-                    <li class="lhst_nav ">
+                    <!--<li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav disband-btn lhst_shadow_text  ">
                             <button class="nav-link text-dark header-menu lhst_nav disband-btn lhst_shadow_text lhst_country_scale" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
                         </menu>
                     </li>
                 </ul>
+            </div>-->
+            @{ 
+                string disabled = Model.Ruler.Id != player.Id ? "disabled" : "";
+            }
+
+            <div class="lhst_country_buttons_div">
+                @*ПЕРЕИМЕНОВАНИЕ*@
+                <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
+                @*ИЗМНЕНЕНИЕ ЦВЕТА*@
+                <button @disabled class="header-menu color-btn lhst_shadow_text lhst_law_btn" onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
+                @*Смена столицы*@
+                <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
+                @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
+                <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer Land</button>
+                @*  @*Установление налога*@
+                <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
+                @*Смена правителя*@
+                <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
+                @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
+                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
+                @*распустить страну*@
+                <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
             </div>
-            <div class="lhst_avatar_inline lhst_country_history_div align-top lhst_nav lhst_slider ">
+            <div class="lhst_country_history_div align-top lhst_nav lhst_slider ">
                 @for (int i = 0; i < lawsOrderByTime.Count(); i++)
                 {
                     <div class="lhst_country_history_comment text-left!important">
