@@ -116,6 +116,42 @@
     background: var(--scrollbar-color-track)
 }
 
+.lhst_slider-horizontal {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    --scrollbar-color-thumb: red;
+    --scrollbar-color-track: yellow;
+    --scrollbar-width: thin;
+    --scrollbar-width-legacy: 5px
+}
+
+    .lhst_slider-horizontal::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
+
+    .lhst_slider-horizontal::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy)
+    }
+
+    .lhst_slider-horizontal::-webkit-scrollbar-thumb {
+        background: transparent
+    }
+
+    .lhst_slider-horizontal::-webkit-scrollbar-track {
+        background: transparent
+    }
+
+    .lhst_slider-horizontal:hover::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb)
+    }
+
+    .lhst_slider-horizontal:hover::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
+
 .lhst_btn_avatar_confirm {
     margin-bottom: 3px;
     padding: 0;
