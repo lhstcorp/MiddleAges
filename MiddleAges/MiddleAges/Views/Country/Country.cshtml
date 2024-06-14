@@ -20,8 +20,9 @@
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding d-inline-flex lhst_font_size">
         <div class="lhst_avatar_inline lhst_country_div align-top lhst_slider_small_screen">
             <p class="lhst_country_king_size mb-0" >@Model.Country.Name</p>
+            <p class="lhst_country_king_size mb-0">@Model.Country.CapitalId</p>
             <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Country.CapitalId).png" class="lhst_country_img" alt="map region coat of arms" loading="lazy" />
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Country.CapitalId).png" title="@Model.Country.CapitalId" class="lhst_country_img" alt="map region coat of arms" loading="lazy" />
             </div>
             <div class="row">
                 <div class="lhst_person-nav-container-inline mr-1">
@@ -74,9 +75,9 @@
                 }
             </div>
         </div>
-        <div class="d-block">
-            <div class="lhst_avatar_inline lhst_country_buttons_div align-top lhst_nav ">
-                <ul class="lhst_nav">
+        <div class="d-inline">
+            <div class="d-block lhst_slider-horizontal lhst_country_buttons_div align-top lhst_nav ">
+                <ul class="lhst_nav lhst_ul_height">
                     @*ПЕРЕИМЕНОВАНИЕ*@
                     <li class="lhst_nav ">
                         <menu class="nav-link text-dark header-menu lhst_nav rename-btn lhst_shadow_text ">
@@ -109,8 +110,8 @@
                     </li>
                     @*  @*Установление налога*@
                     <li class="lhst_nav ">
-                        <menu class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text  ">
-                            <button class="nav-link text-dark header-menu lhst_nav transfer-btn lhst_shadow_text lhst_country_scale" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
+                        <menu class="nav-link text-dark header-menu lhst_nav taxes-btn lhst_shadow_text  ">
+                            <button class="nav-link text-dark header-menu lhst_nav taxes-btn lhst_shadow_text lhst_country_scale" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
                         </menu>
                     </li>
                     @*Смена правителя*@
