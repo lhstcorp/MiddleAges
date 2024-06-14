@@ -174,16 +174,18 @@ namespace MiddleAges.Controllers
             int soldiersInUse = armiesInBattle.Sum(a => a.SoldiersCount);
             int soldiersEntered = Convert.ToInt32(soldiersCount);
 
+            ArmySide armySide = armySideValue == "l" ? ArmySide.Attackers : ArmySide.Defenders;
+
             if (player != null
              && soldierUnit.Count - soldiersInUse >= soldiersEntered
              && war    != null
              && war.IsEnded == false
              && soldiersEntered > 0
              && (war.LandIdFrom == player.CurrentLand
-              || war.LandIdTo   == player.CurrentLand))
-            {
-                ArmySide armySide = armySideValue == "l" ? ArmySide.Attackers : ArmySide.Defenders;
-
+              && armySide == ArmySide.Attackers
+              || war.LandIdTo   == player.CurrentLand
+              && armySide == ArmySide.Defenders))
+            {              
                 Army playerArmyInThisWar = await _context.Armies.FirstOrDefaultAsync(
                                                                     a => a.WarId.ToString() == warId 
                                                                       && a.Side == armySide
