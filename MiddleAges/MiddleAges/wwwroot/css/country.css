@@ -23,6 +23,11 @@
     background-size: 100%
 }
 
+.header-menu.taxes-btn {
+    background-image: url(../img/menu-icons/taxes.jfif);
+    background-size: 100%
+}
+
 .header-menu.war-btn {
     background-image: url(../img/menu-icons/DeclaringWar.jfif);
     background-size: 100%
@@ -102,7 +107,7 @@
 }
 
 .lhst_country_buttons_div {
-    text-align: center;
+    text-align: left;
     margin-top: 10px;
     margin-left: 10px;
     padding: 5px;
@@ -111,6 +116,7 @@
     border-width: 2px;
     border-color: #f5deb3;
     color: #f5deb3;
+    width: 310px;
 }
 
 .lhst_country_history_div {
@@ -188,4 +194,9 @@
 
 .lhst_slider_small_screen:hover::-webkit-scrollbar-track {
     background: var(--scrollbar-color-track)
+}
+
+.lhst_ul_height{
+    width: 300px;
+    height: 60px;
 }
