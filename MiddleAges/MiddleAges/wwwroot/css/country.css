@@ -116,7 +116,9 @@
     border-width: 2px;
     border-color: #f5deb3;
     color: #f5deb3;
-    width: 310px;
+    /*max-width: 500px;
+    overflow-x: auto;
+    white-space: nowrap;*/
 }
 
 .lhst_country_history_div {
@@ -199,4 +201,26 @@
 .lhst_ul_height{
     width: 300px;
     height: 60px;
+}
+
+.lhst_law_btn {
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: black;
+    color: #f5deb3;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    margin: 1px;
+    font-size: 11px;
+    line-height: 1;
+    vertical-align: middle;
+}
+
+.lhst_law_btn:hover {
+    -webkit-text-stroke: thin #393939;
+    -webkit-text-fill-color: #faaf08;
+    font-weight: 700
 }
