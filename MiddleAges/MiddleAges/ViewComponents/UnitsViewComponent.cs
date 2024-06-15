@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,16 @@ namespace MiddleAges.ViewComponents
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             List<Unit> units = _context.Units.Where(k => k.PlayerId == player.Id).ToList();
-            return View("Units", units);
+            List<Building> buildings = _context.Buildings.Where(b => b.PlayerId == player.Id).ToList();
+
+            UnitsBuildingsViewModel unitsBuildingsViewModel = new UnitsBuildingsViewModel
+            {
+                Player = player,
+                Units = units,
+                Buildings = buildings
+            };
+
+            return View("Units", unitsBuildingsViewModel);
         }
     }
 }

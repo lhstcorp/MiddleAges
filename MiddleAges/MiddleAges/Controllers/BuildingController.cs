@@ -6,6 +6,7 @@ using MiddleAges.Entities;
 using System.Linq;
 using System.Threading.Tasks;
 using MiddleAges.Enums;
+using MiddleAges.Models;
 
 namespace MiddleAges.Controllers
 {
@@ -29,12 +30,9 @@ namespace MiddleAges.Controllers
         {
             Building building = _context.Buildings.FirstOrDefault(k => k.BuildingId.ToString() == buildingId);
             var player = await _userManager.GetUserAsync(HttpContext.User);
-            long requiredMoney = building.Type switch
-            {
-                (int)BuildingType.Estate => (int)BuildingPrice.Estate ,
-                (int)BuildingType.Barracks => (int)BuildingPrice.Barracks ,
-                _ => 0
-            };
+
+            double requiredMoney = CommonLogic.getBuildingPrice((int)building.Type, building.Lvl);
+
             if (player.Money >= requiredMoney
              && requiredMoney > 0)
             {

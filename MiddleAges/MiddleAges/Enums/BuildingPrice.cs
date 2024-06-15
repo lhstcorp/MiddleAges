@@ -7,7 +7,7 @@ namespace MiddleAges.Enums
 {
     public enum BuildingPrice
     {
-        Estate = 100,
+        Estate = 500,
         Barracks = 500
     }
 }
