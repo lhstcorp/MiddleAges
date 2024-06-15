@@ -71,7 +71,7 @@ namespace MiddleAges.Timed_Hosted_Services
 
             if (player.Exp > 2)
             {
-                int newLvl = Convert.ToInt32(Math.Floor(Math.Log(playerExp, 1.3)));
+                int newLvl = Convert.ToInt32(Math.Floor(Math.Log(playerExp, 1.4)));
 
                 if (player.Lvl != newLvl)
                 {

@@ -195,11 +195,11 @@ namespace MiddleAges.Controllers
             if (player != null
              && land != null
              && player.CurrentLand == land.LandId
-             && player.Money > 100
+             && player.Money > 300
              && warCheck == null
              && land.Country.Name != "Independent lands")
             {
-                player.Money -= 100;
+                player.Money -= 300;
                 _context.Update(player);
 
                 War war = new War();

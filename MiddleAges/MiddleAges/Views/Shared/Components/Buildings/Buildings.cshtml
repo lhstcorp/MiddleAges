@@ -10,7 +10,7 @@
                     <div class="back-side">
                         <div class="lhst_inline inner">
                             <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt=""/>
-                            <p>Price: @CommonLogic.getBuildingPrice(Model[i].Type)</p>
+                            <p>Price: @CommonLogic.getBuildingPrice(Model[i].Type, Model[i].Lvl)</p>
                         </div>
                     </div>
                 </div>
@@ -20,7 +20,7 @@
                 <div>
                     <div class="lhst_inline lhst_building_card_left_part">
                         <p class="lhst_card_properties">@buildingName</p>
-                        <p class="lhst_card_properties">Level: @Model[i].Lvl/10</p>
+                        <p class="lhst_card_properties">Level: @Model[i].Lvl</p>
                     </div>
                     <div class="lhst_inline">
                         <form asp-controller="Building" asp-action="LvlUp" asp-route-buildingId="@Model[i].BuildingId">

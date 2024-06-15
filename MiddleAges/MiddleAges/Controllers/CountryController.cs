@@ -88,12 +88,12 @@ namespace MiddleAges.Controllers
         {
             Player player = _context.Players.FirstOrDefault(k => k.Id == playerId);
             Country existedCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Name == countryname);
-            if (player?.Money               >= 10000
+            if (player?.Money               >= 300
              && existedCountry              == null
              && countryname                 != "IndependentLands"
              && countryname.Length          <= 22)
             {
-                player.Money -= 10000;
+                player.Money -= 300;
                 Country country = new Country();
                 country.Name = countryname;
                 country.RulerId = player.Id;

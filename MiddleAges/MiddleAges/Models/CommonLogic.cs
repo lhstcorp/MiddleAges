@@ -65,16 +65,25 @@ namespace MiddleAges.Models
             };
             return unitPrice;
         }
-        public static int getBuildingPrice(int buildingType)
-        {           
-            int buildingPrice = buildingType switch
+
+        public static int GetUnitLimit(int buildingLvl)
+        {
+            int unitLimit = 500 + (buildingLvl - 1) * 100;
+
+            return unitLimit;
+        }
+
+        public static double getBuildingPrice(int buildingType, int buildingLvl)
+        {
+            double buildingPrice = buildingType switch
             {
-                (int)BuildingType.Estate => (int)BuildingPrice.Estate,
-                (int)BuildingType.Barracks => (int)BuildingPrice.Barracks,
+                (int)BuildingType.Estate => (int)BuildingPrice.Estate * Math.Pow(2, buildingLvl - 1), //500..1000..2000..4000 
+                (int)BuildingType.Barracks => (int)BuildingPrice.Barracks * Math.Pow(2, buildingLvl - 1),
                 _ => 0
             };
             return buildingPrice;
         }
+
         public static string getLawDescriptionByType(int lawType)
         {
             string lawDescription = lawType switch
@@ -91,6 +100,7 @@ namespace MiddleAges.Models
             };
             return lawDescription;
         }
+
         public static string getLawNameByType(int lawType)
         {
             string lawName = lawType switch
@@ -107,6 +117,7 @@ namespace MiddleAges.Models
             };
             return lawName;
         }
+                
         public static string getRandomMapLandId()
         {
             List<string> landIds = new List<string>();
