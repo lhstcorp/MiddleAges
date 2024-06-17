@@ -51,7 +51,10 @@
         <div class="ml-2">
             <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Move to" onclick="moveToLand()" />
             <input id="settleBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Settle down" onclick="settleDown()" />
-            <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" />
+            <button id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') onclick="startAnUprising()">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Start an uprising (<img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -300</span>)</p>
+            </button>
+          @*   <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" /> *@
         </div>
     </div>
     <div class="lhst_map-container lhst_vertical-alignment-top lhst_main-section" id="belarus-map">

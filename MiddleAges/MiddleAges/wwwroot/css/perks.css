@@ -1,0 +1,25 @@
+.lhst_perks_img{
+    height:40px;
+}
+
+.lhst_perks_card {
+    width: 300px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #2b2b2b;
+    background-color: #232323;
+    border-radius: 6px;
+    color: wheat;
+    padding: 1rem;
+}
+
+.lhst_perks_horizontal-line {
+    border-style: solid;
+    border-width: .5px 0 0 0;
+    border-color: #393939;
+    margin: 0 0 0 -1px
+}
+
+.lhst_perks_coin_img {
+    height: 10px;
+}
