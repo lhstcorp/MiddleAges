@@ -88,12 +88,12 @@ namespace MiddleAges.Controllers
         {
             Player player = _context.Players.FirstOrDefault(k => k.Id == playerId);
             Country existedCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Name == countryname);
-            if (player?.Money               >= 10000
+            if (player?.Money               >= 300
              && existedCountry              == null
              && countryname                 != "IndependentLands"
              && countryname.Length          <= 22)
             {
-                player.Money -= 10000;
+                player.Money -= 300;
                 Country country = new Country();
                 country.Name = countryname;
                 country.RulerId = player.Id;
@@ -163,7 +163,11 @@ namespace MiddleAges.Controllers
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-            if (player.Id == country.RulerId)
+            War war = await _context.Wars.FirstOrDefaultAsync(w => (w.LandIdFrom == country.CapitalId
+                                                                 || w.LandIdTo == country.CapitalId)
+                                                                 && w.IsEnded == false);
+            if (player.Id == country.RulerId
+             && war == null)
             {
                 Law law = new Law();
                 law.CountryId = country.CountryId;

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using MiddleAges.Data;
@@ -37,6 +38,15 @@ namespace MiddleAges.Controllers
         {
             Unit unit = _context.Units.FirstOrDefault(k => k.UnitId.ToString() == unitId);
             Player player = await _userManager.GetUserAsync(HttpContext.User);
+
+            Building building = await _context.Buildings.FirstOrDefaultAsync(b => b.PlayerId == player.Id
+                                                                               && b.Type == unit.Type);
+
+            int unitLimit = CommonLogic.GetUnitLimit(building.Lvl);
+            int limitLeft = unitLimit - unit.Count;
+            int maxAvailable = limitLeft > player.RecruitAmount ? player.RecruitAmount : limitLeft;
+
+            count = count <= maxAvailable ? count : count = 0;
 
             double requiredMoney = unit.Type switch
             {
