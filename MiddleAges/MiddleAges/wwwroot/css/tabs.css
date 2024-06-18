@@ -44,7 +44,7 @@
 
 .lhst_inTab {
     text-align: left;
-    height: 500px;
+    max-height: 500px;
     background-color: #232323;
     border-radius: 20px;
     color: #f5deb3
