@@ -292,7 +292,8 @@ footer {
 
 .lhst_main-section_mainmenu {
     margin-left: 239px;
-    margin-top: 140px
+    margin-top: 140px;
+    margin-bottom: 70px;
 }
 
 .lhst_building_ext_card {
@@ -641,4 +642,8 @@ lhst_marquee {
     background: radial-gradient(#393939,black);
     color: wheat;
     border-radius: 3px
+}
+
+.lhst_font_size-smaller {
+    font-size: smaller;
 }

@@ -100,6 +100,11 @@ namespace MiddleAges.Data
                 .HasOne(q => q.Player)
                 .WithMany()
                 .HasForeignKey(q => q.RebelId);
+
+            builder.Entity<PlayerAttribute>()
+                .HasOne(q => q.Player)
+                .WithMany()
+                .HasForeignKey(q => q.PlayerId);
         }
 
         public DbSet<Player> Players { get; set; }
@@ -113,5 +118,6 @@ namespace MiddleAges.Data
         public DbSet<War> Wars { get; set; }
         public DbSet<Army> Armies { get; set; }
         public DbSet<PlayerStatistics> PlayerStatistics { get; set; }
+        public DbSet<PlayerAttribute> PlayerAttributes { get; set; }
     }
 }

@@ -1,0 +1,40 @@
+.lhst_attr_img_big{
+    width: 40px;
+    height: 40px;
+}
+
+.lhst_attr_img_small {
+    width: 20px;
+    height: 20px;
+}
+
+.lhst_attr_name {
+    width: 107px;
+}
+
+.lhst_attr_value {
+    width: 40px;
+    text-align: right;
+}
+
+.lhst_attr_card {
+    width: 250px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: #2b2b2b;
+    background-color: #232323;
+    border-radius: 6px;
+    color: wheat;
+    padding: 1rem;
+}
+
+.lhst_attr_horizontal-line {
+    border-style: solid;
+    border-width: .5px 0 0 0;
+    border-color: #393939;
+    margin: 0 0 0 -1px
+}
+
+.lhst_attr_coin_img {
+    height: 10px;
+}
