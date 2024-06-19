@@ -1,21 +1,21 @@
-﻿@model MiddleAges.Entities.Player
+﻿@model MiddleAges.ViewModels.PlayerOverviewNavViewModel
 
 <div class="m-2">
     <div class="lhst_person-nav-container-inline" >
-        <img id="player_avatar" class="nav-avatar-img" src="~/img/avatars/@(Model.ImageURL).webp" alt="" />
+        <img id="player_avatar" class="nav-avatar-img" src="~/img/avatars/@(Model.Player.ImageURL).webp" alt="" />
     </div>   
     <div class="lhst_person-nav-container-inline lhst_person-data-div-align">
-            <div class="lhst_person-div-overview-data mb-1 lhst_overview-player-name">
-                <h2>@Model.UserName</h2>                
-            </div>
-            <div>
-                <div class="float-left">
-                    <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt=""/>
-                </div>
-                <div class="float-left lhst_person_div_overview_data lhst_coins-text">
-                    <p class="ml-1 mt-2">@Math.Round(Model.Money, 2).ToString().Replace(',', '.')</p>
-                </div>
-            </div>
+        <div class="lhst_person-div-overview-data mb-1 lhst_overview-player-name">
+            <h2>@Model.Player.UserName</h2>
+        </div>
+        <div class="row">
+            <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt="" />
+            <p class="lhst_coins-text ml-1 mt-1 mb-0">@Math.Round(Model.Player.Money, 2).ToString().Replace(',', '.')</p>
+        </div>
+        <div class="row">
+            <img class="lhst_coins-img mt-1" src="~/img/attributes/attrPoint.png" alt="" />
+            <p id="availAttrPoints" class="lhst_coins-text ml-1 mb-0" style="margin-top: .36rem;">@CommonLogic.GetAvailAttrPoints(Model.Player.Lvl, Model.PlayerAttribute)</p>
+        </div>
     </div>    
     <form class="form-inline lhst_inline align-bottom ml-4 mb-2" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
         <button type="submit" class="lhst_btn_logout">Logout</button>

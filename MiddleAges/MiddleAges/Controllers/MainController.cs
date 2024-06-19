@@ -40,9 +40,12 @@ namespace MiddleAges.Controllers
 
             List<Unit> units = await _context.Units.Where(u => u.PlayerId == player.Id).ToListAsync();
 
+            PlayerAttribute playerAttribute = await _context.PlayerAttributes.FirstOrDefaultAsync(pa => pa.PlayerId == player.Id);
+
             MainInfoViewModel mainInfoViewModel = new MainInfoViewModel
             {
                 Player = player,
+                PlayerAttribute = playerAttribute,
                 ResidenceLand = residenceLand,
                 Units = units
             };
@@ -73,6 +76,42 @@ namespace MiddleAges.Controllers
                 await _context.SaveChangesAsync();
 
                 result = "Ok";
+            }
+
+            return Json(JsonSerializer.Serialize(result));
+        }
+
+        public async Task<IActionResult> UpgradeAttribute(string attributename)
+        {
+            string result = "Error";
+
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            PlayerAttribute playerAttribute = await _context.PlayerAttributes.FirstOrDefaultAsync(pa => pa.PlayerId == player.Id);
+            int availAttrPoints = CommonLogic.GetAvailAttrPoints(player.Lvl, playerAttribute);
+
+            if (player != null
+             && availAttrPoints > 0
+             && attributename != null)
+            {
+                switch (attributename)
+                {
+                    case "Management":
+                        playerAttribute.Management += 1;
+                        result = playerAttribute.Management.ToString();
+                        break;
+                    case "Warfare":
+                        playerAttribute.Warfare += 1;
+                        result = playerAttribute.Warfare.ToString();
+                        break;
+                    case "Leadership":
+                        playerAttribute.Leadership += 1;
+                        result = playerAttribute.Leadership.ToString();
+                        break;
+                }
+
+                _context.Update(playerAttribute);
+
+                await _context.SaveChangesAsync();
             }
 
             return Json(JsonSerializer.Serialize(result));
