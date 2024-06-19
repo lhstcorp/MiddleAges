@@ -145,6 +145,9 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             PlayerStatistics playerStatistics = new PlayerStatistics { PlayerId = userId, SoldiersKilled = 0, SoldiersLost = 0 };
             _context.PlayerStatistics.Add(playerStatistics);
 
+            PlayerAttribute playerAttribute = new PlayerAttribute { PlayerId = userId };
+            _context.PlayerAttributes.Add(playerAttribute);
+
             await _context.SaveChangesAsync();
         }
     }
