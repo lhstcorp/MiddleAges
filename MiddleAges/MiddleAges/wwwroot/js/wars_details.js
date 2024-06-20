@@ -95,6 +95,8 @@ function populateArmyData(obj) {
     $('#armiesCountRight').text(obj.DefendersArmies.length);
     $('#soldiersCountLeft').text(obj.AttackersSoldiersCount);
     $('#soldiersCountRight').text(obj.DefendersSoldiersCount);
+    $('#attackersArmyStrength').text(obj.AttackersArmyStrength + '%');
+    $('#defendersArmyStrength').text(obj.DefendersArmyStrength + '%');
 
     populateArmySideDiv("attackersDiv", obj.AttackersArmies, obj.Player); //populates attackers armies
     populateArmySideDiv("defendersDiv", obj.DefendersArmies, obj.Player); //populates defenders armies
@@ -107,10 +109,11 @@ function populateArmySideDiv(divName, armyList, currentPlayer) {
         const armyNode = document.createElement("div");
 
         const playerImg = document.createElement("img");
-        playerImg.src = playerAvatarsUrl + armyList[i].Player.ImageURL + '.webp'
+        playerImg.src = playerAvatarsUrl + armyList[i].Player.ImageURL + '.webp';
         playerImg.height = 32;
         playerImg.loading = "lazy";
         playerImg.classList.add("lhst_country_history_img");
+        playerImg.title = armyList[i].Player.UserName;
         armyNode.appendChild(playerImg);
 
         const soldiersInArmy = document.createElement("p");

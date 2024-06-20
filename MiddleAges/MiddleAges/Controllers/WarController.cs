@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Text.Json;
 using Microsoft.AspNetCore.Authorization;
 using MiddleAges.Enums;
+using MiddleAges.Models;
 
 namespace MiddleAges.Controllers
 {
@@ -127,9 +128,38 @@ namespace MiddleAges.Controllers
         public JsonResult GetArmiesByWarId(string id)
         {
             Player player = _userManager.GetUserAsync(HttpContext.User).Result;
-            List<Army> armies = _context.Armies.Include(a => a.Player).Where(a => a.WarId.ToString() == id).ToList();
+
+            var query = _context.PlayerAttributes
+                                    .Join(_context.Players,
+                                        pa => pa.PlayerId,
+                                        p => p.Id,
+                                        (pa, p) => new { PlayerAttribute = pa, Player = p})
+                                    .Join(_context.Armies,
+                                        combined => combined.Player.Id,
+                                        a => a.PlayerId,
+                                        (combined, a) => new { combined.PlayerAttribute, combined.Player, Army = a})
+                                    .Where(combined => combined.Army.WarId.ToString() == id)
+                                    .Select(combined => new { PlayerAttribute = combined.PlayerAttribute, Player = combined.Player, Army = combined.Army }).ToList();
+
+            List<Army> armies = query.Select(q => q.Army).ToList();
             List<Army> attackersArmies = armies.FindAll(a => a.Side == ArmySide.Attackers);
             List<Army> defendersArmies = armies.FindAll(a => a.Side == ArmySide.Defenders);
+            List<PlayerAttribute> playerAttributes = query.Select(q => q.PlayerAttribute).ToList();
+            List<PlayerAttribute> attackersPlayerAttributes = new List<PlayerAttribute>();
+            List<PlayerAttribute> defendersPlayerAttributes = new List<PlayerAttribute>();
+
+            foreach (Army army in attackersArmies)
+            {
+                attackersPlayerAttributes.Add(playerAttributes.FirstOrDefault(pa => pa.PlayerId == army.PlayerId));
+            }
+
+            foreach (Army army in defendersArmies)
+            {
+                defendersPlayerAttributes.Add(playerAttributes.FirstOrDefault(pa => pa.PlayerId == army.PlayerId));
+            }
+
+            double attackersArmyStrength = 100 + Math.Round(CommonLogic.GetAverageArmyWarfare(attackersArmies, attackersPlayerAttributes) * 2, 2);
+            double defendersArmyStrength = 100 + Math.Round(CommonLogic.GetAverageArmyWarfare(defendersArmies, defendersPlayerAttributes) * 2, 2);
 
             WarArmiesViewModel warArmiesViewModel = new WarArmiesViewModel
             {
@@ -137,6 +167,8 @@ namespace MiddleAges.Controllers
                 DefendersArmies = defendersArmies,
                 AttackersSoldiersCount = attackersArmies.Sum(a => a.SoldiersCount),
                 DefendersSoldiersCount = defendersArmies.Sum(a => a.SoldiersCount),
+                AttackersArmyStrength = attackersArmyStrength,
+                DefendersArmyStrength = defendersArmyStrength,
                 Player = player
             };
 
