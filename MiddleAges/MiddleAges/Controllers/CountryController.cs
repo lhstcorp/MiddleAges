@@ -119,8 +119,10 @@ namespace MiddleAges.Controllers
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-            if (player.Id == country.RulerId)
+            if (player.Id == country.RulerId
+                && player?.Money >= 10)
             {
+                player.Money -= 10;
                 Law law = new Law();
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;
@@ -141,8 +143,10 @@ namespace MiddleAges.Controllers
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-            if (player.Id == country.RulerId)
+            if (player.Id == country.RulerId
+                && player?.Money >= 10)
             {
+                player.Money -= 10;
                 Law law = new Law();
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;
@@ -167,8 +171,10 @@ namespace MiddleAges.Controllers
                                                                  || w.LandIdTo == country.CapitalId)
                                                                  && w.IsEnded == false);
             if (player.Id == country.RulerId
-             && war == null)
+             && war == null
+             && player?.Money >= 50)
             {
+                player.Money -= 50;
                 Law law = new Law();
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;
@@ -189,14 +195,16 @@ namespace MiddleAges.Controllers
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-            if (player.Id == country.RulerId)
+            if (player.Id == country.RulerId
+                && player?.Money >= 10)
             {
                 Land selectedTransferLand = await _context.Lands.FirstOrDefaultAsync(l => l.LandId == transferLand);
                 Country selectedCountryTo = await _context.Countries.FirstOrDefaultAsync(c => c.Name == toCountry);
                 if (selectedTransferLand.LandId != ""
                  && selectedCountryTo.CountryId != Guid.Empty
                  && selectedTransferLand.CountryId == country.CountryId)
-                { 
+                {
+                    player.Money -= 10;
                     Law law = new Law();
                     law.CountryId = country.CountryId;
                     law.PlayerId = player.Id;
@@ -219,11 +227,13 @@ namespace MiddleAges.Controllers
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-            if (player.Id == country.RulerId)
+            if (player.Id == country.RulerId
+                && player?.Money >= 10)
             {
                 Player newRuler = await _context.Players.FirstOrDefaultAsync(p => p.UserName == newRulerName);
                 if (newRuler.Id != "")
                 {
+                    player.Money -= 10;
                     Law law = new Law();
                     law.CountryId = country.CountryId;
                     law.PlayerId = player.Id;
@@ -247,8 +257,10 @@ namespace MiddleAges.Controllers
             Land land = await _context.Lands.FirstOrDefaultAsync(l => l.LandId == landId);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(c => c.CountryId == land.CountryId);
 
-            if (player.Id == country.RulerId)
+            if (player.Id == country.RulerId
+                && player?.Money >= 1)
             {
+                player.Money -= 1;
                 Law law = new Law();
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;
@@ -273,7 +285,8 @@ namespace MiddleAges.Controllers
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
-            if (player.Id == country.RulerId)
+            if (player.Id == country.RulerId
+                && player?.Money >= 50)
             {
                 string[] lands = warCombination.Split(" - ");
 
@@ -292,6 +305,7 @@ namespace MiddleAges.Controllers
                  && landTo.CountryId != country.CountryId
                  && warCheck == null)
                 {
+                    player.Money -= 50;
                     Law law = new Law();
                     law.CountryId = country.CountryId;
                     law.PlayerId = player.Id;
@@ -322,8 +336,10 @@ namespace MiddleAges.Controllers
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
             Country independentCountry = await _context.Countries.FirstOrDefaultAsync(c => c.Name == "Independent lands");
             List<Land> countryLands = await _context.Lands.Where(l => l.CountryId == country.CountryId).ToListAsync();
-            if (player.Id == country.RulerId)
+            if (player.Id == country.RulerId
+                && player?.Money >= 1)
             {
+                player.Money -= 1;
                 Law law = new Law();
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;

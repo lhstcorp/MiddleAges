@@ -204,8 +204,8 @@
 }
 
 .lhst_law_btn {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     padding: 5px;
     border-style: solid;
     border-radius: 5px;
@@ -213,10 +213,12 @@
     border-color: black;
     color: #f5deb3;
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
-    margin: 1px;
-    font-size: 11px;
+    margin: 2px;
+    font-size: 14px;
     line-height: 1;
     vertical-align: middle;
+    align-items:center;
+    justify-content: center;
 }
 
 .lhst_law_btn:hover {
