@@ -5,15 +5,15 @@
 }
 
 .lhst_wars_div {
-/*    height:100%;*/
+    max-height: calc(100vh - 212px);
     margin-top: 10px;
     margin-left: 10px;
     background-color: #232323;
     border-radius: 20px;
     color: #f5deb3;
     padding: 5px;
-   /* width:510px;*/
-/*    display: flex;*/
+    /* width:510px;*/
+    /*    display: flex;*/
 }
 
 .lhst_wars_country_text{
