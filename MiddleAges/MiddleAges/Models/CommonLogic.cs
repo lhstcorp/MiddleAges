@@ -109,6 +109,27 @@ namespace MiddleAges.Models
             return attrPointsCount;
         }
 
+        public static double GetAverageArmyWarfare(List<Army> armies, List<PlayerAttribute> playerAttributes)
+        {
+            double soldiersCount = armies.Sum(a => a.SoldiersCount);
+
+            double armyPower = 0;
+
+            for (int i = 0; i < armies.Count; i++)
+            {
+                armyPower += armies[i].SoldiersCount * playerAttributes.FirstOrDefault(pa => pa.PlayerId == armies[i].PlayerId).Warfare;
+            }
+
+            double averageArmyWarfare = 0;
+
+            if (soldiersCount > 0)
+            {
+                averageArmyWarfare = armyPower / soldiersCount;
+            }
+
+            return averageArmyWarfare;
+        }
+
         public static string getRandomMapLandId()
         {
             List<string> landIds = new List<string>();

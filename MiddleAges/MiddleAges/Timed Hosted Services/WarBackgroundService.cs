@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
+using MiddleAges.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -67,16 +68,47 @@ namespace MiddleAges.Timed_Hosted_Services
 
         private void CalculateWar(War war)
         {
-            List<Army> armies = _context.Armies.Include(a => a.Player).Where(a => a.WarId == war.WarId).ToList();
+            var query = _context.PlayerAttributes
+                                    .Join(_context.Players,
+                                        pa => pa.PlayerId,
+                                        p => p.Id,
+                                        (pa, p) => new { PlayerAttribute = pa, Player = p })
+                                    .Join(_context.Armies,
+                                        combined => combined.Player.Id,
+                                        a => a.PlayerId,
+                                        (combined, a) => new { combined.PlayerAttribute, combined.Player, Army = a })
+                                    .Where(combined => combined.Army.WarId == war.WarId)
+                                    .Select(combined => new { PlayerAttribute = combined.PlayerAttribute, Player = combined.Player, Army = combined.Army }).ToList();
+
+            List<Army> armies = query.Select(q => q.Army).ToList();
             List<Army> attackersArmies = armies.FindAll(a => a.Side == ArmySide.Attackers);
             List<Army> defendersArmies = armies.FindAll(a => a.Side == ArmySide.Defenders);
+            List<PlayerAttribute> playerAttributes = query.Select(q => q.PlayerAttribute).ToList();
+            List<PlayerAttribute> attackersPlayerAttributes = new List<PlayerAttribute>();
+            List<PlayerAttribute> defendersPlayerAttributes = new List<PlayerAttribute>();
+
+            foreach (Army army in attackersArmies)
+            {
+                attackersPlayerAttributes.Add(playerAttributes.FirstOrDefault(pa => pa.PlayerId == army.PlayerId));
+            }
+
+            foreach (Army army in defendersArmies)
+            {
+                defendersPlayerAttributes.Add(playerAttributes.FirstOrDefault(pa => pa.PlayerId == army.PlayerId));
+            }
+
+            double attackersArmyStrength = 100 + Math.Round(CommonLogic.GetAverageArmyWarfare(attackersArmies, attackersPlayerAttributes) * 2, 2);
+            double defendersArmyStrength = 100 + Math.Round(CommonLogic.GetAverageArmyWarfare(defendersArmies, defendersPlayerAttributes) * 2, 2);
 
             double attackersSoldiersCount = attackersArmies.Sum(a => a.SoldiersCount);
             double defendersSoldiersCount = defendersArmies.Sum(a => a.SoldiersCount);
 
             if (!CheckEndOfWar(war, attackersSoldiersCount, defendersSoldiersCount))
             {
-                double attackersPerc = attackersSoldiersCount / (attackersSoldiersCount + defendersSoldiersCount);
+                double attackersPower = attackersSoldiersCount * attackersArmyStrength;
+                double defendersPower = defendersSoldiersCount * defendersArmyStrength;
+
+                double attackersPerc = attackersPower / (attackersPower + defendersPower);
                 double defendersPerc = 1 - attackersPerc;
 
                 const double lossPerc = 0.2;
