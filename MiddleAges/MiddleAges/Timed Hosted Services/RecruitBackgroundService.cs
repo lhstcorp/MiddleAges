@@ -12,6 +12,7 @@ namespace MiddleAges.Timed_Hosted_Services
 {
     public class RecruitBackgroundService : IHostedService, IDisposable
     {
+        ApplicationDbContext _context;
         private readonly IServiceScopeFactory _scopeFactory;
 
         private Timer? _timer = null;
@@ -33,18 +34,30 @@ namespace MiddleAges.Timed_Hosted_Services
         {
             using (var scope = _scopeFactory.CreateScope())
             {
-                var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+                _context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-                List<Player> players = dbContext.Players.ToList();
+                List<Player> players = _context.Players.ToList();
 
                 foreach (var player in players)
                 {
-                    player.RecruitAmount += 1;
-                    dbContext.Update(player);
+                    AddRecruits(player);                    
                 }
 
-                dbContext.SaveChanges();
+                _context.SaveChanges();
             }
+        }
+
+        private void AddRecruits(Player player)
+        {
+            PlayerAttribute playerAttribute = _context.PlayerAttributes.FirstOrDefault(pa => pa.PlayerId == player.Id);
+
+            double recruitMaxCount = 1.00 + 0.02 * Convert.ToDouble(playerAttribute.Leadership);
+
+            Random random = new Random();
+            double recruitCount = random.NextDouble() * (recruitMaxCount - 0.01) + 0.01;
+
+            player.RecruitAmount += Convert.ToInt32(Math.Ceiling(recruitCount));
+            _context.Update(player);
         }
 
         public Task StopAsync(CancellationToken stoppingToken)

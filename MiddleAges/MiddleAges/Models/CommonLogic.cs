@@ -25,22 +25,6 @@ namespace MiddleAges.Models
             }
             return buildingName;
         }
-        //public static string getRecruitCountById(int _id)
-        //{
-        //    string recruitCount = "";
-
-        //    switch (_id)
-        //    {
-        //        case 1:
-        //            recruitCount = "5000";
-        //            break;
-        //        case 2:
-        //            recruitCount = "456";
-        //            break;
-        //    }
-
-        //    return recruitCount;
-        //}
         public static string getUnitNameByType(int _unitType)
         {
             string unitName = "";
@@ -117,7 +101,14 @@ namespace MiddleAges.Models
             };
             return lawName;
         }
-                
+
+        public static int GetAvailAttrPoints(int playerLvl, PlayerAttribute playerAttribute)
+        {
+            int attrPointsCount = 3 * playerLvl - playerAttribute.Management - playerAttribute.Warfare - playerAttribute.Leadership;
+
+            return attrPointsCount;
+        }
+
         public static string getRandomMapLandId()
         {
             List<string> landIds = new List<string>();

@@ -18,11 +18,11 @@
         </div>
     </div>
     <div class="lhst_vertical-alignment-top lhst_main-section_mainmenu lhst_main_section_padding">
-        <div class="float-left">
+        <div class="float-left mr-3">
             @await Component.InvokeAsync(typeof(BuildingsViewComponent))
             @await Component.InvokeAsync(typeof(UnitsViewComponent))
         </div>
-        <div class="float-left">
+        <div class="float-left mr-3">
             <p class="lhst_possessions_titles">Production</p>
             <div class="lhst_production_card">
                 <p class="w-100 flex-wrap mb-2 font-weight-normal">Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</p>
@@ -52,67 +52,58 @@
                 <p class="w-100 flex-wrap mb-1 font-weight-normal">Remaining land limit: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @Math.Round(Model.ResidenceLand.ProductionLimit, 2).ToString().Replace(',', '.')</span></p>
                 <p class="w-100 flex-wrap mb-1 font-weight-normal">Residence prod land: <span class="lhst_clr-money">@Model.ResidenceLand.LandId</span></p>
                 <p class="w-100 flex-wrap mb-1 font-weight-normal">Working residents: <span class="lhst_clr-money">@Model.Units[0].Count</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Projected daily earnings: <img class="lhst_independent_land_description_money_icon lhst_clr-money" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00), 2).ToString().Replace(',', '.'))/day</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Projected daily earnings: <img class="lhst_independent_land_description_money_icon lhst_clr-money" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00), 2).ToString().Replace(',', '.'))/day</span></p>
                 <p class="w-100 flex-wrap mb-1 font-weight-normal">Army maintenance: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_clr-brown"> -@(Math.Round(Model.Units[1].Count * 0.02 * 24.00, 2).ToString().Replace(',', '.'))/day</span></p>
-                @{ 
-                    double projectedDailyBalance = Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00) - Model.Units[1].Count * 0.02 * 24.00, 2);
+                @{
+                    double projectedDailyBalance = Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00) - Model.Units[1].Count * 0.02 * 24.00, 2);
                 }
                 <p class="w-100 flex-wrap mb-1 font-weight-normal">Projected daily balance: <img class="lhst_independent_land_description_money_icon @(projectedDailyBalance < 0 ? "lhst_clr-brown" : "lhst_clr-money")" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(projectedDailyBalance.ToString().Replace(',', '.'))/day</span></p>
                 <p class="w-100 flex-wrap mb-1 font-weight-normal">Taxes: <span class="lhst_clr-brown">@(Model.ResidenceLand.Taxes)%</span></p>
 
             </div>
         </div>
-        <div class="float-left ml-3">
+
+        <div class="float-left">
             <div class="d-flex">
-                <p class="lhst_possessions_titles">Perks</p>
-                <p class="lhst_possessions_titles">10 <img class="lhst_perks_coin_img" src="~/img/perks/perkCoin.png" alt="" /></p>
+                <p class="lhst_possessions_titles">Attributes</p>
+                <p id="availAttrPointsMainSection" class="lhst_possessions_titles">(@CommonLogic.GetAvailAttrPoints(Model.Player.Lvl, Model.PlayerAttribute) <img class="lhst_attr_coin_img" src="~/img/attributes/attrPoint.png" alt="" />)</p>
             </div>
-            <div class="lhst_perks_card d-block">
+            <div class="lhst_attr_card d-block">
                 @*Перк 1*@
-                <div class="d-flex row">
-                    <img class="col-2 p-0" src="~/img/perks/perkEconomic.png" alt="" />
-                    <p class="col-5 mt-3  p-0 flex-wrap font-weight-bolder mb-0">Management</p>
-                    <p class="mt-3 col-2 p-0 flex-wrap font-weight-bolder mb-0">9</p>
-                    <input class="mt-3 col-1 p-0 lhst_btn_building_lvlup" type="submit" value="+" />
+                <div class="row">
+                    <img class="lhst_attr_img_big" src="~/img/attributes/management.png" alt="" />
+                    <div class="p-1 lhst_attr_name">
+                        <p class="font-weight-bolder mb-0 mt-0">Management</p>
+                        <p class="mb-0 mt-0 font-weight-light lhst_font_size-smaller">increases the base income of peasants by 2% for each level</p>
+                    </div>
+                    <p id="Management" class="p-0 lhst_attr_value font-weight-bolder mb-0 mt-2 mr-2">@Model.PlayerAttribute.Management</p>
+                    <input class="attrBtn p-0 lhst_btn_building_lvlup mt-1 mb-0" type="submit" data-attributename="Management" value="+" />
                 </div>
                 @*Перк 2*@
-                <div class="d-flex row">
-                    <img class="col-2 p-0" src="~/img/perks/perkArmy.png" alt="" />
-                    <p class=" col-5 mt-3  p-0 flex-wrap font-weight-bolder mb-0">Warfare</p>
-                    <p class="mt-3 col-2 p-0 flex-wrap font-weight-bolder mb-0">10</p>
-                    <input class="col-1 mt-3 p-0 lhst_btn_building_lvlup " type="submit" value="+" />
+                <div class="row">
+                    <img class="lhst_attr_img_big" src="~/img/attributes/warfare.png" alt="" />
+                    <div class="p-1 lhst_attr_name">
+                        <p class="font-weight-bolder mb-0 mt-0">Warfare</p>
+                        <p class="mb-0 mt-0 font-weight-light lhst_font_size-smaller">increases army strength by 2% per level</p>
+                    </div>
+                    <p id="Warfare" class="p-0 lhst_attr_value font-weight-bolder mb-0 mt-2 mr-2">@Model.PlayerAttribute.Warfare</p>
+                    <input class="attrBtn p-0 lhst_btn_building_lvlup mt-1 mb-0" type="submit" value="+" data-attributename="Warfare" />
                 </div>
                 @*Перк 3*@
-                <div class="d-flex row">
-                    <img class="col-2 p-0" src="~/img/perks/perkRecruit.png" alt="" />
-                    <p class="col-5 mt-3 p-0 flex-wrap font-weight-bolder mb-0">Leadership</p>
-                    <p class="mt-3 col-2 p-0 flex-wrap font-weight-bolder mb-0">11</p>
-                    <input class="col-1 mt-3 p-0 lhst_btn_building_lvlup" type="submit" value="+" />
+                <div class="row">
+                    <img class="lhst_attr_img_big" src="~/img/attributes/leadership.png" alt="" />
+                    <div class="p-1 lhst_attr_name">
+                        <p class="font-weight-bolder mb-0 mt-0">Leadership</p>
+                        <p class="mb-0 mt-0 font-weight-light lhst_font_size-smaller">increases the chance of receiving an additional recruit by 2% per level</p>
+                    </div>
+                    <p id="Leadership" class="p-0 lhst_attr_value font-weight-bolder mb-0 mt-2 mr-2">@Model.PlayerAttribute.Leadership</p>
+                    <input class="attrBtn p-0 lhst_btn_building_lvlup mt-1 mb-0" type="submit" value="+" data-attributename="Leadership" />
                 </div>
 
-                <div class="lhst_perks_horizontal-line mt-1 mb-2"></div>
-
-                @*Перк 1*@
-                <div class="d-flex row">
-                    <img class="col-2 p-0 " src="~/img/perks/perkEconomic.png" alt="" />
-                    <p class="col-9 mt-0 p-0 flex-wrap font-weight-normal mb-0">Management: skill increases the base income of peasants by 2% for each level</p>
-                   
-                </div>
-                @*Перк 2*@
-                <div class="d-flex row">
-                    <img class="col-2 p-0 " src="~/img/perks/perkArmy.png" alt="" />
-                    <p class="col-9 mt-2 p-0 flex-wrap font-weight-normal mb-0">Warfare: increases army strength by 2% per level</p>
-                   
-                </div>
-                @*Перк 3*@
-                <div class="d-flex row">
-                    <img class="col-2 p-0" src="~/img/perks/perkRecruit.png" alt="" />
-                    <p class="col-9 mt-0 p-0 flex-wrap font-weight-normal mb-0">Leadership: the chance of receiving an additional recruit increases by 2% per level</p>
-                    
-                </div>
             </div>
         </div>
     </div>
 
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/main.js"></script>
 </div>
