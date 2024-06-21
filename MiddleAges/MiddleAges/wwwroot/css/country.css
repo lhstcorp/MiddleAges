@@ -116,6 +116,8 @@
     border-width: 2px;
     border-color: #f5deb3;
     color: #f5deb3;
+    padding-right:6px;
+    padding-left:6px;
     /*max-width: 500px;
     overflow-x: auto;
     white-space: nowrap;*/
@@ -208,7 +210,7 @@
     height: 80px;
     padding: 5px;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 16px;
     border-width: 1px;
     border-color: black;
     color: #f5deb3;
