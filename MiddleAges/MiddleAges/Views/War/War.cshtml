@@ -28,12 +28,19 @@
             <button id="countryWarsBtn" class="active" onclick="openCountryWarsTab()">Country Wars</button>
             <button id="worldWarsBtn" onclick="openWorldWarsTab()">All Wars</button>
             @* <div class="tabcontent lhst_inTab lhst_slider"> *@
-            <div id="worldWarsTab" class="lhst_slider mt-2 warcontent lhst_inTab lhst_slider_small_screen d-none">
+            <div id="worldWarsTab" class="lhst_slider mt-2 warcontent d-none">
                 @for (int i = 0; i < allWars.Count; i++)
                 {
                     <div class="row p-0">
                         <div class="col-2 p-0">
-                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandFrom.LandId).png" alt="">
+                            @if (allWars[i].War.IsRevolt)
+                            {
+                                <img class="lhst_war_country_img" src="../img/default-icon/rebel-coat.png" alt="">
+                            }
+                            else
+                            {
+                                <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="">
+                            }
                         </div>
                         <div class="col-2 p-0">
                             <p class="lhst_wars_country_text ">@allWars[i].CountryFrom.Name</p>
@@ -104,76 +111,87 @@
                     </div>
                 }
             </div>
-            <div id="countryWarsTab" class="lhst_slider mt-2 warcontent lhst_inTab lhst_slider_small_screen d-block">
+            <div id="countryWarsTab" class="mt-2 warcontent lhst_slider d-block">
                 @for (int i = 0; i < countryWars.Count; i++)
                 {
-                <div class="row p-0">
-                    <div class="col-2 p-0">
-                        <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandFrom.LandId).png" alt="">
-                    </div>
-                    <div class="col-2 p-0">
-                        <p class="lhst_wars_country_text ">@countryWars[i].CountryFrom.Name</p>
-                        <p class="lhst_wars_lands_text ">@countryWars[i].LandFrom.LandId</p>
-                    </div>
-                    <div class="col-4 p-0">
-                        <div class="row p-0">
-                            <div class="col-4 p-0 text-right">
+                    <div class="row p-0">
+                        <div class="col-2 p-0">
+                            @if (countryWars[i].War.IsRevolt)
+                            {
+                                <img class="lhst_war_country_img" src="../img/default-icon/rebel-coat.png" alt="">
+                            }
+                            else
+                            {
+                                <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandFrom.LandId).png" alt="">
+                            }
+                        </div>
+                        <div class="col-2 p-0">
+                            <p class="lhst_wars_country_text ">@countryWars[i].CountryFrom.Name</p>
+                            <p class="lhst_wars_lands_text ">@countryWars[i].LandFrom.LandId</p>
+                        </div>
+                        <div class="col-4 p-0">
+                            <div class="row p-0">
+                                <div class="col-4 p-0 text-right">
                                     <p class="text-right lhst_country_info_region_value mb-0" title="Attackers Soldiers">@countryWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
-                            </div>
-                            <div class="col-2 p-0">
+                                </div>
+                                <div class="col-2 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="">
-                            </div>
-                            <div class="col-2 p-0">
+                                </div>
+                                <div class="col-2 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="">
-                            </div>
-                            <div class="col-4 p-0">
+                                </div>
+                                <div class="col-4 p-0">
                                     <p class="text-right lhst_country_info_region_value mb-0" title="Defenders Soldiers">@countryWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row p-0">
-                            <div class="col-4 p-0 text-right">
+                            <div class="row p-0">
+                                <div class="col-4 p-0 text-right">
                                     <p class="text-right lhst_country_info_region_value mb-0" title="Attackers Lords">@countryWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
-                            </div>
-                            <div class="col-2 p-0">
+                                </div>
+                                <div class="col-2 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="">
-                            </div>
-                            <div class="col-2 p-0">
+                                </div>
+                                <div class="col-2 p-0">
                                     <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="">
-                            </div>
-                            <div class="col-4 p-0">
+                                </div>
+                                <div class="col-4 p-0">
                                     <p class="text-right lhst_country_info_region_value mb-0" title="Defenders Lords">@countryWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 float-right p-0">
+                                    @if (countryWars[i].War.StartDateTime > DateTime.UtcNow)
+                                    {
+                                        TimeSpan ts = allWars[i].War.StartDateTime - DateTime.UtcNow;
+                                        string leftTime = "";
+                                        if (ts > TimeSpan.Zero)
+                                        {
+                                            leftTime = new DateTime(ts.Ticks).ToString("HH:mm:ss");
+                                        }
+                                        <p class="float-right mr-2 lhst_country_info_region_value mb-0 mt-2">Left: @leftTime</p>
+                                    }
+                                    else if (!countryWars[i].War.IsEnded)
+                                    {
+                                        <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">Started</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">Ended</p>
+                                    }
+                                </div>
+                                <div class="col-6 float-left p-0">
+                                    <input type="submit" class="lhst_btn_unit_recruit warDetailsBtn ml-2" data-warid=@countryWars[i].War.WarId value="Details" />
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-6 float-right p-0">
-                                @if (countryWars[i].War.StartDateTime > DateTime.UtcNow)
-                                {
-                                    TimeSpan ts = allWars[i].War.StartDateTime - DateTime.UtcNow;
-                                    string leftTime = new DateTime(ts.Ticks).ToString("HH:mm:ss");
-                                    <p class="float-right mr-2 lhst_country_info_region_value mb-0 mt-2">Left: @leftTime</p>
-                                }
-                                else if (!countryWars[i].War.IsEnded)
-                                {
-                                    <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">Started</p>
-                                }
-                                else
-                                {
-                                    <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">Ended</p>
-                                }
-                            </div>
-                            <div class="col-6 float-left p-0">
-                                <input type="submit" class="lhst_btn_unit_recruit warDetailsBtn ml-2" data-warid=@countryWars[i].War.WarId value="Details" />
-                            </div>
+                        <div class="col-2 p-0 text-right">
+                            <p class="lhst_wars_country_text ">@countryWars[i].CountryTo.Name</p>
+                            <p class="lhst_wars_lands_text ">@countryWars[i].LandTo.LandId</p>
+                        </div>
+                        <div class="col-2 p-0">
+                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandTo.LandId).png" alt="">
                         </div>
                     </div>
-                    <div class="col-2 p-0 text-right">
-                        <p class="lhst_wars_country_text ">@countryWars[i].CountryTo.Name</p>
-                        <p class="lhst_wars_lands_text ">@countryWars[i].LandTo.LandId</p>
-                    </div>
-                    <div class="col-2 p-0">
-                        <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandTo.LandId).png" alt="">
-                    </div>
-                </div>
                 }
             </div>
         </div>
@@ -182,7 +200,6 @@
     <script src="~/js/war.js"></script>
     <script src="~/js/wars_details.js"></script>
 </div>
-
 
 <div class="lhst_dialog_wars modal lhst_slider_small_screen" id="warsDetails">
     <div class="text-right">
@@ -196,6 +213,10 @@
         <div class="col-2 p-0">
             <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
             <p id="landFromName" class="lhst_wars_lands_text ">LandFrom</p>
+            <div>
+                <img class="float-left" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" title="Army strength" alt="">
+                <p id="attackersArmyStrength" class="float-left mt-2 mb-0">0%</p>
+            </div>
         </div>
         <div class="col-4 p-0">
             <div class="row p-0">
@@ -245,21 +266,25 @@
         <div class="col-2 p-0 text-right">
             <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
             <p id="landToName" class="lhst_wars_lands_text ">LandTo</p>
+            <div>
+                <img class="float-right" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" title="Army strength" alt="">
+                <p id="defendersArmyStrength" class="float-right mt-2 mb-0">0%</p>
+            </div>
         </div>
 
         <div class="col-2 p-0 float-right">
             <img id="imgTo" class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/Lahoisk.png" alt="">
         </div>
-        
+
 
     </div>
     <div class="row p-0 overflow-auto">
         <div id="attackersDiv" class="col-6 p0 pt-3 lhst_slider">
             @for (int i = 0; i < 50; i++)
             {
-                    <img class="lhst_country_history_img" height="32" src="~/img/avatars/1.webp" alt="" loading="lazy">
+                <img class="lhst_country_history_img" height="32" src="~/img/avatars/1.webp" alt="" loading="lazy">
                 <p class="lhst_country_info_region_value">96537</p>
-                               
+
             }
         </div>
         <div id="defendersDiv" class="col-6 p0 pt-3 lhst_slider">

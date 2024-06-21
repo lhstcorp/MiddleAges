@@ -12,6 +12,8 @@ namespace MiddleAges.ViewModels
         public List<Army> DefendersArmies { get; set; }
         public int AttackersSoldiersCount { get; set; }
         public int DefendersSoldiersCount { get; set; }
+        public double AttackersArmyStrength { get; set; }
+        public double DefendersArmyStrength { get; set; }
         public Player Player { get; set; }
     }
 }
