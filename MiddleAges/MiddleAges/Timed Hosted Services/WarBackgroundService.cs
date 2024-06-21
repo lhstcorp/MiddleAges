@@ -186,6 +186,11 @@ namespace MiddleAges.Timed_Hosted_Services
 
             unit.Count -= Convert.ToInt32(soldiersLost);
 
+            if (unit.Count < 0)
+            {
+                unit.Count = 0;
+            }
+
             _context.Update(unit);
         }
 
