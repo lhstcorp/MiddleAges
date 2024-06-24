@@ -1,0 +1,14 @@
+﻿.lhst_rating-img {
+    width: 32px;
+}
+
+.lhst_rating-right-border {
+    border-width: 1px;
+    border-color: wheat;
+    border-right: dotted;
+}
+
+.lhst_rating-small-ints {
+    width: 40px;
+    text-align: center;
+}

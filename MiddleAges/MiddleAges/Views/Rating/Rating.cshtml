@@ -1,24 +1,88 @@
 ﻿@using MiddleAges.Entities;
-@model List<MiddleAges.Entities.Player>
+@model List<MiddleAges.Entities.Rating>
 
 @{
     ViewData["Title"] = "middle ages";
-
+    
     List<Player> playersOrderByMoney = new List<Player>();
-    playersOrderByMoney = Model.OrderByDescending(p => p.Money).ToList();
+    //playersOrderByMoney = Model.OrderByDescending(p => p.Money).ToList();
 
     List<Player> playersOrderByXP = new List<Player>();
-    playersOrderByXP = Model.OrderByDescending(p => p.Exp).ToList();
+    //playersOrderByXP = Model.OrderByDescending(p => p.Exp).ToList();    
 }
 
 <div class="d-flex">
     <div class="lhst_left-side-bar lhst_vertical-alignment-top"></div>
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_avatar_inline ">
         <div class="lhst_avatar_inline align-top lhst_tabs_div lhst_nav tab">
-            <button class="tablinks" onclick="rating(event, 'Money')">Money</button>
-            <button class="tablinks" onclick="rating(event, 'XP')">XP</button>
+            <button id="MoneyBtn" class="tablinks" onclick="rating(event, 'Money')">Money</button>
+            <button id="XPBtn" class="tablinks" onclick="rating(event, 'XP')">XP</button>
+            <button id="TotalBtn" class="tablinks" onclick="rating(event, 'Total')">Total</button>
+            <div id="Total" class="tabcontent lhst_inTab lhst_slider">
+                <div class="row">
+                    <div>
+                        <p class="mb-0 mt-2 lhst_rating-small-ints">#</p>
+                    </div>
+                    <div class="mr-2">
+                        <img class="country_card-population-img" src="~/img/default-icon/players.png" alt="" title="Lords" loading="lazy" />
+                    </div>
+                    <div style="width: 100px">
+                        <p class="mb-0 mt-2">Player name</p>
+                    </div>
+                    <div class="lhst_rating-small-ints mr-2">
+                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/exp.png" alt="" title="Experience" loading="lazy" />
+                    </div>
+                    <div class="lhst_rating-small-ints mr-2">
+                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/money.png" alt="" title="Money" loading="lazy" />
+                    </div>
+                    <div class="lhst_rating-small-ints">
+                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/power.png" alt="" title="War Power" loading="lazy" />
+                    </div>
+                </div>
+
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="row">
+                        <div>
+                            <p class="mb-0 mt-2 lhst_rating-small-ints">@Model[i].TotalPlace</p>
+                        </div>
+                        <div class="mr-2">
+                            <img class="country_card-population-img" src="../img/avatars/@(Model[i].Player.ImageURL).webp" alt="" title="Lords" loading="lazy" />
+                        </div>
+                        <div style="width: 100px">
+                            <p class="mb-0 mt-2">@Model[i].Player.UserName</p>
+                        </div>
+                        <div class="lhst_rating-small-ints mr-2">
+                            <p class="mb-0 mt-2">@Model[i].ExpPlace</p>
+                        </div>
+                        <div class="lhst_rating-small-ints mr-2">
+                            <p class="mb-0 mt-2">@Model[i].MoneyPlace</p>
+                        </div>
+                        <div class="lhst_rating-small-ints">
+                            <p class="mb-0 mt-2">@Model[i].WarPowerPlace</p>
+                        </div>
+                    </div>
+
+                    /*
+                    <div class="lhst_country_history_comment text-left!important d-inline-flex">
+                        <div class="lhst_scale">
+                            <img class="lhst_country_history_img lhst_cursor_pointer" onclick="showPlayerInfoDialog()" height="32" src="../img/avatars/@(playersOrderByMoney[i].ImageURL).webp" alt="">
+                        </div>
+                        <p class="lhst_country_history_text">@(i+1)</p>
+                        <p class="lhst_country_history_text lhst_ratingName_width lhst_cursor_pointer" onclick="showPlayerInfoDialog()">@playersOrderByMoney[i].UserName</p>
+                        <div class="lhst_inline ml-5">
+                            <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt="" loading="lazy" />
+                        </div>
+                        <p class="lhst_country_history_text ">@Math.Round(playersOrderByMoney[i].Money, 2)</p>
+                    </div>
+                    */
+
+                    <div class="lhst_tabs_line mb-1"></div>
+
+                }
+            </div>
             <div id="Money" class="tabcontent lhst_inTab lhst_slider">
-                
+
                 @for (int i = 0; i < playersOrderByMoney.Count; i++)
                 {
                     <div class="lhst_country_history_comment text-left!important d-inline-flex">
@@ -30,18 +94,18 @@
                         <div class="lhst_inline ml-5">
                             <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt="" loading="lazy" />
                         </div>
-                        <p class="lhst_country_history_text ">@Math.Round(playersOrderByMoney[i].Money,2)</p>
+                        <p class="lhst_country_history_text ">@Math.Round(playersOrderByMoney[i].Money, 2)</p>
                     </div>
                     <div class="lhst_tabs_line mb-1"></div>
-                    
+
                 }
                 <div class="d-inline-flex ml-3 ">
                     <input name="findPlayer" id="findPlayer" class="lhst_input_rating" type="text" />
-                    <img id="findPlayerByMoney" name="findPlayerByMoney" class="lhst_loupe-img ml-2 lhst_cursor_pointer" src="~/img/interface-icons/loupe.png" alt="" loading="lazy" onclick=""/>
+                    <img id="findPlayerByMoney" name="findPlayerByMoney" class="lhst_loupe-img ml-2 lhst_cursor_pointer" src="~/img/interface-icons/loupe.png" alt="" loading="lazy" onclick="" />
                 </div>
             </div>
             <div id="XP" class="tabcontent lhst_inTab lhst_slider">
-                
+
                 @for (int i = 0; i < playersOrderByXP.Count; i++)
                 {
                     <div class="lhst_country_history_comment text-left!important d-inline-flex">
@@ -65,7 +129,10 @@
             </div>
         </div>
     </div>
-    <script src="~/js/tabs.js" type="text/javascript" language="JavaScript"></script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/rating.js" type="text/javascript" language="JavaScript"></script>
+
     <div class="lhst_dialog modal" id="playerInfoDialog">
         <div class="text-right">
             <button class="lhst_btn_dialog_cancel" onclick="hidePlayerInfoDialog()">x</button>
