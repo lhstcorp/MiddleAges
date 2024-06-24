@@ -116,6 +116,8 @@
     border-width: 2px;
     border-color: #f5deb3;
     color: #f5deb3;
+    padding-right:6px;
+    padding-left:6px;
     /*max-width: 500px;
     overflow-x: auto;
     white-space: nowrap;*/
@@ -131,7 +133,7 @@
     border-width: 2px;
     border-color: #f5deb3;
     color: wheat;
-    max-height: calc(100vh - 294px)
+    max-height: calc(100vh - 336px)
 }
 
 .lhst_country_history_img {
@@ -204,19 +206,21 @@
 }
 
 .lhst_law_btn {
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     padding: 5px;
     border-style: solid;
-    border-radius: 5px;
+    border-radius: 16px;
     border-width: 1px;
     border-color: black;
     color: #f5deb3;
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
-    margin: 1px;
-    font-size: 11px;
+    margin: 2px;
+    font-size: 14px;
     line-height: 1;
     vertical-align: middle;
+    align-items:center;
+    justify-content: center;
 }
 
 .lhst_law_btn:hover {
@@ -224,3 +228,39 @@
     -webkit-text-fill-color: #faaf08;
     font-weight: 700
 }
+
+.lhst_slider_lands_screen {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    --scrollbar-color-thumb: #232323;
+    --scrollbar-color-track: #393939;
+    --scrollbar-width: thin;
+    --scrollbar-width-legacy: 0px
+}
+
+    .lhst_slider_lands_screen::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
+
+    .lhst_slider_lands_screen::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy)
+    }
+
+    .lhst_slider_lands_screen::-webkit-scrollbar-thumb {
+        background: transparent
+    }
+
+    .lhst_slider_lands_screen::-webkit-scrollbar-track {
+        background: transparent
+    }
+
+    .lhst_slider_lands_screen:hover::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb)
+    }
+
+    .lhst_slider_lands_screen:hover::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }

@@ -15,7 +15,7 @@
     }
 
     .lhst_country_history_div {
-        max-height: calc(100vh - 294px)
+        max-height: calc(100vh - 336px)
     }
 
     .lhst_button_input {
@@ -68,6 +68,10 @@
 
     .lhst_wars_lands_text {
         font-size: 6px;
+    }
+
+    .lhst_chat_div {
+        display: none
     }
 }
 
@@ -170,6 +174,12 @@
     .auth_width {
         width: 30vw
     }
+
+    .lhst_law_btn {
+        width: 60px;
+        height: 60px;
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width:1270px) {
@@ -189,5 +199,11 @@
 
     .lhst_wars_lands_text {
         font-size: 10px;
+    }
+
+    .lhst_law_btn {
+        width: 40px;
+        height: 40px;
+        font-size: 9px;
     }
 }

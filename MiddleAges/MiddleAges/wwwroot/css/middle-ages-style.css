@@ -19,7 +19,7 @@
 }
 
 .header-menu.main-btn {
-    background-image: url(../img/menu-icons/main.jfif);
+    background-image: url(../img/menu-icons/main_img.png);
     background-size: 100%
 }
 
@@ -34,17 +34,17 @@
 }
 
 .header-menu.settings-btn {
-    background-image: url(../img/menu-icons/settings.jfif);
+    background-image: url(../img/menu-icons/settings.jpg);
     background-size: 100%
 }
 
 .header-menu.rating-btn {
-    background-image: url(../img/menu-icons/main-icon.png);
+    background-image: url(../img/menu-icons/rating.png);
     background-size: 100%
 }
 
 .header-menu.wars-btn {
-    background-image: url(../img/interface-icons/register.jpg);
+    background-image: url(../img/menu-icons/war.png);
     background-size: 100%
 }
 
@@ -113,6 +113,24 @@
 .lhst_scale a:active {
     border-style: inset;
 }
+
+.lhst_scale button {
+    transition: .1s;
+    display: inline-flex;
+    border-width: 2px;
+    border-style: outset;
+}
+
+    .lhst_scale button:hover {
+        transform: scale(1.05);
+        border-color: #232323;
+        border-style: outset;
+    }
+
+    .lhst_scale button:active {
+        border-style: inset;
+    }
+
         
 
 .player-overview-div-inline {
@@ -646,4 +664,40 @@ lhst_marquee {
 
 .lhst_font_size-smaller {
     font-size: smaller;
+}
+
+.lhst_progressbar_div{
+    width: 100px;
+    color: red;
+}
+
+.lhst_progressbar {
+    border-radius: 5px;
+}
+
+    .lhst_progressbar::-webkit-progress-bar {
+        background-color: wheat;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+        border-radius: 5px;
+    }
+
+    .lhst_progressbar::-webkit-progress-value {
+        /*       background-color: wheat;*/
+        background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .25)), -webkit-linear-gradient(left, #faaf08, #232323);
+        border-radius: 5px;
+    }
+
+.lhst_input_rating {
+    width: 70%;
+    height: 26.2px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(#393939,black);
+    color: wheat;
+    border-radius: 3px
+}
+
+.lhst_loupe-img {
+    width: 30px;
+    height: 30px
 }

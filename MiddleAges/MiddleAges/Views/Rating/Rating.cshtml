@@ -18,10 +18,13 @@
             <button class="tablinks" onclick="rating(event, 'Money')">Money</button>
             <button class="tablinks" onclick="rating(event, 'XP')">XP</button>
             <div id="Money" class="tabcontent lhst_inTab lhst_slider">
+                
                 @for (int i = 0; i < playersOrderByMoney.Count; i++)
                 {
                     <div class="lhst_country_history_comment text-left!important d-inline-flex">
-                        <img class="lhst_country_history_img" height="42" src="../img/avatars/@(playersOrderByMoney[i].ImageURL).jfif" alt="">
+                        <div class="lhst_scale">
+                            <img class="lhst_country_history_img lhst_cursor_pointer" onclick="showPlayerInfoDialog()" height="32" src="../img/avatars/@(playersOrderByMoney[i].ImageURL).webp" alt="">
+                        </div>
                         <p class="lhst_country_history_text">@(i+1)</p>
                         <p class="lhst_country_history_text lhst_ratingName_width lhst_cursor_pointer" onclick="showPlayerInfoDialog()">@playersOrderByMoney[i].UserName</p>
                         <div class="lhst_inline ml-5">
@@ -30,13 +33,21 @@
                         <p class="lhst_country_history_text ">@Math.Round(playersOrderByMoney[i].Money,2)</p>
                     </div>
                     <div class="lhst_tabs_line mb-1"></div>
+                    
                 }
+                <div class="d-inline-flex ml-3 ">
+                    <input name="findPlayer" id="findPlayer" class="lhst_input_rating" type="text" />
+                    <img id="findPlayerByMoney" name="findPlayerByMoney" class="lhst_loupe-img ml-2 lhst_cursor_pointer" src="~/img/interface-icons/loupe.png" alt="" loading="lazy" onclick=""/>
+                </div>
             </div>
             <div id="XP" class="tabcontent lhst_inTab lhst_slider">
+                
                 @for (int i = 0; i < playersOrderByXP.Count; i++)
                 {
                     <div class="lhst_country_history_comment text-left!important d-inline-flex">
-                        <img class="lhst_country_history_img" height="42" src="../img/avatars/@(playersOrderByXP[i].ImageURL).jfif" alt="">
+                        <div class="lhst_scale">
+                            <img class="lhst_country_history_img lhst_cursor_pointer" onclick="showPlayerInfoDialog()" height="32" src="../img/avatars/@(playersOrderByXP[i].ImageURL).webp" alt="">
+                        </div>
                         <p class="lhst_country_history_text">@(i+1)</p>
                         <p class="lhst_country_history_text lhst_ratingName_width lhst_cursor_pointer" onclick="showPlayerInfoDialog()">@playersOrderByXP[i].UserName</p>
                         <div class="lhst_inline ml-5">
@@ -47,6 +58,10 @@
                     <div class="lhst_tabs_line mb-1">
                     </div>
                 }
+                <div class="d-inline-flex ml-3">
+                    <input name="findPlayer" id="findPlayer" class="lhst_input_rating" type="text" />
+                    <img id="findPlayerByXP" name="findPlayerByXP" class="lhst_loupe-img ml-2 lhst_cursor_pointer" src="~/img/interface-icons/loupe.png" alt="" loading="lazy" onclick="" />
+                </div>
             </div>
         </div>
     </div>
@@ -94,4 +109,5 @@
             </section>
 
         </form>
+    </div>
 </div>

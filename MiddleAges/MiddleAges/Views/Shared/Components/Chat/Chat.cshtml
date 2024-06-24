@@ -8,8 +8,10 @@
         <div class="lhst_chat_height lhst_slider">
             @for (int i = 0; i < Model.Count; i++)
             {
-                <div class="align-items-center text-left!important d-inline-flex">
-                    <img class="lhst_country_history_img" id="country_history_img" height="32" src="~/img/avatars/@(Model[i].Player.ImageURL).webp" alt="" loading="lazy">
+                <div class="align-items-center text-left!important d-inline-flex ">
+                    <div class="lhst_scale">
+                        <img class="lhst_country_history_img lhst_cursor_pointer" onclick="showPlayerInfoDialog()" id="country_history_img" height="32" src="~/img/avatars/@(Model[i].Player.ImageURL).webp" alt="" loading="lazy">
+                    </div>
                     <div class="lhst_display_grid float-left">
                         <p id="showPlayerInfo" onclick="showPlayerInfoDialog()" class="animation-text lhst_country_history_text text-left lhst_username_text lhst_cursor_pointer">@Model[i].Player.UserName</p>
                         <p class="lhst_country_history_text text-left lhst_chat_text">@Model[i].MessageValue</p>

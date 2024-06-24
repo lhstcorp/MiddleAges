@@ -18,7 +18,7 @@
 
     </div>
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding d-inline-flex lhst_font_size">
-        <div class="lhst_avatar_inline lhst_country_div align-top lhst_slider_small_screen">
+        <div class="lhst_avatar_inline lhst_country_div align-top lhst_slider_lands_screen ">
             <p class="lhst_country_king_size mb-0" >@Model.Country.Name</p>
             <p class="lhst_country_king_size mb-0">@Model.Country.CapitalId</p>
             <div class="col lhst_map_region_icon_left_bar_col">
@@ -138,7 +138,7 @@
                 string disabled = Model.Ruler.Id != player.Id ? "disabled" : "";
             }
 
-            <div class="lhst_country_buttons_div">
+            <div class="lhst_country_buttons_div lhst_scale">
                 @*ПЕРЕИМЕНОВАНИЕ*@
                 <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
                 @*ИЗМНЕНЕНИЕ ЦВЕТА*@
@@ -152,7 +152,7 @@
                 @*Смена правителя*@
                 <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
                 @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
-                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
+                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War </button>
                 @*распустить страну*@
                 <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
             </div>
@@ -187,7 +187,9 @@
             </p>
         </section>
         <div class="text-center pl-0">
-            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+            </button>
         </div>
     </form>
    
@@ -208,7 +210,9 @@
             </p>
         </section>
         <div class="text-center pl-0">
-            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+            </button>
         </div>
     </form>
 </div>
@@ -232,7 +236,9 @@
             </p>
         </section>
         <menu class="text-center pl-0">
-            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 50</span></p>
+            </button>
         </menu>
     </form>
 </div>
@@ -265,7 +271,9 @@
             </p>
         </section>
         <menu class="text-center pl-0">
-            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+            </button>
         </menu>
     </form>
 </div>
@@ -293,7 +301,9 @@
             </p>
         </section>
         <menu class="text-center pl-0">
-            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 1</span></p>
+            </button>
         </menu>
     </form>
 </div>
@@ -317,7 +327,9 @@
             </p>
         </section>
         <menu class="text-center pl-0">
-            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+            </button>
         </menu>
     </form>
 </div>
@@ -340,7 +352,9 @@
             </p>
         </section>
         <menu class="text-center pl-0">
-            <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 50</span></p>
+            </button>
         </menu>
     </form>
 </div>
@@ -358,7 +372,9 @@
             </p>
         </section>
         <menu class="text-center pl-0">
-             <input type="submit" class="lhst_btn_unit_recruit" value="Confirm" />
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 1</span></p>
+            </button>
         </menu>
     </form>
 </div>
