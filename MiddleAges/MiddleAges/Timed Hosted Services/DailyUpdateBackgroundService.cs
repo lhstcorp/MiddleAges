@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
+using MiddleAges.Temporary_Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,7 @@ namespace MiddleAges.Timed_Hosted_Services
 
                 UpdateProductionLimits();
                 UpdatePlayerDailyData();
+                CalculateRatingPlaces();
 
                 _context.SaveChanges();
             }
@@ -87,6 +89,99 @@ namespace MiddleAges.Timed_Hosted_Services
                     _context.Update(player);
                 }
             }
+        }
+
+        private void CalculateRatingPlaces()
+        {
+            var query = _context.Units
+                                .Include(u => u.Player)
+                                .Where(u => u.Type == (int)UnitType.Soldier).ToList()
+                                .Join(_context.PlayerAttributes,
+                                      u => u.PlayerId,
+                                      pa => pa.PlayerId,
+                                      (u, pa) => new { Unit = u, PlayerAttribute = pa });
+
+            List<Unit> units = query.Select(q => q.Unit).ToList();
+            List<PlayerAttribute> playerAttributes = query.Select(q => q.PlayerAttribute).ToList();
+
+            List<RatingCalculatedPoints> ratingCalculatedPointsList = new List<RatingCalculatedPoints>();
+
+            foreach (Unit u in units)
+            {
+                RatingCalculatedPoints ratingCalculatedPoints = new RatingCalculatedPoints();
+                ratingCalculatedPoints.PlayerId = u.PlayerId;
+                ratingCalculatedPoints.ExpPoints = u.Player.Exp;
+                ratingCalculatedPoints.MoneyPoints = u.Player.Money;
+                ratingCalculatedPoints.WarPowerPoints = u.Count * playerAttributes.FirstOrDefault(pa => pa.PlayerId == u.PlayerId).Warfare;
+
+                ratingCalculatedPointsList.Add(ratingCalculatedPoints);
+            }
+
+            List<Rating> ratings = _context.Ratings.ToList();
+
+            _context.Ratings.RemoveRange(ratings);
+
+            //_context.SaveChangesAsync();
+
+            ratings = new List<Rating>();
+
+            ratingCalculatedPointsList = ratingCalculatedPointsList.OrderByDescending(r => r.ExpPoints).ToList();
+
+            for (int i = 1; i <= ratingCalculatedPointsList.Count; i++)
+            {
+                Rating rating = new Rating();
+                rating.PlayerId = ratingCalculatedPointsList[i-1].PlayerId;
+                rating.ExpPlace = i;
+
+                ratings.Add(rating);
+            }
+
+            ratingCalculatedPointsList = ratingCalculatedPointsList.OrderByDescending(r => r.MoneyPoints).ToList();
+
+            for (int i = 1; i <= ratingCalculatedPointsList.Count; i++)
+            {
+                Rating rating = ratings.FirstOrDefault(r => r.PlayerId == ratingCalculatedPointsList[i-1].PlayerId);
+                rating.MoneyPlace = i;
+            }
+
+            ratingCalculatedPointsList = ratingCalculatedPointsList.OrderByDescending(r => r.WarPowerPoints).ToList();
+
+            for (int i = 1; i <= ratingCalculatedPointsList.Count; i++)
+            {
+                Rating rating = ratings.FirstOrDefault(r => r.PlayerId == ratingCalculatedPointsList[i - 1].PlayerId);
+                rating.WarPowerPlace = i;
+            }
+
+            List<TotalRating> totalRatings = new List<TotalRating>();
+
+            foreach (Rating r in ratings)
+            {
+                TotalRating totalRating = new TotalRating();
+
+                totalRating.PlayerId = r.PlayerId;
+                totalRating.SumOfPlaces = r.ExpPlace + r.MoneyPlace + r.WarPowerPlace;
+
+                totalRatings.Add(totalRating);
+            }
+
+            totalRatings = totalRatings.OrderBy(tr => tr.SumOfPlaces).ToList();
+
+            for (int i = 1; i <= totalRatings.Count; i++)
+            {
+                Rating rating = ratings.FirstOrDefault(r => r.PlayerId == totalRatings[i - 1].PlayerId);
+                rating.TotalPlace = i;
+            }
+
+            foreach (Rating r in ratings)
+            {
+                _context.Add(r);
+            }
+        }
+
+        private class TotalRating
+        {
+            public string PlayerId { get; set; }
+            public int SumOfPlaces { get; set; }
         }
     }
 }

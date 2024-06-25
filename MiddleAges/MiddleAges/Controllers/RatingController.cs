@@ -28,8 +28,8 @@ namespace MiddleAges.Controllers
         // GET: PlayerOverviewController
         public async Task<IActionResult> Index()
         {
-            List<Player> players = await _context.Players.Where(p => p.Id != "").ToListAsync();
-            return View("Rating", players);
+            List<Rating> rating = await _context.Ratings.Include(r => r.Player).OrderBy(r => r.TotalPlace).ToListAsync();
+            return View("Rating", rating);
         }
         // GET: PlayerOverviewController/Details/5
         public ActionResult Details(int id)
