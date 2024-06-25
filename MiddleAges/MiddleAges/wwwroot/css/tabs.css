@@ -6,26 +6,22 @@
 
 .tab button {
     background: radial-gradient(#393939,black);
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 14px 16px;
     transition: .3s;
     color: #f4ebdb;
-    border-radius: 10px;
-    font-weight: 700;
-    font-size: revert
+    border-radius: 5px;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    line-height: 1.2;
 }
 
-    .tab button:hover {
-        background: radial-gradient(#2d9062,black);
-        color: #faaf08
-    }
+.tab button:hover {
+    background: radial-gradient(#2d9062,black);
+    color: #faaf08
+}
 
-    .tab button.active {
-        background: radial-gradient(#2d9062,black);
-        color: #faaf08
-    }
+.tab button.active {
+    background: radial-gradient(#2d9062,black);
+    color: #faaf08
+}
 
 .tabcontent {
     display: none
@@ -44,13 +40,21 @@
 
 .lhst_inTab {
     text-align: left;
-    max-height: 500px;
+    /*max-height: 500px;*/
+    height: calc(100vh - 315px);
     background-color: #232323;
-    color: #f5deb3
+    color: #f5deb3 #4c473d
 }
 
 .lhst_tabs_line {
-    width: 300px;
     height: 1px;
+    
+}
+
+.lhst_tabs_line-bg-clr-wheat {
     background-color: #f5deb3
+}
+
+.lhst_tabs_line-bg-clr-gray {
+    background-color: #4c473d
 }
