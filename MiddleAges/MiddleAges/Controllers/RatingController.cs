@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace MiddleAges.Controllers
 {
@@ -28,70 +29,33 @@ namespace MiddleAges.Controllers
         // GET: PlayerOverviewController
         public async Task<IActionResult> Index()
         {
-            List<Rating> rating = await _context.Ratings.Include(r => r.Player).OrderBy(r => r.TotalPlace).ToListAsync();
+            List<Rating> rating = await _context.Ratings.Include(r => r.Player).Where(r => r.TotalPlace <= 50).OrderBy(r => r.TotalPlace).ToListAsync();
             return View("Rating", rating);
         }
-        // GET: PlayerOverviewController/Details/5
-        public ActionResult Details(int id)
+
+        public async Task<IActionResult> GetRatingByCategoryAndPage(string category, string page)
         {
-            return View();
-        }
-        // GET: PlayerOverviewController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-        // POST: PlayerOverviewController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
+            int pageNumber = Convert.ToInt32(page) - 1;
+
+            List<Rating> rating = new List<Rating>();
+
+            switch (category)
             {
-                return RedirectToAction(nameof(Index));
+                case "Exp":
+                    rating = await _context.Ratings.Include(r => r.Player).Where(r => r.ExpPlace > pageNumber * 50
+                                                                                   && r.ExpPlace <= pageNumber * 50 + 50).OrderBy(r => r.ExpPlace).ToListAsync();
+                    break;
+                case "Money":
+                    rating = await _context.Ratings.Include(r => r.Player).Where(r => r.MoneyPlace > pageNumber * 50
+                                                                                   && r.MoneyPlace <= pageNumber * 50 + 50).OrderBy(r => r.MoneyPlace).ToListAsync();
+                    break;
+                case "Power":
+                    rating = await _context.Ratings.Include(r => r.Player).Where(r => r.WarPowerPlace > pageNumber * 50
+                                                                                   && r.WarPowerPlace <= pageNumber * 50 + 50).OrderBy(r => r.WarPowerPlace).ToListAsync();
+                    break;
             }
-            catch
-            {
-                return View();
-            }
-        }
-        // GET: PlayerOverviewController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-        // POST: PlayerOverviewController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-        // GET: PlayerOverviewController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-        // POST: PlayerOverviewController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+
+            return Json(JsonSerializer.Serialize(rating));
         }
     }
 }
