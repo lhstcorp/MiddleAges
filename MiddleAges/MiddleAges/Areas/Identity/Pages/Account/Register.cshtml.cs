@@ -87,7 +87,7 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             if (ModelState.IsValid)
             {
                 string randomLand = CommonLogic.getRandomMapLandId();
-                Player player = new Player { UserName = Input.UserName, Email = Input.Email, Exp = 0, Lvl = 1, Money = 100, ImageURL = new Random().Next(1, 15).ToString(), CurrentLand = randomLand, ResidenceLand = randomLand, RecruitAmount = 10 };
+                Player player = new Player { UserName = Input.UserName, Email = Input.Email, Exp = 0, Lvl = 1, Money = 100, ImageURL = new Random().Next(1, 49).ToString(), CurrentLand = randomLand, ResidenceLand = randomLand, RecruitAmount = 10 };
                 var result = await _userManager.CreateAsync(player, Input.Password);
                 if (result.Succeeded)
                 {
