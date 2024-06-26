@@ -50,7 +50,7 @@
 }
 
 .lhst_avatar_independent_land_description_divs {
-    height: 550px;
+    height: 400px;
     width: 530px;
     margin-top: 10px;
     margin-left: 10px;
@@ -64,7 +64,7 @@
 
 .lhst_avatar_image_div {
     text-align: center;
-    height: 550px;
+    height: 400px;
     width: 270px;
     margin-top: 10px;
     margin-left: 10px;
@@ -155,8 +155,8 @@
 .lhst_btn_avatar_confirm {
     margin-bottom: 3px;
     padding: 0;
-    width: 174px;
-    height: 78px;
+    width: 74px;
+    height: 38px;
     background: radial-gradient(#393939,black);
     color: #f4ebdb;
     border-radius: 9px;
@@ -181,3 +181,60 @@
 .lhst_small_avatar_image_selection:hover {
     cursor: pointer
 }
+
+.lhst_info-section {
+    margin-left: 229px;
+}
+
+.lhst_avatar_info_div {
+    height: 250px;
+    width: 817px;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 15px;
+    background-color: #232323;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #f5deb3;
+    color: #f5deb3;
+    vertical-align: top;
+}
+
+.lhst_share_button {
+    width: 30px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: black;
+    border-radius: 7px;
+}
+
+    .lhst_share_button:hover {
+        background-color: #393939
+    }
+
+.lhst_vk_share {
+    background-image: url("../img/interface-icons/vk.png");
+}
+
+.lhst_telegram_share {
+    background-image: url("../img/interface-icons/telegram.png");
+   
+}
+
+.lhst_discord_share {
+    background-image: url("../img/interface-icons/discord.png");
+    
+}
+
+.lhst_facebook_share {
+    background-image: url("../img/interface-icons/facebook.png");
+   
+}
+
+.lhst_display_grid{
+    display: grid;
+}
+
+
+

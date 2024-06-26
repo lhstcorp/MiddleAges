@@ -7,24 +7,57 @@
 
 <div class="d-flex">
     <div class="lhst_avatar_left-side-bar lhst_avatar_vertical-alignment-top "></div>
-    <div class="lhst_vertical-alignment-top lhst_main-section lhst_avatar_inline ">
-        <div class="lhst_avatar_inline lhst_avatar_image_div lhst_avatar_independent_land_description_divs_align lhst_slider_small_screen">
-            <div class="lhst_avatar_main_image">
-                <img id="avatar_selected_img" class="lhst_avatar_main_image" src="~/img/avatars/@(Model.ImageURL).webp" alt="" loading="lazy" />
-            </div>
-            <form asp-controller="Settings" asp-action="UpdateAvatar" asp-route-selectedImageId="@Model.ImageURL"></form>
-            <p class ="lhst_country_king_size ">@Model.UserName</p>
-            <input id="update_avatar_btn" type="submit" class="lhst_btn_avatar_confirm" value="Confirm"/>
-        </div>
-        <div class="lhst_avatar_inline lhst_avatar_independent_land_description_divs lhst_avatar_independent_land_description_divs_align lhst_slider ">
-            @for (int i = 1; i < 48; i++)
-            {
-                <div class="lhst_avatar_main_data_image lhst_scale">
-                    <img id="@i" src="../img/avatars/@(i).webp" loading="lazy" class="lhst_small_avatar_image_selection lhst_avatar_main_data_image" alt="" />
+
+    <div class="d-block">
+        <div class="lhst_vertical-alignment-top lhst_main-section lhst_avatar_inline ">
+            <div class="lhst_avatar_inline lhst_avatar_image_div lhst_avatar_independent_land_description_divs_align lhst_slider_small_screen">
+                <div class="lhst_avatar_main_image">
+                    <img id="avatar_selected_img" class="lhst_avatar_main_image" src="~/img/avatars/@(Model.ImageURL).webp" alt="" loading="lazy" />
                 </div>
-            }
+                <form asp-controller="Settings" asp-action="UpdateAvatar" asp-route-selectedImageId="@Model.ImageURL"></form>
+                <p class ="lhst_country_king_size ">@Model.UserName</p>
+                <input id="update_avatar_btn" type="submit" class="lhst_btn_avatar_confirm" value="Confirm"/>
+            </div>
+            <div class="lhst_avatar_inline lhst_avatar_independent_land_description_divs lhst_avatar_independent_land_description_divs_align lhst_slider ">
+                @for (int i = 1; i < 48; i++)
+                {
+                    <div class="lhst_avatar_main_data_image lhst_scale">
+                        <img id="@i" src="../img/avatars/@(i).webp" loading="lazy" class="lhst_small_avatar_image_selection lhst_avatar_main_data_image" alt="" />
+                    </div>
+                }
+            </div>
+        </div>
+
+        <div class="lhst_vertical-alignment-top lhst_info-section lhst_avatar_inline ">
+            <div class="lhst_avatar_inline lhst_avatar_info_div lhst_slider ">
+                <p class="lhst_country_king_size mb-0">Contact Information</p>
+                <div class="lhst_display_grid">
+                    <div class="lhst_scale row">
+                        <button class=" align-self-center mr-3 mt-2 lhst_vk_share lhst_shadow_text lhst_share_button ">
+                        </button>
+                        <input name="vk_share" id="vk_share" class="lhst_tb_unit_recruit " type="text"/>
+                    </div>
+                    <div class="lhst_scale row">
+                        <button class=" align-self-center mr-3 mt-2 lhst_telegram_share lhst_shadow_text lhst_share_button ">
+                        </button>
+                        <input name="telegram_share" id="vk_share" class="lhst_tb_unit_recruit" type="text" />
+                    </div>
+                    <div class="lhst_scale row">
+                        <button class=" align-self-center mr-3 mt-2 lhst_discord_share lhst_shadow_text lhst_share_button ">
+                        </button>
+                        <input name="discord_share" id="vk_share" class="lhst_tb_unit_recruit " type="text" />
+                    </div>
+                    <div class="lhst_scale row">
+                        <button class=" align-self-center mr-3 mt-2 lhst_facebook_share lhst_shadow_text lhst_share_button ">
+                        </button>
+                        <input name="facebook_share" id="vk_share" class="lhst_tb_unit_recruit " type="text" />
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    
+  
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/select_avatar_img_by_click.js"></script>
     <script src="~/js/update_avatar_img_by_click.js"></script>
