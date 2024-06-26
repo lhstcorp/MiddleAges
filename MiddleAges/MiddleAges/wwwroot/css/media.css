@@ -167,6 +167,12 @@
         max-height: calc(100vh - 212px)
     }
 
+    .lhst_avatar_info_div {
+
+        width: 535px;
+       
+    }
+
     .auth_height {
         height: calc(100vh - 61px)
     }
