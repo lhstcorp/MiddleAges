@@ -675,29 +675,15 @@ lhst_marquee {
     border-radius: 5px;
 }
 
-    .lhst_progressbar::-webkit-progress-bar {
-        background-color: wheat;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-        border-radius: 5px;
-    }
-
-    .lhst_progressbar::-webkit-progress-value {
-        /*       background-color: wheat;*/
-        background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .25)), -webkit-linear-gradient(left, #faaf08, #232323);
-        border-radius: 5px;
-    }
-
-.lhst_input_rating {
-    width: 70%;
-    height: 26.2px;
-    margin-bottom: 3px;
-    margin-left: 4px;
-    background: radial-gradient(#393939,black);
-    color: wheat;
-    border-radius: 3px
+.lhst_progressbar::-webkit-progress-bar {
+    background-color: wheat;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+    border-radius: 5px;
 }
 
-.lhst_loupe-img {
-    width: 30px;
-    height: 30px
+.lhst_progressbar::-webkit-progress-value {
+    /*       background-color: wheat;*/
+    background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .25)), -webkit-linear-gradient(left, #faaf08, #232323);
+    border-radius: 5px;
 }
+
