@@ -200,40 +200,35 @@
     vertical-align: top;
 }
 
-.lhst_share_button {
+.lhst_share_img {
     width: 30px;
     height: 30px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-color: black;
-    border-radius: 7px;
-}
-
-    .lhst_share_button:hover {
-        background-color: #393939
-    }
-
-.lhst_vk_share {
-    background-image: url("../img/interface-icons/vk.png");
-}
-
-.lhst_telegram_share {
-    background-image: url("../img/interface-icons/telegram.png");
-   
-}
-
-.lhst_discord_share {
-    background-image: url("../img/interface-icons/discord.png");
-    
-}
-
-.lhst_facebook_share {
-    background-image: url("../img/interface-icons/facebook.png");
-   
 }
 
 .lhst_display_grid{
     display: grid;
+}
+
+.lhst_input_info_share {
+    width: 108px;
+    height: 26.2px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(#393939,black);
+    color: wheat;
+    border-radius: 3px
+}
+
+.lhst_input_description_share {
+    width: 328px;
+    height: 138px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(#393939,black);
+    color: wheat;
+    border-radius: 3px;
+    word-wrap:break-word;
+    vertical-align:top;
 }
 
 
