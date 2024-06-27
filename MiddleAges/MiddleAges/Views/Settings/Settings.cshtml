@@ -29,31 +29,42 @@
         </div>
 
         <div class="lhst_vertical-alignment-top lhst_info-section lhst_avatar_inline ">
-            <div class="lhst_avatar_inline lhst_avatar_info_div lhst_slider ">
-                <p class="lhst_country_king_size mb-0">Contact Information</p>
-                <div class="lhst_display_grid">
-                    <div class="lhst_scale row">
-                        <button class=" align-self-center mr-3 mt-2 lhst_vk_share lhst_shadow_text lhst_share_button ">
-                        </button>
-                        <input name="vk_share" id="vk_share" class="lhst_tb_unit_recruit " type="text"/>
+            <div class="lhst_avatar_info_div lhst_slider lhst_display_grid">
+                <div class="d-flex ">
+                    <div>
+                        <p class="lhst_country_king_size mb-0">Contact Information</p>
+                        <div class="lhst_display_grid">
+                            <div class="lhst_scale d-flex">
+                                <img class="align-self-center mr-3 mt-2 lhst_share_img" src="~/img/interface-icons/vk.png" loading="lazy" alt="vk" title="vk"/>
+                                <input name="vk_share" id="vk_share" class="lhst_input_info_share mt-2" type="text" />
+                            </div>
+                            <div class="lhst_scale d-flex">
+                                <img class="align-self-center mr-3 mt-2 lhst_share_img" src="~/img/interface-icons/telegram.png" loading="lazy" alt="telegram" title="telegram"/>
+                                <input name="telegram_share" id="vk_share" class="lhst_input_info_share mt-2" type="text" />
+                            </div>
+                            <div class="lhst_scale d-flex">
+                                <img class="align-self-center mr-3 mt-2 lhst_share_img" src="~/img/interface-icons/discord.png" loading="lazy" alt="discord" title="discord"/>
+                                <input name="discord_share" id="vk_share" class="lhst_input_info_share mt-2" type="text" />
+                            </div>
+                            <div class="lhst_scale d-flex">
+                                <img class="align-self-center mr-3 mt-2 lhst_share_img" src="~/img/interface-icons/facebook.png" loading="lazy" alt="facebook" title="facebook" />
+                                <input name="facebook_share" id="vk_share" class="lhst_input_info_share mt-2" type="text" />
+                            </div>
+                        </div>
                     </div>
-                    <div class="lhst_scale row">
-                        <button class=" align-self-center mr-3 mt-2 lhst_telegram_share lhst_shadow_text lhst_share_button ">
-                        </button>
-                        <input name="telegram_share" id="vk_share" class="lhst_tb_unit_recruit" type="text" />
-                    </div>
-                    <div class="lhst_scale row">
-                        <button class=" align-self-center mr-3 mt-2 lhst_discord_share lhst_shadow_text lhst_share_button ">
-                        </button>
-                        <input name="discord_share" id="vk_share" class="lhst_tb_unit_recruit " type="text" />
-                    </div>
-                    <div class="lhst_scale row">
-                        <button class=" align-self-center mr-3 mt-2 lhst_facebook_share lhst_shadow_text lhst_share_button ">
-                        </button>
-                        <input name="facebook_share" id="vk_share" class="lhst_tb_unit_recruit " type="text" />
+                    <div class="ml-3">
+                        <p class="lhst_country_king_size mb-0">Description</p>
+                        <div class="lhst_display_grid">
+                            <textarea name="facebook_share" id="info_share" class="lhst_input_description_share mt-2" type="text" >
+                            </textarea>
+                        </div>
                     </div>
                 </div>
+                <div class="mt-2 text-right">
+                    <button type="submit" class="lhst_btn_avatar_confirm">Share</button>
+                </div>
             </div>
+           
         </div>
     </div>
     
