@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
+using MiddleAges.ViewModels;
 
 namespace MiddleAges.Controllers
 {
@@ -18,6 +19,8 @@ namespace MiddleAges.Controllers
         private readonly ILogger<RatingController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<Player> _userManager;
+
+        const int ratingLinesPerPage = 50;
         public RatingController(ILogger<RatingController> logger,
                                         ApplicationDbContext context,
                                         UserManager<Player> userManager)
@@ -29,33 +32,43 @@ namespace MiddleAges.Controllers
         // GET: PlayerOverviewController
         public async Task<IActionResult> Index()
         {
-            List<Rating> rating = await _context.Ratings.Include(r => r.Player).Where(r => r.TotalPlace <= 50).OrderBy(r => r.TotalPlace).ToListAsync();
-            return View("Rating", rating);
+            //List<Rating> rating = await _context.Ratings.Include(r => r.Player).Where(r => r.TotalPlace <= ratingLinesPerPage).OrderBy(r => r.TotalPlace).ToListAsync();
+            //return View("Rating", rating);
+            return View("Rating");
         }
 
         public async Task<IActionResult> GetRatingByCategoryAndPage(string category, string page)
         {
             int pageNumber = Convert.ToInt32(page) - 1;
 
-            List<Rating> rating = new List<Rating>();
+            List<Rating> ratings = new List<Rating>();
+
+            RatingPageViewModel ratingPageViewModel = new RatingPageViewModel();
 
             switch (category)
             {
+                case "Total":
+                    ratings = await _context.Ratings.Include(r => r.Player).Where(r => r.TotalPlace > pageNumber * ratingLinesPerPage
+                                                                                   && r.TotalPlace <= pageNumber * ratingLinesPerPage + ratingLinesPerPage).OrderBy(r => r.TotalPlace).ToListAsync();
+                    break;
                 case "Exp":
-                    rating = await _context.Ratings.Include(r => r.Player).Where(r => r.ExpPlace > pageNumber * 50
-                                                                                   && r.ExpPlace <= pageNumber * 50 + 50).OrderBy(r => r.ExpPlace).ToListAsync();
+                    ratings = await _context.Ratings.Include(r => r.Player).Where(r => r.ExpPlace > pageNumber * ratingLinesPerPage
+                                                                                   && r.ExpPlace <= pageNumber * ratingLinesPerPage + ratingLinesPerPage).OrderBy(r => r.ExpPlace).ToListAsync();
                     break;
                 case "Money":
-                    rating = await _context.Ratings.Include(r => r.Player).Where(r => r.MoneyPlace > pageNumber * 50
-                                                                                   && r.MoneyPlace <= pageNumber * 50 + 50).OrderBy(r => r.MoneyPlace).ToListAsync();
+                    ratings = await _context.Ratings.Include(r => r.Player).Where(r => r.MoneyPlace > pageNumber * ratingLinesPerPage
+                                                                                   && r.MoneyPlace <= pageNumber * ratingLinesPerPage + ratingLinesPerPage).OrderBy(r => r.MoneyPlace).ToListAsync();
                     break;
                 case "Power":
-                    rating = await _context.Ratings.Include(r => r.Player).Where(r => r.WarPowerPlace > pageNumber * 50
-                                                                                   && r.WarPowerPlace <= pageNumber * 50 + 50).OrderBy(r => r.WarPowerPlace).ToListAsync();
+                    ratings = await _context.Ratings.Include(r => r.Player).Where(r => r.WarPowerPlace > pageNumber * ratingLinesPerPage
+                                                                                   && r.WarPowerPlace <= pageNumber * ratingLinesPerPage + ratingLinesPerPage).OrderBy(r => r.WarPowerPlace).ToListAsync();
                     break;
             }
 
-            return Json(JsonSerializer.Serialize(rating));
+            ratingPageViewModel.Ratings = ratings;
+            ratingPageViewModel.LastPageNum = await _context.Ratings.CountAsync() / ratingLinesPerPage + 1;
+
+            return Json(JsonSerializer.Serialize(ratingPageViewModel));
         }
     }
 }
