@@ -70,5 +70,17 @@ namespace MiddleAges.Controllers
 
             return Json(JsonSerializer.Serialize(ratingPageViewModel));
         }
+
+        public async Task<IActionResult> SearchRatingsByPlayerName(string playerName)
+        {
+            List<Rating> ratings = await _context.Ratings.Include(r => r.Player).Where(r => r.Player.UserName.Contains(playerName)).OrderBy(r => r.TotalPlace).ToListAsync();
+
+            RatingPageViewModel ratingPageViewModel = new RatingPageViewModel();
+
+            ratingPageViewModel.Ratings = ratings;
+            ratingPageViewModel.LastPageNum = 1;
+
+            return Json(JsonSerializer.Serialize(ratingPageViewModel));
+        }
     }
 }
