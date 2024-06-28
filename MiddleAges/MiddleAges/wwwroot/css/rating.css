@@ -12,3 +12,17 @@
     width: 40px;
     text-align: center;
 }
+
+.lhst_rating-input {
+    width: 100px;
+    height: 25px;
+    margin-bottom: 3px;
+    background: radial-gradient(#393939,black);
+    color: wheat;
+    border-radius: 3px
+}
+
+.lhst_rating_loupe {
+    width: 25px;
+    height: 25px;
+}

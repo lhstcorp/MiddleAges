@@ -6,6 +6,7 @@ var category = "Total";
 window.addEventListener("load", openRating('Total'));
 
 function openRating(_category) { 
+    clearPlayerNameFilter()
     // Получить все элементы с помощью class="tablinks" и удалить class "active"
     tablinks = document.getElementsByClassName("tablinks");
     for (i = 0; i < tablinks.length; i++) {
@@ -162,4 +163,65 @@ function checkPageButtonsEnableability() {
 function changePageNumText() {
     const pageNumCtrl = document.getElementById("pageNum");
     pageNumCtrl.innerText = 'Page ' + pageNumCtrl.dataset.page + '/' + pageCount;
+}
+
+function findPlayer() {
+    const playerNameInput = document.getElementById("playerNameInput");
+
+    var playerName = playerNameInput.value;
+
+    if (playerName.length > 2) {
+        searchRatingsByPlayerName(playerName);
+    }
+}
+
+function searchRatingsByPlayerName(playerName) {
+    $.ajax({
+        url: 'Rating/SearchRatingsByPlayerName',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            playerName, playerName
+        },
+        success: function (response) {
+            if (response == null || response == undefined || response.length == 0) {
+                return 'Error';
+            }
+            else {
+                return response;
+            }
+        },
+        error: function (response) {
+            return 'Error';
+        }
+    }).done(function (data) {
+        let obj = JSON.parse(data);
+        if (obj.Ratings.length > 0) {
+            populateGrid(obj);
+            pageCount = obj.LastPageNum;
+            checkPageButtonsEnableability();
+            changePageNumText();
+        }
+        else {
+            showNoResults();
+        }
+    })
+    .fail(function (data) {
+        alert("Something went wrong");
+    });
+}
+
+function showNoResults() {
+    const ratingGrid = document.getElementById("ratinglines");
+    ratingGrid.innerHTML = "";
+
+    const noResultsP = document.createElement("p");
+    noResultsP.classList.add("ml-2", "mb-0", "mt-2");
+    noResultsP.style.fontWeight = "400";
+    noResultsP.innerText = "No results found";
+    ratingGrid.appendChild(noResultsP);
+}
+
+function clearPlayerNameFilter() {
+    document.getElementById("playerNameInput").value = "";
 }
