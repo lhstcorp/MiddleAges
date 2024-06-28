@@ -1,5 +1,4 @@
-﻿@model MiddleAges.Entities.Player
-@using MiddleAges.ViewComponents
+﻿@model MiddleAges.ViewModels.SettingsViewModel
 
 @{
     ViewData["Title"] = "middle ages";    
@@ -8,17 +7,16 @@
 <div class="d-flex">
     <div class="lhst_avatar_left-side-bar lhst_avatar_vertical-alignment-top "></div>
 
-    <div class="d-block">
-        <div class="lhst_vertical-alignment-top lhst_main-section lhst_avatar_inline ">
-            <div class="lhst_avatar_inline lhst_avatar_image_div lhst_avatar_independent_land_description_divs_align lhst_slider_small_screen">
+    <div class="d-block lhst_main-section">
+        <div class="lhst_vertical-alignment-top lhst_avatar_inline mt-2">
+            <div class="lhst_avatar_inline lhst_avatar_image_div lhst_avatar_divs_align lhst_slider_small_screen">
                 <div class="lhst_avatar_main_image">
-                    <img id="avatar_selected_img" class="lhst_avatar_main_image" src="~/img/avatars/@(Model.ImageURL).webp" alt="" loading="lazy" />
+                    <img id="avatar_selected_img" class="lhst_avatar_main_image" src="~/img/avatars/@(Model.Player.ImageURL).webp" alt="" loading="lazy" />
                 </div>
-                <form asp-controller="Settings" asp-action="UpdateAvatar" asp-route-selectedImageId="@Model.ImageURL"></form>
-                <p class ="lhst_country_king_size ">@Model.UserName</p>
-                <input id="update_avatar_btn" type="submit" class="lhst_btn_avatar_confirm" value="Confirm"/>
+                <p class="lhst_country_king_size ">@Model.Player.UserName</p>
+                <input id="update_avatar_btn" type="submit" class="lhst_btn_avatar_confirm" value="Confirm" />
             </div>
-            <div class="lhst_avatar_inline lhst_avatar_independent_land_description_divs lhst_avatar_independent_land_description_divs_align lhst_slider ">
+            <div class="lhst_avatar_inline lhst_avatar_selection_div lhst_avatar_divs_align lhst_slider ml-1">
                 @for (int i = 1; i < 48; i++)
                 {
                     <div class="lhst_avatar_main_data_image lhst_scale">
@@ -28,48 +26,51 @@
             </div>
         </div>
 
-        <div class="lhst_vertical-alignment-top lhst_info-section lhst_avatar_inline ">
-            <div class="lhst_avatar_info_div lhst_slider lhst_display_grid">
+        <div class="lhst_vertical-alignment-top lhst_info-section lhst_avatar_inline mt-2">
+            <div class="lhst_avatar_info_div lhst_slider">
                 <div class="d-flex ">
                     <div>
                         <p class="lhst_country_king_size mb-0">Contact Information</p>
-                        <div class="lhst_display_grid">
+                        <div>
                             <div class="lhst_scale d-flex">
-                                <img class="align-self-center mr-3 mt-2 lhst_share_img" src="~/img/interface-icons/vk.png" loading="lazy" alt="vk" title="vk"/>
-                                <input name="vk_share" id="vk_share" class="lhst_input_info_share mt-2" type="text" />
+                                <img class="align-self-center mr-1 mt-1 lhst_share_img" src="~/img/interface-icons/vk.png" loading="lazy" alt="vk" title="vk" />
+                                <input id="vk" class="lhst_input_info_share mt-1" type="text" placeholder="VK ID" value=@Model.PlayerInformation.Vk />
                             </div>
                             <div class="lhst_scale d-flex">
-                                <img class="align-self-center mr-3 mt-2 lhst_share_img" src="~/img/interface-icons/telegram.png" loading="lazy" alt="telegram" title="telegram"/>
-                                <input name="telegram_share" id="vk_share" class="lhst_input_info_share mt-2" type="text" />
+                                <img class="align-self-center mr-1 mt-1 lhst_share_img" src="~/img/interface-icons/telegram.png" loading="lazy" alt="telegram" title="telegram" />
+                                <input id="tg" class="lhst_input_info_share mt-1" type="text" placeholder="nickname" value=@Model.PlayerInformation.Telegram />
                             </div>
                             <div class="lhst_scale d-flex">
-                                <img class="align-self-center mr-3 mt-2 lhst_share_img" src="~/img/interface-icons/discord.png" loading="lazy" alt="discord" title="discord"/>
-                                <input name="discord_share" id="vk_share" class="lhst_input_info_share mt-2" type="text" />
+                                <img class="align-self-center mr-1 mt-1 lhst_share_img" src="~/img/interface-icons/discord.png" loading="lazy" alt="discord" title="discord" />
+                                <input id="ds" class="lhst_input_info_share mt-1" type="text" placeholder="nickname" value=@Model.PlayerInformation.Discord />
                             </div>
                             <div class="lhst_scale d-flex">
-                                <img class="align-self-center mr-3 mt-2 lhst_share_img" src="~/img/interface-icons/facebook.png" loading="lazy" alt="facebook" title="facebook" />
-                                <input name="facebook_share" id="vk_share" class="lhst_input_info_share mt-2" type="text" />
+                                <img class="align-self-center mr-1 mt-1 lhst_share_img" src="~/img/interface-icons/facebook.png" loading="lazy" alt="facebook" title="facebook" />
+                                <input id="fb" class="lhst_input_info_share mt-1" type="text" placeholder="Facebook ID" value=@Model.PlayerInformation.Facebook />
                             </div>
                         </div>
                     </div>
                     <div class="ml-3">
                         <p class="lhst_country_king_size mb-0">Description</p>
-                        <div class="lhst_display_grid">
-                            <textarea name="facebook_share" id="info_share" class="lhst_input_description_share mt-2" type="text" >
-                            </textarea>
+                        <div>
+                            <textarea id="player_description" class="lhst_contact_info_input_description mt-1" type="text" placeholder="Write here everything you think is necessary.">@Model.PlayerInformation.Description</textarea>
+
+                            <p id="contactInfoStatus" class="mt-2 mb-0 float-left"></p>
+                            <button id="save_contact_information_btn" type="submit" class="lhst_settings_button mt-2 mr-2 float-right">Save</button>
                         </div>
                     </div>
                 </div>
-                <div class="mt-2 text-right">
-                    <button type="submit" class="lhst_btn_avatar_confirm">Share</button>
-                </div>
+                @*<div class="mt-2 text-right">
+                        <button type="submit" class="lhst_btn_avatar_confirm">Share</button>
+                    </div>*@
             </div>
-           
+
         </div>
     </div>
-    
-  
+
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/select_avatar_img_by_click.js"></script>
     <script src="~/js/update_avatar_img_by_click.js"></script>
+    <script src="~/js/save_contact_information.js"></script>
 </div>

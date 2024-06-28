@@ -49,11 +49,9 @@
     overflow: hidden
 }
 
-.lhst_avatar_independent_land_description_divs {
+.lhst_avatar_selection_div {
     height: 400px;
     width: 530px;
-    margin-top: 10px;
-    margin-left: 10px;
     padding: 15px;
     background-color: #232323;
     border-radius: 20px;
@@ -65,8 +63,7 @@
 .lhst_avatar_image_div {
     text-align: center;
     height: 400px;
-    width: 270px;
-    margin-top: 10px;
+    width: 280px;
     margin-left: 10px;
     padding: 10px;
     background-color: #232323;
@@ -76,7 +73,7 @@
     color: #f5deb3
 }
 
-.lhst_avatar_independent_land_description_divs_align {
+.lhst_avatar_divs_align {
     vertical-align: top
 }
 
@@ -127,30 +124,30 @@
     --scrollbar-width-legacy: 5px
 }
 
-    .lhst_slider-horizontal::-webkit-scrollbar-track {
-        background: var(--scrollbar-color-track)
-    }
+.lhst_slider-horizontal::-webkit-scrollbar-track {
+    background: var(--scrollbar-color-track)
+}
 
-    .lhst_slider-horizontal::-webkit-scrollbar {
-        max-width: var(--scrollbar-width-legacy);
-        max-height: var(--scrollbar-width-legacy)
-    }
+.lhst_slider-horizontal::-webkit-scrollbar {
+    max-width: var(--scrollbar-width-legacy);
+    max-height: var(--scrollbar-width-legacy)
+}
 
-    .lhst_slider-horizontal::-webkit-scrollbar-thumb {
-        background: transparent
-    }
+.lhst_slider-horizontal::-webkit-scrollbar-thumb {
+    background: transparent
+}
 
-    .lhst_slider-horizontal::-webkit-scrollbar-track {
-        background: transparent
-    }
+.lhst_slider-horizontal::-webkit-scrollbar-track {
+    background: transparent
+}
 
-    .lhst_slider-horizontal:hover::-webkit-scrollbar-thumb {
-        background: var(--scrollbar-color-thumb)
-    }
+.lhst_slider-horizontal:hover::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-color-thumb)
+}
 
-    .lhst_slider-horizontal:hover::-webkit-scrollbar-track {
-        background: var(--scrollbar-color-track)
-    }
+.lhst_slider-horizontal:hover::-webkit-scrollbar-track {
+    background: var(--scrollbar-color-track)
+}
 
 .lhst_btn_avatar_confirm {
     margin-bottom: 3px;
@@ -183,13 +180,11 @@
 }
 
 .lhst_info-section {
-    margin-left: 229px;
+    margin-bottom: 70px;
 }
 
 .lhst_avatar_info_div {
-    height: 250px;
     width: 817px;
-    margin-top: 10px;
     margin-left: 10px;
     padding: 15px;
     background-color: #232323;
@@ -201,34 +196,44 @@
 }
 
 .lhst_share_img {
-    width: 30px;
-    height: 30px;
-}
-
-.lhst_display_grid{
-    display: grid;
+    width: 20px;
+    height: 20px;
 }
 
 .lhst_input_info_share {
-    width: 108px;
-    height: 26.2px;
-    margin-bottom: 3px;
-    margin-left: 4px;
-    background: radial-gradient(#393939,black);
-    color: wheat;
-    border-radius: 3px
-}
-
-.lhst_input_description_share {
-    width: 328px;
-    height: 138px;
+    width: 200px;
+    height: 24px;
     margin-bottom: 3px;
     margin-left: 4px;
     background: radial-gradient(#393939,black);
     color: wheat;
     border-radius: 3px;
+    font-size: 14px;
+}
+
+.lhst_contact_info_input_description {
+    width: 258px;
+    height: 83px;
+    background: radial-gradient(#393939,black);
+    color: wheat;
+    border-radius: 3px;
     word-wrap:break-word;
     vertical-align:top;
+    font-size: 12px;
+}
+
+.lhst_settings_button {
+    background: radial-gradient(#393939,black);
+    transition: .3s;
+    color: #f4ebdb;
+    border-radius: 5px;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    line-height: 1.2;
+}
+
+.lhst_settings_button:hover {
+    background: radial-gradient(#2d9062,black);
+    color: #faaf08
 }
 
 

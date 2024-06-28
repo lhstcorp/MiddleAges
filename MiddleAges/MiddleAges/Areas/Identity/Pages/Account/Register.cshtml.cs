@@ -148,6 +148,9 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             PlayerAttribute playerAttribute = new PlayerAttribute { PlayerId = userId };
             _context.PlayerAttributes.Add(playerAttribute);
 
+            PlayerInformation playerInformation = new PlayerInformation { PlayerId = userId };
+            _context.PlayerInformations.Add(playerInformation);
+
             await _context.SaveChangesAsync();
         }
     }
