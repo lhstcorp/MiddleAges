@@ -1,0 +1,38 @@
+﻿.lhst_modal_profile {
+    /*height: 400px;*/
+/*    width: 270px;*/
+    background-color: #232323;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #f5deb3;
+    color: #f5deb3
+}
+
+.lhst_avatar_profile_image {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #232323;
+    border-radius: 10px;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    overflow: hidden
+}
+
+.lhst_main_info_profile{
+    width: 300px;
+}
+
+.lhst_profile-small-ints {
+    width: 20px;
+    text-align: center;
+}
+
+.lhst_profile_rating_img{
+    height: 20px;
+}
+
+.lhst_region_profile {
+    display: inline-block;
+    height: 150px
+}
