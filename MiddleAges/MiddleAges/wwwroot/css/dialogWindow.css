@@ -32,10 +32,10 @@
     border-radius: 3px
 }
 
-    .lhst_dialog_rename_input:hover {
-        color: #f5deb3;
-        background: radial-gradient(#2d9062,black)
-    }
+.lhst_dialog_rename_input:hover {
+    color: #f5deb3;
+    background: radial-gradient(#2d9062,black)
+}
 
 .lhst_dialog_select_input {
     width: 150px;
@@ -73,7 +73,7 @@
 .lhst_dialog_wars {
     left: 0;
     right: 0;
-    margin: 40vh auto;
+    margin: 20vh auto;
     border: solid;
     padding: 1em;
     background: #232323;
@@ -99,7 +99,7 @@
 .lhst_dialog_profile {
     left: 0;
     right: 0;
-    margin: 40vh auto;
+    margin: 20vh auto;
     border: solid;
     padding: 1em;
     background: #232323;
