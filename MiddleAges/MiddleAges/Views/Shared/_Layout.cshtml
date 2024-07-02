@@ -46,38 +46,38 @@
                     <div class="lhst_inline lhst_vertical-line"></div>
 
                     <div class="align-items-center d-inline-flex">
-                    <div class="lhst_inline lhst_nav lhst_header_margin lhst_scale float-left">
-                        <ul class="lhst_nav p-0">
-                            <li class="lhst_nav ">
-                                <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
-                            </li>
-                            <li class="lhst_nav ">
-                                <a class="nav-link text-dark header-menu lhst_nav map-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
-                            </li>
-                            <li class="lhst_nav ">
-                                <a class="nav-link text-dark header-menu lhst_nav state-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Country" asp-action="Index">Country</a>
-                            </li>
-                            <li class="lhst_nav ">
-                                <a class="nav-link text-dark header-menu lhst_nav settings-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                            </li>
-                            <li class="lhst_nav ">
-                                <a class="nav-link text-dark header-menu lhst_nav rating-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Rating" asp-action="Index">Rating</a>
-                            </li>
-                            <li class="lhst_nav ">
-                                <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="War" asp-action="Index">Wars</a>
-                            </li>
-                            <li class="lhst_nav ">
-                                <partial name="_LoginPartial" />
-                            </li>
-                        </ul>
-                    
-                    
-                    </div>
-                    <div class="lhst_inline lhst_nav lhst_header_margin float-right vw-40">
-                        <form class="form-inline lhst_inline align-bottom ml-4 mb-2" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                            <button type="submit" class="lhst_btn_logout">Logout</button>
-                        </form>
-                    </div>
+                        <div class="lhst_inline lhst_nav lhst_header_margin lhst_scale float-left">
+                            <ul class="lhst_nav p-0">
+                                <li class="lhst_nav ">
+                                    <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
+                                </li>
+                                <li class="lhst_nav ">
+                                    <a class="nav-link text-dark header-menu lhst_nav map-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
+                                </li>
+                                <li class="lhst_nav ">
+                                    <a class="nav-link text-dark header-menu lhst_nav state-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Country" asp-action="Index">Country</a>
+                                </li>
+                                <li class="lhst_nav ">
+                                    <a class="nav-link text-dark header-menu lhst_nav settings-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
+                                </li>
+                                <li class="lhst_nav ">
+                                    <a class="nav-link text-dark header-menu lhst_nav rating-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Rating" asp-action="Index">Rating</a>
+                                </li>
+                                <li class="lhst_nav ">
+                                    <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="War" asp-action="Index">Wars</a>
+                                </li>
+                                <li class="lhst_nav ">
+                                    <partial name="_LoginPartial" />
+                                </li>
+                            </ul>
+
+
+                        </div>
+                        <div class="lhst_inline lhst_nav lhst_header_margin float-right vw-40">
+                            <form class="form-inline lhst_inline align-bottom ml-4 mb-2" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button type="submit" class="lhst_btn_logout">Logout</button>
+                            </form>
+                        </div>
 
                     </div>
                 }
@@ -104,7 +104,7 @@
             </div>
             <div class="container align-self-center lhst_footer-text d-flex mt-3">
                 <p class="mr-1">Server time:</p>
-                <p id="serverTime" ></p>
+                <p id="serverTime"></p>
             </div>
             <script src="https://yastatic.net/share2/share.js"></script>
             <div class="ya-share2 align-self-center mr-3" data-curtain data-lang="en" data-color-scheme="blackwhite" data-services="vkontakte,telegram,twitter,viber"></div>
@@ -114,81 +114,79 @@
         <script src="~/js/site.js" asp-append-version="true"></script>
         <script src="~/js/showChat.js"></script>
         <script src="~/js/server_time.js"></script>
+        <script src="~/js/modal_player.js"></script>
 
         @*<script src="~/js/snow.js" type="text/javascript" language="JavaScript"></script>*@
         @await RenderSectionAsync("Scripts", required: false)
     </body>
 </html>
 
-<div class="lhst_dialog_profile modal" id="playerInfoDialog">
-    <form asp-controller="Player">
-        <section>
-            <div class="d-flex lhst_modal_profile">
+<div class="lhst_dialog_profile modal" id="m_player_dialog">
+    <section>
+        <div class="d-flex lhst_modal_profile">
+            <div>
+                <img @*id="avatar_selected_img"*@ class="lhst_avatar_profile_image" src="/img/avatars/1.webp" alt="" loading="lazy" />
+                <p @*id="curlvl"*@ class="ml-1 mb-0" style="text-align: center">- - - - - [Lvl: 11] - - - - -</p>
+                <progress class="lhst_progressbar" style="width: 150px" value="55" max="100"></progress>
+            </div>
+            <div class="lhst_main_info_profile">
+                <div class="ml-3">
+                    <p id="m_player_playerName" class="lhst_country_king_size mb-0">Konskiy Voin</p>
+                    <p id="m_player_playerInformation" class="lhst_chat_text mb-0">Status of player</p>
+                    <div class="row float-left">
+                        <p class="mb-0 mt-1">#3 (</p>
+                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/exp.png" alt="" title="Experience" loading="lazy" />
+                        <p class="mb-0 mt-1">1 /</p>
+                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/money.png" alt="" title="Money" loading="lazy" />
+                        <p class="mb-0 mt-1">1 /</p>
+                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/power.png" alt="" title="War Power" loading="lazy" />
+                        <p class="mb-0 mt-1">1)</p>
+                    </div>
+                </div>
+                <br />
+
+                <div class="row">
+                    <img @*id="selected_land_coat_of_arms"*@ src="../img/map-regions-icons-middle-ages/Hrodna.png" class="lhst_region_profile" alt="map region coat of arms" loading="lazy" />
+                    <div class="mt-3">
+                        <p @*id="selected_country_name"*@ class="mb-0">Avalonium</p>
+                        <p @*id="selected_land_name"*@ class="mb-0">Hrodna</p>
+                        <div class="row">
+                            <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left" title="Population" alt="" loading="lazy" />
+                            <p @*id="population"*@ class="float-left mt-2 mb-0 lhst_clr-wheat" title="Population">564</p>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <div class="float-right">
+                <button class="lhst_btn_dialog_cancel" onclick="hideModalPlayerDialog()">x</button>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="ml-2">
                 <div>
-                    <img @*id="avatar_selected_img"*@ class="lhst_avatar_profile_image" src="/img/avatars/1.webp" alt="" loading="lazy" />
-                    <p @*id="curlvl"*@ class="ml-1 mb-0" style="text-align: center">- - - - - [Lvl: 11] - - - - -</p>
-                    <progress class="lhst_progressbar" style="width: 150px" value="55" max="100"></progress>
+                    <p class="ml-2 mb-0">Player description</p>
+                    <p class="w-100 flex-wrap mb-2 font-weight-normal">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
-                <div class="mr-5 lhst_main_info_profile">
-                    <div class="ml-3">
-                        <p class="lhst_country_king_size mb-0">Konskiy Voin</p>
-                        <p class="lhst_chat_text mb-0">Status of player</p>
-                        <div class="row float-left">
-                            <p class="mb-0 mt-1">#3 (</p>
-                            <img class="lhst_profile_rating_img " src="~/img/rating-icons/exp.png" alt="" title="Experience" loading="lazy" />
-                            <p class="mb-0 mt-1">1 /</p>
-                            <img class="lhst_profile_rating_img " src="~/img/rating-icons/money.png" alt="" title="Money" loading="lazy" />
-                            <p class="mb-0 mt-1">1 /</p>
-                            <img class="lhst_profile_rating_img " src="~/img/rating-icons/power.png" alt="" title="War Power" loading="lazy" />
-                            <p class="mb-0 mt-1">1)</p>
-                        </div>
+                <div>
+                    <p class="ml-2 mb-0">Contact information</p>
+                    <div class="lhst_scale d-flex">
+                        <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/vk.png" loading="lazy" alt="vk" title="vk" />
+                        <p class="font-weight-normal mb-0 mt-1">https://vk.com/glandeil</p>
                     </div>
-                    <br />
-
-                    <div class="row">
-                        <img @*id="selected_land_coat_of_arms"*@ src="../img/map-regions-icons-middle-ages/Hrodna.png" class="lhst_region_profile" alt="map region coat of arms" loading="lazy" />
-                        <div class="mt-3">
-                            <p @*id="selected_country_name"*@ class="mb-0">Avalonium</p>
-                            <p @*id="selected_land_name"*@ class="mb-0">Hrodna</p>
-                            <div class="row">
-                                <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left" title="Population" alt="" loading="lazy" />
-                                <p @*id="population"*@ class="float-left mt-2 mb-0 lhst_clr-wheat" title="Population">564</p>
-                            </div>
-                        </div>
+                    <div class="lhst_scale d-flex">
+                        <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/telegram.png" loading="lazy" alt="telegram" title="telegram" />
+                        <p class="font-weight-normal mb-0 mt-1">#greendend</p>
                     </div>
-
-                    <br />    
-                </div>
-                <div class="float-right">
-                    <button class="lhst_btn_dialog_cancel" onclick="hidePlayerInfoDialog()">x</button>
-                </div>
-            </div>
-            <div class="d-flex">
-                <div class="ml-2 mt-2">
-                    <div>
-                        <p class="w-100 flex-wrap mb-2 font-weight-normal">This is a description of my profile. I am a scoof and i need some beer, pleeease.</p>
+                    <div class="lhst_scale d-flex">
+                        <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/discord.png" loading="lazy" alt="discord" title="discord" />
+                        <p class="font-weight-normal mb-0 mt-1">Adelium</p>
                     </div>
-                    <div>
-                        <div class="lhst_scale d-flex">
-                            <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/vk.png" loading="lazy" alt="vk" title="vk" />
-                            <p class="font-weight-normal">https://vk.com/glandeil</p>
-                        </div>
-                        <div class="lhst_scale d-flex">
-                            <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/telegram.png" loading="lazy" alt="telegram" title="telegram" />
-                            <p class="font-weight-normal">#greendend</p>
-                        </div>
-                        <div class="lhst_scale d-flex">
-                            <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/discord.png" loading="lazy" alt="discord" title="discord" />
-                            <p class="font-weight-normal">Adelium</p>
-                        </div>
-                        <div class="lhst_scale d-flex">
-                            <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/facebook.png" loading="lazy" alt="facebook" title="facebook" />
-                            <p class="font-weight-normal">SavelyNoLatun</p>
-                        </div>
+                    <div class="lhst_scale d-flex">
+                        <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/facebook.png" loading="lazy" alt="facebook" title="facebook" />
+                        <p class="font-weight-normal mb-0 mt-1">SavelyNoLatun</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-    </form>
+        </div>
+    </section>
 </div>

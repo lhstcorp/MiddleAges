@@ -10,16 +10,15 @@
             {
                 <div class="align-items-center text-left!important d-inline-flex ">
                     <div class="lhst_scale">
-                        <img class="lhst_country_history_img lhst_cursor_pointer" onclick="showPlayerInfoDialog()" id="country_history_img" height="32" src="~/img/avatars/@(Model[i].Player.ImageURL).webp" alt="" loading="lazy">
+                        <img class="lhst_country_history_img lhst_cursor_pointer m_playerBtn" height="32" src="~/img/avatars/@(Model[i].Player.ImageURL).webp" alt="" loading="lazy" data-playerid=@Model[i].PlayerId>
                     </div>
                     <div class="lhst_display_grid float-left">
-                        <p id="showPlayerInfo" onclick="showPlayerInfoDialog()" class="animation-text lhst_country_history_text text-left lhst_username_text lhst_cursor_pointer">@Model[i].Player.UserName</p>
+                        <p class="animation-text lhst_country_history_text text-left lhst_username_text lhst_cursor_pointer m_playerBtn" data-playerid=@Model[i].PlayerId>@Model[i].Player.UserName</p>
                         <p class="lhst_country_history_text text-left lhst_chat_text">@Model[i].MessageValue</p>
                     </div>
                     <time class="mr-2" datetime="T09:54">@Model[i].PublishingDateTime</time>
                 </div>
-                <div class="lhst_chat_line mb-1">
-                </div>
+                <div class="lhst_chat_line mb-1"></div>
             }
         </div>
         <div>
