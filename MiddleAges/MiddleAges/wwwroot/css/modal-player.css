@@ -60,3 +60,9 @@
 .lhst_dialog_profile::backdrop {
     background: rgba(0,0,0,0.5)
 }
+
+.lhst_dialog_profile_player_description {
+    width: 250px;
+    font-weight: lighter;
+    word-break: break-all;
+}

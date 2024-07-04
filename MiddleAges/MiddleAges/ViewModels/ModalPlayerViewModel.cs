@@ -14,6 +14,6 @@ namespace MiddleAges.ViewModels
         public Land ResidenceLand { get; set; }
         public Country ResidenceCountry { get; set; }
         public Unit Peasants { get; set; }
-
+        public string PlayerDescription { get; set; }
     }
 }
