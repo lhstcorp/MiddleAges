@@ -154,17 +154,46 @@ namespace MiddleAges.Controllers
                                 //.Select(combined => new { Player = combined.Player, Rating = combined.Rating, PlayerInformation = combined.PlayerInformation, Unit = combined.Unit, ResidenceLand = combined.ResidenceLand, ResidenceCountry = combined.ResidenceCountry, CurrentLand = combined.CurrentLand, CurrentCountry = combined.CurrentCountry }).FirstOrDefault();
                                 .Select(combined => new { Player = combined.Player, Rating = combined.Rating, PlayerInformation = combined.PlayerInformation, Unit = combined.Unit, ResidenceLand = combined.ResidenceLand, ResidenceCountry = combined.ResidenceCountry }).FirstOrDefault();
 
-            ModalPlayerViewModel modalPlayerViewModel = new ModalPlayerViewModel
+           ModalPlayerViewModel modalPlayerViewModel = new ModalPlayerViewModel
             {
                 Player = playerQuery.Player,
                 Rating = playerQuery.Rating,
                 PlayerInformation = playerQuery.PlayerInformation,                
                 ResidenceLand = playerQuery.ResidenceLand,
                 ResidenceCountry = playerQuery.ResidenceCountry,
-                Peasants = playerQuery.Unit
-            };
+                Peasants = playerQuery.Unit,
+                PlayerDescription = GeneratePlayerDescription(id, playerQuery.ResidenceCountry.Name, playerQuery.ResidenceLand.LandId)
+           };
 
             return Json(JsonSerializer.Serialize(modalPlayerViewModel));
+        }
+
+        private string GeneratePlayerDescription(string playerId, string residenceCountryName, string residenceLandId)
+        {
+            string playerDescription = "";
+
+            List<Country> playerCountriesAsKing = _context.Countries.Where(c => c.RulerId == playerId).ToList();
+                      
+            if (playerCountriesAsKing.Count > 0)
+            {
+                playerDescription = "";
+
+                foreach (Country c in playerCountriesAsKing)
+                {
+                    if (playerDescription.Length > 0)
+                    {
+                        playerDescription += ", ";
+                    }
+
+                    playerDescription += c.Name;
+                }
+
+                playerDescription = "The ruler of " + playerDescription;
+            }
+
+            playerDescription += ". Citizen of " + residenceCountryName + " (" + residenceLandId + ")";
+
+            return playerDescription;
         }
     }
 }

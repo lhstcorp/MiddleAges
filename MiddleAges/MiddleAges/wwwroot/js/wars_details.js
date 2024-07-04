@@ -124,7 +124,7 @@ function populateArmySideDiv(divName, armyList, currentPlayer) {
 
         if (armyList[i].Player.Id === currentPlayer.Id) {
             const disbandArmyImg = document.createElement("img");
-            disbandArmyImg.src = interfaceIconsUrl + 'red-diagonal-cross.png'
+            disbandArmyImg.src = interfaceIconsUrl + 'red-diagonal-cross.png';
             disbandArmyImg.height = 20;
             disbandArmyImg.loading = "lazy";
             disbandArmyImg.classList.add("lhst_country_history_img");
