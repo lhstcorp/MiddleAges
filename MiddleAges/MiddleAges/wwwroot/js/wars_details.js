@@ -1,6 +1,4 @@
 ﻿var warId;
-const coatOfArmsUrl = '../img/map-regions-icons-middle-ages/';
-const playerAvatarsUrl = '../img/avatars/';
 const interfaceIconsUrl = '../img/interface-icons/';
 const unexpectedErrorMessage = "Something went wrong";
 
@@ -112,14 +110,14 @@ function populateArmySideDiv(divName, armyList, currentPlayer) {
         playerImg.src = playerAvatarsUrl + armyList[i].Player.ImageURL + '.webp';
         playerImg.height = 32;
         playerImg.loading = "lazy";
-        playerImg.classList.add("lhst_country_history_img");
+        playerImg.classList.add("lhst_country_history_img", "lhst_cursor_pointer", "m_playerBtn");
+        playerImg.dataset.playerid = armyList[i].PlayerId;
         playerImg.title = armyList[i].Player.UserName;
         armyNode.appendChild(playerImg);
 
         const soldiersInArmy = document.createElement("p");
         soldiersInArmy.innerHTML = armyList[i].SoldiersCount;
-        soldiersInArmy.classList.add("lhst_country_info_region_value");
-        soldiersInArmy.classList.add("pl-1");
+        soldiersInArmy.classList.add("lhst_country_info_region_value", "pl-1");
         armyNode.appendChild(soldiersInArmy);
 
         if (armyList[i].Player.Id === currentPlayer.Id) {
@@ -127,10 +125,8 @@ function populateArmySideDiv(divName, armyList, currentPlayer) {
             disbandArmyImg.src = interfaceIconsUrl + 'red-diagonal-cross.png';
             disbandArmyImg.height = 20;
             disbandArmyImg.loading = "lazy";
-            disbandArmyImg.classList.add("lhst_country_history_img");
-            disbandArmyImg.classList.add("pl-1");
+            disbandArmyImg.classList.add("lhst_country_history_img", "lhst_cursor_pointer", "pl-1");
             disbandArmyImg.dataset.armyid = armyList[i].ArmyId;
-            disbandArmyImg.classList.add("lhst_cursor_pointer");
             disbandArmyImg.onclick = disbandPlayerArmy;
             armyNode.appendChild(disbandArmyImg);
         }

@@ -130,6 +130,13 @@ namespace MiddleAges.Models
             return averageArmyWarfare;
         }
 
+        public static long GetRequiredExpByLvl(long lvl)
+        {
+            long requiredExp = Convert.ToInt32(Math.Floor(Math.Pow(1.4, lvl)));
+
+            return requiredExp;
+        }
+
         public static string getRandomMapLandId()
         {
             List<string> landIds = new List<string>();

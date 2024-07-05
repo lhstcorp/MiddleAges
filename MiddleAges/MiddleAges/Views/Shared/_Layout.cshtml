@@ -127,7 +127,7 @@
             <div>
                 <img id="m_player_avatar" class="lhst_avatar_profile_image" alt="" loading="lazy" />
                 <p id="m_player_lvl" class="ml-1 mb-0" style="text-align: center">- - - - - [Lvl: 1] - - - - -</p>
-                <progress class="lhst_progressbar" style="width: 150px" value="55" max="100"></progress>
+                <progress id="m_player_lvl_progress_bar" class="lhst_progressbar" style="width: 150px" value="0" max="100"></progress>
             </div>
             <div class="lhst_main_info_profile">
                 <div class="ml-3">
@@ -167,24 +167,9 @@
                     <p class="ml-2 mb-0">Player notes</p>
                     <p id="m_player_notes" class="w-100 flex-wrap mb-2 font-weight-normal">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                 </div>
-                <div id="m_player_contact_information_div">
+                <div>
                     <p class="ml-2 mb-0">Contact information</p>
-                    @*<div class="lhst_scale d-flex">
-                        <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/vk.png" loading="lazy" alt="vk" title="vk" />
-                        <p class="font-weight-normal mb-0 mt-1">https://vk.com/glandeil</p>
-                    </div>*@
-                    <div class="lhst_scale d-flex">
-                        <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/telegram.png" loading="lazy" alt="telegram" title="telegram" />
-                        <p class="font-weight-normal mb-0 mt-1">#greendend</p>
-                    </div>
-                    <div class="lhst_scale d-flex">
-                        <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/discord.png" loading="lazy" alt="discord" title="discord" />
-                        <p class="font-weight-normal mb-0 mt-1">Adelium</p>
-                    </div>
-                    <div class="lhst_scale d-flex">
-                        <img class="align-self-center mr-3 lhst_share_img" src="~/img/interface-icons/facebook.png" loading="lazy" alt="facebook" title="facebook" />
-                        <p class="font-weight-normal mb-0 mt-1">SavelyNoLatun</p>
-                    </div>
+                    <div id="m_player_contact_information_div"></div>
                 </div>
             </div>
         </div>
