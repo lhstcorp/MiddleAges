@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Models;
+using MiddleAges.ViewModels;
 using System;
 using System.Diagnostics;
 using System.Linq;
@@ -28,23 +30,39 @@ namespace MiddleAges.Controllers
         public async Task<IActionResult> Index()
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
-            return View("Settings", player);
+            PlayerInformation playerInformation = await _context.PlayerInformations.FirstOrDefaultAsync(pi => pi.PlayerId == player.Id);
+
+            SettingsViewModel settingsViewModel = new SettingsViewModel();
+            settingsViewModel.Player = player;
+            settingsViewModel.PlayerInformation = playerInformation;
+
+            return View("Settings", settingsViewModel);
         }
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+
         public async Task<JsonResult> UpdateAvatar(string selectedImageId)
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             player.ImageURL = Regex.Match(selectedImageId, @"\d+").Value; ;
             _context.Update(player);
             await _context.SaveChangesAsync();
+            return Json("OK");
+        }
+
+        public async Task<JsonResult> UpdateContactInformation(string vk, string tg, string ds, string fb, string description)
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+
+            PlayerInformation playerInformation = await _context.PlayerInformations.FirstOrDefaultAsync(pi => pi.PlayerId == player.Id);
+
+            playerInformation.Vk = vk;
+            playerInformation.Telegram = tg;
+            playerInformation.Discord = ds;
+            playerInformation.Facebook = fb;
+            playerInformation.Description = description;
+            _context.Update(playerInformation);
+
+            await _context.SaveChangesAsync();
+
             return Json("OK");
         }
     }

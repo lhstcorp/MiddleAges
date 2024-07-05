@@ -32,10 +32,10 @@
     border-radius: 3px
 }
 
-    .lhst_dialog_rename_input:hover {
-        color: #f5deb3;
-        background: radial-gradient(#2d9062,black)
-    }
+.lhst_dialog_rename_input:hover {
+    color: #f5deb3;
+    background: radial-gradient(#2d9062,black)
+}
 
 .lhst_dialog_select_input {
     width: 150px;
@@ -73,7 +73,7 @@
 .lhst_dialog_wars {
     left: 0;
     right: 0;
-    margin: 40vh auto;
+    margin: 20vh auto;
     border: solid;
     padding: 1em;
     background: #232323;
@@ -92,30 +92,6 @@
     /*  height: auto !important*/
 }
 
-    .lhst_dialog_wars::backdrop {
-        background: rgba(0,0,0,0.5)
-    }
-
-.lhst_dialog_profile {
-    left: 0;
-    right: 0;
-    margin: 40vh auto;
-    border: solid;
-    padding: 1em;
-    background: #232323;
-    color: #f5deb3;
-    width: 600px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    border-radius: 5px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    overflow: hidden;
-    outline: 0;
-    height: auto !important
+.lhst_dialog_wars::backdrop {
+    background: rgba(0,0,0,0.5)
 }
-
-    .lhst_dialog_profile::backdrop {
-        background: rgba(0,0,0,0.5)
-    }

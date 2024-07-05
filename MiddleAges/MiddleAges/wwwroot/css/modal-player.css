@@ -34,5 +34,35 @@
 
 .lhst_region_profile {
     display: inline-block;
-    height: 150px
+    height: 130px
+}
+
+.lhst_dialog_profile {
+    left: 0;
+    right: 0;
+    margin: 20vh auto;
+    border: solid;
+    padding: 1em;
+    background: #232323;
+    color: #f5deb3;
+    width: 500px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1051;
+    overflow: hidden;
+    outline: 0;
+    height: auto !important
+}
+
+.lhst_dialog_profile::backdrop {
+    background: rgba(0,0,0,0.5)
+}
+
+.lhst_dialog_profile_player_description {
+    width: 250px;
+    font-weight: lighter;
+    word-break: break-all;
 }

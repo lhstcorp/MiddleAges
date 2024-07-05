@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
 using MiddleAges.ViewModels;
+using MiddleAges.Enums;
 
 namespace MiddleAges.Controllers
 {
@@ -115,6 +116,87 @@ namespace MiddleAges.Controllers
             }
 
             return Json(JsonSerializer.Serialize(result));
+        }
+
+        public JsonResult GetPlayerById(string id)
+        {
+            var playerQuery = _context.Players
+                                .Where(p => p.Id == id)
+                                .Join(_context.Ratings,
+                                        p => p.Id,
+                                        r => r.PlayerId,
+                                        (p, r) => new { Player = p, Rating = r })
+                                .Join(_context.PlayerInformations,
+                                        combined => combined.Player.Id,
+                                        pi => pi.PlayerId,
+                                        (combined, pi) => new { combined.Player, combined.Rating, PlayerInformation = pi })
+                                .Join(_context.Units,
+                                        combined => combined.Player.Id,
+                                        u => u.PlayerId,
+                                        (combined, u) => new { combined.Player, combined.Rating, combined.PlayerInformation, Unit = u })
+                                .Where(combined => combined.Unit.Type == (int)UnitType.Peasant)
+                                .Join(_context.Lands,
+                                        combined => combined.Player.ResidenceLand,
+                                        l => l.LandId,
+                                        (combined, l) => new { combined.Player, combined.Rating, combined.PlayerInformation, combined.Unit, ResidenceLand = l })
+                                .Join(_context.Countries,
+                                        combined => combined.ResidenceLand.CountryId,
+                                        l => l.CountryId,
+                                        (combined, c) => new { combined.Player, combined.Rating, combined.PlayerInformation, combined.Unit, combined.ResidenceLand, ResidenceCountry = c })
+                                //.Join(_context.Lands,
+                                //        combined => combined.Player.CurrentLand,
+                                //        l => l.LandId,
+                                //        (combined, l) => new { combined.Player, combined.Rating, combined.PlayerInformation, combined.Unit, combined.ResidenceLand, combined.ResidenceCountry, CurrentLand = l })
+                                //.Join(_context.Countries,
+                                //        combined => combined.CurrentLand.CountryId,
+                                //        l => l.CountryId,
+                                //        (combined, c) => new { combined.Player, combined.Rating, combined.PlayerInformation, combined.Unit, combined.ResidenceLand, combined.ResidenceCountry, combined.CurrentLand, CurrentCountry = c })
+                                //.Select(combined => new { Player = combined.Player, Rating = combined.Rating, PlayerInformation = combined.PlayerInformation, Unit = combined.Unit, ResidenceLand = combined.ResidenceLand, ResidenceCountry = combined.ResidenceCountry, CurrentLand = combined.CurrentLand, CurrentCountry = combined.CurrentCountry }).FirstOrDefault();
+                                .Select(combined => new { Player = combined.Player, Rating = combined.Rating, PlayerInformation = combined.PlayerInformation, Unit = combined.Unit, ResidenceLand = combined.ResidenceLand, ResidenceCountry = combined.ResidenceCountry }).FirstOrDefault();
+
+            ModalPlayerViewModel modalPlayerViewModel = new ModalPlayerViewModel
+            {
+                Player = playerQuery.Player,
+                Rating = playerQuery.Rating,
+                PlayerInformation = playerQuery.PlayerInformation,                
+                ResidenceLand = playerQuery.ResidenceLand,
+                ResidenceCountry = playerQuery.ResidenceCountry,
+                Peasants = playerQuery.Unit,
+                PlayerDescription = GeneratePlayerDescription(id, playerQuery.ResidenceCountry.Name, playerQuery.ResidenceLand.LandId),
+                LvlProgressBarValue = playerQuery.Player.Exp - CommonLogic.GetRequiredExpByLvl(playerQuery.Player.Lvl),
+                LvlProgressBarMaxValue = CommonLogic.GetRequiredExpByLvl(playerQuery.Player.Lvl + 1) - CommonLogic.GetRequiredExpByLvl(playerQuery.Player.Lvl),
+                NextLvlRequiredExp = CommonLogic.GetRequiredExpByLvl(playerQuery.Player.Lvl + 1)
+            };
+
+            return Json(JsonSerializer.Serialize(modalPlayerViewModel));
+        }
+
+        private string GeneratePlayerDescription(string playerId, string residenceCountryName, string residenceLandId)
+        {
+            string playerDescription = "";
+
+            List<Country> playerCountriesAsKing = _context.Countries.Where(c => c.RulerId == playerId).ToList();
+                      
+            if (playerCountriesAsKing.Count > 0)
+            {
+                playerDescription = "";
+
+                foreach (Country c in playerCountriesAsKing)
+                {
+                    if (playerDescription.Length > 0)
+                    {
+                        playerDescription += ", ";
+                    }
+
+                    playerDescription += c.Name;
+                }
+
+                playerDescription = "The ruler of " + playerDescription;
+            }
+
+            playerDescription += ". Citizen of " + residenceCountryName + " (" + residenceLandId + ")";
+
+            return playerDescription;
         }
     }
 }
