@@ -15,5 +15,8 @@ namespace MiddleAges.ViewModels
         public Country ResidenceCountry { get; set; }
         public Unit Peasants { get; set; }
         public string PlayerDescription { get; set; }
+        public long LvlProgressBarValue { get; set; }
+        public long LvlProgressBarMaxValue { get; set; }
+        public long NextLvlRequiredExp { get; set; }
     }
 }

@@ -6,7 +6,7 @@
     </div>   
     <div class="lhst_person-nav-container-inline lhst_person-data-div-align">
         <div class="lhst_person-div-overview-data mb-1 lhst_overview-player-name">
-            <h2>@Model.Player.UserName</h2>
+            <h2 class="m_playerBtn lhst_cursor_pointer" data-playerid=@Model.Player.Id>@Model.Player.UserName</h2>
         </div>
         <div class="row">
             <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt="" />
@@ -22,8 +22,7 @@
         </div>
        
         <div class="row lhst_progressbar_div mt-1">
-            <progress class="lhst_progressbar" value="@Model.Player.Exp" max="@Convert.ToInt32(Math.Floor(Math.Pow(1.4, (Model.Player.Lvl+1))))" title="@(Model.Player.Exp) / @Convert.ToInt32(Math.Floor(Math.Pow(1.4, (Model.Player.Lvl+1))))">
-            </progress>
+            <progress class="lhst_progressbar" value="@(Model.Player.Exp - @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" max="@(CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1) - CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" title="@(Model.Player.Exp) / @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1)"></progress>
         </div>
     </div>    
    

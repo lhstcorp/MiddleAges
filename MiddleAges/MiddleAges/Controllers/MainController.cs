@@ -154,7 +154,7 @@ namespace MiddleAges.Controllers
                                 //.Select(combined => new { Player = combined.Player, Rating = combined.Rating, PlayerInformation = combined.PlayerInformation, Unit = combined.Unit, ResidenceLand = combined.ResidenceLand, ResidenceCountry = combined.ResidenceCountry, CurrentLand = combined.CurrentLand, CurrentCountry = combined.CurrentCountry }).FirstOrDefault();
                                 .Select(combined => new { Player = combined.Player, Rating = combined.Rating, PlayerInformation = combined.PlayerInformation, Unit = combined.Unit, ResidenceLand = combined.ResidenceLand, ResidenceCountry = combined.ResidenceCountry }).FirstOrDefault();
 
-           ModalPlayerViewModel modalPlayerViewModel = new ModalPlayerViewModel
+            ModalPlayerViewModel modalPlayerViewModel = new ModalPlayerViewModel
             {
                 Player = playerQuery.Player,
                 Rating = playerQuery.Rating,
@@ -162,8 +162,11 @@ namespace MiddleAges.Controllers
                 ResidenceLand = playerQuery.ResidenceLand,
                 ResidenceCountry = playerQuery.ResidenceCountry,
                 Peasants = playerQuery.Unit,
-                PlayerDescription = GeneratePlayerDescription(id, playerQuery.ResidenceCountry.Name, playerQuery.ResidenceLand.LandId)
-           };
+                PlayerDescription = GeneratePlayerDescription(id, playerQuery.ResidenceCountry.Name, playerQuery.ResidenceLand.LandId),
+                LvlProgressBarValue = playerQuery.Player.Exp - CommonLogic.GetRequiredExpByLvl(playerQuery.Player.Lvl),
+                LvlProgressBarMaxValue = CommonLogic.GetRequiredExpByLvl(playerQuery.Player.Lvl + 1) - CommonLogic.GetRequiredExpByLvl(playerQuery.Player.Lvl),
+                NextLvlRequiredExp = CommonLogic.GetRequiredExpByLvl(playerQuery.Player.Lvl + 1)
+            };
 
             return Json(JsonSerializer.Serialize(modalPlayerViewModel));
         }
