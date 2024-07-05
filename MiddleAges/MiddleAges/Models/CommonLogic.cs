@@ -283,7 +283,7 @@ namespace MiddleAges.Models
             landIds.Add("Tsyomkino");
             landIds.Add("Novodugino");
             landIds.Add("Sychyovka");
-            landIds.Add("Gagarin");
+            landIds.Add("Gzhatsk");
             Random randNum = new Random();
             int aRandomPos = randNum.Next(landIds.Count);
             return landIds[aRandomPos];

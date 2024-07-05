@@ -175,3 +175,100 @@
         </div>
     </section>
 </div>
+
+@*War modal*@
+<div class="lhst_dialog_wars modal lhst_slider_small_screen" id="warsDetails">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideDetailsWar()">x</button>
+    </div>
+
+    <div class="row p-0">
+        <div class="col-2 p-0">
+            <img id="imgFrom" class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/Hrodna.png" alt="">
+        </div>
+        <div class="col-2 p-0">
+            <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
+            <p id="landFromName" class="lhst_wars_lands_text ">LandFrom</p>
+            <div>
+                <img class="float-left" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" title="Army strength" alt="">
+                <p id="attackersArmyStrength" class="float-left mt-2 mb-0">0%</p>
+            </div>
+        </div>
+        <div class="col-4 p-0">
+            <div class="row p-0">
+                <div class="col-4 p-0 text-right">
+                    <p id="soldiersCountLeft" class="text-right lhst_country_info_region_value" title="Attackers Soldiers">937</p>
+                </div>
+                <div class="col-2 p-0">
+                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="">
+                </div>
+                <div class="col-2 p-0">
+                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="">
+                </div>
+                <div class="col-4 p-0">
+                    <p id="soldiersCountRight" class="lhst_country_info_region_value" title="Defenders Soldiers">647</p>
+                </div>
+            </div>
+            <div class="row p-0">
+                <div class="col-4 p-0 text-right">
+                    <p id="armiesCountLeft" class="text-right lhst_country_info_region_value" title="Attackers Lords">0</p>
+                </div>
+                <div class="col-2 p-0">
+                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="">
+                </div>
+                <div class="col-2 p-0">
+                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="">
+                </div>
+                <div class="col-4 p-0 ">
+                    <p id="armiesCountRight" class="lhst_country_info_region_value" title="Defenders Lords">12</p>
+                </div>
+            </div>
+            <div class="row p-0">
+                <div class="col-3 p-0">
+                    <input id="soldiersCountLeftValue" name="unitsAmountLeftCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                </div>
+                <div class="col-3 p-0 text-right">
+                    <input type="submit" class="lhst_btn_war_modal" onclick="sendTroopsLeftSide()" value="Send" />
+                </div>
+                <div class="col-3 p-0">
+                    <input type="submit" class="lhst_btn_war_modal" onclick="sendTroopsRightSide()" value="Send" />
+                </div>
+                <div class="col-3 p-0">
+                    <input id="soldiersCountRightValue" name="unitsAmountRightCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                </div>
+            </div>
+        </div>
+
+        <div class="col-2 p-0 text-right">
+            <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
+            <p id="landToName" class="lhst_wars_lands_text ">LandTo</p>
+            <div>
+                <img class="float-right" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" title="Army strength" alt="">
+                <p id="defendersArmyStrength" class="float-right mt-2 mb-0">0%</p>
+            </div>
+        </div>
+
+        <div class="col-2 p-0 float-right">
+            <img id="imgTo" class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/Lahoisk.png" alt="">
+        </div>
+
+
+    </div>
+    <div class="row p-0 overflow-auto">
+        <div id="attackersDiv" class="col-6 p0 pt-3 lhst_slider">
+            @for (int i = 0; i < 50; i++)
+            {
+                <img class="lhst_country_history_img" height="32" src="~/img/avatars/1.webp" alt="" loading="lazy">
+                <p class="lhst_country_info_region_value">96537</p>
+
+            }
+        </div>
+        <div id="defendersDiv" class="col-6 p0 pt-3 lhst_slider">
+            @for (int i = 0; i < 50; i++)
+            {
+                <img class="lhst_country_history_img" height="32" src="~/img/avatars/1.webp" alt="" loading="lazy">
+                <p class="lhst_country_info_region_value">54937</p>
+            }
+        </div>
+    </div>
+</div>

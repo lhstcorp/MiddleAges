@@ -28,7 +28,7 @@
             <div class="col lhst_map_region_icon_left_bar_col">
                 <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
             </div>
-            <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
+            <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">
                 <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
                 <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name">@Model.Land.LandId</p>
             </div>
@@ -43,7 +43,11 @@
                 <p id="lordsCount" class="lhst_cursor_pointer lhst_clr-wheat float-left mt-2 mb-0" title="Lords" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
             </div>
         </div>
-        
+
+        <div>
+            <p id="map_border_with" class="ml-2 mb-0 mt-2 mr-2 lhst_clr-wheat" style="font-weight: 400">Has borders with: @Model.BorderWith</p>
+        </div>
+
         <div>
             <p class="lhst_clr-wheat mt-3 mb-0 ml-2">Actions</p>
             <div class="lhst_line mb-1"></div>
@@ -54,7 +58,7 @@
             <button id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') onclick="startAnUprising()">
                 <p class="w-100 flex-wrap mb-1 font-weight-normal">Start an uprising (<img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -300</span>)</p>
             </button>
-          @*   <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" /> *@
+            @*   <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" /> *@
         </div>
     </div>
     <div class="lhst_map-container lhst_vertical-alignment-top lhst_main-section" id="belarus-map">
@@ -216,7 +220,7 @@
                     <polygon id="Tsyomkino" class="map_land" points="667.248 91.751, 659.649 91.665, 661.150 100.494, 659.384 105.717, 657.078 107.045, 657.154 111.364, 653.372 111.078, 652.936 113.857, 653.731 113.931, 653.745 113.893, 657.882 116.335, 658.165 124.307, 661.555 125.827, 662.134 124.631, 664.966 124.106, 666.577 124.647, 665.422 125.823, 665.991 126.626, 669.480 125.290, 670.237 129.448, 672.193 131.345, 674.226 130.638, 673.608 129.400, 681.209 123.125, 680.325 119.678, 682.004 117.114, 683.242 117.822, 689.694 110.132, 690.048 104.033, 693.141 102.265, 693.053 98.641, 691.374 98.288, 690.843 96.785, 692.346 96.697, 692.876 94.752, 688.634 89.979, 684.037 92.189, 682.004 92.631, 681.651 94.399, 677.408 95.106, 675.729 94.045, 670.426 95.106, 670.956 91.747"></polygon>
                     <polygon id="Novodugino" class="map_land" points="653.382 72.863, 643.552 70.113, 641.740 78.937, 635.623 79.549, 634.743 82.055, 630.381 82.612, 627.958 78.346, 617.376 78.740, 614.611 81.961, 611.089 81.229, 610.698 79.502, 611.513 79.137, 612.254 76.514, 613.259 76.071, 614.454 72.556, 613.058 71.928, 612.370 72.609, 609.368 70.987, 606.510 67.747, 607.329 64.419, 602.555 63.799, 599.538 65.617, 598.710 61.742, 600.220 60.904, 597.294 58.771, 597.295 56.823, 596.350 56.863, 596.217 58.726, 592.886 57.801, 594.698 55.150, 590.925 53.738, 591.298 52.242, 589.787 52.275, 589.634 49.655, 599.096 44.990, 610.322 42.868, 620.928 52.238, 621.547 55.508, 628.353 55.331, 629.325 57.276, 635.777 57.099, 636.926 55.154, 642.848 54.889, 645.235 57.718, 648.594 54.182, 654.339 50.558, 655.930 51.265, 660.173 57.541, 657.698 60.988, 654.251 61.342, 655.311 69.208"></polygon>
                     <polygon id="Sychyovka" class="map_land" points="652.893 51.469, 648.584 54.176, 645.238 57.699, 642.846 54.864, 636.927 55.143, 635.775 57.087, 629.325 57.261, 628.352 55.316, 621.554 55.500, 620.934 52.219, 610.320 42.852, 599.081 44.973, 594.398 47.293, 594.402 44.020, 596.188 44.000, 596.563 40.625, 600.375 40.969, 601.836 33.322, 600.422 33.057, 599.980 29.964, 605.814 30.494, 608.023 32.792, 610.233 29.964, 608.731 25.014, 612.443 25.191, 612.531 20.860, 616.155 20.418, 624.640 23.688, 628.264 20.241, 631.446 21.302, 636.484 26.428, 637.634 26.958, 640.020 24.042, 642.407 27.312, 648.152 30.582, 649.478 33.057, 650.273 35.709, 648.329 36.239, 649.831 38.891, 652.129 38.979, 651.069 42.780, 652.483 43.841, 651.245 47.641"></polygon>
-                    <polygon id="Gagarin" class="map_land" points="688.636 89.956, 684.033 92.174, 681.996 92.617, 681.641 94.391, 677.395 95.098, 675.727 94.027, 670.438 95.094, 670.973 91.734, 667.258 91.738, 670.000 88.656, 665.926 78.117, 655.121 76.859, 652.309 81.176, 650.758 80.367, 653.379 72.879, 655.324 69.207, 654.258 61.348, 657.711 60.996, 660.184 57.543, 655.937 51.258, 654.344 50.543, 652.895 51.453, 651.258 47.648, 652.500 43.836, 651.078 42.777, 652.145 38.969, 649.828 38.883, 648.347 36.251, 650.281 35.715, 649.930 34.521, 649.480 33.051, 653.250 31.750, 653.875 34.625, 657.625 33.625, 657.250 32.125, 660.250 28.625, 678.125 27.250, 685.500 33.500, 690.250 45.750, 692.625 45.625, 693.500 51.000, 691.250 51.000, 692.500 57.500, 696.000 64.625, 691.000 66.375, 691.000 69.125, 693.125 70.750, 692.250 76.125, 690.250 76.125, 692.750 80.500, 690.250 84.375"></polygon>
+                    <polygon id="Gzhatsk" class="map_land" points="688.636 89.956, 684.033 92.174, 681.996 92.617, 681.641 94.391, 677.395 95.098, 675.727 94.027, 670.438 95.094, 670.973 91.734, 667.258 91.738, 670.000 88.656, 665.926 78.117, 655.121 76.859, 652.309 81.176, 650.758 80.367, 653.379 72.879, 655.324 69.207, 654.258 61.348, 657.711 60.996, 660.184 57.543, 655.937 51.258, 654.344 50.543, 652.895 51.453, 651.258 47.648, 652.500 43.836, 651.078 42.777, 652.145 38.969, 649.828 38.883, 648.347 36.251, 650.281 35.715, 649.930 34.521, 649.480 33.051, 653.250 31.750, 653.875 34.625, 657.625 33.625, 657.250 32.125, 660.250 28.625, 678.125 27.250, 685.500 33.500, 690.250 45.750, 692.625 45.625, 693.500 51.000, 691.250 51.000, 692.500 57.500, 696.000 64.625, 691.000 66.375, 691.000 69.125, 693.125 70.750, 692.250 76.125, 690.250 76.125, 692.750 80.500, 690.250 84.375"></polygon>
 
                 </g>
             </g>
@@ -228,6 +232,7 @@
     <script src="~/js/country_page_actions.js"></script>
     <script src="~/js/fetch_region_data_by_map_click.js"></script>
     <script src="~/js/fetch_map_data_on_init.js"></script>
+    <script src="~/js/wars_details.js"></script>
 </div>
 
 <div class="lhst_dialog modal" id="residentsCountryDialog">
