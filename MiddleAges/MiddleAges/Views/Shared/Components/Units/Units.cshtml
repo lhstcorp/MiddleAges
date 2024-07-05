@@ -4,49 +4,52 @@
 @using MiddleAges.Enums;
 @using MiddleAges.Models;
 
-<p class="lhst_possessions_titles">Units
-    <img src="../img/default-icon/farmer.png" width="20" height="20" class="mr-2 lhst_ml-65" alt="" />
-    Recruits: @Model.Player.RecruitAmount
-</p>
-@for (int i = 0; i < Model.Units.Count(); i++)
-{
-    <div class="lhst_building_ext_card lhst_inline image-parlax">
-        <div class="image-container">
-            <div class="lhst_main_data_image myImg front-side" width="117" height="117" style="background-image: url(../img/units/@(Model.Units[i].Type).png)"></div>
-            <div class="back-side">
-                    <div class="lhst_inline inner">
-                        <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt=""/>
-                        <p>Price: @CommonLogic.getUnitPrice(Model.Units[i].Type)</p>
-                    </div>
-            </div>
-        </div>
-        @{
-            var unitName = CommonLogic.getUnitNameByType(Model.Units[i].Type);
-            int unitLimit = CommonLogic.GetUnitLimit(Model.Buildings[i].Lvl);
-            int limitLeft = unitLimit - Model.Units[i].Count;
-            int maxAvailable = limitLeft > Model.Player.RecruitAmount ? Model.Player.RecruitAmount : limitLeft;
-        }
-        <div >
-            <div>
-                <p class="lhst_card_properties">@unitName</p>
-                <p class="lhst_card_properties">Count: @(Model.Units[i].Count)/@(unitLimit)</p>
-            </div>
-            <div>
-                
-                <form asp-controller="Unit" asp-action="Recruit" asp-route-unitId="@Model.Units[i].UnitId" >
-                    <input name="count" id="count" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@maxAvailable" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                    <input type="submit" class="lhst_btn_unit_recruit" value="Recruit" />
-                </form>
 
-                <form asp-controller="Unit" asp-action="Dismiss" asp-route-unitId="@Model.Units[i].UnitId">
-                    <input name="dismissedCount" id="dismissedCount" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@Model.Units[i].Count" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                    <datalist id="values">
-                        <option value=@Model.Units[i].Count />
-                    </datalist>
-                    <input type="submit" class="lhst_btn_unit_recruit" value="Dismiss" />
-                </form>
+<div id="units-component">
+    <div class="d-flex">
+        <p class="lhst_possessions_titles lhst_unitRecruit_width">Units</p>
+        <p class="lhst_possessions_titles lhst_unitRecruit_width">Recruits: @Model.Player.RecruitAmount</p>
+    </div>
+    @for (int i = 0; i < Model.Units.Count(); i++)
+    {
+        <div class="lhst_building_ext_card lhst_inline image-parlax">
+            <div class="image-container">
+                <div class="lhst_main_data_image myImg front-side" width="117" height="117" style="background-image: url(../img/units/@(Model.Units[i].Type).png)"></div>
+                <div class="back-side">
+                        <div class="lhst_inline inner">
+                            <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt=""/>
+                            <p>Price: @CommonLogic.getUnitPrice(Model.Units[i].Type)</p>
+                        </div>
+                </div>
+            </div>
+            @{
+                var unitName = CommonLogic.getUnitNameByType(Model.Units[i].Type);
+                int unitLimit = CommonLogic.GetUnitLimit(Model.Buildings[i].Lvl);
+                int limitLeft = unitLimit - Model.Units[i].Count;
+                int maxAvailable = limitLeft > Model.Player.RecruitAmount ? Model.Player.RecruitAmount : limitLeft;
+            }
+            <div >
+                <div>
+                    <p class="lhst_card_properties">@unitName</p>
+                    <p class="lhst_card_properties">Count: @(Model.Units[i].Count)/@(unitLimit)</p>
+                </div>
+                <div>
+                
+                    <form asp-controller="Unit" asp-action="Recruit" asp-route-unitId="@Model.Units[i].UnitId" >
+                        <input name="count" id="count" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@maxAvailable" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                        <input type="submit" class="lhst_btn_unit_recruit" value="Recruit" />
+                    </form>
+
+                    <form asp-controller="Unit" asp-action="Dismiss" asp-route-unitId="@Model.Units[i].UnitId">
+                        <input name="dismissedCount" id="dismissedCount" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@Model.Units[i].Count" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                        <datalist id="values">
+                            <option value=@Model.Units[i].Count />
+                        </datalist>
+                        <input type="submit" class="lhst_btn_unit_recruit" value="Dismiss" />
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
-}
+    }
+</div>
 
