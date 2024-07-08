@@ -687,3 +687,27 @@ lhst_marquee {
     border-radius: 5px;
 }
 
+.lhst_unitRecruit_width{
+    width:130px;
+}
+
+.lhst_event_btn {
+    width: 80px;
+    height: 80px;
+    padding: 5px;
+    border-style: solid;
+    border-radius: 16px;
+    border-width: 1px;
+    border-color: black;
+    color: #f5deb3;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    margin: 2px;
+    font-size: 14px;
+    line-height: 1;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/avatars/5.webp);
+    background-size: 100%
+}
+

@@ -62,8 +62,8 @@
 
             </div>
         </div>
-
-        <div class="float-left">
+       
+        <div class="float-left mb-2">
             <div class="d-flex">
                 <p class="lhst_possessions_titles">Attributes</p>
                 <p id="availAttrPointsMainSection" class="lhst_possessions_titles">(@CommonLogic.GetAvailAttrPoints(Model.Player.Lvl, Model.PlayerAttribute) <img class="lhst_attr_coin_img" src="~/img/attributes/attrPoint.png" alt="" />)</p>
@@ -99,7 +99,14 @@
                     <p id="Leadership" class="p-0 lhst_attr_value font-weight-bolder mb-0 mt-2 mr-2">@Model.PlayerAttribute.Leadership</p>
                     <input class="attrBtn p-0 lhst_btn_building_lvlup mt-1 mb-0" type="submit" value="+" data-attributename="Leadership" />
                 </div>
+            </div>
+        </div>
 
+        <div>
+            <p class="lhst_possessions_titles">Local Events</p>
+            <div class="lhst_scale d-flex">
+                <button class="header-menu lhst_shadow_text lhst_event_btn"></button>
+                <button class="header-menu lhst_shadow_text lhst_event_btn"></button>
             </div>
         </div>
     </div>
