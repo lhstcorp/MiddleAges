@@ -1,0 +1,48 @@
+﻿.lhst_event_btn {
+    width: 121px;
+    height: 90px;
+    padding: 5px;
+    border-style: solid;
+    border-radius: 6px;
+    border-width: 1px;
+    border-color: black;
+    color: #f5deb3;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    margin: 2px;
+    font-size: 14px;
+    line-height: 1;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: center;
+    background-image: url(../img/avatars/5.webp);
+    background-size: 100%
+}
+
+.lhst_m_local_events_dialog {
+    left: 0;
+    right: 0;
+    margin: 20vh auto;
+    border: solid;
+    padding: 1em;
+    background: #232323;
+    color: #f5deb3;
+    width: 500px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1051;
+    overflow: hidden;
+    outline: 0;
+    height: auto !important
+}
+
+.lhst_m_local_events_title {
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+}
+
+.lhst_m_local_events_title_img {
+    width: 465px;
+    height: 200px;
+}

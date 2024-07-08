@@ -14,6 +14,7 @@ function showModalPlayerDialog() {
 
     $('#m_player_dialog').modal('show');
 }
+
 function hideModalPlayerDialog() {
     $('#m_player_dialog').modal('hide');
 }
