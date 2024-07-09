@@ -43,6 +43,7 @@ namespace MiddleAges.Controllers
             mapSelectedLandViewModel.Country = player.Land.Country;
             mapSelectedLandViewModel.Population = await GetLandPopulation(player.CurrentLand);
             mapSelectedLandViewModel.LordsCount = await GetLandLordsCount(player.CurrentLand);
+            mapSelectedLandViewModel.BorderWith = GetLandBorderWith(player.CurrentLand);
 
             return View("Map", mapSelectedLandViewModel);
         }
@@ -60,7 +61,7 @@ namespace MiddleAges.Controllers
 
         public JsonResult GetLandDataById(string id)
         {
-            Land land = _context.Lands.Include(c => c.Country).FirstOrDefault(l => l.LandId == id);
+            Land land = _context.Lands.Include(c => c.Country).FirstOrDefault(l => l.LandId == id);            
 
             if (land == null)
             {
@@ -73,6 +74,10 @@ namespace MiddleAges.Controllers
             mapSelectedLandViewModel.Country = land.Country;
             mapSelectedLandViewModel.Population = GetLandPopulation(land.LandId).Result;
             mapSelectedLandViewModel.LordsCount = GetLandLordsCount(land.LandId).Result;
+
+            
+
+            mapSelectedLandViewModel.BorderWith = GetLandBorderWith(land.LandId);
 
             return Json(JsonSerializer.Serialize(mapSelectedLandViewModel));
         }
@@ -217,6 +222,25 @@ namespace MiddleAges.Controllers
             }
 
             return Json(JsonSerializer.Serialize(result));
+        }
+
+        private string GetLandBorderWith(string landId)
+        {
+            List<BorderLand> borderLands = _context.BorderLands.Where(bl => bl.LandId == landId).ToList();
+
+            string borderLandsStr = "";
+
+            for (int i = 0; i < borderLands.Count; i++)
+            {
+                if (borderLandsStr.Length > 0)
+                {
+                    borderLandsStr += ", ";
+                }
+
+                borderLandsStr += borderLands[i].BorderLandId;
+            }
+
+            return borderLandsStr;
         }
     }
 }

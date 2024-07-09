@@ -98,7 +98,10 @@ function drawWarIcon(war, landFrom, landTo) {
     else {
         warImg.setAttribute('href', '../img/interface-icons/map-icons/flame.svg');
     }
-    
+
+    warImg.dataset.warid = war.warId;
+    warImg.classList.add("lhst_cursor_pointer", "warDetailsBtn");
+
     warSvg.appendChild(warImg);
 
     map.appendChild(warSvg);

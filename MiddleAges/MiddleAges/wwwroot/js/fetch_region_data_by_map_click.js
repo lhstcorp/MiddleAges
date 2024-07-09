@@ -31,6 +31,7 @@ function fillLandSideBar(id) {
             $('#selected_land_name').text(obj.Land.LandId.replace('_', ' '));
             $('#population').text(obj.Population);
             $('#lordsCount').text(obj.LordsCount);
+            $('#map_border_with').text('Has borders with: ' + obj.BorderWith);
 
             let url = '../img/map-regions-icons-middle-ages/';
             $('#selected_land_coat_of_arms').attr('src', url + obj.Land.LandId + '.png');

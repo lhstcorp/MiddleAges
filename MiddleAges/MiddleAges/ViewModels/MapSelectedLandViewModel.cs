@@ -13,5 +13,6 @@ namespace MiddleAges.ViewModels
         public Country Country { get; set; }
         public int Population { get; set; }
         public int LordsCount { get; set; }
+        public string BorderWith { get; set; }
     }
 }

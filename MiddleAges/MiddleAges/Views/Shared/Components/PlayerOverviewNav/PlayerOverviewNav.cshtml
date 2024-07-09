@@ -6,7 +6,7 @@
     </div>   
     <div class="lhst_person-nav-container-inline lhst_person-data-div-align">
         <div class="lhst_person-div-overview-data mb-1 lhst_overview-player-name">
-            <h2 class="m_playerBtn lhst_cursor_pointer" data-playerid=@Model.Player.Id>@Model.Player.UserName</h2>
+            <h2 class="m_playerBtn lhst_cursor_pointer" data-playerid=@Model.Player.Id style="font-size: @(Model.Player.UserName.Length > 10 ? 13 : 17)px">@Model.Player.UserName</h2>
         </div>
         <div class="row">
             <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt="" />
