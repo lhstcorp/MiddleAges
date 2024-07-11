@@ -33,11 +33,13 @@ namespace MiddleAges.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> GetLocalEventById(string id)
+        public async Task<IActionResult> GetLocalEventById(Guid id)
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
 
-            LocalEvent localEvent = LocalEventHelper.GetLocalEventById(1);
+            PlayerLocalEvent playerLocalEvent = await _context.PlayerLocalEvents.FirstOrDefaultAsync(le => le.LocalEventId == id);
+
+            LocalEvent localEvent = LocalEventHelper.GetLocalEventById(playerLocalEvent.EventId);
 
             LocalEventViewModel localEventViewModel = new LocalEventViewModel
             {
