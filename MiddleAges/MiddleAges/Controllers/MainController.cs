@@ -42,13 +42,15 @@ namespace MiddleAges.Controllers
             List<Unit> units = await _context.Units.Where(u => u.PlayerId == player.Id).ToListAsync();
 
             PlayerAttribute playerAttribute = await _context.PlayerAttributes.FirstOrDefaultAsync(pa => pa.PlayerId == player.Id);
+            List<PlayerLocalEvent> playerLocalEvents = await _context.PlayerLocalEvents.Where(le => le.PlayerId == player.Id).ToListAsync();
 
             MainInfoViewModel mainInfoViewModel = new MainInfoViewModel
             {
                 Player = player,
                 PlayerAttribute = playerAttribute,
                 ResidenceLand = residenceLand,
-                Units = units
+                Units = units,
+                PlayerLocalEvents = playerLocalEvents
             };
             return View("Main", mainInfoViewModel);
         }

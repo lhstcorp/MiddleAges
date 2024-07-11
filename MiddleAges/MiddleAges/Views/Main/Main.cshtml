@@ -102,15 +102,20 @@
             </div>
         </div>
 
+        @if (Model.PlayerLocalEvents.Count > 0)
+        {
         <div class="d-block float-left" style="width: 250px">
             <div class="row">
                 <p class="lhst_possessions_titles" style="width: 250px">Local Events</p>
             </div>
             <div class="row">
-                <button class="lhst_shadow_text lhst_event_btn"></button>
-                <button class="lhst_shadow_text lhst_event_btn"></button>
+                @for (int i = 0; i < Model.PlayerLocalEvents.Count; i++)
+                {
+                    <button class="lhst_shadow_text lhst_event_btn" style="background-image: url(../img/local-events/@(Model.PlayerLocalEvents[i].EventId)_preview.jpg);" data-localeventid=@Model.PlayerLocalEvents[i].LocalEventId></button>
+                }
             </div>
         </div>
+        }
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

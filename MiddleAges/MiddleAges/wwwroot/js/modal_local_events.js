@@ -12,7 +12,9 @@ function showModalLocalEventDialog() {
         getPlayerById(playerId);
     }
     */
-    getLocalEventById("1234-5678-9101-1213");
+    var localEventId = $(this).data("localeventid");
+
+    getLocalEventById(localEventId);
 
     $('#m_local_events_dialog').modal('show');
 }
