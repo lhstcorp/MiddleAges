@@ -24,6 +24,30 @@ namespace MiddleAges.HelperClasses
                 new[] { 0.00, -15.00, 0.00, 0.00, 0.00 },
                 new[] { 0.00, 100.00, 0.00, 0.00, 0.00 }));
 
+            localEvents.Add(new LocalEvent(
+                2,
+                "Bandits in the forest",
+                "My lord, we have heard rumors that our remote villages are being robbed by bandits. Our scouts reported that the bandits were holed up in the forest and preparing for a new raid.",
+                1,
+                "Kill them all!",
+                new[] { 10.00, 0.00, 0.00, 10.00, -15.00 },
+                new[] { 100.00, 0.00, 0.00, 100.00, 100.00 },
+                "We won't be able to help them",
+                new[] { 0.00, 0.00, 0.00, -15.00, 0.00 },
+                new[] { 0.00, 0.00, 0.00, 100.00, 0.00 }));
+
+            localEvents.Add(new LocalEvent(
+                3,
+                "Knight Tournament",
+                "A knight's tournament with good prize money will be held in the neighboring county. Perhaps we can send some of our knights?",
+                1,
+                "Send the best warrior to try his luck!",
+                new[] { 10.00, 0.00, 0.00, 0.00, -1.00 },
+                new[] { 10.00, 0.00, 0.00, 0.00, 100.00 },
+                "Every warrior counts for us!",
+                new[] { 0.00, 0.00, 0.00, 0.00, 0.00 },
+                new[] { 0.00, 0.00, 0.00, 0.00, 0.00 }));
+
             return localEvents;
         }
 

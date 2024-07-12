@@ -56,6 +56,7 @@ namespace MiddleAges.Controllers
             string optionElement = "";
             string greenSpan = "<span style=\"color: limegreen; font-weight: 700\">+{0}</span>";
             string redSpan = "<span style=\"color: red; font-weight: 700\">{0}</span>";
+            string chanceSpan = "<span style=\"font-style: italic;\">{0}</span>";
             bool emptyOption = true;
 
             switch (optionNum)
@@ -84,6 +85,11 @@ namespace MiddleAges.Controllers
                                                 string.Format(greenSpan, optionValue) :
                                                 string.Format(redSpan, optionValue);
                             optionElement += " " + GetOptionValueName(i);
+
+                            if (localEvent.Option1Chances[i] < 100)
+                            {
+                                optionElement += " [" + string.Format(chanceSpan, localEvent.Option1Chances[i] + "% chance") + "]";
+                            }
 
                             emptyOption = false;
                         }
@@ -121,6 +127,11 @@ namespace MiddleAges.Controllers
                                                 string.Format(greenSpan, optionValue) :
                                                 string.Format(redSpan, optionValue);
                             optionElement += " " + GetOptionValueName(i);
+
+                            if (localEvent.Option2Chances[i] < 100)
+                            {
+                                optionElement += " [" + string.Format(chanceSpan, localEvent.Option1Chances[i] + "% chance") + "]";
+                            }
 
                             emptyOption = false;
                         }
