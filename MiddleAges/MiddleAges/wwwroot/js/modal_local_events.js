@@ -1,18 +1,16 @@
 ﻿const localEventsImagesUrl = '../img/local-events/';
+var localEventId;
 
 $(document).ready(function () {
     $(document).on("click", ".lhst_event_btn", showModalLocalEventDialog);
 });
 
-function showModalLocalEventDialog() {
-    /*
-    var playerId = $(this).data("playerid");
+$(document).ready(function () {
+    $(document).on("click", ".lhst_event_option_btn", localEventOptionClicked);
+});
 
-    if (playerId.length > 0) {
-        getPlayerById(playerId);
-    }
-    */
-    var localEventId = $(this).data("localeventid");
+function showModalLocalEventDialog() {    
+    localEventId = $(this).data("localeventid");
 
     getLocalEventById(localEventId);
 
@@ -58,6 +56,47 @@ function populateModalLocalEventDialog(obj) {
 
     $('#m_local_events_option1').html(obj.Option1Element);
     $('#m_local_events_option2').html(obj.Option2Element);
+}
+
+function localEventOptionClicked() {
+    var optionNum = $(this).data("option");
+
+    selectLocalEventOption(optionNum);
+}
+
+function selectLocalEventOption(optionNum) {
+    $.ajax({
+        url: 'Main/SelectLocalEventOption',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            localEventId: localEventId,
+            optionNum: optionNum
+        },
+        success: function (response) {
+            if (response == null || response == undefined || response.length == 0) {
+                return 'Error';
+            }
+            else {
+                return response;
+            }
+        },
+        error: function (response) {
+            return 'Error';
+        }
+    })
+    .done(function (data) {
+        let obj = JSON.parse(data);
+        if (obj != 'Error') {
+            //ToDo
+        }
+        else {
+            alert("No troops were sent to the battle.");
+        }
+    })
+    .fail(function (data) {
+        alert(unexpectedErrorMessage);
+    });
 }
 
 function hideModalLocalEventDialog() {
