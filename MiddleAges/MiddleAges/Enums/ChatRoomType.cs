@@ -7,7 +7,8 @@ namespace MiddleAges.Enums
 {
     public enum ChatRoomType
     {
-        General = 1,
-        Private = 2
+        Global = 1,
+        Private = 2,
+        General = 3
     }
 }
