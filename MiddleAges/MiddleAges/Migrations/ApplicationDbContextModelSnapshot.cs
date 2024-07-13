@@ -495,6 +495,28 @@ namespace MiddleAges.Migrations
                     b.ToTable("PlayerInformations");
                 });
 
+            modelBuilder.Entity("MiddleAges.Entities.PlayerLocalEvent", b =>
+                {
+                    b.Property<Guid>("LocalEventId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("AssignedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PlayerId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LocalEventId");
+
+                    b.HasIndex("PlayerId");
+
+                    b.ToTable("PlayerLocalEvents");
+                });
+
             modelBuilder.Entity("MiddleAges.Entities.PlayerStatistics", b =>
                 {
                     b.Property<Guid>("PlayerStatisticsId")
@@ -772,6 +794,15 @@ namespace MiddleAges.Migrations
                 });
 
             modelBuilder.Entity("MiddleAges.Entities.PlayerInformation", b =>
+                {
+                    b.HasOne("MiddleAges.Entities.Player", "Player")
+                        .WithMany()
+                        .HasForeignKey("PlayerId");
+
+                    b.Navigation("Player");
+                });
+
+            modelBuilder.Entity("MiddleAges.Entities.PlayerLocalEvent", b =>
                 {
                     b.HasOne("MiddleAges.Entities.Player", "Player")
                         .WithMany()

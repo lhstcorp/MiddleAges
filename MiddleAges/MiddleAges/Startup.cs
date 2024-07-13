@@ -59,10 +59,13 @@ namespace MiddleAges
             services.AddSignalR();
 
             services.AddHostedService<DailyUpdateBackgroundService>();
+            services.AddHostedService<HourlyBackgroundService>();
+            /*
             services.AddHostedService<ProductionBackgroundService>();                       
             services.AddHostedService<RecruitBackgroundService>();
             services.AddHostedService<WarBackgroundService>();
             services.AddHostedService<PlayerLvlBackgroundService>();
+            */
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
