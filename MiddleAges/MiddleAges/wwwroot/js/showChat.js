@@ -1,7 +1,8 @@
-const popupOverlay = document.getElementById("okno");
+let popupOverlay = document.getElementById("chatWindow");
 showButton = document.getElementById("showChatBtn");
 hideButton = document.getElementById("hideChatBtn");
 showButton.style.display = "none";
+
 function showPopup() {
     popupOverlay.style.display = "grid";
     hideButton.style.display = "grid";

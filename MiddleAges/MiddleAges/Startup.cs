@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.Hubs;
 using MiddleAges.Timed_Hosted_Services;
 using System;
 using System.Collections.Generic;
@@ -55,6 +56,7 @@ namespace MiddleAges
             services.AddAuthentication();
             services.AddAuthorization();
             services.AddRazorPages();
+            services.AddSignalR();
 
             services.AddHostedService<DailyUpdateBackgroundService>();
             services.AddHostedService<ProductionBackgroundService>();                       
@@ -89,6 +91,7 @@ namespace MiddleAges
                     name: "default",
                     pattern: "{controller=Main}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
         }
     }
