@@ -174,7 +174,7 @@
     }
 
     .auth_height {
-        height: calc(100vh - 61px)
+        height: 90px
     }
 
     .auth_width {
