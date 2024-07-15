@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiddleAges.Temporary_Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,37 +7,7 @@ using System.Threading.Tasks;
 namespace MiddleAges.HelperClasses
 {
     public static class LocalEventHelper
-    {
-        public struct LocalEvent
-        {
-            public int EventId;
-            public string Title;
-            public string Description;
-            public string ImgUrl;
-            public int Rarity;
-            public string Option1Text;
-            public double[] Option1Values;
-            public double[] Option1Chances;
-            public string Option2Text;
-            public double[] Option2Values;
-            public double[] Option2Chances;
-
-            public LocalEvent(int eventId, string title, string description, string imgUrl, int rarity, string option1Text, double[] option1Values, double[] option1Chances, string option2Text, double[] option2Values, double[] option2Chances)
-            {
-                EventId = eventId;
-                Title = title;
-                Description = description;
-                ImgUrl = imgUrl;
-                Rarity = rarity;
-                Option1Text = option1Text;
-                Option1Values = option1Values;      //M R E P S
-                Option1Chances = option1Chances;    // 100 - always true, 0 - never, 50 - 50% chance
-                Option2Text = option2Text;
-                Option2Values = option2Values;
-                Option2Chances = option2Chances;
-            }
-        }
-
+    {      
         public static List<LocalEvent> GetAllLocalEvent()
         {
             List<LocalEvent> localEvents = new List<LocalEvent>();
@@ -45,7 +16,6 @@ namespace MiddleAges.HelperClasses
                 1,
                 "Wolves don't sleep",
                 "My lord, a pack of wolves has appeared near your vicinity. The people of your remote village are asking for your help to protect their livestock.",
-                "~/img/local-events/1.jpg",
                 1,
                 "Send soldiers to comb the forest!",
                 new[] { 3.00, 0.00, 0.00, 10.00, -5.00 },
@@ -53,6 +23,30 @@ namespace MiddleAges.HelperClasses
                 "Let them handle it themselves!",
                 new[] { 0.00, -15.00, 0.00, 0.00, 0.00 },
                 new[] { 0.00, 100.00, 0.00, 0.00, 0.00 }));
+
+            localEvents.Add(new LocalEvent(
+                2,
+                "Bandits in the forest",
+                "My lord, we have heard rumors that our remote villages are being robbed by bandits. Our scouts reported that the bandits were holed up in the forest and preparing for a new raid.",
+                1,
+                "Kill them all!",
+                new[] { 10.00, 0.00, 0.00, 10.00, -15.00 },
+                new[] { 100.00, 0.00, 0.00, 100.00, 100.00 },
+                "We won't be able to help them",
+                new[] { 0.00, 0.00, 0.00, -15.00, 0.00 },
+                new[] { 0.00, 0.00, 0.00, 100.00, 0.00 }));
+
+            localEvents.Add(new LocalEvent(
+                3,
+                "Knight Tournament",
+                "A knight's tournament with good prize money will be held in the neighboring county. Perhaps we can send some of our knights?",
+                1,
+                "Send the best warrior to try his luck!",
+                new[] { 10.00, 0.00, 0.00, 0.00, -1.00 },
+                new[] { 10.00, 0.00, 0.00, 0.00, 100.00 },
+                "Every warrior counts for us!",
+                new[] { 0.00, 0.00, 0.00, 0.00, 0.00 },
+                new[] { 0.00, 0.00, 0.00, 0.00, 0.00 }));
 
             return localEvents;
         }

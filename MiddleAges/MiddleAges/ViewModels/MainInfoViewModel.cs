@@ -12,5 +12,6 @@ namespace MiddleAges.ViewModels
         public PlayerAttribute PlayerAttribute { get; set; }
         public Land ResidenceLand { get; set; }
         public List<Unit> Units { get; set; }
+        public List<PlayerLocalEvent> PlayerLocalEvents { get; set; }
     }
 }

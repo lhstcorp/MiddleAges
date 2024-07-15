@@ -1,16 +1,16 @@
 const chatForm = document.getElementById("chatForm");
-const messageValue = document.getElementById("messageValue");
-const submit = document.getElementById("submitChat");
+const globalChatMessageInput = document.getElementById("globalChatMessageInput");
+const submit = document.getElementById("sendMessageToGlobalChatButton");
 submit.addEventListener("click", validate);
 
 function validate() {
-    if (chatForm.messageValue.validity.valueMissing) {
-        chatForm.messageValue.setCustomValidity("Minimum 1 symbol");
+    if (chatForm.globalChatMessageInput.validity.valueMissing) {
+        chatForm.globalChatMessageInput.setCustomValidity("Minimum 1 symbol");
     }
-    if (chatForm.messageValue.validity.tooLong) {
-        chatForm.messageValue.setCustomValidity("Maximum 50 symblos");
+    if (chatForm.globalChatMessageInput.validity.tooLong) {
+        chatForm.globalChatMessageInput.setCustomValidity("Maximum 50 symblos");
     }
-    if (chatForm.messageValue.validity.tooShort) {
-        chatForm.messageValue.setCustomValidity("Minimum 1 symbol");
+    if (chatForm.globalChatMessageInput.validity.tooShort) {
+        chatForm.globalChatMessageInput.setCustomValidity("Minimum 1 symbol");
     }
 }

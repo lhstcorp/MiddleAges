@@ -5,7 +5,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using MiddleAges.Enums;
 using MiddleAges.HelperClasses;
+using MiddleAges.Models;
+using MiddleAges.Temporary_Entities;
 using MiddleAges.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -30,11 +33,13 @@ namespace MiddleAges.Controllers
             _userManager = userManager;
         }
 
-        public async Task<IActionResult> GetLocalEventById(string id)
+        public async Task<IActionResult> GetLocalEventById(Guid id)
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
 
-            LocalEvent localEvent = LocalEventHelper.GetLocalEventById(1);
+            PlayerLocalEvent playerLocalEvent = await _context.PlayerLocalEvents.FirstOrDefaultAsync(le => le.LocalEventId == id);
+
+            LocalEvent localEvent = LocalEventHelper.GetLocalEventById(playerLocalEvent.EventId);
 
             LocalEventViewModel localEventViewModel = new LocalEventViewModel
             {
@@ -49,43 +54,95 @@ namespace MiddleAges.Controllers
         public string GenerateOptionElement(LocalEvent localEvent, int optionNum)
         {
             string optionElement = "";
-            string greenSpan = "<span style=\"color: red; font - weight: 700\">{0}</span>";
-            string redSpan = "<span style=\"color: red; font - weight: 700\">{0}</span>";
+            string greenSpan = "<span style=\"color: limegreen; font-weight: 700\">+{0}</span>";
+            string redSpan = "<span style=\"color: red; font-weight: 700\">{0}</span>";
+            string chanceSpan = "<span style=\"font-style: italic;\">{0}</span>";
+            bool emptyOption = true;
 
             switch (optionNum)
             {
                 case 1:
-                    optionElement += localEvent.Option1Text + "(";
+                    optionElement += localEvent.Option1Text + " (";
 
-                    for (int i = 1; i <= localEvent.Option1Chances.Count(); i++)
+                    for (int i = 0; i < localEvent.Option1Chances.Count(); i++)
                     {
                         if (localEvent.Option1Chances[i] > 0)
                         {
-                            optionElement += " " + (localEvent.Option1Values[i] > 0 ?
-                                                    string.Format(greenSpan, localEvent.Option1Values[i]) :
-                                                    string.Format(redSpan, localEvent.Option1Values[i]));
+                            
+                            double optionValue = localEvent.Option1Values[i];
+
+                            if (i == 0 || i == 2) // Money or Exp
+                            {
+                                optionValue = RecalculateOptionValue(optionValue, i).Result;
+                            }
+
+                            if (!emptyOption)
+                            {
+                                optionElement += " ";
+                            }
+
+                            optionElement += optionValue > 0 ?
+                                                string.Format(greenSpan, optionValue) :
+                                                string.Format(redSpan, optionValue);
                             optionElement += " " + GetOptionValueName(i);
+
+                            if (localEvent.Option1Chances[i] < 100)
+                            {
+                                optionElement += " [" + string.Format(chanceSpan, localEvent.Option1Chances[i] + "% chance") + "]";
+                            }
+
+                            emptyOption = false;
                         }
                     }
 
-                    optionElement + ")";
+                    if (emptyOption)
+                    {
+                        optionElement += "No effects";
+                    }
+
+                    optionElement += ")";
 
                     break;
                 case 2:
-                    optionElement += localEvent.Option2Text + "(";
+                    optionElement += localEvent.Option2Text + " (";
 
-                    for (int i = 1; i <= localEvent.Option2Chances.Count(); i++)
+                    for (int i = 0; i < localEvent.Option2Chances.Count(); i++)
                     {
                         if (localEvent.Option2Chances[i] > 0)
                         {
-                            optionElement += " " + (localEvent.Option2Values[i] > 0 ?
-                                                    string.Format(greenSpan, localEvent.Option2Values[i]) :
-                                                    string.Format(redSpan, localEvent.Option2Values[i]));
+                            
+                            double optionValue = localEvent.Option2Values[i];
+
+                            if (i == 0 || i == 2) // Money or Exp
+                            {
+                                optionValue = RecalculateOptionValue(optionValue, i).Result;
+                            }
+
+                            if (!emptyOption)
+                            {
+                                optionElement += " ";
+                            }
+
+                            optionElement += optionValue > 0 ?
+                                                string.Format(greenSpan, optionValue) :
+                                                string.Format(redSpan, optionValue);
                             optionElement += " " + GetOptionValueName(i);
+
+                            if (localEvent.Option2Chances[i] < 100)
+                            {
+                                optionElement += " [" + string.Format(chanceSpan, localEvent.Option1Chances[i] + "% chance") + "]";
+                            }
+
+                            emptyOption = false;
                         }
                     }
 
-                    optionElement + ")";
+                    if (emptyOption)
+                    {
+                        optionElement += "No effects";
+                    }
+
+                    optionElement += ")";
 
                     break;
             }
@@ -99,24 +156,48 @@ namespace MiddleAges.Controllers
 
             switch (valueNum)
             {
-                case 1:
+                case 0:
                     optionValueName = "coins";
                     break;
-                case 2:
+                case 1:
                     optionValueName = "recruits";
                     break;
-                case 3:
+                case 2:
                     optionValueName = "experience";
                     break;
-                case 4:
+                case 3:
                     optionValueName = "peasants";
                     break;
-                case 5:
+                case 4:
                     optionValueName = "soldiers";
                     break;
             }
 
             return optionValueName;
+        }
+
+        public async Task<double> RecalculateOptionValue(double value, int valueType)
+        {
+            double optionValue = value;
+
+            var player = await _userManager.GetUserAsync(HttpContext.User);
+
+            switch (valueType)
+            {
+                case 0:                    
+                    Unit unit = await _context.Units.FirstOrDefaultAsync(u => u.PlayerId == player.Id
+                                                                           && u.Type == (int)UnitType.Peasant);
+
+                    PlayerAttribute playerAttribute = await _context.PlayerAttributes.FirstOrDefaultAsync(pa => pa.PlayerId == player.Id);
+
+                    optionValue *= Math.Round(unit.Count * 0.01 * (1 + Convert.ToDouble(playerAttribute.Management) * 0.02));
+                    break;
+                case 2:
+                    optionValue *= Convert.ToDouble(CommonLogic.GetRequiredExpByLvl(player.Lvl + 1) - CommonLogic.GetRequiredExpByLvl(player.Lvl)) / 100.00;
+                    break;
+            }
+
+            return optionValue;
         }
     }
 }
