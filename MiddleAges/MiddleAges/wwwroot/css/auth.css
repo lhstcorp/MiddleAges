@@ -1,5 +1,6 @@
 ﻿.auth_background {
-    background-color: #453C37
+    /*background-color: #453C37*/
+    background: radial-gradient(#393939,black);
 }
 
 .auth_text_color {
@@ -48,7 +49,7 @@
 }
 
 .auth_height {
-    height: calc(100vh - 61px)
+    height: 150px;
 }
 
 .auth_width {
@@ -63,8 +64,8 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
-    color: #F6D9A1;
-    background-color: #31201A;
+    color: #232323;
+    background-color: #F6D9A1;
     background-clip: padding-box;
     border: 0 solid #ced4da;
     border-radius: 10px;
@@ -73,7 +74,7 @@
 
 
 ::placeholder {
-    color: #F6D9A1;
+    color: #232323;
     opacity: 90%
 }
 
@@ -83,8 +84,8 @@
 }
 
 .auth_btn {
-    color: #2A1710;
-    background-color: #F6D9A1;
+    color: wheat;
+    background: radial-gradient(#393939,black);
     width: 100%;
     font-family: Algerian;
     font-size: 24px;
@@ -94,9 +95,10 @@
     border-radius: 10px
 }
 
-.auth_btn:hover {
-    color: #2A1710;
-    background-color: #DFBE7E
-}
+    .auth_btn:hover {
+        background: radial-gradient(#2d9062 0%,#232323 90%);
+        color: #faaf08;
+    }
+
 
 
