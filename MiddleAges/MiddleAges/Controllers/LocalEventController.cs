@@ -130,7 +130,7 @@ namespace MiddleAges.Controllers
 
                             if (localEvent.Option2Chances[i] < 100)
                             {
-                                optionElement += " [" + string.Format(chanceSpan, localEvent.Option1Chances[i] + "% chance") + "]";
+                                optionElement += " [" + string.Format(chanceSpan, localEvent.Option2Chances[i] + "% chance") + "]";
                             }
 
                             emptyOption = false;

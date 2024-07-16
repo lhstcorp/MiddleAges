@@ -1,6 +1,8 @@
 ﻿.auth_background {
     /*background-color: #453C37*/
     background: radial-gradient(#393939,black);
+    /*background-image: url("../img/menu-icons/wood2.png");
+    background-size:40%;*/
 }
 
 .auth_text_color {
@@ -73,15 +75,16 @@
 }
 
 
-::placeholder {
-    color: #232323;
-    opacity: 90%
-}
+    .auth_form-control::placeholder {
+        color: #232323;
+        opacity: 90%
+    }
 
-:focus::placeholder {
-    opacity: 0;
-    transition: opacity .2s
-}
+    .auth_form-control:focus::placeholder {
+        opacity: 0;
+        transition: opacity .2s
+    }
+
 
 .auth_btn {
     color: wheat;

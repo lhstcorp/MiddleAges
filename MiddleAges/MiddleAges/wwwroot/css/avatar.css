@@ -236,5 +236,15 @@
     color: #faaf08
 }
 
+::placeholder {
+    color: #2d9062;
+    opacity: 90%
+}
+
+:focus::placeholder {
+    opacity: 0;
+    transition: opacity .2s
+}
+
 
 
