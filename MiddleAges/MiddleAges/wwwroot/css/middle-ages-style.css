@@ -587,8 +587,9 @@ lhst_marquee {
 }
 
 .lhst_background_image {
-    background-image: url(../img/menu-icons/1234.jpg);
-    background-size: 50%
+    background-image: url(../img/menu-icons/stone19.png);
+    background-size: 50%;
+
 }
 
 .lhst_cursor_pointer{
