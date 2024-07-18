@@ -60,11 +60,12 @@ namespace MiddleAges
 
             services.AddHostedService<DailyUpdateBackgroundService>();
             services.AddHostedService<HourlyBackgroundService>();
+            services.AddHostedService<PlayerLvlBackgroundService>();
             /*
             services.AddHostedService<ProductionBackgroundService>();                       
             services.AddHostedService<RecruitBackgroundService>();
             services.AddHostedService<WarBackgroundService>();
-            services.AddHostedService<PlayerLvlBackgroundService>();
+            
             */
         }
 
