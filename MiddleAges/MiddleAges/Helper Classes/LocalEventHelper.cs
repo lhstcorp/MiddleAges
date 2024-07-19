@@ -375,19 +375,19 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
              31,
              "Walpurgis Night",
-             "You have received a letter from witches all over the country asking you to spend Walpurgis Night",
+             "Your Majesty, witches from all over the kingdom ask you to spend Walpurgis Night with them. They promise to show you their ancient rituals and share their magical secrets. This is a unique opportunity to learn more about magic and strengthen connections with witches. Your presence at this event can strengthen your influence and authority among magical beings. The witches hope that you will accept their invitation and become part of their mystical rites",
              1,
-             "Prohibit the celebration",
-             new[] { 0.00, 0.00, 0.20, -10.00, -1.00 },
-             new[] { 0.00, 0.00, 100.00, 50.00, 50.00 },
-             "Allow a celebration",
+             "Join the celebration",
+             new[] { 3.00, 5.00, 0.20, -10.00, -1.00 },
+             new[] { 100.00, 100.00, 100.00, 50.00, 50.00 },
+             "Refuse",
              new[] { 1.00, 2.00, 0.00, 0.00, 0.00 },
              new[] { 100.00, 100.00, 0.00, 0.00, 0.00 }));
 
             localEvents.Add(new LocalEvent(
              32,
              "It flowed down my mustache but didn’t get into my mouth",
-             "Today we celebrate our town day",
+             "Today we celebrate our town day. The townspeople organized many celebrations and entertainment to celebrate this event. Festive events include theatrical performances, sports competitions and fireworks displays. This is a great chance for you to communicate with your subjects and enjoy the holiday atmosphere. Your participation in the celebrations will show your concern for the well-being of the town and its residents",
              1,
              "Hold a feast",
              new[] { -2.00, 2.00, 0.20, 0.00, 0.00 },
@@ -400,7 +400,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
              33,
              "Right tributary of the Berezina",
-             "Every year our rivers carry less and less water. If this isn't fixed, there will be a drought next year.",
+             "Every year our rivers carry less and less water. If measures are not taken, we will face drought next year. This threatens not only the harvest, but also the lives of people and animals. The inhabitants of the kingdom rely on your wisdom and determination in this situation. Your intervention can prevent disaster and secure the future of the kingdom.",
              1,
              "Build an irrigation system",
              new[] { -2.00, 2.00, 0.20, 0.00, 0.00 },
@@ -412,7 +412,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
              34,
              "Learning is light and ignorance is darkness",
-             "According to the latest data, our state lacks smart workers. I propose to build a school for our peasants",
+             "According to the latest data, our state lacks smart workers. I propose to build a school for our peasants. This will help improve the level of education and skills among the population. In the long term, this will strengthen the economy and welfare of the kingdom. Your decision can be an important step towards the prosperity of our people.",
              1,
              "Build a school",
              new[] { -1.00, 2.00, 0.50, 0.00, 0.00 },
@@ -424,7 +424,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             35,
             "Don't be a beast!",
-            "People gathered in the square. They protest and are dissatisfied with their living and working conditions. They say that they are tired of enduring",
+            "People took to the square to protest against their living and working conditions. They say they are tired of enduring and demand immediate changes. Residents hope for your help and a fair solution to their problems. Your intervention can prevent further unrest and restore the trust of the people.",
             1,
             "Improve living conditions",
             new[] { -2.00, 5.00, 0.00, 10.00, 0.00 },
@@ -436,26 +436,26 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             36,
             "Traveling merchant",
-            "A new man has appeared in town and is selling foreign things. He's kind of suspicious",
+            "A new man has appeared in town and is selling foreign things. He seems a little suspicious and the villagers start to worry. It may be worth investigating to find out his intentions and the origin of the goods.",
             1,
             "Let him trade",
-            new[] { 2.00, 0.00, 0.00, 0.00, 0.00 },
-            new[] { 100.00, 0.00, 0.00, 0.00, 0.00 },
+            new[] { 2.00, 0.00, 0.00, -5.00, 0.00 },
+            new[] { 100.00, 0.00, 0.00, 50.00, 0.00 },
             "Drive him out of town",
-            new[] { 0.00, 0.00, 0.10, 0.00, 0.00 },
-            new[] { 0.00, 0.00, 100.00, 0.00, 0.00 }));
+            new[] { 0.00, 1.00, 0.10, 0.00, 0.00 },
+            new[] { 0.00, 100.00, 100.00, 0.00, 0.00 }));
 
             localEvents.Add(new LocalEvent(
             37,
             "Is this the holy grail?",
-            "During excavations, your people discovered an ancient artifact from the beginning of our era. What do you want to do with him?",
+            "During excavations, your people discovered an ancient artifact from the beginning of our era. This find may contain important information about the past of our kingdom. Scientists have already begun studying the artifact to understand its meaning and origin. Your attention to this find may attract more resources and specialists to the study. Residents are eagerly awaiting the results and hope for new discoveries.",
             1,
             "Explore and leave in the museum",
-            new[] { 0.00, 1.00, 0.20, 0.00, 0.00 },
-            new[] { 0.00, 50.00, 100.00, 0.00, 0.00 },
+            new[] { 0.00, 5.00, 0.20, 10.00, 0.00 },
+            new[] { 0.00, 100.00, 100.00, 100.00, 0.00 },
             "Sell it",
             new[] { 5.00, 0.00, 0.00, 0.00, 0.00 },
-            new[] { 50.00, 0.00, 0.00, 0.00, 0.00 }));
+            new[] { 100.00, 0.00, 0.00, 0.00, 0.00 }));
 
             localEvents.Add(new LocalEvent(
             38,
@@ -484,7 +484,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             40,
             "Carriage for Cinderella",
-            "This year nature promotes the growth of vegetables. Look at this pumpkin! It's the size of a carriage!",
+            "This year nature promotes the growth of vegetables. Look at this pumpkin! It's the size of a carriage! The residents are amazed by this harvest and hope that it will bring abundance and prosperity to our kingdom. It might be worth organizing a harvest festival to celebrate this amazing year. Your participation in this event will lift the spirit of the people and strengthen their faith in well-being",
             1,
             "Conduct research",
             new[] { 1.00, 0.00, 0.10, 0.00, 0.00 },
@@ -496,7 +496,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             41,
             "Bread and salt",
-            "We plan to plant a lot of grain crops. Need another mill",
+            "We plan to plant a lot of grain crops. To process such a large harvest we will need another mill. This will ensure that there is enough flour and other products for all the inhabitants of the kingdom. Your decision to build a new mill will strengthen the food security and well-being of the people.",
             1,
             "Build a windmill",
             new[] { 1.00, 0.00, 0.00, 10.00, 0.00 },
@@ -508,7 +508,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             42,
             "Death is just the beginning",
-            "My lord, sad news has arrived. Your friend and great warrior has died. My condolences",
+            "My lord, sad news has arrived. Your friend and great warrior has died. My condolences. His exploits and loyalty will forever remain in the memory of our kingdom. The people share your grief and support you.",
             1,
             "Organize a magnificent funeral",
             new[] { -3.00, 10.00, 0.00, 0.00, 1.00 },
@@ -520,10 +520,10 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             43,
             "My home is my castle",
-            "After the last attack on us, the castle walls fell into disrepair. Urgent repair required",
+            "After the last attack on us, the castle walls fell into disrepair. Immediate repairs are required to restore their strength and protect the kingdom. Residents are concerned and hope for your quick intervention.",
             1,
             "Fix the wall",
-            new[] { -1.00, 5.00, 0.10, -10.00, 2.00 },
+            new[] { -3.00, 5.00, 0.10, -10.00, 2.00 },
             new[] { 100.00, 50.00, 100.00, 50.00, 50.00 },
             "Leave the wall in its current state",
             new[] { 0.00, -3.00, 0.00, 0.00, -1.00 },
@@ -532,10 +532,10 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             44,
             "The circus has left, the clowns remain",
-            "The famous circus of freaks has come to our city. You were given tickets to the best seats",
+            "The famous circus of freaks has come to our city. You were given tickets to the best seats. Residents are excited about this event and hope you will attend the show too. This is a rare opportunity to see unusual and exciting performances. Your participation in this event will uplift the spirit of the people and strengthen their faith in your leadership.",
             1,
             "Go to a show",
-            new[] { 0.00, 0.00, 0.00, 1.00, 0.00 },
+            new[] { 0.00, 0.00, 0.00, 10.00, 0.00 },
             new[] { 0.00, 0.00, 0.00, 100.00, 0.00 },
             "Prepare everyone to throw tomatoes",
             new[] { 1.00, 0.00, -0.50, 0.00, 0.00 },
@@ -544,7 +544,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             45,
             "Don't spit in the well",
-            "Peasants began to get rid of their garbage by throwing it into the river. The water has become undrinkable",
+            "Peasants began to get rid of their garbage by throwing it into the river. The water has become undrinkable. Residents are concerned and are asking for your intervention to clean up the river and prevent further pollution. Your decision can help restore clean water and public health.",
             1,
             "Prohibit throwing garbage into the river",
             new[] { 0.00, -1.00, 0.10, -1.00, 0.00 },
@@ -556,7 +556,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             46,
             "Romeo and Juliet",
-            "A conflict has arisen between the two most powerful families in the town",
+            "A conflict has arisen between the two most powerful families in the town. Their feud has already led to several clashes, and residents are worried about the possible consequences. Your intervention is needed to prevent further escalation and find a peaceful solution.",
             1,
             "Try to reconcile them",
             new[] { 0.00, 0.00, 0.50, 0.00, 0.00 },
@@ -568,7 +568,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             47,
             "Templars?",
-            "A secret society has been discovered in the city. They meet every Wednesday in the castle cellars",
+            "A secret society has been discovered in the city. They meet every Wednesday in the castle cellars. Residents are worried and ask for your intervention to find out their intentions and prevent possible threats.",
             1,
             "Execute participants",
             new[] { 1.00, 0.00, 0.50, 0.00, 0.00 },
@@ -580,7 +580,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             48,
             "No corpse, no works",
-            "The body of a man was found hanging in a noose in the city square. There is a poster on the floor: everyone is the arbiter of their own destiny",
+            "The body of a man was found hanging in a noose in the city square. There is a poster on the floor: everyone is the arbiter of their own destiny. Residents are shocked and frightened by this event. Your intervention is needed to investigate this incident and calm the people.",
             1,
             "Investigate a crime",
             new[] { -1.00, 0.00, 0.10, 0.00, 0.00 },
@@ -592,7 +592,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             49,
             "People in the swamp",
-            "Regular rains have led to the appearance of swamps in our region",
+            "Regular rains have led to the appearance of swamps in our region. This causes concern among residents, as swamps can become a source of disease and make movement difficult. Your intervention is needed to find a solution to this problem and prevent the further spread of swamps",
             1,
             "Drain the swamp",
             new[] { -1.00, 1.00, 0.10, 0.00, 0.00 },
@@ -604,7 +604,7 @@ namespace MiddleAges.HelperClasses
             localEvents.Add(new LocalEvent(
             50,
             "The truth is in the wine",
-            "Our vineyards became sick and almost all dried up. There won't be enough wine reserves for next year",
+            "Our vineyards became sick and almost all dried up. There won't be enough wine reserves for next year. Your intervention is needed to find a solution to this problem and restore the vineyards. It may be worth bringing in the best specialists to analyze the situation and develop a recovery plan. You may also consider temporarily importing wine from neighboring kingdoms.",
             1,
             "Treat the vineyards",
             new[] { 0.00, 0.00, 0.10, -1.00, 0.00 },

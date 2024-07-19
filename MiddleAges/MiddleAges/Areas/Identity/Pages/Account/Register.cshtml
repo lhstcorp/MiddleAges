@@ -19,7 +19,7 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-sm-12 col-md-4">
-                            <p>
+                            <p >
                                 Middle Ages - первый проект, разработанный компанией lhstcorp. Это средневековая игра в жанре стратегии, которая позволит попасть в Беларусь тех времен. Сражения за земли с другими игроками, организация восстаний, правление собственным государством - всё это вы сможете опробовать в данной игре. MIDDLE AGES - стань легендой средневековья!
                             </p>
                         </div>
@@ -29,29 +29,31 @@
                                 <h4 class="auth_text_font_login text-center">Create a new account</h4>
                                 <hr />
                                 <div asp-validation-summary="All" class="text-danger"></div>
-                                <div class="form-group  text-center ">
-                                    <input asp-for="Input.Email" class="auth_form-control " placeholder="EMAIL" type="email"/>
+                                <div class="form-group  text-center " tabindex="0" >
+                                    <input asp-for="Input.Email" class="auth_form-control " placeholder="EMAIL" type="email" autofocus autocomplete="on" />
                                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                                 </div>
-                                <div class="form-group  text-center ">
+                                <div class="form-group  text-center " tabindex="1">
                                     <input asp-for="Input.UserName" class="auth_form-control " placeholder="USERNAME" maxlength="10"/>
                                     <span asp-validation-for="Input.UserName" class="text-danger"></span>
                                 </div>
-                                <div class="form-group  text-center ">
-                                    <input asp-for="Input.Password" class="auth_form-control " placeholder="PASSWORD" type="password"/>
+                                <div class="form-group  text-center password" tabindex="2">
+                                    <input asp-for="Input.Password" id="password-input" class="auth_form-control " placeholder="PASSWORD" type="password" />
+                                    <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
                                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                                 </div>
-                                <div class="form-group  text-center ">
-                                    <input asp-for="Input.ConfirmPassword" class="auth_form-control " placeholder="CONFIRM PASSWORD" type="password" />
+                                <div class="form-group  text-center password" tabindex="3">
+                                    <input asp-for="Input.ConfirmPassword" id="password-input-confirm" class="auth_form-control " placeholder="CONFIRM PASSWORD" type="password" />
+                                    <a href="#" class="password-control" onclick="return show_hide_password_confirm(this);"></a>
                                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                 </div>
-                                <div class="form-group  text-center ">
-                                    <button type="submit" class="btn auth_btn auth_text_font_but ">SIGN UP</button>
+                                <div class="form-group  text-center " tabindex="4">
+                                    <button type="submit" class="btn auth_btn auth_text_font_but ">CREATE ACCOUNT</button>
                                 </div>
                                 <hr />
                                 <div class="form-group d-inline-flex auth_div_width">
                                     <p class="w-50 ">
-                                        <a asp-page="./Login" class="auth_text_font_a " asp-route-returnUrl="@Model.ReturnUrl">Sign In</a>
+                                        <a asp-page="./Login" class="auth_text_font_a " asp-route-returnUrl="@Model.ReturnUrl">Login</a>
                                     </p>
                                     <p class="w-50 ">
                                         <a id="forgot-password" class="auth_text_font_a " asp-page="./ForgotPassword">Forgot your password?</a>
@@ -62,12 +64,12 @@
                         <div class="col-sm-12 col-md-4">
                             <div class="row d-inline-flex">
                                 <div class="col-6 lhst_scale">
-                                    <img class="auth_height" src="~/img/map-regions-icons-middle-ages/Alytus.png" alt="" loading="lazy" />
-                                    <img class="auth_height" src="~/img/map-regions-icons-middle-ages/Kaunas.png" alt="" loading="lazy" />
+                                    <img class="auth_height_side" src="~/img/map-regions-icons-middle-ages/Alytus.png" alt="" loading="lazy" />
+                                    <img class="auth_height_side" src="~/img/map-regions-icons-middle-ages/Kaunas.png" alt="" loading="lazy" />
                                 </div>
                                 <div class="col-6 lhst_scale">
-                                    <img class="auth_height" src="~/img/map-regions-icons-middle-ages/Monki.png" alt="" loading="lazy" />
-                                    <img class="auth_height" src="~/img/map-regions-icons-middle-ages/Pruzhany.png" alt="" loading="lazy" />
+                                    <img class="auth_height_side" src="~/img/map-regions-icons-middle-ages/Monki.png" alt="" loading="lazy" />
+                                    <img class="auth_height_side" src="~/img/map-regions-icons-middle-ages/Pruzhany.png" alt="" loading="lazy" />
                                 </div>
                             </div>
                         </div>
@@ -77,6 +79,7 @@
         </div>
         
     </div>
+    <script src="~/js/register.js"></script>
 </body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
