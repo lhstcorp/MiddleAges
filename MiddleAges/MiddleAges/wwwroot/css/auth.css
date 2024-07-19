@@ -1,8 +1,8 @@
 ﻿.auth_background {
     /*background-color: #453C37*/
-    background: radial-gradient(#232323,#232323);
-    /*background-image: url("../img/menu-icons/wood2.png");
-    background-size:40%;*/
+    /*background: radial-gradient(#232323,#232323);*/
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size:10%;
 }
 
 .auth_text_color {
@@ -11,7 +11,7 @@
 
 .auth_text_font {
     font-family: Algerian;
-    font-size: 48px;
+    font-size: 72px;
     font-weight: 400;
     text-shadow: 5px 5px 5px #000
 }
@@ -24,7 +24,7 @@
 
 .auth_text_font_login {
     font-family: Algerian;
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 400;
     text-shadow: 3px 3px 3px #000
 }
@@ -36,7 +36,7 @@
 }
 
 .auth_text_font_a {
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400;
     color: #F6D9A1;
     text-decoration: underline
@@ -51,6 +51,10 @@
 }
 
 .auth_height {
+    height: 200px;
+}
+
+.auth_height_side {
     height: 150px;
 }
 
@@ -63,8 +67,8 @@
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
     padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
+    font-size: 1.5rem;
+    font-weight: 700;
     line-height: 1.5;
     color: #232323;
     background-color: #F6D9A1;
@@ -91,7 +95,7 @@
     background: radial-gradient(#393939,black);
     width: 100%;
     font-family: Algerian;
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 300;
     border: #000;
     border-width: 2px;
@@ -103,5 +107,23 @@
         color: #faaf08;
     }
 
+.password {
+    position: relative;
+}
 
+.password-control {
+    position: absolute;
+    top: 10px;
+    right: 6px;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: url("../img/view.png") 0 0 no-repeat;
+    background-size: 100%;
+}
+
+    .password-control.view {
+        background: url("../img/no-view.png") 0 0 no-repeat;
+        background-size: 100%;
+    }
 
