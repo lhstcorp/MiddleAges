@@ -138,12 +138,12 @@
                     <p id="m_player_playerDescription" class="lhst_dialog_profile_player_description mb-0">Status of player</p>
                     <div class="row float-left">
                         <p id="m_player_totalPlace" class="mb-0 mt-1">#3 (</p>
-                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/exp.png" alt="" title="Experience" loading="lazy" />
-                        <p id="m_player_expPlace" class="mb-0 mt-1">1 /</p>
-                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/money.png" alt="" title="Money" loading="lazy" />
-                        <p id="m_player_moneyPlace" class="mb-0 mt-1">1 /</p>
-                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/power.png" alt="" title="War Power" loading="lazy" />
-                        <p id="m_player_powerPlace" class="mb-0 mt-1">1)</p>
+                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/exp.png" alt="" data-title="Experience" loading="lazy" />
+                        <p id="m_player_expPlace" data-title="Experience" class="mb-0 mt-1">1 /</p>
+                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/money.png" alt="" data-title="Money" loading="lazy" />
+                        <p id="m_player_moneyPlace" data-title="Money" class="mb-0 mt-1">1 /</p>
+                        <img class="lhst_profile_rating_img " src="~/img/rating-icons/power.png" alt="" data-title="War Power" loading="lazy" />
+                        <p id="m_player_powerPlace" data-title="War Power" class="mb-0 mt-1">1)</p>
                     </div>
                 </div>
                 <br />
@@ -154,8 +154,8 @@
                         <p id="m_player_residence_country_name" class="mb-0">Avalonium</p>
                         <p id="m_player_residence_land_name" class="mb-0">Hrodna</p>
                         <div class="row">
-                            <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left" title="Population" alt="" loading="lazy" />
-                            <p id="m_player_population" class="float-left mt-2 mb-0 lhst_clr-wheat" title="Population">564</p>
+                            <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left" data-title="Population" alt="" loading="lazy" />
+                            <p id="m_player_population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population">564</p>
                         </div>
                     </div>
                 </div> 
@@ -193,37 +193,37 @@
             <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
             <p id="landFromName" class="lhst_wars_lands_text ">LandFrom</p>
             <div>
-                <img class="float-left" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" title="Army strength" alt="">
+                <img class="float-left" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" data-title="Army strength" alt="">
                 <p id="attackersArmyStrength" class="float-left mt-2 mb-0">0%</p>
             </div>
         </div>
         <div class="col-4 p-0">
             <div class="row p-0">
                 <div class="col-4 p-0 text-right">
-                    <p id="soldiersCountLeft" class="text-right lhst_country_info_region_value" title="Attackers Soldiers">937</p>
+                    <p id="soldiersCountLeft" class="text-right lhst_country_info_region_value" data-title="Attackers Soldiers">937</p>
                 </div>
                 <div class="col-2 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="">
+                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" data-title="Attackers Soldiers" alt="">
                 </div>
                 <div class="col-2 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="">
+                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" data-title="Defenders Soldiers" alt="">
                 </div>
                 <div class="col-4 p-0">
-                    <p id="soldiersCountRight" class="lhst_country_info_region_value" title="Defenders Soldiers">647</p>
+                    <p id="soldiersCountRight" class="lhst_country_info_region_value" data-title="Defenders Soldiers">647</p>
                 </div>
             </div>
             <div class="row p-0">
                 <div class="col-4 p-0 text-right">
-                    <p id="armiesCountLeft" class="text-right lhst_country_info_region_value" title="Attackers Lords">0</p>
+                    <p id="armiesCountLeft" class="text-right lhst_country_info_region_value" data-title="Attackers Lords">0</p>
                 </div>
                 <div class="col-2 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="">
+                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" data-title="Attackers Lords" alt="">
                 </div>
                 <div class="col-2 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="">
+                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" data-title="Defenders Lords" alt="">
                 </div>
                 <div class="col-4 p-0 ">
-                    <p id="armiesCountRight" class="lhst_country_info_region_value" title="Defenders Lords">12</p>
+                    <p id="armiesCountRight" class="lhst_country_info_region_value" data-title="Defenders Lords">12</p>
                 </div>
             </div>
             <div class="row p-0">
@@ -246,7 +246,7 @@
             <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
             <p id="landToName" class="lhst_wars_lands_text ">LandTo</p>
             <div>
-                <img class="float-right" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" title="Army strength" alt="">
+                <img class="float-right" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" data-title="Army strength" alt="">
                 <p id="defendersArmyStrength" class="float-right mt-2 mb-0">0%</p>
             </div>
         </div>

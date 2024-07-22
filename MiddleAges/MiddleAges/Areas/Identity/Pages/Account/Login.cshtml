@@ -17,7 +17,7 @@
             <div class="row mt-5">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-sm-12 col-md-4 ">
+                        <div class="col-sm-12 col-md-4 mt-5">
                             <p >
                                 Middle Ages - первый проект, разработанный компанией lhstcorp. Это средневековая игра в жанре стратегии, которая позволит попасть в Беларусь тех времен. Сражения за земли с другими игроками, организация восстаний, правление собственным государством - всё это вы сможете опробовать в данной игре. MIDDLE AGES - стань легендой средневековья!
                             </p>
@@ -63,12 +63,12 @@
                         <div class="col-sm-12 col-md-4">
                             <div class="row d-inline-flex">
                                 <div class="col-6 lhst_scale">
-                                    <img class="auth_height_side" src="~/img/map-regions-icons-middle-ages/Alytus.png" alt="" loading="lazy" />
-                                    <img class="auth_height_side" src="~/img/map-regions-icons-middle-ages/Kaunas.png" alt="" loading="lazy" />
+                                    <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/main_menu.jpg" alt="" loading="lazy" data-title="main_menu" onclick="openMainMenuScreensDialog()" />
+                                    <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/map_menu.jpg" alt="" loading="lazy" data-title="map_menu" onclick="openMapMenuScreensDialog()" />
                                 </div>
                                 <div class="col-6 lhst_scale">
-                                    <img class="auth_height_side" src="~/img/map-regions-icons-middle-ages/Monki.png" alt="" loading="lazy" />
-                                    <img class="auth_height_side" src="~/img/map-regions-icons-middle-ages/Pruzhany.png" alt="" loading="lazy" />
+                                    <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/country_menu.jpg" alt="" loading="lazy" data-title="country_menu" onclick="openCountryMenuScreensDialog()" />
+                                    <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/wars_menu.jpg" alt="" loading="lazy" data-title="wars_menu" onclick="openWarsMenuScreensDialog()" />
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" data-title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                                 }
                             </p>
                         </div>
@@ -111,8 +111,46 @@
     </div> *@
     </div>
     <script src="~/js/register.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/country_page_actions.js"></script>
 </body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
 
+<div class="lhst_dialog_screens modal" id="mainMenuScreensDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideMainMenuScreensDialog()">x</button>
+    </div>
+    <div class="text-center pl-0">
+        <img class="screen_height" src="~/img/menu-icons/main_menu.jpg" alt="" loading="lazy" data-title="main_menu" />
+    </div>
+
+</div>
+<div class="lhst_dialog_screens modal" id="mapMenuScreensDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideMapMenuScreensDialog()">x</button>
+    </div>
+    <div class="text-center pl-0">
+        <img class="screen_height" src="~/img/menu-icons/map_menu.jpg" alt="" loading="lazy" data-title="map_menu" />
+    </div>
+
+</div>
+<div class="lhst_dialog_screens modal" id="countryMenuScreensDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideCountryMenuScreensDialog()">x</button>
+    </div>
+    <div class="text-center pl-0">
+        <img class="screen_height" src="~/img/menu-icons/country_menu.jpg" alt="" loading="lazy" data-title="country_menu" />
+    </div>
+
+</div>
+<div class="lhst_dialog_screens modal" id="warsMenuScreensDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideWarsMenuScreensDialog()">x</button>
+    </div>
+    <div class="text-center pl-0">
+        <img class="screen_height" src="~/img/menu-icons/wars_menu.jpg" alt="" loading="lazy" data-title="wars_menu" />
+    </div>
+
+</div>

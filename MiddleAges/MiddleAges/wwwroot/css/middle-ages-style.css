@@ -703,3 +703,29 @@ lhst_marquee {
     color: #faaf08;
 }
 
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.2s;
+    visibility: visible;
+}
+
+[data-title]:after {
+    content: attr(data-title);
+    background-color: #232323;
+    color: #faaf08;
+    font-size: 100%;
+    position: absolute;
+    padding: 2px 5px 2px 5px;
+    left: 100%;
+    white-space: nowrap;
+    box-shadow: 1px 1px 3px #232323;
+    opacity: 0;
+    border: 1px solid #faaf08;
+    border-radius: 2px;
+    z-index: 99999;
+    visibility: hidden;
+}
+
+[data-title] {
+    position: relative;
+}

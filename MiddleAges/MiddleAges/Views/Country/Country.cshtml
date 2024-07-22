@@ -22,7 +22,7 @@
             <p class="lhst_country_king_size mb-0" >@Model.Country.Name</p>
             <p class="lhst_country_king_size mb-0">@Model.Country.CapitalId</p>
             <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Country.CapitalId).png" title="@Model.Country.CapitalId" class="lhst_country_img" alt="map region coat of arms" loading="lazy" />
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Country.CapitalId).png" data-title="@Model.Country.CapitalId" class="lhst_country_img" alt="map region coat of arms" loading="lazy" />
             </div>
             <div class="row">
                 <div class="lhst_person-nav-container-inline mr-1">
@@ -38,16 +38,16 @@
                     </div>
                     <div>
                         <div class="row">
-                            <img class="country_card-population-img" src="~/img/default-icon/farmer.png" alt="" title="Peasants" loading="lazy" />
-                            <p class="lhst_country_info_region_value ml-1 mb-0" title="Peasants">@Model.PeasantsCount</p>
+                            <img class="country_card-population-img" src="~/img/default-icon/farmer.png" alt="" data-title="Peasants" loading="lazy" />
+                            <p class="lhst_country_info_region_value ml-1 mb-0" data-title="Peasants">@Model.PeasantsCount</p>
                         </div>
                         <div class="row">
-                            <img class="country_card-population-img" src="~/img/default-icon/knight.png" alt="" title="Soldiers" loading="lazy" />
-                            <p class="lhst_country_info_region_value ml-1 mb-0" title="Soldiers">@Model.SoldiersCount</p>
+                            <img class="country_card-population-img" src="~/img/default-icon/knight.png" alt="" data-title="Soldiers" loading="lazy" />
+                            <p class="lhst_country_info_region_value ml-1 mb-0" data-title="Soldiers">@Model.SoldiersCount</p>
                         </div>
                         <div class="row">
-                            <img class="country_card-population-img" src="~/img/default-icon/players.png" alt="" title="Lords" loading="lazy" />
-                            <p class="lhst_country_info_region_value ml-1 mb-0" title="Lords">@Model.LordsCount</p>
+                            <img class="country_card-population-img" src="~/img/default-icon/players.png" alt="" data-title="Lords" loading="lazy" />
+                            <p class="lhst_country_info_region_value ml-1 mb-0" data-title="Lords">@Model.LordsCount</p>
                         </div>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
             <div class="d-inline-block float-left">
                 @for (int i = 0; i < Model.Lands.Count; i++)
                 {
-                    <img id="countries_lands" class="country_card-land-img mb-2" title="@(Model.Lands[i].LandId)" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" loading="lazy" />
+                    <img id="countries_lands" class="country_card-land-img mb-2" data-title="@(Model.Lands[i].LandId)" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" loading="lazy" />
                 }
             </div>
         </div>
@@ -160,7 +160,7 @@
                 @for (int i = 0; i < lawsOrderByTime.Count(); i++)
                 {
                     <div class="lhst_country_history_comment text-left!important">
-                        <img class="lhst_country_history_img" title="@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type))" id="country_history_img" height="42" src="../img/menu-icons/@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type)).jfif" alt="" loading="lazy"/>
+                        <img class="lhst_country_history_img" data-title="@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type))" id="country_history_img" height="42" src="../img/menu-icons/@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type)).jfif" alt="" loading="lazy"/>
                         <p class="lhst_country_history_text">@String.Format(CommonLogic.getLawDescriptionByType(lawsOrderByTime[i].Type), lawsOrderByTime[i].Value2, lawsOrderByTime[i].Value1)</p>
                         <time class="float-right" datetime="2016-11-18T09:54">@lawsOrderByTime[i].PublishingDateTime</time>
                     </div>
