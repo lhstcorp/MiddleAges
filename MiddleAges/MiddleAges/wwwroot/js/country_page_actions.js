@@ -52,6 +52,30 @@ function openTaxesCountryDialog() {
 function hideTaxesCountryDialog() {
     $('#taxesCountryDialog').modal('hide');
 }
+function openMainMenuScreensDialog() {
+    $('#mainMenuScreensDialog').modal('show');
+}
+function hideMainMenuScreensDialog() {
+    $('#mainMenuScreensDialog').modal('hide');
+}
+function openMapMenuScreensDialog() {
+    $('#mapMenuScreensDialog').modal('show');
+}
+function hideMapMenuScreensDialog() {
+    $('#mapMenuScreensDialog').modal('hide');
+}
+function openCountryMenuScreensDialog() {
+    $('#countryMenuScreensDialog').modal('show');
+}
+function hideCountryMenuScreensDialog() {
+    $('#countryMenuScreensDialog').modal('hide');
+}
+function openWarsMenuScreensDialog() {
+    $('#warsMenuScreensDialog').modal('show');
+}
+function hideWarsMenuScreensDialog() {
+    $('#warsMenuScreensDialog').modal('hide');
+}
 
 
 

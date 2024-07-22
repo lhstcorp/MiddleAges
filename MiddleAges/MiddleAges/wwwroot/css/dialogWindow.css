@@ -70,6 +70,7 @@
     color: #f5deb3
 }
 
+
 .lhst_dialog_wars {
     left: 0;
     right: 0;
@@ -95,3 +96,28 @@
 .lhst_dialog_wars::backdrop {
     background: rgba(0,0,0,0.5)
 }
+
+.lhst_dialog_screens {
+    left: 0;
+    right: 0;
+    margin: 20vh auto;
+    border: solid;
+    padding: 1em;
+    background: #232323;
+    color: #f5deb3;
+    height: 600px;
+    width: 1100px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    /*    overflow: hidden;*/
+    outline: 0;
+    /*  height: auto !important*/
+}
+
+    .lhst_dialog_screens::backdrop {
+        background: rgba(0,0,0,0.5)
+    }

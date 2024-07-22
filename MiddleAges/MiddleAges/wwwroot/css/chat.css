@@ -40,6 +40,10 @@
     font-weight: 700
 }
 
+    .lhst_username_text:hover {
+        color: #faaf08;
+    }
+
 .lhst_chat_height {
     height: 380px;
 }

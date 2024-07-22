@@ -22,7 +22,7 @@
         </div>
        
         <div class="row lhst_progressbar_div mt-1">
-            <progress class="lhst_progressbar" value="@(Model.Player.Exp - @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" max="@(CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1) - CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" title="@(Model.Player.Exp) / @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1)"></progress>
+            <progress class="lhst_progressbar" value="@(Model.Player.Exp - @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" max="@(CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1) - CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" data-title="@(Model.Player.Exp) / @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1)"></progress>
         </div>
     </div>    
    
