@@ -21,14 +21,16 @@
         <div class="lhst_avatar_inline lhst_country_div align-top lhst_slider_lands_screen ">
             <p class="lhst_country_king_size mb-0" >@Model.Country.Name</p>
             <p class="lhst_country_king_size mb-0">@Model.Country.CapitalId</p>
+            
             <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Country.CapitalId).png" data-title="@Model.Country.CapitalId" class="lhst_country_img" alt="map region coat of arms" loading="lazy" />
+                <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Country.CapitalId).png" title="@Model.Country.CapitalId" class="lhst_country_img" alt="map region coat of arms" loading="lazy" />
             </div>
             <div class="row">
                 <div class="lhst_person-nav-container-inline mr-1">
                     <img id="player_avatar" class="lhst_king_nav-avatar-img" src="~/img/avatars/@(Model.Ruler.ImageURL).webp" alt="" loading="lazy" />
                 </div>
                 <p class="lhst_country_king_size ">King @Model.Ruler.UserName</p>
+                
             </div>
 
             <div class="row">
@@ -38,15 +40,15 @@
                     </div>
                     <div>
                         <div class="row">
-                            <img class="country_card-population-img" src="~/img/default-icon/farmer.png" alt="" data-title="Peasants" loading="lazy" />
+                            <img class="country_card-population-img" src="~/img/default-icon/farmer.png" alt="" title="Peasants" loading="lazy" />
                             <p class="lhst_country_info_region_value ml-1 mb-0" data-title="Peasants">@Model.PeasantsCount</p>
                         </div>
                         <div class="row">
-                            <img class="country_card-population-img" src="~/img/default-icon/knight.png" alt="" data-title="Soldiers" loading="lazy" />
+                            <img class="country_card-population-img" src="~/img/default-icon/knight.png" alt="" title="Soldiers" loading="lazy" />
                             <p class="lhst_country_info_region_value ml-1 mb-0" data-title="Soldiers">@Model.SoldiersCount</p>
                         </div>
                         <div class="row">
-                            <img class="country_card-population-img" src="~/img/default-icon/players.png" alt="" data-title="Lords" loading="lazy" />
+                            <img class="country_card-population-img" src="~/img/default-icon/players.png" alt="" title="Lords" loading="lazy" />
                             <p class="lhst_country_info_region_value ml-1 mb-0" data-title="Lords">@Model.LordsCount</p>
                         </div>
                     </div>
@@ -71,7 +73,7 @@
             <div class="d-inline-block float-left">
                 @for (int i = 0; i < Model.Lands.Count; i++)
                 {
-                    <img id="countries_lands" class="country_card-land-img mb-2" data-title="@(Model.Lands[i].LandId)" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" loading="lazy" />
+                    <img id="countries_lands" class="country_card-land-img mb-2" title="@(Model.Lands[i].LandId)" src="../img/map-regions-icons-middle-ages/@(Model.Lands[i].LandId).png" alt="" loading="lazy" />
                 }
             </div>
         </div>
@@ -201,11 +203,11 @@
     <form asp-controller="Country" asp-action="Recolor">
         <section>
             <p class="lhst_card_properties">
-                Current color:
+                Current color: 
                 <input class="lhst_color_picker" type="color" value="@Model.Country.Color" disabled>
             </p>
             <p class="lhst_card_properties">
-                New color
+                New color: 
                 <input name="newColor" class="lhst_color_picker" type="color" id="countrycolor" value="#ff0000">
             </p>
         </section>

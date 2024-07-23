@@ -48,7 +48,7 @@
     height: 380px;
 }
 
-.lhst_chat_input {
+.lhst_chat_input {    
     width: 230px;
     height: 50px;
     margin-top: 13px;
@@ -57,7 +57,7 @@
     background-color: #393939;
     color: wheat;
     border-radius: 10px;
-    padding-left:10px;
+    padding-left: 10px;
     resize: none;
     border-style: none;
 }

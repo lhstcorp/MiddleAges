@@ -28,18 +28,18 @@
             <div class="col lhst_map_region_icon_left_bar_col">
                 <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
             </div>
-            <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">
-                <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
+            <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">             
+                <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>                    
                 <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name">@Model.Land.LandId</p>
             </div>
         </div>
         <div>
             <div class="row">
-                <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left ml-2" data-title="Population" alt="" loading="lazy" />
+                <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Population" alt="" loading="lazy" />
                 <p id="population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population" >@Model.Population</p>
             </div>
             <div class="row">
-                <img src="../img/default-icon/players.png" class="lhst_info_region_icon_left_bar float-left ml-2" data-title="Lords" alt="" loading="lazy" />
+                <img src="../img/default-icon/players.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Lords" alt="" loading="lazy" />
                 <p id="lordsCount" class="lhst_cursor_pointer lhst_clr-wheat float-left mt-2 mb-0" data-title="Lords" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
             </div>
         </div>
