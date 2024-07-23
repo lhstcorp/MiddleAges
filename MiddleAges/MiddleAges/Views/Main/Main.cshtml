@@ -15,6 +15,7 @@
                 <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
                 <p class="lhst_current_land_name lhst_leftSideBar_land_name">@Model.Player.CurrentLand</p>
             </div>
+            
         </div>
     </div>
     <div class="lhst_vertical-alignment-top lhst_main-section_mainmenu lhst_main_section_padding">
@@ -45,21 +46,97 @@
                     <p id="productionStatusStr" class="w-100 flex-wrap mb-2 font-weight-normal">@productionStatusString</p>
                 }
 
-                <div class="lhst_line ml-0 mr-0 mb-2"></div>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Today's earnings: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount lhst_color-money"> @Math.Round(Model.Player.MoneyProduced, 2).ToString().Replace(',', '.')</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Today's expenses: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount lhst_clr-brown"> -@Math.Round(Model.Player.MoneySpent, 2).ToString().Replace(',', '.')</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Today's balance: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount @(Model.Player.MoneyProduced - Model.Player.MoneySpent < 0 ? "lhst_clr-brown" : "lhst_clr-money")"> @Math.Round(Model.Player.MoneyProduced - Model.Player.MoneySpent, 2).ToString().Replace(',', '.')</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Remaining land limit: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @Math.Round(Model.ResidenceLand.ProductionLimit, 2).ToString().Replace(',', '.')</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Residence prod land: <span class="lhst_clr-money">@Model.ResidenceLand.LandId</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Working residents: <span class="lhst_clr-money">@Model.Units[0].Count</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Projected daily earnings: <img class="lhst_independent_land_description_money_icon lhst_clr-money" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00), 2).ToString().Replace(',', '.'))/day</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Army maintenance: <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_clr-brown"> -@(Math.Round(Model.Units[1].Count * 0.02 * 24.00, 2).ToString().Replace(',', '.'))/day</span></p>
+                <div class="lhst_line ml-0 mr-0 mb-0"></div>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Today's earnings:
+                    <span class="lhst_tooltiptext_production">
+                        Today's earnings:
+                    </span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" />
+                    <span class="lhst_independent_land_description_money_amount lhst_color-money"> @Math.Round(Model.Player.MoneyProduced, 2).ToString().Replace(',', '.')</span>
+                </p>                    
+         
+               
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Today's expenses:
+                    <span class="lhst_tooltiptext_production">
+                        Today's expenses:
+                    </span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" />
+                    <span class="lhst_independent_land_description_money_amount lhst_clr-brown"> -@Math.Round(Model.Player.MoneySpent, 2).ToString().Replace(',', '.')</span>
+                </p>
+
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Today's balance:
+                    <span class="lhst_tooltiptext_production">
+                        Today's balance:
+                    </span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount @(Model.Player.MoneyProduced - Model.Player.MoneySpent < 0 ? "lhst_clr-brown" : "lhst_clr-money")"> @Math.Round(Model.Player.MoneyProduced - Model.Player.MoneySpent, 2).ToString().Replace(',', '.')</span>
+                </p>
+                
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Remaining land limit:
+                    <span class="lhst_tooltiptext_production">
+                        Remaining land limit:
+                    </span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @Math.Round(Model.ResidenceLand.ProductionLimit, 2).ToString().Replace(',', '.')</span>
+                </p>
+                
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Residence prod land:
+                    <span class="lhst_tooltiptext_production">
+                        Residence prod land:
+                    </span>
+                    <span class="ml-1 lhst_clr-money">@Model.ResidenceLand.LandId</span>
+                </p>
+                
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Working residents:
+                    <span class="lhst_tooltiptext_production">
+                        Working residents:
+                    </span>
+                    <span class="ml-1 lhst_clr-money">@Model.Units[0].Count</span>
+                </p>
+                
+                
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Projected daily earnings:
+                    <span class="lhst_tooltiptext_production">
+                        Projected daily earnings:
+                    </span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon lhst_clr-money" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00), 2).ToString().Replace(',', '.'))/day</span>
+                </p>
+
+
+               
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Army maintenance:
+                    <span class="lhst_tooltiptext_production">
+                        Army maintenance:
+                    </span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_clr-brown"> -@(Math.Round(Model.Units[1].Count * 0.02 * 24.00, 2).ToString().Replace(',', '.'))/day</span>
+                </p>
+
                 @{
                     double projectedDailyBalance = Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00) - Model.Units[1].Count * 0.02 * 24.00, 2);
                 }
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Projected daily balance: <img class="lhst_independent_land_description_money_icon @(projectedDailyBalance < 0 ? "lhst_clr-brown" : "lhst_clr-money")" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(projectedDailyBalance.ToString().Replace(',', '.'))/day</span></p>
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Taxes: <span class="lhst_clr-brown">@(Model.ResidenceLand.Taxes)%</span></p>
 
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Projected daily balance:         
+                    <span class="lhst_tooltiptext_production">
+                        Projected daily balance:
+                    </span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon @(projectedDailyBalance < 0 ? "lhst_clr-brown" : "lhst_clr-money")" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(projectedDailyBalance.ToString().Replace(',', '.'))/day</span>
+                </p>
+
+                <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
+                    Taxes: 
+                    <span class="lhst_tooltiptext_production">
+                        Taxes:
+                    </span>
+                    <span class="lhst_clr-brown ml-1">@(Model.ResidenceLand.Taxes)%</span>
+                </p>
+                
             </div>
         </div>
 

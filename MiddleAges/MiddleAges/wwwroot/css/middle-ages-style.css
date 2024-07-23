@@ -2,7 +2,8 @@
     /*background-color: #faebd7;*/
     background-color: #f4ebdb;
     background-size: 100%;
-    margin: 0
+    margin: 0;
+    /*filter: invert(1) hue-rotate(210deg);*/
 }
 
 .header {
@@ -25,8 +26,9 @@
 
 .header-menu.map-btn {
     background-image: url(../img/menu-icons/map-icon.png);
-    background-size: 100%
+    background-size: 100%;
 }
+
 
 .header-menu.state-btn {
     background-image: url(../img/menu-icons/country-icon.png);
@@ -728,4 +730,103 @@ lhst_marquee {
 
 [data-title] {
     position: relative;
+}
+
+.lhst_tooltip {
+    position: relative;
+    display: inline-flex;
+    border-bottom: 1px #232323;
+    font-weight: 100;
+    margin: -2px 0px 0px 2px;
+    box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
+    text-align: justify;
+    color: #f4ebdb;
+}
+
+    .lhst_tooltip .lhst_tooltiptext {
+        visibility: hidden;
+        width: 220px;
+        background-color: rgba(0,0,0,.9);
+        color: #f4ebdb;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px 20px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -110px;
+
+        font-family: 'Comfortaa', cursive;
+        text-align: justify;
+    }
+
+        .lhst_tooltip .lhst_tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0,0,0,.9) transparent transparent transparent;
+        }
+
+    .lhst_tooltip:hover .lhst_tooltiptext {
+        visibility: visible;
+
+        transition: all 0.5s ease;
+    }
+
+.lhst_tooltip_production {
+    position: relative;
+    display: inline-flex;
+    border-bottom: 1px #232323;
+    font-weight: 100;
+    margin: -2px 0px 0px 2px;
+    box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
+    text-align: justify;
+    color: wheat;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+}
+
+    .lhst_tooltip_production .lhst_tooltiptext_production {
+        visibility: hidden;
+        width: 220px;
+        background-color: rgba(0,0,0,.9);
+        color: #f4ebdb;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px 20px;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -110px;
+        font-family: 'Comfortaa', cursive;
+        text-align: justify;
+    }
+
+        .lhst_tooltip_production .lhst_tooltiptext_production::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: rgba(0,0,0,.9) transparent transparent transparent;
+        }
+
+    .lhst_tooltip_production:hover .lhst_tooltiptext_production {
+        visibility: visible;
+        transition: all 0.5s ease;
+    }
+
+.lhst_cursor_help{
+    cursor:help;
+}
+
+.lhst_cursor_not_allowed {
+    cursor: not-allowed;
 }

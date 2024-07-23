@@ -161,10 +161,13 @@
     font-size: revert
 }
 
-.lhst_btn_avatar_confirm:hover {
-    background: radial-gradient(#2d9062,black);
-    color: #f5deb3
-}
+    .lhst_btn_avatar_confirm:hover {
+        background: radial-gradient(#2d9062,black);
+        color: #faaf08;
+
+    }
+
+
 
 .lhst_checkbox_gender {
     border: thick;
