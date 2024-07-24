@@ -1,13 +1,21 @@
-﻿.auth_background {
-    /*background-color: #453C37*/
-    /*background: radial-gradient(#232323,#232323);*/
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
-    background-size:10%;
+﻿:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
 }
 
-.auth_text_color {
-    color: #F6D9A1
+.auth_background {
+    /*background-color: #453C37*/
+    /*background: radial-gradient(var(--main-color),var(--main-color));*/
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 10%;
 }
+
+    .auth_text_color {
+        color: var(--wheat-color)
+    }
 
 .auth_text_font {
     font-family: Algerian;
@@ -32,18 +40,18 @@
 .auth_text_font_text {
     font-size: 12px;
     font-weight: 200;
-    color: #F6D9A1
+    color: var(--wheat-color)
 }
 
 .auth_text_font_a {
     font-size: 20px;
     font-weight: 400;
-    color: #F6D9A1;
+    color: var(--wheat-color);
     text-decoration: underline
 }
 
 .auth_text_font_a:hover {
-    color: #DFBE7E
+    color: var(--yellow-color)
 }
 
 .auth_div_width {
@@ -62,6 +70,10 @@
     width: 35vw
 }
 
+.auth_max_height {
+max-height: calc(100vh - 52px);
+}
+
 .auth_form-control {
     display: block;
     width: 100%;
@@ -70,17 +82,17 @@
     font-size: 1.5rem;
     font-weight: 700;
     line-height: 1.5;
-    color: #232323;
-    background-color: #F6D9A1;
+    color: var(--main-color);
+    background-color: var(--wheat-color);
     background-clip: padding-box;
-    border: 0 solid #ced4da;
+    border: 0 solid var(--add-color);
     border-radius: 10px;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out, background-color 0s 600000s, color 0s 600000s !important;
 }
 
 
     .auth_form-control::placeholder {
-        color: #232323;
+        color: var(--main-color);
         opacity: 90%
     }
 
@@ -91,20 +103,26 @@
 
 
 .auth_btn {
-    color: wheat;
-    background: radial-gradient(#393939,black);
+    color: var(--wheat-color);
+    background: radial-gradient(var(--add-color),black);
     width: 100%;
     font-family: Algerian;
     font-size: 36px;
     font-weight: 300;
-    border: #000;
-    border-width: 2px;
-    border-radius: 10px
+    border: var(--green-color);
+    border-width: 5px;
+    border-radius: 10px;
+    
 }
 
     .auth_btn:hover {
-        background: radial-gradient(#2d9062 0%,#232323 90%);
-        color: #faaf08;
+        background: radial-gradient(var(--green-color),var(--main-color));
+        color: var(--yellow-color);
+        border-style: outset;
+    }
+
+    .auth_btn:active{
+        border-style:inset;
     }
 
 .password {

@@ -1,4 +1,12 @@
-﻿.header-menu.rename-btn {
+﻿:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
+.header-menu.rename-btn {
     background-image: url(../img/menu-icons/Renaming.jfif);
     background-size: 100%
 }
@@ -44,11 +52,13 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 50%;
+    /*background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
-    border-color: #f5deb3;
-    color: wheat;
+    border-color: var(--wheat-color);
+    color: var(--wheat-color);
     min-width: 370px;
     max-height: calc(100vh - 212px)
 }
@@ -68,13 +78,13 @@
 
 .lhst_country_line {
     height: 1px;
-    background-color: #f5deb3
+    background-color: var(--wheat-color)
 }
 
 .lhst_country_history_line {
     width: 692px;
     height: 1px;
-    background-color: #f5deb3
+    background-color: var(--wheat-color)
 }
 
 .lhst_country_history_comment {
@@ -98,7 +108,7 @@
 .lhst_country_info_region_value {
     display: inline-block;
     font-size: 14px;
-    color: wheat;
+    color: var(--wheat-color);
     align-self: center
 }
 
@@ -111,13 +121,15 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 5px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+    /*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
-    border-color: #f5deb3;
-    color: #f5deb3;
-    padding-right:6px;
-    padding-left:6px;
+    border-color: var(--wheat-color);
+    color: var(--wheat-color);
+    padding-right: 6px;
+    padding-left: 6px;
     /*max-width: 500px;
     overflow-x: auto;
     white-space: nowrap;*/
@@ -128,11 +140,13 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 30%;
+/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
-    border-color: #f5deb3;
-    color: wheat;
+    border-color: var(--wheat-color);
+    color: var(--wheat-color);
     max-height: calc(100vh - 336px)
 }
 
@@ -169,8 +183,8 @@
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
-    --scrollbar-color-thumb: #232323;
-    --scrollbar-color-track: #393939;
+    --scrollbar-color-thumb: var(--main-color);
+    --scrollbar-color-track: var(--add-color);
     --scrollbar-width: thin;
     --scrollbar-width-legacy: 0px
 }
@@ -213,7 +227,7 @@
     border-radius: 16px;
     border-width: 1px;
     border-color: black;
-    color: #f5deb3;
+    color: var(--wheat-color);
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
     margin: 2px;
     font-size: 14px;
@@ -224,21 +238,25 @@
 }
 
 .lhst_law_btn:hover {
-    -webkit-text-stroke: thin #393939;
-    -webkit-text-fill-color: #faaf08;
-    font-weight: 700
+    -webkit-text-stroke: thin var(--add-color);
+    -webkit-text-fill-color: var(--yellow-color);
+    font-weight: 700;
+    border-style: outset;
 }
+    .lhst_law_btn:active{
+        border-style: inset;
+    }
 
-.lhst_slider_lands_screen {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    scroll-snap-type: y mandatory;
-    -webkit-overflow-scrolling: touch;
-    --scrollbar-color-thumb: #232323;
-    --scrollbar-color-track: #393939;
-    --scrollbar-width: thin;
-    --scrollbar-width-legacy: 0px
-}
+    .lhst_slider_lands_screen {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scroll-snap-type: y mandatory;
+        -webkit-overflow-scrolling: touch;
+        --scrollbar-color-thumb: var(--main-color);
+        --scrollbar-color-track: var(--add-color);
+        --scrollbar-width: thin;
+        --scrollbar-width-legacy: 0px
+    }
 
     .lhst_slider_lands_screen::-webkit-scrollbar-track {
         background: var(--scrollbar-color-track)

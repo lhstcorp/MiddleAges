@@ -1,11 +1,21 @@
+:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
 .lhst_dialog {
     left: 0;
     right: 0;
     margin: 40vh auto;
     border: solid;
     padding: 1em;
-    background: #232323;
-    color: #f5deb3;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background: var(--main-color);*/
+    color: var(--wheat-color);
     width: 300px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     border-radius: 5px;
@@ -27,39 +37,43 @@
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(#393939,black);
+    background: radial-gradient(var(--add-color),black);
     color: #f4ebdb;
     border-radius: 3px
 }
 
 .lhst_dialog_rename_input:hover {
-    color: #f5deb3;
-    background: radial-gradient(#2d9062,black)
+    color: var(--wheat-color);
+    background: radial-gradient(var(--green-color),black);
+    border-style:outset;
 }
+    .lhst_dialog_rename_input:active{
+        border-style:inset;
+    }
 
-.lhst_dialog_select_input {
-    width: 150px;
-    height: 26.2px;
-    margin-bottom: 3px;
-    margin-left: 4px;
-    background: radial-gradient(#393939,#232323);
-    color: #f5deb3;
-    border-radius: 3px;
-    font-weight: 700
-}
+    .lhst_dialog_select_input {
+        width: 150px;
+        height: 26.2px;
+        margin-bottom: 3px;
+        margin-left: 4px;
+        background: radial-gradient(var(--add-color),var(--main-color));
+        color: var(--wheat-color);
+        border-radius: 3px;
+        font-weight: 700
+    }
 
 .lhst_option:checked {
-    background: #f5deb3 linear-gradient(#393939,#232323);
-    color: #393939
+    background: var(--wheat-color) linear-gradient(var(--add-color),var(--main-color));
+    color: var(--add-color)
 }
 
 .lhst_option {
-    background: #232323 linear-gradient(#393939,#232323);
-    color: #f5deb3
+    background: var(--main-color) linear-gradient(var(--add-color),var(--main-color));
+    color: var(--wheat-color)
 }
 
 .lhst_btn_dialog_cancel {
-    background: radial-gradient(#393939,black);
+    background: radial-gradient(var(--add-color),black);
     color: #f4ebdb;
     border-radius: 3px;
     font-size: x-small
@@ -67,31 +81,35 @@
 
 .lhst_btn_dialog_cancel:hover {
     background: radial-gradient(#FF033E,black);
-    color: #f5deb3
+    color: var(--wheat-color);
+    border-style:outset;
 }
+    .lhst_btn_dialog_cancel:active{
+        border-style:inset;
+    }
 
-
-.lhst_dialog_wars {
-    left: 0;
-    right: 0;
-    margin: 20vh auto;
-    border: solid;
-    padding: 1em;
-    background: #232323;
-    color: #f5deb3;
-    height: 50vh;
-    width: 700px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    border-radius: 5px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1050;
-    /*    overflow: hidden;*/
-    outline: 0;
-    
-    /*  height: auto !important*/
-}
+    .lhst_dialog_wars {
+        left: 0;
+        right: 0;
+        margin: 20vh auto;
+        border: solid;
+        padding: 1em;
+        background-image: url("../img/menu-icons/black-scratch-lines.png");
+        background-size: 100%;
+        /*    background: var(--main-color);*/
+        color: var(--wheat-color);
+        height: 50vh;
+        width: 700px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        border-radius: 5px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1050;
+        /*    overflow: hidden;*/
+        outline: 0;
+        /*  height: auto !important*/
+    }
 
 .lhst_dialog_wars::backdrop {
     background: rgba(0,0,0,0.5)
@@ -103,8 +121,10 @@
     margin: 20vh auto;
     border: solid;
     padding: 1em;
-    background: #232323;
-    color: #f5deb3;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background: var(--main-color);*/
+    color: var(--wheat-color);
     height: 600px;
     width: 1100px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);

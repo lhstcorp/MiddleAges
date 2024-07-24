@@ -1,4 +1,12 @@
-﻿.lhst_event_btn {
+﻿:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
+.lhst_event_btn {
     width: 119px;
     height: 90px;
     padding: 5px;
@@ -6,7 +14,7 @@
     border-radius: 6px;
     border-width: 1px;
     border-color: black;
-    color: #f5deb3;
+    color: var(--wheat-color);
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
     margin: 2px;
     font-size: 14px;
@@ -16,26 +24,34 @@
     justify-content: center;    
     background-size: 100%
 }
+    .lhst_event_btn:hover{
+        border-style:outset;
+    }
+    .lhst_event_btn:active{
+        border-style:inset;
+    }
 
-.lhst_m_local_events_dialog {
-    left: 0;
-    right: 0;
-    margin: 20vh auto;
-    border: solid;
-    padding: 1em;
-    background: #232323;
-    color: #f5deb3;
-    width: 500px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
-    border-radius: 5px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1051;
-    overflow: hidden;
-    outline: 0;
-    height: auto !important
-}
+    .lhst_m_local_events_dialog {
+        left: 0;
+        right: 0;
+        margin: 20vh auto;
+        border: solid;
+        padding: 1em;
+        background-image: url("../img/menu-icons/black-scratch-lines.png");
+        background-size: 100%;
+        /*    background: var(--main-color);*/
+        color: var(--wheat-color);
+        width: 500px;
+        box-shadow: 0 0 5px rgba(0,0,0,0.5);
+        border-radius: 5px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1051;
+        overflow: hidden;
+        outline: 0;
+        height: auto !important
+    }
 
 .lhst_m_local_events_title {
     font-family: 'Sitka Display', 'Arial', Arial, sans-serif;

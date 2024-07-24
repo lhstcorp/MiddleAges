@@ -1,12 +1,22 @@
+:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
 .lhst_chat_div {
     text-align: center;
     max-height: calc(100vh - 212px);
     padding: 10px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background-color: var(--main-color);*/
     border-radius: 20px 0 0 20px;
     border-width: 2px;
-    border-color: #f5deb3;
-    color: wheat;
+    border-color: var(--wheat-color);
+    color: var(--wheat-color);
     margin-bottom: 10px;
     font-size: 11px;
     font-weight: 100;
@@ -21,7 +31,7 @@
 .lhst_chat_line {
     width: auto;
     height: 1px;
-    background-color: #f5deb3
+    background-color: var(--wheat-color)
 }
 
 .lhst_chat_text {
@@ -35,27 +45,27 @@
 }
 
 .lhst_username_text {
-    color: #2d9062;
+    color: var(--green-color);
     font-size: 14px;
     font-weight: 700
 }
 
     .lhst_username_text:hover {
-        color: #faaf08;
+        color: var(--yellow-color);
     }
 
 .lhst_chat_height {
     height: 380px;
 }
 
-.lhst_chat_input {    
+.lhst_chat_input {
     width: 230px;
     height: 50px;
     margin-top: 13px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background-color: #393939;
-    color: wheat;
+    background-color: var(--add-color);
+    color: var(--wheat-color);
     border-radius: 10px;
     padding-left: 10px;
     resize: none;
@@ -71,7 +81,7 @@
     height: 50px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background-color:#393939;
+    background-color:var(--add-color);
     color: lightgray;
     border-radius: 25px;
     font-weight: 700;
@@ -80,8 +90,13 @@
     border-style: none;
 }
     .lhst_button_input:hover {
-        background: radial-gradient(#2d9062,black);
-        color: wheat;
+        background: radial-gradient(var(--green-color),black);
+        color: var(--wheat-color);
+        border-style: outset;
+    }
+
+    .lhst_button_input:active{
+        border-style: inset;
     }
 
 .lhst_chat_but_marg {
@@ -99,15 +114,15 @@
 
 /*@keyframes color-change {
     0% {
-        color: #2d9062;
+        color: var(--green-color);
     }
 
     50% {
-        color: #faaf08;
+        color: var(--yellow-color);
     }
 
     100% {
-        color: #2d9062;
+        color: var(--green-color);
     }
 }
 

@@ -43,6 +43,49 @@
     .lhst_wars_div {
         max-height: calc(100vh - 212px)
     }
+
+}
+
+@media screen and (max-height:925px){
+    .auth_text_font {
+        font-family: Algerian;
+        font-size: 56px;
+        font-weight: 400;
+        text-shadow: 5px 5px 5px #000
+    }
+
+    .auth_text_font_but {
+        font-family: Algerian;
+        font-size: 30px;
+        font-weight: 300
+    }
+
+    .auth_text_font_login {
+        font-family: Algerian;
+        font-size: 24px;
+        font-weight: 400;
+        text-shadow: 3px 3px 3px #000
+    }
+
+    .auth_height {
+        height: 150px;
+    }
+
+    .auth_height_side {
+        height: 100px;
+    }
+
+    .auth_btn {
+        color: var(--wheat-color);
+        background: radial-gradient(var(--add-color),black);
+        width: 100%;
+        font-family: Algerian;
+        font-size: 24px;
+        font-weight: 300;
+        border: #000;
+        border-width: 2px;
+        border-radius: 10px
+    }
 }
 
 /*@media screen and (max-width:1010px) {
@@ -70,6 +113,47 @@
 }
 
 @media screen and (max-width:1639px) {
+    .auth_text_font {
+        font-family: Algerian;
+        font-size: 56px;
+        font-weight: 400;
+        text-shadow: 5px 5px 5px #000
+    }
+
+    .auth_text_font_but {
+        font-family: Algerian;
+        font-size: 30px;
+        font-weight: 300
+    }
+
+    .auth_text_font_login {
+        font-family: Algerian;
+        font-size: 24px;
+        font-weight: 400;
+        text-shadow: 3px 3px 3px #000
+    }
+
+    .auth_height {
+        height: 150px;
+    }
+
+    .auth_height_side {
+        height: 100px;
+    }
+
+    .auth_btn {
+        color: var(--wheat-color);
+        background: radial-gradient(var(--add-color),black);
+        width: 100%;
+        font-family: Algerian;
+        font-size: 24px;
+        font-weight: 300;
+        border: #000;
+        border-width: 2px;
+        border-radius: 10px
+    }
+
+
     .lhst_font_size {
         font-size: 11px
     }
