@@ -1,3 +1,11 @@
+:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
 .lhst_svg-map {
     position: fixed;
     width: 100%;
@@ -10,7 +18,7 @@
 
 #global_region_map polygon {
     stroke-width: 1;
-    stroke: #232323;
+    stroke: var(--main-color);
     fill: transparent;
     opacity: 100%;
 }
@@ -25,16 +33,20 @@
 }
 
 .lhst_btn_moveToRegion {
-    background: radial-gradient(#393939, black);
-    color: wheat;
+    background: radial-gradient(var(--add-color), black);
+    color: var(--wheat-color);
     border-radius: 3px;
     font-size: revert
 }
 
 .lhst_btn_moveToRegion:hover {
-    background: radial-gradient(#2d9062,black);
-    color: #faaf08;
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style:outset;
 }
+    .lhst_btn_moveToRegion:active{
+        border-style:inset;
+    }
 
 
 

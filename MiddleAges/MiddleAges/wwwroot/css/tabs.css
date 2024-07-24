@@ -1,11 +1,19 @@
+:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
 .tab {
     overflow: hidden;
     border: 1px solid #ccc;
-    background-color: #393939
+    background-color: var(--add-color)
 }
 
 .tab button {
-    background: radial-gradient(#393939,black);
+    background: radial-gradient(var(--add-color),black);
     transition: .3s;
     color: #f4ebdb;
     border-radius: 5px;
@@ -14,13 +22,15 @@
 }
 
 .tab button:hover {
-    background: radial-gradient(#2d9062,black);
-    color: #faaf08
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style:outset;
 }
 
-.tab button.active {
-    background: radial-gradient(#2d9062,black);
-    color: #faaf08
+.tab button:active {
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style:inset;
 }
 
 .tabcontent {
@@ -28,14 +38,15 @@
 }
 
 .lhst_tabs_div {
-
     text-align: center;
     width: 333px;
     margin-top: 10px;
     margin-left: 10px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background-color: var(--main-color);*/
     border-radius: 20px;
-    color: #f5deb3;
+    color: var(--wheat-color);
     padding: 5px
 }
 
@@ -43,8 +54,10 @@
     text-align: left;
     /*max-height: 500px;*/
     height: calc(100vh - 315px);
-    background-color: #232323;
-    color: #f5deb3 #4c473d
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background-color: var(--main-color);*/
+    color: var(--wheat-color) #4c473d
 }
 
 .lhst_tabs_line {
@@ -53,7 +66,7 @@
 }
 
 .lhst_tabs_line-bg-clr-wheat {
-    background-color: #f5deb3
+    background-color: var(--wheat-color)
 }
 
 .lhst_tabs_line-bg-clr-gray {
