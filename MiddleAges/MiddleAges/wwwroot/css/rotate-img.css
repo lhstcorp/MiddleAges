@@ -1,4 +1,12 @@
-﻿.image-container {
+﻿:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
+.image-container {
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     -webkit-perspective: 1000px;
@@ -12,7 +20,7 @@
     height: auto;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
     text-align: center;
-    color: #faaf08;
+    color: var(--yellow-color);
     text-shadow: 2px 1px #000000;
     -webkit-transition: -webkit-transform .7s cubic-bezier(0.4,0.2,0.2,1);
     transition: -webkit-transform .7s cubic-bezier(0.4,0.2,0.2,1);
@@ -24,10 +32,10 @@
 }
 
 .back-side {
-    background: #393939;
-    background: -webkit-linear-gradient(45deg,#393939 0%,#000 100%);
-    background: -o-linear-gradient(45deg,#393939 0%,#000 100%);
-    background: radial-gradient(#2d9062 0%,#232323 90%)
+    background: var(--add-color);
+    background: -webkit-linear-gradient(45deg,var(--add-color) 0%,#000 100%);
+    background: -o-linear-gradient(45deg,var(--add-color) 0%,#000 100%);
+    background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%)
 }
 
 .image-container:hover .front-side, .image-container:hover .back-side {

@@ -1,6 +1,14 @@
+:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
 .lhst_vertical_line {
     width: 1px;
-    background-color: #f5deb3;
+    background-color: var(--wheat-color);
     height:30px;
 }
 
@@ -8,9 +16,11 @@
     max-height: calc(100vh - 212px);
     margin-top: 10px;
     margin-left: 10px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background-color: var(--main-color);*/
     border-radius: 20px;
-    color: #f5deb3;
+    color: var(--wheat-color);
     padding: 5px;
     /* width:510px;*/
     /*    display: flex;*/
@@ -30,9 +40,11 @@
 
 .lhst_inWars {
     text-align: left;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background-color: var(--main-color);*/
     border-radius: 20px;
-    color: #f5deb3
+    color: var(--wheat-color)
 }
 
 .warcontent{

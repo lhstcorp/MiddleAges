@@ -16,10 +16,28 @@
                 </div>
                 @{
                     var buildingName = CommonLogic.getBuildingNameByType(Model[i].Type);
+
                 }
                 <div>
                     <div class="lhst_inline lhst_building_card_left_part">
-                        <p class="lhst_card_properties">@buildingName</p>
+                        <div class="d-flex">
+                            <p class="lhst_card_properties">@buildingName</p>
+                            <div class="lhst_tooltip lhst_cursor_help">
+                                🛈
+                                @if(buildingName == "Estate")
+                                {
+                                        <span class="lhst_tooltiptext">
+                                            Estates are intended to increase the peasants' limit. Each level increases the limit by 100
+                                        </span>
+                                }
+                                else
+                                {
+                                        <span class="lhst_tooltiptext">
+                                            Barracks are intended to increase the soldiers' limit. Each level increases the limit by 100
+                                        </span>
+                                }
+                            </div>
+                        </div>
                         <p class="lhst_card_properties">Level: @Model[i].Lvl</p>
                     </div>
                     <div class="lhst_inline">

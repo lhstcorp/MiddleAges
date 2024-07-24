@@ -6,53 +6,86 @@
 }
 
 <body class="auth_background">
-    <div class="auth_text_color text-center">
-        <div class="d-inline-block auth_width text-center mt-5">
-            <p class="auth_text_font ml-3">@ViewData["Title"]</p>
-            <form id="account" method="post" class="text-center">
-                <h4 class="auth_text_font_login text-center">LOGIN</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger "></div>
-                <div class="form-group w-50 text-center d-inline-flex">
-                    <input asp-for="Input.Email" class="auth_form-control" placeholder="EMAIL" type="email" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+    <div class="auth_text_color text-center lhst_slider auth_max_height">
+        <div class="d-inline-block text-center mt-5">
+            <div class="text-center">
+                <p class="auth_text_font ml-3 mt-5">@ViewData["Title"]</p>
+                <div class="mb-5">
+                    <img class="auth_height" src="~/img/interface-icons/gerb.png" alt="" loading="lazy" />
                 </div>
-                <div class="form-group w-50 text-center d-inline-flex">
-                    <input asp-for="Input.Password" class="auth_form-control" placeholder="PASSWORD" type="password" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group w-50 text-center d-inline-flex">
-                    <button type="submit" class="btn auth_btn auth_text_font_but ">SIGN IN</button>
-                </div>
-                @* <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 mt-5">
+                            <p >
+                                Middle Ages - первый проект, разработанный компанией lhstcorp. Это средневековая игра в жанре стратегии, которая позволит попасть в Беларусь тех времен. Сражения за земли с другими игроками, организация восстаний, правление собственным государством - всё это вы сможете опробовать в данной игре. MIDDLE AGES - стань легендой средневековья!
+                            </p>
+                            <div class="lhst_tooltip">
+                                🛈
+                                <span class="lhst_tooltiptext">
+                                    Middle Ages - первый проект, разработанный компанией lhstcorp.
+                                </span>
+                            </div>
+                            
+                        </div>
+                        <div class="col-sm-12 col-md-4 ">
+                            <form id="account" method="post" class="text-center">
+                                <h4 class="auth_text_font_login text-center ">LOGIN</h4>
+                                <hr />
+                                <div asp-validation-summary="All" class="text-danger "></div>
+                                <div class="form-group text-center" tabindex="0">
+                                    <input asp-for="Input.Email" class="auth_form-control lhst_cursor_text" placeholder="EMAIL" type="email" autofocus autocomplete="on" />
+                                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                                </div>
+                                <div class="form-group  text-center password" tabindex="1">
+                                    <input asp-for="Input.Password" id="password-input" class="auth_form-control" placeholder="PASSWORD" type="password" />
+                                    <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                                    <span asp-validation-for="Input.Password" class="text-danger "></span>
+                                    
+                                </div>
+                                <div class="form-group text-center" tabindex="2">
+                                    <button type="submit" class="btn auth_btn auth_text_font_but ">LOGIN</button>
+                                </div>
+                                @* <div class="form-group">
+                                    <div class="checkbox">
+                                        <label asp-for="Input.RememberMe">
+                                            <input asp-for="Input.RememberMe" />
+                                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                        </label>
+                                    </div>
+                                </div> *@
+                                <hr />
+                                <div class="form-group d-inline-flex auth_div_width">
+                                    <p class="w-50">
+                                        <a asp-page="./Register" class="auth_text_font_a" asp-route-returnUrl="@Model.ReturnUrl">Create accont</a>
+                       
+                                    </p>
+                                    <p class="w-50">
+                                        <a id="forgot-password" class="auth_text_font_a" asp-page="./ForgotPassword">Forgot your password?</a>
+                                    </p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="row d-inline-flex">
+                                <div class="col-6 lhst_scale">
+                                    <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/main_menu.jpg" alt="" loading="lazy" data-title="main_menu" onclick="openMainMenuScreensDialog()" />
+                                    <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/map_menu.jpg" alt="" loading="lazy" data-title="map_menu" onclick="openMapMenuScreensDialog()" />
+                                </div>
+                                <div class="col-6 lhst_scale">
+                                    <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/country_menu.jpg" alt="" loading="lazy" data-title="country_menu" onclick="openCountryMenuScreensDialog()" />
+                                    <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/wars_menu.jpg" alt="" loading="lazy" data-title="wars_menu" onclick="openWarsMenuScreensDialog()" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div> *@
-                <hr />
-                <div class="form-group d-inline-flex auth_div_width">
-                    <p class="auth_text_font_text w-100">Don't have an account?</p>
-                    <p class="w-100 ">
-                        <a asp-page="./Register" class="auth_text_font_a " asp-route-returnUrl="@Model.ReturnUrl">Sign Up</a>
-                    </p>
                 </div>
-                <br />
-                <div class="form-group d-inline-flex auth_div_width">
-                    <p class="w-50">
-                        <a id="forgot-password" class="auth_text_font_a " asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    @* <p class="w-50">
-                        <a id="resend-confirmation" class="auth_text_font_a" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
-                    </p> *@
-                </div>
-            </form>
+            </div>
         </div>
-        <div class="lhst_vertical-alignment-top float-right text-right">
+       @*  <div class="lhst_vertical-alignment-top float-right text-right">
             <img class="float-right text-right auth_height" src="~/img/interface-icons/register.jpg" alt="" loading="lazy"/>
-        </div>
+        </div> *@
     @* <div class="col-md-6 col-md-offset-2">
         <section>
             <h4>Use another service to log in.</h4>
@@ -74,7 +107,7 @@
                             <p>
                                 @foreach (var provider in Model.ExternalLogins)
                                 {
-                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" data-title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
                                 }
                             </p>
                         </div>
@@ -84,7 +117,47 @@
         </section>
     </div> *@
     </div>
+    <script src="~/js/register.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/country_page_actions.js"></script>
 </body>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }
+
+<div class="lhst_dialog_screens modal" id="mainMenuScreensDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideMainMenuScreensDialog()">x</button>
+    </div>
+    <div class="text-center pl-0">
+        <img class="screen_height" src="~/img/menu-icons/main_menu.jpg" alt="" loading="lazy" data-title="main_menu" />
+    </div>
+
+</div>
+<div class="lhst_dialog_screens modal" id="mapMenuScreensDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideMapMenuScreensDialog()">x</button>
+    </div>
+    <div class="text-center pl-0">
+        <img class="screen_height" src="~/img/menu-icons/map_menu.jpg" alt="" loading="lazy" data-title="map_menu" />
+    </div>
+
+</div>
+<div class="lhst_dialog_screens modal" id="countryMenuScreensDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideCountryMenuScreensDialog()">x</button>
+    </div>
+    <div class="text-center pl-0">
+        <img class="screen_height" src="~/img/menu-icons/country_menu.jpg" alt="" loading="lazy" data-title="country_menu" />
+    </div>
+
+</div>
+<div class="lhst_dialog_screens modal" id="warsMenuScreensDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideWarsMenuScreensDialog()">x</button>
+    </div>
+    <div class="text-center pl-0">
+        <img class="screen_height" src="~/img/menu-icons/wars_menu.jpg" alt="" loading="lazy" data-title="wars_menu" />
+    </div>
+
+</div>

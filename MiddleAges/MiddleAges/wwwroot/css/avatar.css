@@ -1,3 +1,11 @@
+:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
 .lhst_avatar_vertical-alignment-top {
     vertical-align: top
 }
@@ -8,7 +16,9 @@
 }
 
 .lhst_avatar_left-side-bar {
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+    /*background-color: var(--main-color);*/
     width: 229px;
     min-width: 229px;
     position: fixed;
@@ -30,7 +40,7 @@
 .lhst_avatar_main_data_image {
     border-style: solid;
     border-width: 2px;
-    border-color: #232323;
+    border-color: var(--main-color);
     border-radius: 10px;
     height: 120px;
     width: 120px;
@@ -41,7 +51,7 @@
 .lhst_avatar_main_image {
     border-style: solid;
     border-width: 2px;
-    border-color: #232323;
+    border-color: var(--main-color);
     border-radius: 10px;
     height: 250px;
     width: 250px;
@@ -53,11 +63,13 @@
     height: 400px;
     width: 530px;
     padding: 15px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
-    border-color: #f5deb3;
-    color: #f5deb3
+    border-color: var(--wheat-color);
+    color: var(--wheat-color)
 }
 
 .lhst_avatar_image_div {
@@ -66,11 +78,13 @@
     width: 280px;
     margin-left: 10px;
     padding: 10px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
-    border-color: #f5deb3;
-    color: #f5deb3
+    border-color: var(--wheat-color);
+    color: var(--wheat-color)
 }
 
 .lhst_avatar_divs_align {
@@ -82,8 +96,8 @@
     overflow-x: hidden;
     scroll-snap-type: y mandatory;
     -webkit-overflow-scrolling: touch;
-    --scrollbar-color-thumb: #232323;
-    --scrollbar-color-track: #393939;
+    --scrollbar-color-thumb: var(--main-color);
+    --scrollbar-color-track: var(--add-color);
     --scrollbar-width: thin;
     --scrollbar-width-legacy: 0px
 }
@@ -154,26 +168,31 @@
     padding: 0;
     width: 74px;
     height: 38px;
-    background: radial-gradient(#393939,black);
+    background: radial-gradient(var(--add-color),black);
     color: #f4ebdb;
     border-radius: 9px;
     font-weight: 700;
     font-size: revert
 }
 
-.lhst_btn_avatar_confirm:hover {
-    background: radial-gradient(#2d9062,black);
-    color: #f5deb3
-}
+    .lhst_btn_avatar_confirm:hover {
+        background: radial-gradient(var(--green-color),black);
+        color: var(--yellow-color);
+        border-style: outset;
+    }
+    .lhst_btn_avatar_confirm:active{
+        border-style:inset;
+    }
 
-.lhst_checkbox_gender {
-    border: thick;
-    border-width: 2px;
-    border-radius: 5px;
-    border-color: green;
-    width: 30px;
-    height: 30px
-}
+
+    .lhst_checkbox_gender {
+        border: thick;
+        border-width: 2px;
+        border-radius: 5px;
+        border-color: green;
+        width: 30px;
+        height: 30px
+    }
 
 .lhst_small_avatar_image_selection:hover {
     cursor: pointer
@@ -187,11 +206,13 @@
     width: 817px;
     margin-left: 10px;
     padding: 15px;
-    background-color: #232323;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
+/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
-    border-color: #f5deb3;
-    color: #f5deb3;
+    border-color: var(--wheat-color);
+    color: var(--wheat-color);
     vertical-align: top;
 }
 
@@ -205,7 +226,7 @@
     height: 24px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(#393939,black);
+    background: radial-gradient(var(--add-color),black);
     color: wheat;
     border-radius: 3px;
     font-size: 14px;
@@ -214,7 +235,7 @@
 .lhst_contact_info_input_description {
     width: 258px;
     height: 83px;
-    background: radial-gradient(#393939,black);
+    background: radial-gradient(var(--add-color),black);
     color: wheat;
     border-radius: 3px;
     word-wrap:break-word;
@@ -223,7 +244,7 @@
 }
 
 .lhst_settings_button {
-    background: radial-gradient(#393939,black);
+    background: radial-gradient(var(--add-color),black);
     transition: .3s;
     color: #f4ebdb;
     border-radius: 5px;
@@ -232,9 +253,22 @@
 }
 
 .lhst_settings_button:hover {
-    background: radial-gradient(#2d9062,black);
-    color: #faaf08
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style: outset;
 }
+    .lhst_settings_button:active{
+        border-style: inset;
+    }
 
+    ::placeholder {
+        color: var(--green-color);
+        opacity: 90%
+    }
+
+:focus::placeholder {
+    opacity: 0;
+    transition: opacity .2s
+}
 
 

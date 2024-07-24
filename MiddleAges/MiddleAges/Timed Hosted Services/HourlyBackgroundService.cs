@@ -480,7 +480,7 @@ namespace MiddleAges.Timed_Hosted_Services
             PlayerLocalEvent localEvent = new PlayerLocalEvent
             {
                 PlayerId = playerId,
-                EventId = new Random().Next(1, 4),
+                EventId = new Random().Next(1, 33),
                 AssignedDateTime = DateTime.UtcNow
             };
 

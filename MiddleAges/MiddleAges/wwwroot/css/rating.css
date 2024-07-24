@@ -1,10 +1,18 @@
-﻿.lhst_rating-img {
+﻿:root {
+    --main-color: #232323;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD;
+}
+
+.lhst_rating-img {
     width: 32px;
 }
 
 .lhst_rating-right-border {
     border-width: 1px;
-    border-color: wheat;
+    border-color: var(--wheat-color);
     border-right: dotted;
 }
 
@@ -17,8 +25,8 @@
     width: 100px;
     height: 25px;
     margin-bottom: 3px;
-    background: radial-gradient(#393939,black);
-    color: wheat;
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
     border-radius: 3px
 }
 
@@ -26,3 +34,11 @@
     width: 25px;
     height: 25px;
 }
+.lhst_rating_loupe:hover{
+    border-style:outset;
+}
+    .lhst_rating_loupe:active{
+        border-style:inset;
+    }
+
+
