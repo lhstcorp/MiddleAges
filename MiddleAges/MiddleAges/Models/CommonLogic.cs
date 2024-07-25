@@ -356,5 +356,11 @@ namespace MiddleAges.Models
             int aRandomPos = randNum.Next(landIds.Count);
             return landIds[aRandomPos];
         }
+
+        public static double GetRandomNumber(double minimum, double maximum)
+        {
+            Random random = new Random();
+            return random.NextDouble() * (maximum - minimum) + minimum;
+        }
     }
 }

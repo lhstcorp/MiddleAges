@@ -39,6 +39,11 @@ namespace MiddleAges.Controllers
 
             PlayerLocalEvent playerLocalEvent = await _context.PlayerLocalEvents.FirstOrDefaultAsync(le => le.LocalEventId == id);
 
+            if (playerLocalEvent == null)
+            {
+                return null;
+            }
+
             LocalEvent localEvent = LocalEventHelper.GetLocalEventById(playerLocalEvent.EventId);
 
             LocalEventViewModel localEventViewModel = new LocalEventViewModel
@@ -198,6 +203,159 @@ namespace MiddleAges.Controllers
             }
 
             return optionValue;
+        }
+
+        public async Task<IActionResult> SelectLocalEventOption(string localEventId, string optionNum)
+        {
+            string result = "Error";
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            PlayerLocalEvent playerLocalEvent = await _context.PlayerLocalEvents.FirstOrDefaultAsync(w => w.LocalEventId.ToString() == localEventId);
+
+            if (playerLocalEvent != null
+             && player.Id == playerLocalEvent.PlayerId)
+            {
+                LocalEvent localEvent = LocalEventHelper.GetLocalEventById(playerLocalEvent.EventId);
+
+                double[] optionValues = { 0, 0, 0, 0, 0 };
+                double[] optionChances = { 0, 0, 0, 0, 0 };
+
+                switch (optionNum)
+                {                    
+                    case "1":
+                        optionValues = localEvent.Option1Values;
+                        optionChances = localEvent.Option1Chances;
+                        break;
+                    case "2":
+                        optionValues = localEvent.Option2Values;
+                        optionChances = localEvent.Option2Chances;
+                        break;
+                }
+
+                // Normalizing money and exp option values -->
+                if (optionValues[0] != 0)
+                { 
+                    optionValues[0] = await RecalculateOptionValue(optionValues[0], 0);
+                }
+
+                if (optionValues[2] != 0)
+                {
+                    optionValues[2] = await RecalculateOptionValue(optionValues[2], 2);
+                }
+                // <--
+
+                if (ValidateOptionValues(optionValues, player))
+                {
+                    ApplyRewardsAndPenalties(optionValues, optionChances, player);
+                }
+
+
+                await _context.SaveChangesAsync();
+
+                result = "Ok";
+            }
+
+            return Json(JsonSerializer.Serialize(result));
+        }
+
+        private bool ValidateOptionValues(double[] optionValues, Player player)
+        {
+            bool ret = true;
+
+            if (optionValues[0] < 0)
+            {
+                ret = ValidatePlayerMoney(optionValues[0], player);
+            }
+
+            if (optionValues[1] < 0
+             && ret)
+            {
+                ret = ValidatePlayerRecruits(optionValues[1], player);
+            }
+
+            if (optionValues[3] < 0
+             && ret)
+            {
+                ret = ValidatePlayerPeasants(optionValues[3], player);
+            }
+
+            if (optionValues[4] < 0
+             && ret)
+            {
+                ret = ValidatePlayerSoldiers(optionValues[4], player);
+            }
+
+            return ret;
+        }
+
+        private bool ValidatePlayerMoney(double optionValue, Player player)
+        {
+            bool ret = true;
+
+            if (player.Money < -optionValue)
+            {
+                ret = false;
+            }
+
+            return ret;
+        }
+
+        private bool ValidatePlayerRecruits(double optionValue, Player player)
+        {
+            bool ret = true;
+
+            if (player.RecruitAmount < -optionValue)
+            {
+                ret = false;
+            }
+
+            return ret;
+        }
+
+        private bool ValidatePlayerPeasants(double optionValue, Player player)
+        {
+            bool ret = true;
+
+            Unit peasants = _context.Units.FirstOrDefault(u => u.PlayerId == player.Id
+                                                            && u.Type == (int)UnitType.Peasant);
+
+            if (peasants.Count < -optionValue)
+            {
+                ret = false;
+            }
+
+            return ret;
+        }
+
+        private bool ValidatePlayerSoldiers(double optionValue, Player player)
+        {
+            bool ret = true;
+
+            Unit peasants = _context.Units.FirstOrDefault(u => u.PlayerId == player.Id
+                                                            && u.Type == (int)UnitType.Soldier);
+
+            if (peasants.Count < -optionValue)
+            {
+                ret = false;
+            }
+
+            return ret;
+        }
+
+        private void ApplyRewardsAndPenalties(double[] optionValues, double[] optionChances, Player player)
+        {
+            double chanceValue = CommonLogic.GetRandomNumber(0, 100.01);
+
+            if (optionChances[0] > chanceValue)
+            {
+                player.Money += optionChances[0];
+            }
+
+            if (optionChances[1] > chanceValue)
+            {
+                player.RecruitAmount += Convert.ToInt32(optionChances[1]);
+            }
+
+            //ToDo other cases + db saving
         }
     }
 }

@@ -66,7 +66,7 @@ function localEventOptionClicked() {
 
 function selectLocalEventOption(optionNum) {
     $.ajax({
-        url: 'Main/SelectLocalEventOption',
+        url: 'LocalEvent/SelectLocalEventOption',
         type: 'post',
         datatype: 'json',
         data: {
