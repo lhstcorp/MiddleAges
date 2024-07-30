@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <img class="lhst_coins-img" src="~/img/interface-icons/coins.png" alt="" />
-            <p class="lhst_coins-text ml-1 mt-1 mb-0">@Math.Round(Model.Player.Money, 2).ToString().Replace(',', '.')</p>
+            <p id="player-money" class="lhst_coins-text ml-1 mt-1 mb-0">@Math.Round(Model.Player.Money, 2).ToString().Replace(',', '.')</p>
         </div>
         <div class="row">
             <img class="lhst_coins-img mt-1" src="~/img/attributes/attrPoint.png" alt="" />
@@ -22,7 +22,7 @@
         </div>
        
         <div class="row lhst_progressbar_div mt-1">
-            <progress class="lhst_progressbar" value="@(Model.Player.Exp - @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" max="@(CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1) - CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" title="@(Model.Player.Exp) / @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1)"></progress>
+            <progress id="player-exp-progressbar" class="lhst_progressbar" value="@(Model.Player.Exp - @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" max="@(CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1) - CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl))" title="@(Model.Player.Exp) / @CommonLogic.GetRequiredExpByLvl(Model.Player.Lvl+1)"></progress>
         </div>
     </div>    
    

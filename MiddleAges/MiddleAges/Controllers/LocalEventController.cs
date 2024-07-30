@@ -245,13 +245,23 @@ namespace MiddleAges.Controllers
 
                 if (ValidateOptionValues(optionValues, player))
                 {
-                    ApplyRewardsAndPenalties(optionValues, optionChances, player);
+                    await ApplyRewardsAndPenalties(optionValues, optionChances, player.Id);
+                    //_context.Remove(playerLocalEvent);
+                }
+                else
+                {
+                    result = "ValidationFailed";
                 }
 
-
-                await _context.SaveChangesAsync();
-
-                result = "Ok";
+                try
+                {
+                    await _context.SaveChangesAsync();
+                    result = "Ok";
+                }
+                catch
+                {
+                    result = "Error";
+                }
             }
 
             return Json(JsonSerializer.Serialize(result));
@@ -341,21 +351,51 @@ namespace MiddleAges.Controllers
             return ret;
         }
 
-        private void ApplyRewardsAndPenalties(double[] optionValues, double[] optionChances, Player player)
+        private async Task ApplyRewardsAndPenalties(double[] optionValues, double[] optionChances, string playerId)
         {
+            Player player = await _context.Players.FirstOrDefaultAsync(p => p.Id == playerId);
+
             double chanceValue = CommonLogic.GetRandomNumber(0, 100.01);
 
             if (optionChances[0] > chanceValue)
             {
-                player.Money += optionChances[0];
+                player.Money += optionValues[0];
             }
 
             if (optionChances[1] > chanceValue)
             {
-                player.RecruitAmount += Convert.ToInt32(optionChances[1]);
+                player.RecruitAmount += Convert.ToInt32(optionValues[1]);
             }
 
-            //ToDo other cases + db saving
+            if (optionChances[2] > chanceValue)
+            {
+                player.Exp += Convert.ToInt32(optionValues[2]);
+            }
+
+            _context.Update(player);
+
+            List<Unit> units = await _context.Units.Where(u => u.PlayerId == player.Id).ToListAsync();
+
+            if (optionChances[3] > chanceValue)
+            {
+                units[0].Count += Convert.ToInt32(optionValues[3]);
+                _context.Update(units[0]);
+            }
+
+            if (optionChances[4] > chanceValue)
+            {
+                units[1].Count += Convert.ToInt32(optionValues[4]);
+                _context.Update(units[1]);
+            }  
+        }
+
+        public JsonResult GetPlayerData()
+        {
+            Player player = _userManager.GetUserAsync(HttpContext.User).Result;
+
+            List<Unit> units = _context.Units.Where(u => u.PlayerId == player.Id).ToList();
+
+            return Json(JsonSerializer.Serialize(new { Player = player, Peasants = units[0], Soldiers = units[1], ProgressbarExpNow = player.Exp - CommonLogic.GetRequiredExpByLvl(player.Lvl) }));
         }
     }
 }

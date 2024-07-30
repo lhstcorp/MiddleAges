@@ -39,12 +39,12 @@
                                 </div>
                                 <div class="form-group  text-center password" tabindex="2">
                                     <input asp-for="Input.Password" id="password-input" class="auth_form-control " placeholder="PASSWORD" type="password" />
-                                    <a href="#" class="password-control" onclick="return show_hide_password(this);"></a>
+                                    <a href="#" class="password-control" onclick="show_hide_password(this);"></a>
                                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center password" tabindex="3">
                                     <input asp-for="Input.ConfirmPassword" id="password-input-confirm" class="auth_form-control " placeholder="CONFIRM PASSWORD" type="password" />
-                                    <a href="#" class="password-control" onclick="return show_hide_password_confirm(this);"></a>
+                                    <a href="#" class="password-control" onclick="show_hide_password_confirm(this);"></a>
                                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center " tabindex="4">

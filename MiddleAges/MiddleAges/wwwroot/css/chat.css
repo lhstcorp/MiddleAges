@@ -38,6 +38,7 @@
     width: 150px;
     font-weight: lighter;
     word-break:break-all;
+    font-size: 12px;
 }
 
 .lhst_display_grid {
@@ -70,6 +71,7 @@
     padding-left: 10px;
     resize: none;
     border-style: none;
+    font-size: 14px;
 }
 .lhst_chat_input::placeholder {
     color:lightgray;
