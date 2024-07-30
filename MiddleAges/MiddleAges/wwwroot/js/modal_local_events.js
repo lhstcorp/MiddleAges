@@ -87,16 +87,59 @@ function selectLocalEventOption(optionNum) {
     })
     .done(function (data) {
         let obj = JSON.parse(data);
-        if (obj != 'Error') {
-            //ToDo
+        if (obj == 'Ok') {
+            getPlayerData();
         }
-        else {
-            alert("No troops were sent to the battle.");
+        else if (obj == 'ValidationFailed') {
+            alert("Not enough property to fulfill the option.");
         }
+        else if (obj == 'Error') {
+            alert(unexpectedErrorMessage);
+        }
+        hideModalLocalEventDialog();
     })
     .fail(function (data) {
         alert(unexpectedErrorMessage);
     });
+}
+
+function getPlayerData() {
+    $.ajax({
+        url: 'LocalEvent/GetPlayerData',
+        type: 'get',
+        datatype: 'json',
+        contentType: 'application/json;charset=utf-8',
+        success: function (response) {
+            if (response == null || response == undefined || response.length == 0) {
+                return 'Error';
+            }
+            else {
+                return response;
+            }
+        },
+        error: function (response) {
+            return 'Error';
+        }
+    }).done(function (data) {
+        if (data != 'Error') {
+            let obj = JSON.parse(data);
+            refreshPlayerData(obj);
+        }
+        else {
+            alert("Failed to load player data");
+        }
+    }).fail(function (data) {
+        alert("Failed to load player data");
+    });
+}
+
+function refreshPlayerData(obj) {
+    $('#player-money').text(parseInt(obj.Player.Money).toFixed(2));
+    $('#player-recruits').text(obj.Player.RecruitAmount);
+    $('#player-exp-progressbar').val(obj.ProgressbarExpNow);
+    let progressbarTitle = $('#player-exp-progressbar').prop('title');
+    let progressbarTitleParts = progressbarTitle.split(" / ");
+    $('#player-exp-progressbar').prop('title', obj.Player.Exp + " / " + progressbarTitleParts[1]);
 }
 
 function hideModalLocalEventDialog() {
