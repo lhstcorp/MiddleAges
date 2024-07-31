@@ -246,7 +246,7 @@ namespace MiddleAges.Controllers
                 if (ValidateOptionValues(optionValues, player))
                 {
                     await ApplyRewardsAndPenalties(optionValues, optionChances, player.Id);
-                    //_context.Remove(playerLocalEvent);
+                    _context.Remove(playerLocalEvent);
                 }
                 else
                 {
