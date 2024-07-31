@@ -134,12 +134,14 @@ function getPlayerData() {
 }
 
 function refreshPlayerData(obj) {
-    $('#player-money').text(parseInt(obj.Player.Money).toFixed(2));
+    $('#player-money').text(parseFloat(obj.Player.Money).toFixed(2));
     $('#player-recruits').text(obj.Player.RecruitAmount);
     $('#player-exp-progressbar').val(obj.ProgressbarExpNow);
     let progressbarTitle = $('#player-exp-progressbar').prop('title');
     let progressbarTitleParts = progressbarTitle.split(" / ");
     $('#player-exp-progressbar').prop('title', obj.Player.Exp + " / " + progressbarTitleParts[1]);
+    $('#unit-0-count').text(obj.Peasants.Count);
+    $('#unit-1-count').text(obj.Soldiers.Count);
 }
 
 function hideModalLocalEventDialog() {

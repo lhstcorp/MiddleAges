@@ -27,6 +27,7 @@
                 int unitLimit = CommonLogic.GetUnitLimit(Model.Buildings[i].Lvl);
                 int limitLeft = unitLimit - Model.Units[i].Count;
                 int maxAvailable = limitLeft > Model.Player.RecruitAmount ? Model.Player.RecruitAmount : limitLeft;
+                string unitspanCountId = "unit-" + i + "-count";
             }
             <div >
                 <div>
@@ -34,13 +35,13 @@
                         <p class="lhst_card_properties">@unitName</p>
                         <div class="lhst_tooltip lhst_cursor_help">
                             🛈
-                            @if (unitName == "Peasant")
+                            @if (Model.Units[i].Type == (int)UnitType.Peasant)
                             {
                                 <span class="lhst_tooltiptext ">
                                     Peasants are needed for production (gold mining). The more peasants, the higher your income
                                 </span>
                             }
-                            else
+                            else if (Model.Units[i].Type == (int)UnitType.Soldier)
                             {
                                 <span class="lhst_tooltiptext ">
                                     Soldiers are required when participating in war. More soldiers means a stronger army. Please note: soldiers require expenses!
@@ -48,7 +49,7 @@
                             }
                         </div>
                     </div>
-                    <p class="lhst_card_properties">Count: @(Model.Units[i].Count)/@(unitLimit)</p>
+                    <p class="lhst_card_properties">Count: <span id=@unitspanCountId>@(Model.Units[i].Count)</span>/@(unitLimit)</p>
                 </div>
                 <div>
                 
