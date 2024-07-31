@@ -97,8 +97,7 @@
                     </span>
                     <span class="ml-1 lhst_clr-money">@Model.Units[0].Count</span>
                 </p>
-                
-                
+                                
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
                     Projected daily earnings:
                     <span class="lhst_tooltiptext_production">
@@ -106,9 +105,7 @@
                     </span>
                     <img class="ml-1 lhst_independent_land_description_money_icon lhst_clr-money" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00), 2).ToString().Replace(',', '.'))/day</span>
                 </p>
-
-
-               
+                                               
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
                     Army maintenance:
                     <span class="lhst_tooltiptext_production">
