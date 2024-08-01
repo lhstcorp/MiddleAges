@@ -246,7 +246,8 @@ namespace MiddleAges.Controllers
                 if (ValidateOptionValues(optionValues, player))
                 {
                     await ApplyRewardsAndPenalties(optionValues, optionChances, player.Id);
-                    _context.Remove(playerLocalEvent);
+                    result = "Ok";
+                    //_context.Remove(playerLocalEvent);
                 }
                 else
                 {
@@ -255,8 +256,7 @@ namespace MiddleAges.Controllers
 
                 try
                 {
-                    await _context.SaveChangesAsync();
-                    result = "Ok";
+                    await _context.SaveChangesAsync();                    
                 }
                 catch
                 {
