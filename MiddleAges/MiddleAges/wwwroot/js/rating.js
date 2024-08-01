@@ -1,5 +1,4 @@
-﻿const playerAvatarsUrl = '../img/avatars/';
-const pageLinesCount = 50;
+﻿const pageLinesCount = 50;
 var pageCount = 1
 var category = "Total";
 
@@ -99,7 +98,8 @@ function populateGrid(ratingList) {
 
         const playerImg = document.createElement("img");
         playerImg.src = playerAvatarsUrl + ratingList.Ratings[i].Player.ImageURL + '.webp';
-        playerImg.classList.add("country_card-population-img");
+        playerImg.classList.add("country_card-population-img", "lhst_cursor_pointer", "m_playerBtn");
+        playerImg.dataset.playerid = ratingList.Ratings[i].Player.Id;
         playerImg.loading = "lazy";
         playerImg.title = ratingList.Ratings[i].Player.UserName;
         playerImgDiv.appendChild(playerImg);
@@ -109,7 +109,8 @@ function populateGrid(ratingList) {
         ratingNode.appendChild(playerNameDiv);
 
         const playerNameP = document.createElement("p");
-        playerNameP.classList.add("mb-0", "mt-2");
+        playerNameP.classList.add("mb-0", "mt-2", "lhst_cursor_pointer", "m_playerBtn");
+        playerNameP.dataset.playerid = ratingList.Ratings[i].Player.Id;
         playerNameP.innerText = ratingList.Ratings[i].Player.UserName;
         playerNameDiv.appendChild(playerNameP);
 
