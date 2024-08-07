@@ -252,13 +252,11 @@
     }
 
     .lhst_avatar_info_div {
-
-        width: 535px;
-       
+        width: 535px;       
     }
 
     .auth_height {
-        height: 90px
+        height: 200px
     }
 
     .auth_width {
