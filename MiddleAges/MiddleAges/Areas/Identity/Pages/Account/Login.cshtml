@@ -9,43 +9,34 @@
     <div class="auth_text_color text-center lhst_slider auth_max_height">
         <div class="d-inline-block text-center mt-5">
             <div class="text-center">
-                <p class="auth_text_font ml-3 mt-5">@ViewData["Title"]</p>
-                <div class="mb-5">
+                <p class="auth_text_font ml-3">@ViewData["Title"]</p>
+                <div class="mb-3">
                     <img class="auth_height" src="~/img/interface-icons/main-coat-of-arms.png" alt="" loading="lazy" />
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-sm-12 col-md-4 mt-5">
+                        <div class="col-sm-12 col-md-4">
                             <p >
-                                Middle Ages - первый проект, разработанный компанией lhstcorp. Это средневековая игра в жанре стратегии, которая позволит попасть в Беларусь тех времен. Сражения за земли с другими игроками, организация восстаний, правление собственным государством - всё это вы сможете опробовать в данной игре. MIDDLE AGES - стань легендой средневековья!
-                            </p>
-                            <div class="lhst_tooltip">
-                                🛈
-                                <span class="lhst_tooltiptext">
-                                    Middle Ages - первый проект, разработанный компанией lhstcorp.
-                                </span>
-                            </div>
-                            
+                                On a languid evening over strong ale, you, being a wealthy nobleman, are thinking about your difficult lot. Your lifetime was marked by the difficult era of the Middle Ages. Constant wars and epidemics have brought destruction to your lands. The peasants rebel and refuse to serve you as they did your father. Despite the fatigue, there is determination in your eyes! After all, only you can lead your dynasty and your lands to prosperity! Develop your lands and build a strong army, become a fearsome war lord or a peaceful merchant!
+                            </p>                            
                         </div>
                         <div class="col-sm-12 col-md-4 ">
                             <form id="account" method="post" class="text-center">
-                                <h4 class="auth_text_font_login text-center ">LOGIN</h4>
-                                <hr />
+                                @* <hr /> *@
                                 <div asp-validation-summary="All" class="text-danger "></div>
-                                <div class="form-group text-center" tabindex="0">
+                                <div class="text-center mb-2" tabindex="0">
                                     <input asp-for="Input.Email" class="auth_form-control lhst_cursor_text" placeholder="EMAIL" type="email" autofocus autocomplete="on" />
                                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                                 </div>
-                                <div class="form-group  text-center password" tabindex="1">
+                                <div class="text-center password mb-2" tabindex="1">
                                     <input asp-for="Input.Password" id="password-input" class="auth_form-control" placeholder="PASSWORD" type="password" />
                                     <a href="#" class="password-control" onclick="show_hide_password(this);"></a>
-                                    <span asp-validation-for="Input.Password" class="text-danger "></span>
-                                    
+                                    <span asp-validation-for="Input.Password" class="text-danger "></span>                                    
                                 </div>
-                                <div class="form-group text-center" tabindex="2">
-                                    <button type="submit" class="btn auth_btn auth_text_font_but ">LOGIN</button>
+                                <div class="form-group text-center mb-0" tabindex="2">
+                                    <button type="submit" class="btn auth_btn auth_text_font_but ">Sign in</button>
                                 </div>
                                 @* <div class="form-group">
                                     <div class="checkbox">
@@ -55,13 +46,12 @@
                                         </label>
                                     </div>
                                 </div> *@
-                                <hr />
-                                <div class="form-group d-inline-flex auth_div_width">
-                                    <p class="w-50">
+                                @* <hr /> *@
+                                <div class="form-group d-inline-flex">
+                                    <p class="mr-2">
                                         <a asp-page="./Register" class="auth_text_font_a" asp-route-returnUrl="@Model.ReturnUrl">Create accont</a>
-                       
                                     </p>
-                                    <p class="w-50">
+                                    <p>
                                         <a id="forgot-password" class="auth_text_font_a" asp-page="./ForgotPassword">Forgot your password?</a>
                                     </p>
                                 </div>
