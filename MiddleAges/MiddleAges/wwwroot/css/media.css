@@ -43,10 +43,9 @@
     .lhst_wars_div {
         max-height: calc(100vh - 212px)
     }
-
 }
 
-@media screen and (max-height:925px){
+@media screen and (max-height:925px) {
     .auth_text_font {
         font-family: Algerian;
         font-size: 56px;
@@ -68,11 +67,11 @@
     }
 
     .auth_height {
-        height: 150px;
+        height: 150px
     }
 
     .auth_height_side {
-        height: 100px;
+        height: 100px
     }
 
     .auth_btn {
@@ -88,23 +87,13 @@
     }
 }
 
-/*@media screen and (max-width:1010px) {
-    li a.lhst_nav {
-        width: 60px;
-        height: 60px;
-        font-size: 11px
-    }
-    
-}*/
-
 @media screen and (max-width:807px) {
-
     .lhst_wars_country_text {
-        font-size: 9px;
+        font-size: 9px
     }
 
     .lhst_wars_lands_text {
-        font-size: 6px;
+        font-size: 6px
     }
 
     .lhst_chat_div {
@@ -134,11 +123,11 @@
     }
 
     .auth_height {
-        height: 150px;
+        height: 150px
     }
 
     .auth_height_side {
-        height: 100px;
+        height: 100px
     }
 
     .auth_btn {
@@ -152,7 +141,6 @@
         border-width: 2px;
         border-radius: 10px
     }
-
 
     .lhst_font_size {
         font-size: 11px
@@ -174,11 +162,11 @@
     }
 
     .lhst_wars_country_text {
-        font-size: 14px;
+        font-size: 14px
     }
 
     .lhst_wars_lands_text {
-        font-size: 12px;
+        font-size: 12px
     }
 
     .lhst_country_div {
@@ -252,7 +240,7 @@
     }
 
     .lhst_avatar_info_div {
-        width: 535px;       
+        width: 535px
     }
 
     .auth_height {
@@ -266,7 +254,7 @@
     .lhst_law_btn {
         width: 60px;
         height: 60px;
-        font-size: 12px;
+        font-size: 12px
     }
 }
 
@@ -282,16 +270,16 @@
     }
 
     .lhst_wars_country_text {
-        font-size: 12px;
+        font-size: 12px
     }
 
     .lhst_wars_lands_text {
-        font-size: 10px;
+        font-size: 10px
     }
 
     .lhst_law_btn {
         width: 40px;
         height: 40px;
-        font-size: 9px;
+        font-size: 9px
     }
 }

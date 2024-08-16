@@ -3,7 +3,7 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .lhst_dialog {
@@ -12,9 +12,8 @@
     margin: 40vh auto;
     border: solid;
     padding: 1em;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background: var(--main-color);*/
     color: var(--wheat-color);
     width: 300px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
@@ -28,9 +27,9 @@
     height: auto !important
 }
 
-.lhst_dialog::backdrop {
-    background: rgba(0,0,0,0.5)
-}
+    .lhst_dialog::backdrop {
+        background: rgba(0,0,0,0.5)
+    }
 
 .lhst_dialog_rename_input {
     width: 150px;
@@ -42,25 +41,26 @@
     border-radius: 3px
 }
 
-.lhst_dialog_rename_input:hover {
-    color: var(--wheat-color);
-    background: radial-gradient(var(--green-color),black);
-    border-style:outset;
-}
-    .lhst_dialog_rename_input:active{
-        border-style:inset;
+    .lhst_dialog_rename_input:hover {
+        color: var(--wheat-color);
+        background: radial-gradient(var(--green-color),black);
+        border-style: outset
     }
 
-    .lhst_dialog_select_input {
-        width: 150px;
-        height: 26.2px;
-        margin-bottom: 3px;
-        margin-left: 4px;
-        background: radial-gradient(var(--add-color),var(--main-color));
-        color: var(--wheat-color);
-        border-radius: 3px;
-        font-weight: 700
+    .lhst_dialog_rename_input:active {
+        border-style: inset
     }
+
+.lhst_dialog_select_input {
+    width: 150px;
+    height: 26.2px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(var(--add-color),var(--main-color));
+    color: var(--wheat-color);
+    border-radius: 3px;
+    font-weight: 700
+}
 
 .lhst_option:checked {
     background: var(--wheat-color) linear-gradient(var(--add-color),var(--main-color));
@@ -79,41 +79,39 @@
     font-size: x-small
 }
 
-.lhst_btn_dialog_cancel:hover {
-    background: radial-gradient(#FF033E,black);
-    color: var(--wheat-color);
-    border-style:outset;
-}
-    .lhst_btn_dialog_cancel:active{
-        border-style:inset;
-    }
-
-    .lhst_dialog_wars {
-        left: 0;
-        right: 0;
-        margin: 20vh auto;
-        border: solid;
-        padding: 1em;
-        background-image: url("../img/menu-icons/black-scratch-lines.png");
-        background-size: 100%;
-        /*    background: var(--main-color);*/
+    .lhst_btn_dialog_cancel:hover {
+        background: radial-gradient(#FF033E,black);
         color: var(--wheat-color);
-        height: 50vh;
-        width: 700px;
-        box-shadow: 0 0 5px rgba(0,0,0,0.5);
-        border-radius: 5px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1050;
-        /*    overflow: hidden;*/
-        outline: 0;
-        /*  height: auto !important*/
+        border-style: outset
     }
 
-.lhst_dialog_wars::backdrop {
-    background: rgba(0,0,0,0.5)
+    .lhst_btn_dialog_cancel:active {
+        border-style: inset
+    }
+
+.lhst_dialog_wars {
+    left: 0;
+    right: 0;
+    margin: 20vh auto;
+    border: solid;
+    padding: 1em;
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-size: 100%;
+    color: var(--wheat-color);
+    height: 50vh;
+    width: 700px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    outline: 0
 }
+
+    .lhst_dialog_wars::backdrop {
+        background: rgba(0,0,0,0.5)
+    }
 
 .lhst_dialog_screens {
     left: 0;
@@ -121,9 +119,8 @@
     margin: 20vh auto;
     border: solid;
     padding: 1em;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background: var(--main-color);*/
     color: var(--wheat-color);
     height: 600px;
     width: 1100px;
@@ -133,9 +130,7 @@
     top: 0;
     left: 0;
     z-index: 1050;
-    /*    overflow: hidden;*/
-    outline: 0;
-    /*  height: auto !important*/
+    outline: 0
 }
 
     .lhst_dialog_screens::backdrop {

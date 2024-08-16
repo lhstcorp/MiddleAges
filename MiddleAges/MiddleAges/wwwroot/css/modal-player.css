@@ -3,15 +3,12 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .lhst_modal_profile {
-    /*height: 400px;*/
-    /*    width: 270px;*/
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -29,17 +26,17 @@
     overflow: hidden
 }
 
-.lhst_main_info_profile{
-    width: 300px;
+.lhst_main_info_profile {
+    width: 300px
 }
 
 .lhst_profile-small-ints {
     width: 20px;
-    text-align: center;
+    text-align: center
 }
 
-.lhst_profile_rating_img{
-    height: 20px;
+.lhst_profile_rating_img {
+    height: 20px
 }
 
 .lhst_region_profile {
@@ -53,9 +50,8 @@
     margin: 20vh auto;
     border: solid;
     padding: 1em;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background: var(--main-color);*/
     color: var(--wheat-color);
     width: 500px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
@@ -69,11 +65,10 @@
     height: auto !important
 }
 
-.lhst_dialog_profile::backdrop {
-    background: rgba(0,0,0,0.5)
-}
+    .lhst_dialog_profile::backdrop {
+        background: rgba(0,0,0,0.5)
+    }
 
 .lhst_dialog_profile_player_description {
-    font-weight: lighter;
+    font-weight: lighter
 }
-

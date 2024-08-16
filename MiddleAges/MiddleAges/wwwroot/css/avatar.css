@@ -3,7 +3,7 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .lhst_avatar_vertical-alignment-top {
@@ -16,9 +16,8 @@
 }
 
 .lhst_avatar_left-side-bar {
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-    /*background-color: var(--main-color);*/
     width: 229px;
     min-width: 229px;
     position: fixed;
@@ -63,9 +62,8 @@
     height: 400px;
     width: 530px;
     padding: 15px;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -78,9 +76,8 @@
     width: 280px;
     margin-left: 10px;
     padding: 10px;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -99,33 +96,33 @@
     --scrollbar-color-thumb: var(--main-color);
     --scrollbar-color-track: var(--add-color);
     --scrollbar-width: thin;
-    --scrollbar-width-legacy: 0px
+    --scrollbar-width-legacy: 0
 }
 
-.lhst_slider::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track)
-}
+    .lhst_slider::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
 
-.lhst_slider::-webkit-scrollbar {
-    max-width: var(--scrollbar-width-legacy);
-    max-height: var(--scrollbar-width-legacy)
-}
+    .lhst_slider::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy)
+    }
 
-.lhst_slider::-webkit-scrollbar-thumb {
-    background: transparent
-}
+    .lhst_slider::-webkit-scrollbar-thumb {
+        background: transparent
+    }
 
-.lhst_slider::-webkit-scrollbar-track {
-    background: transparent
-}
+    .lhst_slider::-webkit-scrollbar-track {
+        background: transparent
+    }
 
-.lhst_slider:hover::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-color-thumb)
-}
+    .lhst_slider:hover::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb)
+    }
 
-.lhst_slider:hover::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track)
-}
+    .lhst_slider:hover::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
 
 .lhst_slider-horizontal {
     overflow-y: hidden;
@@ -133,35 +130,35 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     --scrollbar-color-thumb: red;
-    --scrollbar-color-track: yellow;
+    --scrollbar-color-track: #ff0;
     --scrollbar-width: thin;
     --scrollbar-width-legacy: 5px
 }
 
-.lhst_slider-horizontal::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track)
-}
+    .lhst_slider-horizontal::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
 
-.lhst_slider-horizontal::-webkit-scrollbar {
-    max-width: var(--scrollbar-width-legacy);
-    max-height: var(--scrollbar-width-legacy)
-}
+    .lhst_slider-horizontal::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy)
+    }
 
-.lhst_slider-horizontal::-webkit-scrollbar-thumb {
-    background: transparent
-}
+    .lhst_slider-horizontal::-webkit-scrollbar-thumb {
+        background: transparent
+    }
 
-.lhst_slider-horizontal::-webkit-scrollbar-track {
-    background: transparent
-}
+    .lhst_slider-horizontal::-webkit-scrollbar-track {
+        background: transparent
+    }
 
-.lhst_slider-horizontal:hover::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-color-thumb)
-}
+    .lhst_slider-horizontal:hover::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb)
+    }
 
-.lhst_slider-horizontal:hover::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track)
-}
+    .lhst_slider-horizontal:hover::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
 
 .lhst_btn_avatar_confirm {
     margin-bottom: 3px;
@@ -178,47 +175,46 @@
     .lhst_btn_avatar_confirm:hover {
         background: radial-gradient(var(--green-color),black);
         color: var(--yellow-color);
-        border-style: outset;
-    }
-    .lhst_btn_avatar_confirm:active{
-        border-style:inset;
+        border-style: outset
     }
 
-
-    .lhst_checkbox_gender {
-        border: thick;
-        border-width: 2px;
-        border-radius: 5px;
-        border-color: green;
-        width: 30px;
-        height: 30px
+    .lhst_btn_avatar_confirm:active {
+        border-style: inset
     }
+
+.lhst_checkbox_gender {
+    border: thick;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: green;
+    width: 30px;
+    height: 30px
+}
 
 .lhst_small_avatar_image_selection:hover {
     cursor: pointer
 }
 
 .lhst_info-section {
-    margin-bottom: 70px;
+    margin-bottom: 70px
 }
 
 .lhst_avatar_info_div {
     width: 817px;
     margin-left: 10px;
     padding: 15px;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
     color: var(--wheat-color);
-    vertical-align: top;
+    vertical-align: top
 }
 
 .lhst_share_img {
     width: 20px;
-    height: 20px;
+    height: 20px
 }
 
 .lhst_input_info_share {
@@ -227,20 +223,20 @@
     margin-bottom: 3px;
     margin-left: 4px;
     background: radial-gradient(var(--add-color),black);
-    color: wheat;
+    color: #f5deb3;
     border-radius: 3px;
-    font-size: 14px;
+    font-size: 14px
 }
 
 .lhst_contact_info_input_description {
     width: 258px;
     height: 83px;
     background: radial-gradient(var(--add-color),black);
-    color: wheat;
+    color: #f5deb3;
     border-radius: 3px;
-    word-wrap:break-word;
-    vertical-align:top;
-    font-size: 12px;
+    word-wrap: break-word;
+    vertical-align: top;
+    font-size: 12px
 }
 
 .lhst_settings_button {
@@ -248,27 +244,27 @@
     transition: .3s;
     color: #f4ebdb;
     border-radius: 5px;
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
-    line-height: 1.2;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    line-height: 1.2
 }
 
-.lhst_settings_button:hover {
-    background: radial-gradient(var(--green-color),black);
-    color: var(--yellow-color);
-    border-style: outset;
-}
-    .lhst_settings_button:active{
-        border-style: inset;
+    .lhst_settings_button:hover {
+        background: radial-gradient(var(--green-color),black);
+        color: var(--yellow-color);
+        border-style: outset
     }
 
-    ::placeholder {
-        color: var(--green-color);
-        opacity: 90%
+    .lhst_settings_button:active {
+        border-style: inset
     }
+
+::placeholder {
+    color: var(--green-color);
+    opacity: 90%;
+    filter: brightness(1.3)
+}
 
 :focus::placeholder {
     opacity: 0;
     transition: opacity .2s
 }
-
-
