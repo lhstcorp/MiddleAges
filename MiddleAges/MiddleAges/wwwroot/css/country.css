@@ -3,7 +3,7 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .header-menu.rename-btn {
@@ -52,9 +52,8 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 50%;
-    /*background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -98,7 +97,7 @@
 }
 
 .country_card-money-img {
-    height: 25px;
+    height: 25px
 }
 
 .country_card-land-img {
@@ -121,18 +120,14 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 5px;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-    /*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
     color: var(--wheat-color);
     padding-right: 6px;
-    padding-left: 6px;
-    /*max-width: 500px;
-    overflow-x: auto;
-    white-space: nowrap;*/
+    padding-left: 6px
 }
 
 .lhst_country_history_div {
@@ -140,9 +135,8 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 30%;
-/*    background-color: var(--main-color);*/
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -156,7 +150,7 @@
 
 .lhst_country_history_text {
     margin: 0 0 0 10px;
-    word-wrap: break-word;
+    word-wrap: break-word
 }
 
 .lhst_country_scale {
@@ -164,9 +158,9 @@
     display: block
 }
 
-.lhst_country_scale:hover {
-    transform: scale(1.05)
-}
+    .lhst_country_scale:hover {
+        transform: scale(1.05)
+    }
 
 .lhst_king_nav-avatar-img {
     height: 80px;
@@ -186,37 +180,37 @@
     --scrollbar-color-thumb: var(--main-color);
     --scrollbar-color-track: var(--add-color);
     --scrollbar-width: thin;
-    --scrollbar-width-legacy: 0px
+    --scrollbar-width-legacy: 0
 }
 
-.lhst_slider_small_screen::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track)
-}
+    .lhst_slider_small_screen::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
 
-.lhst_slider_small_screen::-webkit-scrollbar {
-    max-width: var(--scrollbar-width-legacy);
-    max-height: var(--scrollbar-width-legacy)
-}
+    .lhst_slider_small_screen::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy)
+    }
 
-.lhst_slider_small_screen::-webkit-scrollbar-thumb {
-    background: transparent
-}
+    .lhst_slider_small_screen::-webkit-scrollbar-thumb {
+        background: transparent
+    }
 
-.lhst_slider_small_screen::-webkit-scrollbar-track {
-    background: transparent
-}
+    .lhst_slider_small_screen::-webkit-scrollbar-track {
+        background: transparent
+    }
 
-.lhst_slider_small_screen:hover::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-color-thumb)
-}
+    .lhst_slider_small_screen:hover::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb)
+    }
 
-.lhst_slider_small_screen:hover::-webkit-scrollbar-track {
-    background: var(--scrollbar-color-track)
-}
+    .lhst_slider_small_screen:hover::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track)
+    }
 
-.lhst_ul_height{
+.lhst_ul_height {
     width: 300px;
-    height: 60px;
+    height: 60px
 }
 
 .lhst_law_btn {
@@ -226,37 +220,38 @@
     border-style: solid;
     border-radius: 16px;
     border-width: 1px;
-    border-color: black;
+    border-color: #000;
     color: var(--wheat-color);
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
     margin: 2px;
     font-size: 14px;
     line-height: 1;
     vertical-align: middle;
-    align-items:center;
-    justify-content: center;
+    align-items: center;
+    justify-content: center
 }
 
-.lhst_law_btn:hover {
-    -webkit-text-stroke: thin var(--add-color);
-    -webkit-text-fill-color: var(--yellow-color);
-    font-weight: 700;
-    border-style: outset;
-}
-    .lhst_law_btn:active{
-        border-style: inset;
+    .lhst_law_btn:hover {
+        -webkit-text-stroke: thin var(--add-color);
+        -webkit-text-fill-color: var(--yellow-color);
+        font-weight: 700;
+        border-style: outset
     }
 
-    .lhst_slider_lands_screen {
-        overflow-y: scroll;
-        overflow-x: hidden;
-        scroll-snap-type: y mandatory;
-        -webkit-overflow-scrolling: touch;
-        --scrollbar-color-thumb: var(--main-color);
-        --scrollbar-color-track: var(--add-color);
-        --scrollbar-width: thin;
-        --scrollbar-width-legacy: 0px
+    .lhst_law_btn:active {
+        border-style: inset
     }
+
+.lhst_slider_lands_screen {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    --scrollbar-color-thumb: var(--main-color);
+    --scrollbar-color-track: var(--add-color);
+    --scrollbar-width: thin;
+    --scrollbar-width-legacy: 0
+}
 
     .lhst_slider_lands_screen::-webkit-scrollbar-track {
         background: var(--scrollbar-color-track)

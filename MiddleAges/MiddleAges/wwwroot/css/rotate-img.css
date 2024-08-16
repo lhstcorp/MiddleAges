@@ -3,7 +3,7 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .image-container {
@@ -21,7 +21,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.25);
     text-align: center;
     color: var(--yellow-color);
-    text-shadow: 2px 1px #000000;
+    text-shadow: 2px 1px #000;
     -webkit-transition: -webkit-transform .7s cubic-bezier(0.4,0.2,0.2,1);
     transition: -webkit-transform .7s cubic-bezier(0.4,0.2,0.2,1);
     -o-transition: transform .7s cubic-bezier(0.4,0.2,0.2,1);
@@ -35,7 +35,7 @@
     background: var(--add-color);
     background: -webkit-linear-gradient(45deg,var(--add-color) 0%,#000 100%);
     background: -o-linear-gradient(45deg,var(--add-color) 0%,#000 100%);
-    background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%)
+    background: linear-gradient(37deg,#faaf08 2%,#232323 30%,#232323 65%,#faaf08 100%)
 }
 
 .image-container:hover .front-side, .image-container:hover .back-side {
@@ -73,7 +73,13 @@
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
     -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d
+    transform-style: preserve-3d;
+    border-radius: 3px;
+    margin: 0px 0px 3px 3px;
+    display: block;
+    overflow: hidden;
+    height: 120px;
+    width: 123px;
 }
 
 .image-container .front-side {
@@ -103,18 +109,18 @@
     position: relative
 }
 
-.front-side .inner p:after {
-    content: '';
-    width: 4rem;
-    height: 1px;
-    position: absolute;
-    background: #C6D4DF;
-    display: block;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    bottom: -.75rem
-}
+    .front-side .inner p:after {
+        content: '';
+        width: 4rem;
+        height: 1px;
+        position: absolute;
+        background: #C6D4DF;
+        display: block;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -.75rem
+    }
 
 .front-side .inner span {
     color: rgba(255,255,255,0.7);

@@ -3,7 +3,7 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .tab {
@@ -12,26 +12,26 @@
     background-color: var(--add-color)
 }
 
-.tab button {
-    background: radial-gradient(var(--add-color),black);
-    transition: .3s;
-    color: #f4ebdb;
-    border-radius: 5px;
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
-    line-height: 1.2;
-}
+    .tab button {
+        background: radial-gradient(var(--add-color),black);
+        transition: .3s;
+        color: #f4ebdb;
+        border-radius: 5px;
+        font-family: 'Sitka Display','Arial',Arial,sans-serif;
+        line-height: 1.2
+    }
 
-.tab button:hover {
-    background: radial-gradient(var(--green-color),black);
-    color: var(--yellow-color);
-    border-style:outset;
-}
+        .tab button:hover {
+            background: radial-gradient(var(--green-color),black);
+            color: var(--yellow-color);
+            border-style: outset
+        }
 
-.tab button:active {
-    background: radial-gradient(var(--green-color),black);
-    color: var(--yellow-color);
-    border-style:inset;
-}
+        .tab button:active {
+            background: radial-gradient(var(--green-color),black);
+            color: var(--yellow-color);
+            border-style: inset
+        }
 
 .tabcontent {
     display: none
@@ -42,9 +42,8 @@
     width: 333px;
     margin-top: 10px;
     margin-left: 10px;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     border-radius: 20px;
     color: var(--wheat-color);
     padding: 5px
@@ -52,17 +51,14 @@
 
 .lhst_inTab {
     text-align: left;
-    /*max-height: 500px;*/
     height: calc(100vh - 315px);
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     color: var(--wheat-color) #4c473d
 }
 
 .lhst_tabs_line {
-    height: 1px;
-    
+    height: 1px
 }
 
 .lhst_tabs_line-bg-clr-wheat {
@@ -72,5 +68,3 @@
 .lhst_tabs_line-bg-clr-gray {
     background-color: #4c473d
 }
-
-
