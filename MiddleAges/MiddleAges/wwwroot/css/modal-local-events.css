@@ -3,7 +3,7 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .lhst_event_btn {
@@ -13,7 +13,7 @@
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
-    border-color: black;
+    border-color: #000;
     color: var(--wheat-color);
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
     margin: 2px;
@@ -21,45 +21,45 @@
     line-height: 1;
     vertical-align: middle;
     align-items: center;
-    justify-content: center;    
-    background-size: 100%
+    justify-content: center;
+    background-size: 100%;
+    filter: brightness(1.3)
 }
-    .lhst_event_btn:hover{
-        border-style:outset;
-    }
-    .lhst_event_btn:active{
-        border-style:inset;
+
+    .lhst_event_btn:hover {
+        border-style: outset
     }
 
-    .lhst_m_local_events_dialog {
-        left: 0;
-        right: 0;
-        margin: 20vh auto;
-        border: solid;
-        padding: 1em;
-        background-image: url("../img/menu-icons/black-scratch-lines.png");
-        background-size: 100%;
-        /*    background: var(--main-color);*/
-        color: var(--wheat-color);
-        width: 500px;
-        box-shadow: 0 0 5px rgba(0,0,0,0.5);
-        border-radius: 5px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 1051;
-        overflow: hidden;
-        outline: 0;
-        height: auto !important
+    .lhst_event_btn:active {
+        border-style: inset
     }
+
+.lhst_m_local_events_dialog {
+    left: 0;
+    right: 0;
+    margin: 20vh auto;
+    border: solid;
+    padding: 1em;
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-size: 100%;
+    color: var(--wheat-color);
+    width: 500px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    border-radius: 5px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1051;
+    overflow: hidden;
+    outline: 0;
+    height: auto !important
+}
 
 .lhst_m_local_events_title {
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+        font-family: 'Sitka Display','Arial',Arial,sans-serif;
 }
 
 .lhst_m_local_events_title_img {
     width: 465px;
-    height: 200px;
+    height: 200px
 }
-
-

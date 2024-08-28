@@ -3,59 +3,55 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .lhst_vertical_line {
     width: 1px;
     background-color: var(--wheat-color);
-    height:30px;
+    height: 30px
 }
 
 .lhst_wars_div {
     max-height: calc(100vh - 212px);
     margin-top: 10px;
     margin-left: 10px;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     border-radius: 20px;
     color: var(--wheat-color);
-    padding: 5px;
-    /* width:510px;*/
-    /*    display: flex;*/
+    padding: 5px
 }
 
-.lhst_wars_country_text{
-    font-size:16px;
-    word-wrap:break-word;
+.lhst_wars_country_text {
+    font-size: 16px;
+    word-wrap: break-word;
     margin-top: 10%;
-    margin-bottom: 0px;
+    margin-bottom: 0
 }
 
 .lhst_wars_lands_text {
     font-size: 14px;
-    margin-bottom: 0px;
+    margin-bottom: 0
 }
 
 .lhst_inWars {
     text-align: left;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     border-radius: 20px;
     color: var(--wheat-color)
 }
 
-.warcontent{
-    display:none;
+.warcontent {
+    display: none
 }
 
-.lhst_war_country_img{
-    width:100%;
+.lhst_war_country_img {
+    width: 100%
 }
 
-.lhst_row_height{
-    height:30px;
-    margin-top: 20px;
+.lhst_row_height {
+    height: 30px;
+    margin-top: 20px
 }

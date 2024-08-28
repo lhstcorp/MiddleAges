@@ -3,22 +3,22 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 .lhst_rating-img {
-    width: 32px;
+    width: 32px
 }
 
 .lhst_rating-right-border {
     border-width: 1px;
     border-color: var(--wheat-color);
-    border-right: dotted;
+    border-right: dotted
 }
 
 .lhst_rating-small-ints {
     width: 40px;
-    text-align: center;
+    text-align: center
 }
 
 .lhst_rating-input {
@@ -32,13 +32,13 @@
 
 .lhst_rating_loupe {
     width: 25px;
-    height: 25px;
+    height: 25px
 }
-.lhst_rating_loupe:hover{
-    border-style:outset;
-}
-    .lhst_rating_loupe:active{
-        border-style:inset;
+
+    .lhst_rating_loupe:hover {
+        border-style: outset
     }
 
-
+    .lhst_rating_loupe:active {
+        border-style: inset
+    }

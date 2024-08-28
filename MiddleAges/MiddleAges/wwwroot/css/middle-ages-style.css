@@ -3,15 +3,13 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD;
+    --wheat-color: #FFEBCD
 }
 
 body {
-    /*background-color: #faebd7;*/
     background-color: var(--wheat-color);
     background-size: 100%;
-    margin: 0;
-    /*filter: invert(1) hue-rotate(210deg);*/
+    margin: 0
 }
 
 .header {
@@ -27,36 +25,35 @@ body {
     border-color: #000
 }
 
-.header-menu.main-btn {
-    background-image: url(../img/menu-icons/main_img.png);
-    background-size: 100%
-}
+    .header-menu.main-btn {
+        background-image: url(../img/menu-icons/main_img.png);
+        background-size: 100%
+    }
 
-.header-menu.map-btn {
-    background-image: url(../img/menu-icons/map-icon.png);
-    background-size: 100%;
-}
+    .header-menu.map-btn {
+        background-image: url(../img/menu-icons/map-icon.png);
+        background-size: 100%
+    }
 
+    .header-menu.state-btn {
+        background-image: url(../img/menu-icons/country-icon.png);
+        background-size: 100%
+    }
 
-.header-menu.state-btn {
-    background-image: url(../img/menu-icons/country-icon.png);
-    background-size: 100%
-}
+    .header-menu.settings-btn {
+        background-image: url(../img/menu-icons/settings.jpg);
+        background-size: 100%
+    }
 
-.header-menu.settings-btn {
-    background-image: url(../img/menu-icons/settings.jpg);
-    background-size: 100%
-}
+    .header-menu.rating-btn {
+        background-image: url(../img/menu-icons/rating.png);
+        background-size: 100%
+    }
 
-.header-menu.rating-btn {
-    background-image: url(../img/menu-icons/rating.png);
-    background-size: 100%
-}
-
-.header-menu.wars-btn {
-    background-image: url(../img/menu-icons/war.png);
-    background-size: 100%
-}
+    .header-menu.wars-btn {
+        background-image: url(../img/menu-icons/war.png);
+        background-size: 100%
+    }
 
 .coins-btn {
     background-image: url(../img/interface-icons/coins.png);
@@ -80,72 +77,72 @@ body {
     overflow: hidden
 }
 
-.lhst_scale img {
-    transition: .1s;
-    display: block
-}
-
-.lhst_scale img:hover {
-    transform: scale(1.1)
-}
-
-.lhst_scale div {
-    transition: .1s;
-    display: block
-}
-
-.lhst_scale div:hover {
-    transform: scale(1.1)
-}
-
-.lhst_scale polygon {
-    transition: .1s;
-    display: block
-}
-
-    .lhst_scale polygon:hover {
-        transform: scale(0.995);
-        border-style: outset;
+    .lhst_scale img {
+        transition: .1s;
+        display: block
     }
-    .lhst_scale polygon:active {
-        border-style: inset;
+
+        .lhst_scale img:hover {
+            transform: scale(1.1)
+        }
+
+    .lhst_scale div {
+        transition: .1s;
+        display: block
     }
+
+        .lhst_scale div:hover {
+            transform: scale(1.1)
+        }
+
+    .lhst_scale polygon {
+        transition: .1s;
+        display: block
+    }
+
+        .lhst_scale polygon:hover {
+            transform: scale(0.995);
+            border-style: outset
+        }
+
+        .lhst_scale polygon:active {
+            border-style: inset
+        }
 
     .lhst_scale a {
         transition: .1s;
         display: block;
         border-width: 2px;
-        border-style: outset;
+        border-style: outset
     }
 
-.lhst_scale a:hover {
-    transform: scale(1.05);
-    border-color: var(--main-color);
-    border-style:outset;
-}
+        .lhst_scale a:hover {
+            transform: scale(1.05);
+            border-color: var(--main-color);
+            border-style: outset
+        }
 
-.lhst_scale a:active {
-    border-style: inset;
-}
+        .lhst_scale a:active {
+            border-style: inset
+        }
 
-.lhst_scale button {
-    transition: .1s;
-    display: inline-flex;
-    border-width: 2px;
-    border-style: outset;
-}
-
-    .lhst_scale button:hover {
-        transform: scale(1.05);
-        border-color: var(--main-color);
-        border-style: outset;
+    .lhst_scale button {
+        transition: .1s;
+        display: inline-flex;
+        border-width: 0px;
+        border-style: outset
     }
 
-    .lhst_scale button:active {
-        border-style: inset;
-    }
+        .lhst_scale button:hover {
+            transform: scale(1.05);
+            border-color: var(--main-color);
+            border-style: outset;
+            filter: brightness(1.3)
+        }
 
-        
+        .lhst_scale button:active {
+            border-style: inset
+        }
 
 .player-overview-div-inline {
     display: inline
@@ -170,10 +167,10 @@ body {
     font-weight: 700
 }
 
-.lhst_overview-player-name:hover {
-    font-family: Algerian;
-    color: var(--yellow-color);
-}
+    .lhst_overview-player-name:hover {
+        font-family: Algerian;
+        color: var(--yellow-color)
+    }
 
 li.lhst_nav {
     float: left;
@@ -195,38 +192,39 @@ li a.lhst_nav {
     border-radius: 10px
 }
 
-li a.lhst_nav:hover {
-    -webkit-text-stroke: thin var(--add-color);
-    -webkit-text-fill-color: var(--yellow-color);
-    font-weight: 700;
-    border-style:outset;
-}
-    li a.lhst_nav:active{
-        border-style:inset;
-    }
-
-
-    li menu.lhst_nav {
-        padding: 0;
-        text-align: center;
-        text-decoration: none;
-        width: 90px;
-        height: 90px;
-        color: var(--wheat-color) !important;
-        position: relative;
-        display: table-cell;
-        vertical-align: bottom;
-        font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    li a.lhst_nav:hover {
+        -webkit-text-stroke: thin var(--add-color);
+        -webkit-text-fill-color: var(--yellow-color);
         font-weight: 700;
-        border-radius: 10px;
-        border-style: none;
+        border-style: outset;
+        filter: brightness(1.3)
     }
 
-li menu.lhst_nav:hover {
-    -webkit-text-stroke: thin var(--add-color);
-    -webkit-text-fill-color: var(--yellow-color);
+    li a.lhst_nav:active {
+        border-style: inset
+    }
+
+li menu.lhst_nav {
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 90px;
+    height: 90px;
+    color: var(--wheat-color) !important;
+    position: relative;
+    display: table-cell;
+    vertical-align: bottom;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
     font-weight: 700;
+    border-radius: 10px;
+    border-style: none
 }
+
+    li menu.lhst_nav:hover {
+        -webkit-text-stroke: thin var(--add-color);
+        -webkit-text-fill-color: var(--yellow-color);
+        font-weight: 700
+    }
 
 li button.lhst_nav {
     padding-top: 50px;
@@ -240,26 +238,26 @@ li button.lhst_nav {
     vertical-align: bottom;
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
     font-weight: 700;
-    border-radius: 10px;
+    border-radius: 10px
 }
 
-li button.lhst_nav:hover {
-    -webkit-text-stroke: thin var(--add-color);
-    -webkit-text-fill-color: var(--yellow-color);
-    font-weight: 700;
-    border-style: outset;
+    li button.lhst_nav:hover {
+        -webkit-text-stroke: thin var(--add-color);
+        -webkit-text-fill-color: var(--yellow-color);
+        font-weight: 700;
+        border-style: outset
+    }
+
+    li button.lhst_nav:active {
+        border-style: inset
+    }
+
+.lhst_inline {
+    display: inline-block
 }
-
-    li button.lhst_nav:active{
-        border-style:inset;
-    }
-
-    .lhst_inline {
-        display: inline-block
-    }
 
 .lhst_header_margin {
-    margin: 15px 15px 15px 15px
+    margin: 15px
 }
 
 .lhst_header_avatar_scale {
@@ -275,14 +273,13 @@ li button.lhst_nav:hover {
 }
 
 .header {
-    /*background-color: var(--main-color)*/
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
-    background-size: 20%;
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-size: 20%
 }
 
 .footer {
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
-    background-size: 20%;
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-size: 20%
 }
 
 .lhst_vertical-line {
@@ -293,8 +290,7 @@ li button.lhst_nav:hover {
 }
 
 .lhst_left-side-bar {
-    /*background-color: var(--main-color);*/
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 10%;
     width: 229px;
     min-width: 229px;
@@ -343,42 +339,43 @@ footer {
 .lhst_main-section_mainmenu {
     margin-left: 239px;
     margin-top: 140px;
-    margin-bottom: 70px;
+    margin-bottom: 70px
 }
 
 .lhst_building_ext_card {
     border-style: solid;
-    border-width: 2px;
+    border-width: 0px;
     border-color: #2b2b2b;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: conic-gradient(from 235deg at 41% 47%,#232323 16%,#faaf08 33%,#faaf08 58%,#232323 70%);
+    background-repeat: no-repeat;
     background-size: 100%;
-/*    background-color: var(--main-color);*/
     width: 130px;
     border-radius: 6px
 }
 
 .lhst_main_data_image {
     border-style: solid;
-    border-width: 2px;
+    border-width: 0px;
     border-color: #2b2b2b;
     height: 120px;
-    width: 120px;
+    /*width: 120px;*/
     display: block;
     overflow: hidden;
     border-radius: 3px;
-    margin: 3px auto 4px
+    margin: 3px 3px 3px 3px;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
 }
 
 .lhst_possessions_titles {
     margin: 3px;
     font-size: 16px;
     font-weight: 700;
-    color: var(--main-color);
+    color: var(--main-color)
 }
 
 .lhst_card_properties {
     margin: 2px;
-    color: var(--wheat-color);
+    color: var(--wheat-color)
 }
 
 .lhst_building_card_left_part {
@@ -397,33 +394,35 @@ footer {
     font-size: revert
 }
 
-.lhst_btn_building_lvlup:hover {
-    background: radial-gradient(var(--green-color),black);
-    color: var(--yellow-color);
-    border-style:outset;
-}
-    .lhst_btn_building_lvlup:active{
-        border-style:inset;
+    .lhst_btn_building_lvlup:hover {
+        background: radial-gradient(var(--green-color),black);
+        color: var(--yellow-color);
+        border-style: outset
     }
 
-    .lhst_btn_unit_recruit {
-        background: radial-gradient(var(--add-color),black);
-        color: var(--wheat-color);
-        border-radius: 3px;
-        width: 58px;
-        height: 26.2px;
-        font-size: revert;
+    .lhst_btn_building_lvlup:active {
+        border-style: inset
     }
 
-.lhst_btn_unit_recruit:hover {
-    background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
-    color: var(--yellow-color);
-    border-style:outset;
+.lhst_btn_unit_recruit {
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
+    border-radius: 3px;
+    overflow: hidden;
+    width: 58px;
+    height: 26.2px;
+    font-size: revert
 }
 
-        .lhst_btn_unit_recruit:active{
-            border-style:inset;
-        }
+    .lhst_btn_unit_recruit:hover {
+        background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
+        color: var(--yellow-color);
+        border-style: outset
+    }
+
+    .lhst_btn_unit_recruit:active {
+        border-style: inset
+    }
 
 .lhst_btn_logout {
     background: radial-gradient(var(--add-color),black);
@@ -432,18 +431,18 @@ footer {
     width: 58px;
     height: 26.2px;
     font-size: revert;
-    font-family: 'Sitka Display','Arial',Arial,sans-serif
+        font-family: 'Sitka Display','Arial',Arial,sans-serif;
 }
 
-.lhst_btn_logout:hover {
-    background: radial-gradient(var(--green-color),black);
-    color: var(--yellow-color);
-    border-style:outset;
-}
+    .lhst_btn_logout:hover {
+        background: radial-gradient(var(--green-color),black);
+        color: var(--yellow-color);
+        border-style: outset
+    }
 
-.lhst_btn_logout:active{
-    border-style:inset;
-}
+    .lhst_btn_logout:active {
+        border-style: inset
+    }
 
 .lhst_btn_group_selected_land {
     vertical-align: bottom;
@@ -493,7 +492,7 @@ footer {
 }
 
 .lhst_info_region_icon_left_bar {
-    height: 30px;
+    height: 30px
 }
 
 .lhst_info_region_text {
@@ -509,8 +508,12 @@ footer {
 }
 
 .lhst_left_side_bar_land_content {
-    margin: .5em !important;
-    padding-top: 10px
+    margin: 1.5em .5em .5em .5em !important;
+    padding-top: 10px;
+    background: linear-gradient(#fff2, transparent);
+    border: 1px solid #333;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
 }
 
 .lhst_selected_land_text_content {
@@ -520,7 +523,7 @@ footer {
 }
 
 .lhst_current_land_text_content {
-    margin-bottom: 0px;
+    margin-bottom: 0;
     word-wrap: break-word
 }
 
@@ -530,7 +533,7 @@ footer {
 }
 
 .lhst_current_land_name {
-    color: var(--wheat-color);
+    color: var(--wheat-color)
 }
 
 .lhst_map_region_icon_left_bar_col {
@@ -636,46 +639,45 @@ lhst_marquee {
 
 .lhst_background_image {
     background-image: url(../img/menu-icons/stone19.png);
-    background-size: 50%;
-
+    background-size: 50%
 }
 
-.lhst_cursor_pointer{
-    cursor:pointer;
+.lhst_cursor_pointer {
+    cursor: pointer
 }
 
 .lhst_leftSideBar_country_name {
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
     font-size: 18px;
     font-weight: 400;
-    margin-top:30px;
+    margin-top: 20px
 }
 
 .lhst_leftSideBar_land_name {
-    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
     font-size: 14px;
     font-weight: 200;
-    margin-top: 5px;
+    margin-top: 5px
 }
 
 .lhst_clr-wheat {
-    color: var(--wheat-color);
+    color: var(--wheat-color)
 }
 
 .lhst_clr-brown {
-    color: #FF033E;
+    color: #FF033E
 }
 
 .lhst_clr-money {
-    color: var(--yellow-color);
+    color: var(--yellow-color)
 }
 
 .lhst_line {
     height: 1px;
     width: auto;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-    background-color: var(--wheat-color);
+    margin-left: .5rem;
+    margin-right: .5rem;
+    background-color: var(--wheat-color)
 }
 
 .lhst_production_card {
@@ -683,23 +685,24 @@ lhst_marquee {
     border-style: solid;
     border-width: 2px;
     border-color: #2b2b2b;
-    /*background-color: var(--main-color);*/
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
     border-radius: 6px;
     color: var(--wheat-color);
     padding: 1rem;
+   
 }
 
+
 .lhst_btn_war_modal {
-    align-content:end;
+    align-content: end;
     background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
     border-radius: 3px;
     width: 48px;
     margin-left: 3px;
     height: 26.2px;
-    font-size: revert;
+    font-size: revert
 }
 
 .lhst_tb_war_modal {
@@ -714,54 +717,54 @@ lhst_marquee {
 }
 
 .lhst_font_size-smaller {
-    font-size: smaller;
+    font-size: smaller
 }
 
-.lhst_progressbar_div{
+.lhst_progressbar_div {
     width: 100px;
-    color: red;
+    color: red
 }
 
 .lhst_progressbar {
-    border-radius: 5px;
+    border-radius: 5px
 }
 
-.lhst_progressbar::-webkit-progress-bar {
-    background-color: var(--wheat-color);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-    border-radius: 5px;
-}
+    .lhst_progressbar::-webkit-progress-bar {
+        background-color: var(--wheat-color);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.25) inset;
+        border-radius: 5px
+    }
 
-.lhst_progressbar::-webkit-progress-value {
-    /*       background-color: var(--wheat-color);*/
-    background-image: -webkit-linear-gradient(-45deg, transparent 33%, rgba(0, 0, 0, .1) 33%, rgba(0,0, 0, .1) 66%, transparent 66%), -webkit-linear-gradient(top, rgba(255, 255, 255, .25), rgba(0, 0, 0, .25)), -webkit-linear-gradient(left, var(--yellow-color), var(--main-color));
-    border-radius: 5px;
-}
+    .lhst_progressbar::-webkit-progress-value {
+        background-image: -webkit-linear-gradient(-45deg,transparent 33%,rgba(0,0,0,.1) 33%,rgba(0,0,0,.1) 66%,transparent 66%),-webkit-linear-gradient(top,rgba(255,255,255,.25),rgba(0,0,0,.25)),-webkit-linear-gradient(left,var(--yellow-color),var(--main-color));
+        border-radius: 5px
+    }
 
-.lhst_unitRecruit_width{
-    width:126px;
+.lhst_unitRecruit_width {
+    width: 126px
 }
 
 .lhst_default_button {
-    background: radial-gradient(var(--add-color), black);
+    background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
-    border-radius: 3px;
+    border-radius: 3px
 }
 
-.lhst_default_button:hover {
-    background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
-    color: var(--yellow-color);
-    border-style:outset;
-}
-    .lhst_default_button:active{
-        border-style:inset;
+    .lhst_default_button:hover {
+        background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
+        color: var(--yellow-color);
+        border-style: outset
     }
 
-    [data-title]:hover:after {
-        opacity: 1;
-        transition: all 0.1s ease 0.2s;
-        visibility: visible;
+    .lhst_default_button:active {
+        border-style: inset
     }
+
+[data-title]:hover:after {
+    opacity: 1;
+    transition: all .1s ease .2s;
+    visibility: visible
+}
 
 [data-title]:after {
     content: attr(data-title);
@@ -769,7 +772,7 @@ lhst_marquee {
     color: var(--yellow-color);
     font-size: 100%;
     position: absolute;
-    padding: 2px 5px 2px 5px;
+    padding: 2px 5px;
     left: 100%;
     white-space: nowrap;
     box-shadow: 1px 1px 3px var(--main-color);
@@ -777,11 +780,11 @@ lhst_marquee {
     border: 1px solid var(--yellow-color);
     border-radius: 2px;
     z-index: 99999;
-    visibility: hidden;
+    visibility: hidden
 }
 
 [data-title] {
-    position: relative;
+    position: relative
 }
 
 .lhst_tooltip {
@@ -789,10 +792,10 @@ lhst_marquee {
     display: inline-flex;
     border-bottom: 1px var(--main-color);
     font-weight: 100;
-    margin: -2px 0px 0px 2px;
-    box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
+    margin: -2px 0 0 2px;
+    box-shadow: 0 0 3px rgba(56,54,54,0.86);
     text-align: justify;
-    color: #f4ebdb;
+    color: #f4ebdb
 }
 
     .lhst_tooltip .lhst_tooltiptext {
@@ -808,9 +811,8 @@ lhst_marquee {
         bottom: 125%;
         left: 50%;
         margin-left: -110px;
-
-        font-family: 'Comfortaa', cursive;
-        text-align: justify;
+        font-family: 'Comfortaa',cursive;
+        text-align: justify
     }
 
         .lhst_tooltip .lhst_tooltiptext::after {
@@ -821,13 +823,12 @@ lhst_marquee {
             margin-left: -5px;
             border-width: 5px;
             border-style: solid;
-            border-color: rgba(0,0,0,.9) transparent transparent transparent;
+            border-color: rgba(0,0,0,.9) transparent transparent
         }
 
     .lhst_tooltip:hover .lhst_tooltiptext {
         visibility: visible;
-
-        transition: all 0.5s ease;
+        transition: all .5s ease
     }
 
 .lhst_tooltip_production {
@@ -835,11 +836,11 @@ lhst_marquee {
     display: inline-flex;
     border-bottom: 1px var(--main-color);
     font-weight: 100;
-    margin: -2px 0px 0px 2px;
-    box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
+    margin: -2px 0 0 2px;
+    box-shadow: 0 0 3px rgba(56,54,54,0.86);
     text-align: justify;
     color: var(--wheat-color);
-    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+        font-family: 'Sitka Display','Arial',Arial,sans-serif;
 }
 
     .lhst_tooltip_production .lhst_tooltiptext_production {
@@ -855,8 +856,8 @@ lhst_marquee {
         bottom: 125%;
         left: 50%;
         margin-left: -110px;
-        font-family: 'Comfortaa', cursive;
-        text-align: justify;
+        font-family: 'Comfortaa',cursive;
+        text-align: justify
     }
 
         .lhst_tooltip_production .lhst_tooltiptext_production::after {
@@ -867,42 +868,46 @@ lhst_marquee {
             margin-left: -5px;
             border-width: 5px;
             border-style: solid;
-            border-color: rgba(0,0,0,.9) transparent transparent transparent;
+            border-color: rgba(0,0,0,.9) transparent transparent
         }
 
     .lhst_tooltip_production:hover .lhst_tooltiptext_production {
         visibility: visible;
-        transition: all 0.5s ease;
+        transition: all .5s ease
     }
 
-.lhst_cursor_help{
-    cursor:help;
+.lhst_cursor_help {
+    cursor: help
 }
 
 .lhst_cursor_not_allowed {
-    cursor: not-allowed;
+    cursor: not-allowed
 }
 
 .lhst_cursor_cross {
-    cursor: crosshair;
+    cursor: crosshair
 }
 
 .lhst_cursor_wait {
-    cursor: wait;
+    cursor: wait
 }
 
 .lhst_cursor_progress {
-    cursor:progress;
+    cursor: progress
 }
 
 .lhst_cursor_text {
-    cursor: text;
+    cursor: text
 }
 
 .lhst_cursor_move {
-    cursor: move;
+    cursor: move
 }
 
 .lhst_cursor_copy {
-    cursor: copy;
+    cursor: copy
+}
+
+.lhst_brightness {
+    filter: brightness(1.3)
 }
