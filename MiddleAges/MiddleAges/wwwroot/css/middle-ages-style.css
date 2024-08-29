@@ -344,10 +344,12 @@ footer {
 
 .lhst_building_ext_card {
     border-style: solid;
-    border-width: 0px;
+    /*border-width: 0px;*/
+    border-width: 2px;
     border-color: #2b2b2b;
-    background-image: conic-gradient(from 235deg at 41% 47%,#232323 16%,#faaf08 33%,#faaf08 58%,#232323 70%);
-    background-repeat: no-repeat;
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    /*background-image: conic-gradient(from 235deg at 41% 47%,#232323 16%,#faaf08 33%,#faaf08 58%,#232323 70%);*/
+    /*background-repeat: no-repeat;*/
     background-size: 100%;
     width: 130px;
     border-radius: 6px
