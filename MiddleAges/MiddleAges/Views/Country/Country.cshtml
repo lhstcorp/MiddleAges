@@ -117,6 +117,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/country_page_actions.js"></script>
 </div>
+
 <div class="lhst_dialog modal" id="renamingCountryDialog">
     <div class="text-right">
     <button class="lhst_btn_dialog_cancel" onclick="hideRenamingCountryDialog()">x</button>
@@ -139,6 +140,7 @@
     </form>
    
 </div>
+
 <div class="lhst_dialog modal" id="recoloringCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideRecoloringCountryDialog()">x</button>
@@ -161,6 +163,7 @@
         </div>
     </form>
 </div>
+
 <div class="lhst_dialog modal" id="changingCapitalCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideChangingCapitalCountryDialog()">x</button>
@@ -187,6 +190,7 @@
         </menu>
     </form>
 </div>
+
 <div class="lhst_dialog modal" id="transferingLandCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideTransferingLandCountryDialog()">x</button>
@@ -222,6 +226,7 @@
         </menu>
     </form>
 </div>
+
 <div class="lhst_dialog modal" id="taxesCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideTaxesCountryDialog()">x</button>
@@ -241,8 +246,12 @@
                 </select>
             </p>
             <p class="lhst_card_properties">
-                Tax Value %
-                <input name="taxValue" class="lhst_dialog_rename_input" type="number" max="100" min="0" />
+                Land Tax Value %
+                <input name="landTaxValue" class="lhst_dialog_rename_input" type="number" max="100" min="0" />
+            </p>
+            <p class="lhst_card_properties">
+                State Tax Value %
+                <input name="stateTaxValue" class="lhst_dialog_rename_input" type="number" max="100" min="0" />
             </p>
         </section>
         <menu class="text-center pl-0">
@@ -252,6 +261,7 @@
         </menu>
     </form>
 </div>
+
 <div class="lhst_dialog modal" id="changingRulerCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideChangingRulerCountryDialog()">x</button>
@@ -278,6 +288,7 @@
         </menu>
     </form>
 </div>
+
 <div class="lhst_dialog modal" id="declaringWarCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideDeclaringWarCountryDialog()">x</button>
@@ -303,6 +314,7 @@
         </menu>
     </form>
 </div>
+
 <div class="lhst_dialog modal" id="disbandingCountryDialog">
     <div class="text-right">
         <button class="lhst_btn_dialog_cancel" onclick="hideDisbandingCountryDialog()">x</button>

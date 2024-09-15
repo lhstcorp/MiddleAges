@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiddleAges.Data;
 
 namespace MiddleAges.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240915100258_LandMoney")]
+    partial class LandMoney
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -296,17 +298,14 @@ namespace MiddleAges.Migrations
                     b.Property<Guid?>("CountryId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("CountryTax")
-                        .HasColumnType("int");
-
-                    b.Property<int>("LandTax")
-                        .HasColumnType("int");
-
                     b.Property<double>("Money")
                         .HasColumnType("float");
 
                     b.Property<double>("ProductionLimit")
                         .HasColumnType("float");
+
+                    b.Property<int>("Taxes")
+                        .HasColumnType("int");
 
                     b.HasKey("LandId");
 
