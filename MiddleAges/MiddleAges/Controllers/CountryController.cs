@@ -275,28 +275,33 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> SetTaxes(string landId, int taxValue)
+        public async Task<IActionResult> SetTaxes(string landId, int landTaxValue, int stateTaxValue)
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.FirstOrDefaultAsync(l => l.LandId == landId);
             Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(c => c.CountryId == land.CountryId);
 
             if (player.Id == country.RulerId
-             && country.Money >= 10)
+             && landTaxValue >= 0 
+             && landTaxValue <= 100
+             && stateTaxValue >= 0
+             && stateTaxValue <= 100
+             && country.Money >= 1)
             {                
                 Law law = new Law();
                 law.CountryId = country.CountryId;
                 law.PlayerId = player.Id;
                 law.Type = (int)LawType.SetLandTaxes;
                 law.PublishingDateTime = DateTime.UtcNow;                
-                law.Value1 = taxValue.ToString();
+                law.Value1 = landTaxValue.ToString() + " (" + stateTaxValue.ToString() + ")";
                 law.Value2 = landId;
                 _context.Add(law);
 
-                land.Taxes = taxValue;
+                land.LandTax = landTaxValue;
+                land.CountryTax = stateTaxValue;
                 _context.Update(land);
 
-                country.Money -= 10;
+                country.Money -= 1;
                 _context.Update(country);
 
                 await _context.SaveChangesAsync();               
