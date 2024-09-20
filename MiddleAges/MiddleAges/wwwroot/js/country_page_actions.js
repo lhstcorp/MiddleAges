@@ -77,5 +77,9 @@ function hideWarsMenuScreensDialog() {
     $('#warsMenuScreensDialog').modal('hide');
 }
 
-
-
+function openAppointGovernorDialog() {
+    $('#appointGovernorDialog').modal('show');
+}
+function hideAppointGovernorDialog() {
+    $('#appointGovernorDialog').modal('hide');
+}
