@@ -90,13 +90,15 @@
                 @*Смена столицы*@
                 <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
                 @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
-                <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer Land</button>
+                <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer land</button>
                 @*  @*Установление налога*@
                 <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
                 @*Смена правителя*@
                 <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
                 @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
-                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War </button>
+                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
+                @*Назначить губернатора*@
+                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openAppointGovernorDialog()">Appoint a governor</button>
                 @*распустить страну*@
                 <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
             </div>
@@ -273,6 +275,44 @@
             </p>
             <p class="lhst_card_properties">
                 New ruler
+                <select name="newRulerName" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < Model.OtherRulers.Count(); i++)
+                    {
+                        <option class="lhst_option">@Model.OtherRulers[i]</option>
+                    }
+                </select>
+            </p>
+        </section>
+        <menu class="text-center pl-0">
+            <button type="submit" class="lhst_btn_moveToRegion">
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+            </button>
+        </menu>
+    </form>
+</div>
+
+<div class="lhst_dialog modal" id="appointGovernorDialog">
+    <div class="text-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideAppointGovernorDialog()">x</button>
+    </div>
+    <form asp-controller="Country" asp-action="AppointGovernor">
+        <section>
+            <p class="lhst_card_properties">
+                <label>Appoint a governor</label>
+            </p>
+
+            <p class="lhst_card_properties">You can appoint someone who is currently in your country as governor.</p>
+            <p class="lhst_card_properties">
+                Choose land
+                <select name="landId" class="lhst_dialog_select_input">
+                    @for (int i = 0; i < Model.Lands.Count; i++)
+                    {
+                        <option class="lhst_option">@Model.Lands[i].LandId</option>
+                    }
+                </select>
+            </p>
+            <p class="lhst_card_properties">
+                Select governor
                 <select name="newRulerName" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.OtherRulers.Count(); i++)
                     {
