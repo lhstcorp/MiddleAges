@@ -363,6 +363,40 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> AppointGovernor(string landId, string governorName)
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == landId);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+            Player governor = await _context.Players.FirstOrDefaultAsync(p => p.UserName == governorName);
+
+            if (player.Id == country.RulerId
+             && land.CountryId == country.CountryId
+             && governor != null
+             && country.Money >= 10)
+            {
+                Law law = new Law();
+                law.CountryId = country.CountryId;
+                law.PlayerId = player.Id;
+                law.Type = (int)LawType.AppointGovernor;
+                law.PublishingDateTime = DateTime.UtcNow;
+                law.Value1 = governorName;
+                law.Value2 = landId;
+                _context.Update(law);
+
+                country.Money -= 10;
+                _context.Update(country);
+
+                land.GovernorId = governor.Id;
+                _context.Update(land);
+
+                await _context.SaveChangesAsync();
+            }
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }
+
+        [HttpPost]
         public async Task<IActionResult> DisbandCountry()
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);

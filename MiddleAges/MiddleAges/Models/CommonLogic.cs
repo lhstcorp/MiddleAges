@@ -80,6 +80,7 @@ namespace MiddleAges.Models
                 (int)LawType.DeclaringWar => "Country declared war on {0} ",
                 (int)LawType.Disbanding => "Country was disbanded",
                 (int)LawType.SetLandTaxes => "{0} taxes were set at {1}%",
+                (int)LawType.AppointGovernor => "{0} became the governor of {1}",
                 _ => ""
             };
             return lawDescription;
@@ -97,6 +98,7 @@ namespace MiddleAges.Models
                 (int)LawType.DeclaringWar => "DeclaringWar",
                 (int)LawType.Disbanding => "Disbanding",
                 (int)LawType.SetLandTaxes => "SetLandTaxes",
+                (int)LawType.AppointGovernor => "AppointGovernor",
                 _ => ""
             };
             return lawName;

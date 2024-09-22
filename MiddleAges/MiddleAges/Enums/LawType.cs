@@ -14,6 +14,7 @@ namespace MiddleAges.Enums
         ChangingRuler = 5,
         DeclaringWar = 6,
         Disbanding = 7,
-        SetLandTaxes = 8
+        SetLandTaxes = 8,
+        AppointGovernor = 9
     }
 }
