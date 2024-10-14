@@ -13,7 +13,7 @@
             </div>
             <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
                 <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
-                <p class="lhst_current_land_name lhst_leftSideBar_land_name">@Model.Player.CurrentLand</p>
+                <p class="lhst_current_land_name lhst_leftSideBar_land_name m_landBtn" data-option=@Model.Player.Land.LandId>@Model.Player.CurrentLand</p>
             </div>
             
         </div>
@@ -103,7 +103,7 @@
                     <span class="lhst_tooltiptext_production">
                         Projected daily earnings:
                     </span>
-                    <img class="ml-1 lhst_independent_land_description_money_icon lhst_clr-money" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00), 2).ToString().Replace(',', '.'))/day</span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon lhst_clr-money" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.LandTax) / 100.00), 2).ToString().Replace(',', '.'))/day</span>
                 </p>
                                                
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
@@ -115,7 +115,7 @@
                 </p>
 
                 @{
-                    double projectedDailyBalance = Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.Taxes) / 100.00) - Model.Units[1].Count * 0.02 * 24.00, 2);
+                    double projectedDailyBalance = Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.LandTax) / 100.00) - Model.Units[1].Count * 0.02 * 24.00, 2);
                 }
 
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
@@ -131,7 +131,7 @@
                     <span class="lhst_tooltiptext_production">
                         Taxes:
                     </span>
-                    <span class="lhst_clr-brown ml-1">@(Model.ResidenceLand.Taxes)%</span>
+                    <span class="lhst_clr-brown ml-1">@(Model.ResidenceLand.LandTax)%</span>
                 </p>
                 
             </div>

@@ -81,8 +81,8 @@ namespace MiddleAges.Timed_Hosted_Services
             if (land.ProductionLimit > 0)
             {
                 double hourIncome = peasants.Count * _peasantHourSalary * (1 + 0.02 * playerAttribute.Management); // 100% + 2% * Management attribute
-                player.Money += hourIncome * (1 - (land.Taxes / 100.00));
-                player.MoneyProduced += hourIncome * (1 - (land.Taxes / 100.00));
+                player.Money += hourIncome * (1 - (land.LandTax / 100.00));
+                player.MoneyProduced += hourIncome * (1 - (land.LandTax / 100.00));
 
                 player.Exp += Convert.ToInt64(Math.Floor(hourIncome));
 
@@ -98,7 +98,7 @@ namespace MiddleAges.Timed_Hosted_Services
                 _context.Update(land);
 
                 Country country = land.Country;
-                country.Money += hourIncome * land.Taxes / 100.00;
+                country.Money += hourIncome * land.LandTax / 100.00; //deprecated
 
                 _context.Update(country);
             }
