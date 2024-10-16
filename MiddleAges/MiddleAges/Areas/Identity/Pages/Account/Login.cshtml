@@ -23,7 +23,7 @@
                             </p>                            
                         </div>
                         <div class="col-sm-12 col-md-4 ">
-                            <form id="account" method="post" class="text-center">
+                            <form id="account" method="post" class="text-center" onsubmit="return validateRecaptcha()">
                                 @* <hr /> *@
                                 <div asp-validation-summary="All" class="text-danger "></div>
                                 <div class="text-center mb-2" tabindex="0">
@@ -35,7 +35,7 @@
                                     <a href="#" class="password-control" onclick="show_hide_password(this);"></a>
                                     <span asp-validation-for="Input.Password" class="text-danger "></span>                                    
                                 </div>
-                                <div class="form-group text-center mb-0" tabindex="2">
+                                <div class="form-group text-center mb-0" tabindex="2">                                    
                                     <button type="submit" class="btn auth_btn auth_text_font_but ">Sign in</button>
                                 </div>
                                 @* <div class="form-group">
@@ -55,6 +55,8 @@
                                         <a id="forgot-password" class="auth_text_font_a" asp-page="./ForgotPassword">Forgot your password?</a>
                                     </p>
                                 </div>
+                                
+
                             </form>
                         </div>
                         <div class="col-sm-12 col-md-4">

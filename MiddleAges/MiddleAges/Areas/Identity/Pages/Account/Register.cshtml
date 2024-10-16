@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Grand Duchy";
 }
-
+<script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 <body class="auth_background ">
 
     <div class="auth_text_color text-center lhst_slider auth_max_height">
@@ -38,15 +38,21 @@
                                     <span asp-validation-for="Input.UserName" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center password" tabindex="2">
-                                    <input asp-for="Input.Password" id="password-input" class="auth_form-control " placeholder="PASSWORD" type="password" />
+                                    <input asp-for="Input.Password" id="password-input" name="password-inpur-register" class="auth_form-control " placeholder="PASSWORD" type="password" oninput="checkPasswordStrength()" />
                                     <a href="#" class="password-control" onclick="show_hide_password(this);"></a>
                                     <span asp-validation-for="Input.Password" class="text-danger"></span>
+                                   @*  <div id="passwordStrength" style="margin-top: 10px;">
+                                        <div id="strengthBar" style="height: 10px, width: 0%; background-color: red;"></div>
+                                    </div>
+
+                                    <p id="strengthText" style="font-weight: bold;"></p> *@
                                 </div>
                                 <div class="form-group  text-center password" tabindex="3">
                                     <input asp-for="Input.ConfirmPassword" id="password-input-confirm" class="auth_form-control " placeholder="CONFIRM PASSWORD" type="password" />
                                     <a href="#" class="password-control" onclick="show_hide_password_confirm(this);"></a>
                                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                 </div>
+                                <div class="g-recaptcha" data-sitekey="6LetGmIqAAAAAG3a0wiVTGRnAkq0_1gmGU4zL_Tq"></div>
                                 <div class="form-group  text-center " tabindex="4">
                                     <button type="submit" class="btn auth_btn auth_text_font_but ">CREATE ACCOUNT</button>
                                 </div>

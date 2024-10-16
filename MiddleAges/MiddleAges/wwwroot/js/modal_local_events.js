@@ -142,6 +142,7 @@ function refreshPlayerData(obj) {
     $('#player-exp-progressbar').prop('title', obj.Player.Exp + " / " + progressbarTitleParts[1]);
     $('#unit-0-count').text(obj.Peasants.Count);
     $('#unit-1-count').text(obj.Soldiers.Count);
+    
 }
 
 function hideModalLocalEventDialog() {
