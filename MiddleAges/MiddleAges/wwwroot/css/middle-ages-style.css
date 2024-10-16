@@ -97,12 +97,17 @@ body {
 
     .lhst_scale polygon {
         transition: .1s;
-        display: block
+        display: block;
+        stroke: transparent; /* Прозрачная обводка по умолчанию */
+        stroke-width: 0; /* Без толщины по умолчанию */
     }
 
         .lhst_scale polygon:hover {
             transform: scale(0.995);
-            border-style: outset
+            border-style: outset;
+            stroke: var(--yellow-color) !important; /* цветная граница */
+            stroke-width: 2; /* Толщина границы */
+            
         }
 
         .lhst_scale polygon:active {
@@ -742,6 +747,25 @@ lhst_marquee {
         border-radius: 5px
     }
 
+@keyframes flash {
+    0% {
+        background-color: #4caf50;
+    }
+
+    50% {
+        background-color: #fff700;
+    }
+
+    100% {
+        background-color: #4caf50;
+    }
+}
+
+/* Класс для вспышки */
+.flash {
+    animation: flash 0.5s ease-in-out;
+}
+
 .lhst_unitRecruit_width {
     width: 126px
 }
@@ -912,4 +936,74 @@ lhst_marquee {
 
 .lhst_brightness {
     filter: brightness(1.3)
+}
+
+.lhst_checkbox {
+    background-color: #ffffff2b;
+    border-radius: 100px;
+    padding: 1px;
+    margin: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    align-items: center;
+    position: relative;
+    display: block;
+    width: 51px;
+    height: 29px;
+    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset, #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+    .lhst_checkbox::after {
+        content: "";
+        display: flex;
+        top: 2.3px;
+        left: 2px;
+        width: 26px;
+        height: 26px;
+        background-color: var(--wheat-color);
+        border-radius: 200px;
+        position: absolute;
+        box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
+        transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+        will-change: left, background-color;
+    }
+
+.switch input[type="checkbox"]:checked + .lhst_checkbox {
+    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, var(--green-color) 0px 0px 0px 2px inset, var(--green-color) 0px 0px 0px 24px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+    .switch input[type="checkbox"]:checked + .lhst_checkbox::after {
+        left: 24px;
+    }
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.blinking {
+    animation: blink 1s infinite;
+}
+
+#passwordStrength {
+    width: 100%;
+    background-color: #e0e0e0;
+}
+
+#strengthBar {
+    height: 10px;
+    width: 0%;
 }

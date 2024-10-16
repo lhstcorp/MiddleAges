@@ -53,13 +53,38 @@
             <div class="lhst_line mb-1"></div>
         </div>
         <div class="ml-2">
-            <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Move to" onclick="moveToLand()" />
-            <input id="settleBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Settle down" onclick="settleDown()" />
-            <button id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') onclick="startAnUprising()">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Start an uprising (<img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -300</span>)</p>
-            </button>
+            <div class="d-flex mb-1">
+                <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Move to" onclick="moveToLand()" />
+                <img src="../img/interface-icons/map-icons/currentland.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Move to" alt="" loading="lazy" />
+            </div>
+            <div class="d-flex mb-1">
+                <input id="settleBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Settle down" onclick="settleDown()" />
+                <img src="../img/interface-icons/map-icons/residence.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Settle down" alt="" loading="lazy" />
+            </div>
+            <div class="d-flex mb-1">
+                <button id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') onclick="startAnUprising()">
+                    <p class="w-100 flex-wrap mb-1 font-weight-normal">Start an uprising (<img class="lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -300</span>)</p>
+                </button>
+                <img src="../img/interface-icons/map-icons/revolt.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Start an uprising" alt="" loading="lazy" />
+            </div>
             @*   <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" /> *@
         </div>
+        <div>
+            <p class="font-weight-bolder mb-0 mt-2 ml-2 lhst_clr-wheat">Включить текстуры</p>
+            <label class="switch">
+                <input type="checkbox" id="texture-toggle" onchange="toggleTextures()">
+                <span class="lhst_checkbox"></span>
+            </label>
+        </div>
+
+        <div>
+            <p class="font-weight-bolder mb-0 mt-2 ml-2 lhst_clr-wheat">Включить гербы</p>
+            <label class="switch">
+                <input type="checkbox" id="heraldic-toggle" onchange="toggleHeraldic()">
+                <span class="lhst_checkbox"></span>
+            </label>
+        </div>
+
     </div>
     <div class="lhst_map-container lhst_vertical-alignment-top lhst_main-section" id="belarus-map">
         <svg class="lhst_svg-map over lhst_background_image lhst_cursor_move" viewBox="0 0 1000 890" id="lhst_svg_map">
@@ -77,7 +102,7 @@
             </filter>
            
             @* <image x="-1" y="13" width="553" height="541" id="lhst_map_img" xlink:href="/img/menu-icons/map5.png" loading="lazy" /> *@
-            <g id="global_region_map" filter="url(#filter3)">
+            <g id="global_region_map" >
                 <g id="hrodnenskaia-voblasts-subregions" class="lhst_scale" >
                     <polygon id="Hrodna" class="map_land" fill="" points="75,265 65,265 60,270 60,275 55,280 45,280 40,285 40,280 35,275 35,265 30,260 30,240 25,235 25,225 30,225 35,230 45,230 50,225 60,225 65,230 75,230" ></polygon>
                     <polygon id="Bierastavica" class="map_land" fill="" points="40,285 40,290 45,295 45,310 50,315 60,305 60,285 55,280 45,280" ></polygon>
@@ -236,7 +261,6 @@
                     <polygon id="Gzhatsk" class="map_land" points="688.636 89.956, 684.033 92.174, 681.996 92.617, 681.641 94.391, 677.395 95.098, 675.727 94.027, 670.438 95.094, 670.973 91.734, 667.258 91.738, 670.000 88.656, 665.926 78.117, 655.121 76.859, 652.309 81.176, 650.758 80.367, 653.379 72.879, 655.324 69.207, 654.258 61.348, 657.711 60.996, 660.184 57.543, 655.937 51.258, 654.344 50.543, 652.895 51.453, 651.258 47.648, 652.500 43.836, 651.078 42.777, 652.145 38.969, 649.828 38.883, 648.347 36.251, 650.281 35.715, 649.930 34.521, 649.480 33.051, 653.250 31.750, 653.875 34.625, 657.625 33.625, 657.250 32.125, 660.250 28.625, 678.125 27.250, 685.500 33.500, 690.250 45.750, 692.625 45.625, 693.500 51.000, 691.250 51.000, 692.500 57.500, 696.000 64.625, 691.000 66.375, 691.000 69.125, 693.125 70.750, 692.250 76.125, 690.250 76.125, 692.750 80.500, 690.250 84.375"></polygon>
 
                 </g>
-
 
                 <g id="litva-subregions" class="lhst_scale">
                     <polygon id="Salchininkai" class="map_land" points="144.990 174.519, 144.986 179.998, 139.974 185.000, 145.001 190.012, 150.001 190.012, 154.987 194.999, 154.986 204.984, 150.005 204.976, 144.989 209.984, 140.014 209.988, 134.792 205.020, 140.051 200.005, 140.015 194.985, 134.989 189.970, 129.988 194.988, 124.991 194.982, 114.984 204.992, 104.998 204.992, 100.000 209.988, 100.428 203.221, 96.801 202.332, 96.765 199.747, 105.806 193.130, 105.808 185.830, 110.990 183.908, 111.621 179.494, 117.376 175.395, 118.164 177.365, 121.238 173.345, 122.578 177.208, 127.150 177.287, 127.702 174.449, 134.324 173.976, 141.024 177.681, 142.680 174.370"></polygon>
