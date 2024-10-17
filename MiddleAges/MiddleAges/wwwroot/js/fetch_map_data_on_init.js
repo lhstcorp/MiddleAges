@@ -6,6 +6,35 @@ function loadMapData() {
     loadPlayerLocations();
 }
 
+//function colorizeMapLands() {
+//    $.ajax({
+//        url: 'Map/FetchLandColors',
+//        type: 'get',
+//        datatype: 'json',
+//        contentType: 'application/json;charset=utf-8',
+//        cache: false,
+//        success: function (response) {
+//            if (response == null || response == undefined || response.length == 0) {
+//                console.log("Error loading map colors");
+//            }
+//            else {
+//                return response;
+//            }
+//        },
+//        error: function (response) {
+//            console.log("Error loading map colors");
+//        }
+//    })
+//    .done(function (data) {
+//        if (data != null) {
+//            data.forEach(
+//                function (elem) {
+//                    $('#' + elem.landId.replace(' ', '_')).css("fill", elem.color);
+//                }
+//            );
+//        }
+//    })
+//}
 function colorizeMapLands() {
     $.ajax({
         url: 'Map/FetchLandColors',
@@ -14,10 +43,9 @@ function colorizeMapLands() {
         contentType: 'application/json;charset=utf-8',
         cache: false,
         success: function (response) {
-            if (response == null || response == undefined || response.length == 0) {
+            if (!response || response.length === 0) {
                 console.log("Error loading map colors");
-            }
-            else {
+            } else {
                 return response;
             }
         },
@@ -25,16 +53,69 @@ function colorizeMapLands() {
             console.log("Error loading map colors");
         }
     })
-    .done(function (data) {
-        if (data != null) {
-            data.forEach(
-                function (elem) {
-                    $('#' + elem.landId.replace(' ', '_')).css("fill", elem.color);
-                }
-            );
-        }
-    })
+        .done(function (data) {
+            if (data != null) {
+                data.forEach(function (elem) {
+                    const landId = elem.landId.replace(' ', '_');
+                    const color = elem.color;
+
+                    // Создаем градиент с плавным минимальным затемнением (на 5%)
+                    const darkerColor = shadeColor(color, -5); // Снижаем интенсивность изменения цвета
+
+                    // Создаем градиент для каждого элемента
+                    const gradientId = `grad_${landId}`;
+                    const svgDefs = document.querySelector("svg defs") || createSVGDefs();
+
+                    const gradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
+                    gradient.setAttribute("id", gradientId);
+                    gradient.setAttribute("x1", "0%");
+                    gradient.setAttribute("y1", "0%");
+                    gradient.setAttribute("x2", "100%");
+                    gradient.setAttribute("y2", "100%");
+
+                    const stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+                    stop1.setAttribute("offset", "0%");
+                    stop1.setAttribute("stop-color", color);
+
+                    const stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
+                    stop2.setAttribute("offset", "100%");
+                    stop2.setAttribute("stop-color", darkerColor);
+
+                    gradient.appendChild(stop1);
+                    gradient.appendChild(stop2);
+
+                    svgDefs.appendChild(gradient);
+
+                    // Применяем градиент к полигону
+                    $('#' + landId).css("fill", `url(#${gradientId})`);
+                });
+            }
+        });
 }
+
+// Функция для создания более плавного темного оттенка
+function shadeColor(color, percent) {
+    const f = parseInt(color.slice(1), 16);
+    const t = percent < 0 ? 0 : 255;
+    const p = percent / 1; // Уменьшение интенсивности
+    const R = f >> 16;
+    const G = f >> 8 & 0x00FF;
+    const B = f & 0x0000FF;
+
+    return `#${(0x1000000 +
+        (Math.round((t - R) * p + R)) * 0x10000 +
+        (Math.round((t - G) * p + G)) * 0x100 +
+        (Math.round((t - B) * p + B))).toString(16).slice(1)}`;
+}
+
+// Функция для создания <defs>, если его еще нет в SVG
+function createSVGDefs() {
+    const svg = document.querySelector("svg");
+    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    svg.insertBefore(defs, svg.firstChild);
+    return defs;
+}
+
 
 function loadWars() {
     $.ajax({

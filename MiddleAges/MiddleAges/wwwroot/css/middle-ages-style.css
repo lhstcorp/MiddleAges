@@ -645,9 +645,21 @@ lhst_marquee {
 }
 
 .lhst_background_image {
-    background-image: url(../img/menu-icons/stone19.png);
-    background-size: 50%
+    /* Основные размеры и центрирование */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    /* Более выраженный и контрастный градиент */
+    background: linear-gradient(120deg, rgba(30, 30, 30, 0.95), rgba(80, 80, 80, 0.9) 50%, rgba(60, 60, 60, 0.95) 70%, rgba(90, 90, 90, 0.9)),
+                linear-gradient(240deg, rgba(80, 80, 80, 0.9), rgba(60, 60, 60, 0.95) 50%, rgba(40, 40, 40, 0.9) 70%, rgba(70, 70, 70, 0.95));
+    background-size: 300% 300%;
+    position: relative;
 }
+
 
 .lhst_cursor_pointer {
     cursor: pointer
@@ -697,6 +709,7 @@ lhst_marquee {
     border-radius: 6px;
     color: var(--wheat-color);
     padding: 1rem;
+
    
 }
 
