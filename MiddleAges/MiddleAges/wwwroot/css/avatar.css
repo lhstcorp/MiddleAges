@@ -44,14 +44,33 @@
     height: 120px;
     width: 120px;
     display: inline-block;
-    overflow: hidden
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    /* Добавляем плавный переход для эффекта */
 }
 
+    .lhst_avatar_main_data_image:hover {
+        box-shadow: 0 0 5px rgba(255, 223, 150, 0.8), 0 0 10px rgba(255, 200, 100, 0.5);
+        /* Мягкое свечение голубовато-желтого цвета */
+    }
+
+    /* Эффект нажатия */
+    .lhst_avatar_main_data_image:active {
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
+    }
+
+
 .lhst_avatar_main_image {
-    border-style: solid;
-    border-width: 2px;
-    border-color: var(--main-color);
-    border-radius: 10px;
+    border: 1px solid transparent; /* Убираем стандартную черную границу */
+    border-radius: 10px; /* Немного более округлые углы */
+    vertical-align: top;
+    /* Золотистый градиент на рамке */
+    background-image: linear-gradient(#232323, #232323), /* основной темный фон */
+    linear-gradient(to right, #d4af37, #f0e68c); /* золотистый градиент на рамке */
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 1px; /* Расстояние для рамки */
     height: 250px;
     width: 250px;
     display: inline-block;
@@ -179,7 +198,9 @@
     }
 
     .lhst_btn_avatar_confirm:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
 
 .lhst_checkbox_gender {
@@ -213,9 +234,15 @@
 }
 
 .lhst_share_img {
-    width: 20px;
-    height: 20px
+    width: 30px;
+    height: 30px;
 }
+
+    .lhst_share_img:active {
+        transform: scale(0.95) !important; /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
+    }
+
 
 .lhst_input_info_share {
     width: 200px;
@@ -255,11 +282,13 @@
     }
 
     .lhst_settings_button:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
 
 ::placeholder {
-    color: var(--green-color);
+    color: lightgray;
     opacity: 90%;
     filter: brightness(1.3)
 }
