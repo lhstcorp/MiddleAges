@@ -10,10 +10,10 @@
     <div class="d-block lhst_main-section">
         <div class="lhst_vertical-alignment-top lhst_avatar_inline mt-2">
             <div class="lhst_avatar_inline lhst_avatar_image_div lhst_avatar_divs_align lhst_slider_small_screen">
-                <div class="lhst_avatar_main_image">
+                <div>
                     <img id="avatar_selected_img" class="lhst_avatar_main_image" src="~/img/avatars/@(Model.Player.ImageURL).webp" alt="" loading="lazy" />
                 </div>
-                <p class="lhst_country_king_size ">@Model.Player.UserName</p>
+                <p class="lhst_country_king_size mt-3">@Model.Player.UserName</p>
                 <input id="update_avatar_btn" type="submit" class="lhst_btn_avatar_confirm" value="Confirm" />
             </div>
             <div class="lhst_avatar_inline lhst_avatar_selection_div lhst_avatar_divs_align lhst_slider ml-1">
@@ -33,19 +33,19 @@
                         <p class="lhst_country_king_size mb-0">Contact Information</p>
                         <div>
                             <div class="lhst_scale d-flex">
-                                <img class="align-self-center mr-1 mt-1 lhst_share_img" src="~/img/interface-icons/vk.png" loading="lazy" alt="vk" data-title="vk" />
+                                <img id="vkLink" class="align-self-center mr-1 mt-1 lhst_share_img lhst_cursor_pointer" src="~/img/interface-icons/vk1.png" loading="lazy" alt="vk" data-title="vk" />
                                 <input id="vk" class="lhst_input_info_share mt-1" type="text" placeholder="VK ID" maxlength="50" value=@Model.PlayerInformation.Vk />
                             </div>
                             <div class="lhst_scale d-flex">
-                                <img class="align-self-center mr-1 mt-1 lhst_share_img" src="~/img/interface-icons/telegram.png" loading="lazy" alt="telegram" data-title="telegram" />
-                                <input id="tg" class="lhst_input_info_share mt-1" type="text" placeholder="nickname" maxlength="50" value=@Model.PlayerInformation.Telegram />
+                                <img id="tgLink" class="align-self-center mr-1 mt-1 lhst_share_img lhst_cursor_pointer" src="~/img/interface-icons/telegram1.png" loading="lazy" alt="telegram" data-title="telegram" />
+                                <input id="tg" class="lhst_input_info_share mt-1" type="text" placeholder="Telegram nickname" maxlength="50" value=@Model.PlayerInformation.Telegram />
                             </div>
                             <div class="lhst_scale d-flex">
-                                <img class="align-self-center mr-1 mt-1 lhst_share_img" src="~/img/interface-icons/discord.png" loading="lazy" alt="discord" data-title="discord" />
-                                <input id="ds" class="lhst_input_info_share mt-1" type="text" placeholder="nickname" maxlength="50" value=@Model.PlayerInformation.Discord />
+                                <img id="dsLink" class="align-self-center mr-1 mt-1 lhst_share_img lhst_cursor_pointer" src="~/img/interface-icons/discord1.png" loading="lazy" alt="discord" data-title="discord" />
+                                <input id="ds" class="lhst_input_info_share mt-1" type="text" placeholder="Discord nickname" maxlength="50" value=@Model.PlayerInformation.Discord />
                             </div>
                             <div class="lhst_scale d-flex">
-                                <img class="align-self-center mr-1 mt-1 lhst_share_img" src="~/img/interface-icons/facebook.png" loading="lazy" alt="facebook" data-title="facebook" />
+                                <img id="fbLink" class="align-self-center mr-1 mt-1 lhst_share_img lhst_cursor_pointer" src="~/img/interface-icons/facebook1.png" loading="lazy" alt="facebook" data-title="facebook" />
                                 <input id="fb" class="lhst_input_info_share mt-1" type="text" placeholder="Facebook ID" maxlength="50" value=@Model.PlayerInformation.Facebook />
                             </div>
                         </div>
@@ -72,4 +72,5 @@
     <script src="~/js/select_avatar_img_by_click.js"></script>
     <script src="~/js/update_avatar_img_by_click.js"></script>
     <script src="~/js/save_contact_information.js"></script>
+    <script src="~/js/socialMedia_link.js"></script>
 </div>

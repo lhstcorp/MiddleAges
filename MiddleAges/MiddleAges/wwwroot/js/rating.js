@@ -81,11 +81,11 @@ function populateGrid(ratingList) {
     for (let i = 0; i < ratingList.Ratings.length; i++) {
 
         const ratingNode = document.createElement("div");
-        ratingNode.classList.add("row");
+        ratingNode.classList.add("row", "mb-1");
         ratingGrid.appendChild(ratingNode);
 
         const totalPlaceDiv = document.createElement("div");
-        ratingNode.appendChild(totalPlaceDiv);
+        ratingNode.appendChild(totalPlaceDiv);        
 
         const totalPlaceP = document.createElement("p");
         totalPlaceP.classList.add("mb-0", "mt-2", "lhst_rating-small-ints");
