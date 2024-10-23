@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
@@ -22,5 +24,14 @@ namespace MiddleAges
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.Configure<FormOptions>(options =>
+            {
+                options.MultipartBodyLengthLimit = 512 * 512; // Ограничение 2 MB на все multipart-запросы
+            });
+
+            // Остальные сервисы
+        }
     }
 }

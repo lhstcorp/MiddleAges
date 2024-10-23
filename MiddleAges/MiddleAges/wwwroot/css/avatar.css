@@ -297,3 +297,62 @@
     opacity: 0;
     transition: opacity .2s
 }
+
+.lhst_labelFile_size {
+    font-size: 18px;
+    font-weight: 600;
+    align-self: end
+}
+
+.lhst_form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--wheat-color);
+    background-color: var(--main-color);
+    background-clip: padding-box;
+    border: 1px solid var(--add-color);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+#avatarFile {
+    display: none;
+}
+
+.custom-file-upload {
+    display: inline-block;
+    padding: 3px 0 0 0;
+    width: 120px;
+    height: 28px;
+    cursor: pointer;
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
+    border-width: 1px;
+    border-radius: 8px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    text-align: center;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+}
+
+.file-info {
+    margin-top: 10px;
+    font-size: 14px;
+    color: var(--wheat-color);
+}
+
+    .custom-file-upload:hover {
+        background: radial-gradient(var(--green-color),black);
+        color: var(--yellow-color);
+        border-style: outset
+    }
+
+    .custom-file-upload:active {
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
+    }

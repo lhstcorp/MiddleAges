@@ -13,7 +13,8 @@
 
 #global_region_map {
     cursor: pointer;
-    z-index: 1200
+    z-index: 1200;
+    filter: brightness(0.9);
 }
 
     #global_region_map polygon {
@@ -26,6 +27,7 @@
         #global_region_map polygon:hover {
             filter: brightness(0.85)
         }
+
 
 #lhst_map_img {
     z-index: 1
