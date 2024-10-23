@@ -52,7 +52,7 @@
                     <span class="lhst_tooltiptext_production">
                         Today's earnings:
                     </span>
-                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" />
+                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" loading="lazy" alt="" />
                     <span class="lhst_independent_land_description_money_amount lhst_color-money"> @Math.Round(Model.Player.MoneyProduced, 2).ToString().Replace(',', '.')</span>
                 </p>                    
          
@@ -62,7 +62,7 @@
                     <span class="lhst_tooltiptext_production">
                         Today's expenses:
                     </span>
-                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" />
+                    <img class="ml-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" />
                     <span class="lhst_independent_land_description_money_amount lhst_clr-brown"> -@Math.Round(Model.Player.MoneySpent, 2).ToString().Replace(',', '.')</span>
                 </p>
 
@@ -71,7 +71,7 @@
                     <span class="lhst_tooltiptext_production">
                         Today's balance:
                     </span>
-                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount @(Model.Player.MoneyProduced - Model.Player.MoneySpent < 0 ? "lhst_clr-brown" : "lhst_clr-money")"> @Math.Round(Model.Player.MoneyProduced - Model.Player.MoneySpent, 2).ToString().Replace(',', '.')</span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount @(Model.Player.MoneyProduced - Model.Player.MoneySpent < 0 ? "lhst_clr-brown" : "lhst_clr-money")"> @Math.Round(Model.Player.MoneyProduced - Model.Player.MoneySpent, 2).ToString().Replace(',', '.')</span>
                 </p>
                 
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
@@ -79,7 +79,7 @@
                     <span class="lhst_tooltiptext_production">
                         Remaining land limit:
                     </span>
-                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @Math.Round(Model.ResidenceLand.ProductionLimit, 2).ToString().Replace(',', '.')</span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @Math.Round(Model.ResidenceLand.ProductionLimit, 2).ToString().Replace(',', '.')</span>
                 </p>
                 
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
@@ -103,7 +103,7 @@
                     <span class="lhst_tooltiptext_production">
                         Projected daily earnings:
                     </span>
-                    <img class="ml-1 lhst_independent_land_description_money_icon lhst_clr-money" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.LandTax) / 100.00), 2).ToString().Replace(',', '.'))/day</span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon lhst_clr-money" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(Math.Round(Model.Units[0].Count * 0.01 * 24.00 * (1 + Convert.ToDouble(Model.PlayerAttribute.Management) * 0.02) * (1 - Convert.ToDouble(Model.ResidenceLand.LandTax) / 100.00), 2).ToString().Replace(',', '.'))/day</span>
                 </p>
                                                
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
@@ -111,7 +111,7 @@
                     <span class="lhst_tooltiptext_production">
                         Army maintenance:
                     </span>
-                    <img class="ml-1 lhst_independent_land_description_money_icon" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_clr-brown"> -@(Math.Round(Model.Units[1].Count * 0.02 * 24.00, 2).ToString().Replace(',', '.'))/day</span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_clr-brown"> -@(Math.Round(Model.Units[1].Count * 0.02 * 24.00, 2).ToString().Replace(',', '.'))/day</span>
                 </p>
 
                 @{
@@ -123,7 +123,7 @@
                     <span class="lhst_tooltiptext_production">
                         Projected daily balance:
                     </span>
-                    <img class="ml-1 lhst_independent_land_description_money_icon @(projectedDailyBalance < 0 ? "lhst_clr-brown" : "lhst_clr-money")" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(projectedDailyBalance.ToString().Replace(',', '.'))/day</span>
+                    <img class="ml-1 lhst_independent_land_description_money_icon @(projectedDailyBalance < 0 ? "lhst_clr-brown" : "lhst_clr-money")" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @(projectedDailyBalance.ToString().Replace(',', '.'))/day</span>
                 </p>
 
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">
@@ -140,12 +140,12 @@
         <div class="float-left mb-2 mr-3">
             <div class="d-flex">
                 <p class="lhst_possessions_titles">Attributes</p>
-                <p class="lhst_possessions_titles">(<span id="availAttrPointsMainSection">@CommonLogic.GetAvailAttrPoints(Model.Player.Lvl, Model.PlayerAttribute)</span> <img class="lhst_attr_coin_img" src="~/img/attributes/attrPoint.png" alt="" />)</p>
+                <p class="lhst_possessions_titles">(<span id="availAttrPointsMainSection">@CommonLogic.GetAvailAttrPoints(Model.Player.Lvl, Model.PlayerAttribute)</span> <img class="lhst_attr_coin_img" loading="lazy" src="~/img/attributes/attrPoint.png" alt="" />)</p>
             </div>
             <div class="lhst_attr_card d-block">
                 @*Attr 1*@
                 <div class="row">
-                    <img class="lhst_attr_img_big lhst_brightness" src="~/img/attributes/management.png" alt="" />
+                    <img class="lhst_attr_img_big lhst_brightness" loading="lazy" src="~/img/attributes/management.png" alt="" />
                     <div class="p-1 lhst_attr_name">
                         <p class="font-weight-bolder mb-0 mt-0">Management</p>
                         <p class="mb-0 mt-0 font-weight-light lhst_font_size-smaller">increases the base income of peasants by 2% for each level</p>
@@ -155,7 +155,7 @@
                 </div>
                 @*Attr 2*@
                 <div class="row">
-                    <img class="lhst_attr_img_big lhst_brightness" src="~/img/attributes/warfare.png" alt="" />
+                    <img class="lhst_attr_img_big lhst_brightness" loading="lazy" src="~/img/attributes/warfare.png" alt="" />
                     <div class="p-1 lhst_attr_name">
                         <p class="font-weight-bolder mb-0 mt-0">Warfare</p>
                         <p class="mb-0 mt-0 font-weight-light lhst_font_size-smaller">increases army strength by 2% per level</p>
@@ -165,7 +165,7 @@
                 </div>
                 @*Attr 3*@
                 <div class="row">
-                    <img class="lhst_attr_img_big lhst_brightness" src="~/img/attributes/leadership.png" alt="" />
+                    <img class="lhst_attr_img_big lhst_brightness" loading="lazy" src="~/img/attributes/leadership.png" alt="" />
                     <div class="p-1 lhst_attr_name">
                         <p class="font-weight-bolder mb-0 mt-0">Leadership</p>
                         <p class="mb-0 mt-0 font-weight-light lhst_font_size-smaller">increases the chance of receiving an additional recruit by 2% per level</p>

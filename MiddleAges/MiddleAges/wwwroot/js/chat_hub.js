@@ -19,7 +19,7 @@ connection.on("ReceiveMessageFromGlobalChat", function (userId, userName, profil
     let img = document.createElement("img");
     img.className = "lhst_country_history_img lhst_cursor_pointer m_playerBtn";
     img.height = 32;
-    img.setAttribute("src", "/img/avatars/" + profilePicUrl + ".webp");
+    img.setAttribute("src", "/img/avatars/" + profilePicUrl);
     img.alt = "profile picture";
     img.loading = "lazy";
     img.setAttribute("data-playerid", userId);

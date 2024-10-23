@@ -97,7 +97,7 @@ function populateGrid(ratingList) {
         ratingNode.appendChild(playerImgDiv);
 
         const playerImg = document.createElement("img");
-        playerImg.src = playerAvatarsUrl + ratingList.Ratings[i].Player.ImageURL + '.webp';
+        playerImg.src = playerAvatarsUrl + ratingList.Ratings[i].Player.ImageURL;
         playerImg.classList.add("country_card-population-img", "lhst_cursor_pointer", "m_playerBtn");
         playerImg.dataset.playerid = ratingList.Ratings[i].Player.Id;
         playerImg.loading = "lazy";
