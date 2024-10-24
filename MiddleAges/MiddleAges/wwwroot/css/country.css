@@ -81,15 +81,15 @@
 }
 
 .lhst_country_history_line {
-    width: 692px;
+/*    width: 692px;*/
     height: 1px;
     background-color: var(--wheat-color)
 }
 
 .lhst_country_history_comment {
-    height: 50px;
+/*    height: 50px;*/
     align-items: center;
-    display: ruby-text
+    display: flex
 }
 
 .country_card-population-img {
@@ -142,7 +142,8 @@
     border-width: 2px;
     border-color: var(--wheat-color);
     color: var(--wheat-color);
-    max-height: calc(100vh - 336px)
+    max-height: calc(100vh - 386px);
+    display: inline-block;
 }
 
 .lhst_country_history_img {

@@ -102,6 +102,7 @@
                 @*распустить страну*@
                 <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
             </div>
+            <p class="lhst_possessions_titles ml-3">Statute of @(Model.Country.Name)</p>
             <div class="lhst_country_history_div align-top lhst_nav lhst_slider ">
                 @for (int i = 0; i < lawsOrderByTime.Count(); i++)
                 {
@@ -111,7 +112,7 @@
                         <img class="lhst_country_history_img ml-5" src="../img/interface-icons/stamp.png" height="52" alt="" loading="lazy">
                         <time class="float-right" datetime="2016-11-18T09:54">@lawsOrderByTime[i].PublishingDateTime</time>
                     </div>
-                    <div class="lhst_country_history_line mb-1"></div>
+                    <div class="lhst_country_history_line mb-0"></div>
                 }
             </div>
         </div>
