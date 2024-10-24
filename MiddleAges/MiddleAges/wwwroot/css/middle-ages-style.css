@@ -481,6 +481,7 @@ footer {
     height: 26.2px;
     font-size: revert;
         font-family: 'Sitka Display','Arial',Arial,sans-serif;
+
 }
 
     .lhst_btn_logout:hover {
@@ -1066,3 +1067,10 @@ lhst_marquee {
     height: 10px;
     width: 0%;
 }
+
+.lhst_margin_logout {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+
