@@ -288,14 +288,46 @@
             <button id="m_landDevelopmentBtn" onclick="openLandDevelopmentTab()">Development</button>
             <div class="d-flex lhst_modal_land">
                 <div>
-                    <img id="m_landCoatOfArms" class="lhst_land_coat_of_arms_image" alt="" loading="lazy" src="~/img/map-regions-icons-middle-ages/Hrodna.png"/>
-                    <p id="m_landName" class="ml-1 mb-0" style="text-align: center">Hrodna</p>
+                    <img id="m_landCoatOfArms" class="lhst_land_coat_of_arms_image" alt="" loading="lazy" src="~/img/map-regions-icons-middle-ages/Hrodna.png"/>                    
                 </div>
                 <div class="lhst_main_info_profile">
-                    <div class="ml-3">
-                        <p id="m_player_playerName" class="lhst_country_king_size mb-0">Player Name</p>
-                        <p id="m_player_playerDescription" class="lhst_dialog_profile_player_description mb-0">Status of player</p>
+                    <div class="ml-3">                        
+                        <p id="m_land_name" class="mb-0 mt-2" style="line-height: 0.5; font-size: 20px">Hrodna</p>
+                        
                         <div class="row float-left">
+                            <img class="lhst_profile_rating_img " src="~/img/default-icon/state-crown.png" alt="" data-title="State" loading="lazy" />
+                            <p id="m_land_country" class="mb-0" style="margin-top: 0.30rem">Avalonium</p>
+                        </div>
+
+                        <br />
+
+                        <div class="row float-left">
+                            <p class="lhst_land_attribute">Ranking place: </p>
+                            <p id="m_land_rankingPlace" class="mb-0">112</p>
+                            <p class="lhst_land_attribute_value">/207</p>
+                        </div>
+
+                        <div class="row float-left">
+                            <p class="lhst_land_attribute">Governor: </p>
+                            <p id="m_land_governor" class="lhst_land_attribute_value">Hedwig</p>
+                        </div>
+
+                        <div class="row float-left">
+                            <p class="lhst_land_attribute">Lords: </p>
+                            <p id="m_land_lordsCount" class="lhst_land_attribute_value">3</p>
+                        </div>
+
+                        <div class="row float-left">
+                            <p class="lhst_land_attribute">Residents: </p>
+                            <p id="m_land_residentsCount" class="lhst_land_attribute_value">2</p>
+                        </div>
+
+                        <div class="row float-left">
+                            <p class="lhst_land_attribute">Land taxes: </p>
+                            <p id="m_land_taxes" class="lhst_land_attribute_value">20%</p>
+                        </div>
+                        
+                        @* <div class="row float-left">
                             <p id="m_player_totalPlace" class="mb-0 mt-1">#3 (</p>
                             <img class="lhst_profile_rating_img " src="~/img/rating-icons/exp.png" alt="" data-title="Experience" loading="lazy" />
                             <p id="m_player_expPlace" data-title="Experience" class="mb-0 mt-1">1 /</p>
@@ -303,20 +335,7 @@
                             <p id="m_player_moneyPlace" data-title="Money" class="mb-0 mt-1">1 /</p>
                             <img class="lhst_profile_rating_img " src="~/img/rating-icons/power.png" alt="" data-title="War Power" loading="lazy" />
                             <p id="m_player_powerPlace" data-title="War Power" class="mb-0 mt-1">1)</p>
-                        </div>
-                    </div>
-                    <br />
-
-                    <div class="row">
-                        <img id="m_player_residence_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/Hrodna.png" class="lhst_region_profile" alt="map region coat of arms" loading="lazy" />
-                        <div class="mt-3">
-                            <p id="m_player_residence_country_name" class="mb-0">Avalonium</p>
-                            <p id="m_player_residence_land_name" class="mb-0">Hrodna</p>
-                            <div class="row">
-                                <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left" data-title="Population" alt="" loading="lazy" />
-                                <p id="m_player_population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population">564</p>
-                            </div>
-                        </div>
+                        </div> *@
                     </div>
                 </div>
                 <div class="float-right">

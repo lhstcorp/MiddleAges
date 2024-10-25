@@ -387,8 +387,8 @@ namespace MiddleAges.Controllers
                 country.Money -= 10;
                 _context.Update(country);
 
-                //land.GovernorId = governor.Id;
-                //_context.Update(land);
+                land.GovernorId = governor.Id;
+                _context.Update(land);
 
                 await _context.SaveChangesAsync();
             }
