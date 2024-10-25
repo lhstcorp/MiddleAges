@@ -50,3 +50,13 @@
 .lhst_dialog_land::backdrop {
     background: rgba(0,0,0,0.5)
 }
+
+.lhst_land_attribute {
+    width: 100px;
+    margin-bottom: 0px;
+}
+
+.lhst_land_attribute_value {
+    width: 100px;
+    margin-bottom: 0px;
+}

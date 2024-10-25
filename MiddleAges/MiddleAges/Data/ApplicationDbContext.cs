@@ -48,10 +48,10 @@ namespace MiddleAges.Data
                 .WithMany()
                 .HasForeignKey(q => q.CountryId);
 
-            //builder.Entity<Land>()
-            //    .HasOne(q => q.Governor)
-            //    .WithMany()
-            //    .HasForeignKey(q => q.GovernorId);
+            builder.Entity<Land>()
+                .HasOne(q => q.Governor)
+                .WithMany()
+                .HasForeignKey(q => q.GovernorId);
 
             builder.Entity<BorderLand>()
                 .HasKey(q => new { q.LandId, q.BorderLandId });

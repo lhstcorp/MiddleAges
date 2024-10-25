@@ -30,11 +30,13 @@
                 @{
                     string productionStatusString;
                     string productionBtnText;
+                    string blinking = "";
 
                     if (Model.Player.EndDateTimeProduction < DateTime.UtcNow)
                     {
                         productionBtnText = "Start production";
                         productionStatusString = "Production has not yet started";
+                        blinking = "blinking";
                     }
                     else
                     {
@@ -42,7 +44,7 @@
                         productionStatusString = "Production will end at: " + Model.Player.EndDateTimeProduction;
                     }
 
-                    <input id="productionBtn" type="submit" class="lhst_btn_moveToRegion mb-2" value="@productionBtnText" onclick="restartProduction()" />
+                    <input id="productionBtn" type="submit" class="lhst_btn_moveToRegion mb-2 @blinking" value="@productionBtnText" onclick="restartProduction()" />
                     <p id="productionStatusStr" class="w-100 flex-wrap mb-2 font-weight-normal">@productionStatusString</p>
                 }
 
