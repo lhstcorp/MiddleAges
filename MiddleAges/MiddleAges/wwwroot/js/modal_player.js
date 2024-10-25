@@ -50,7 +50,6 @@ function getPlayerById(id) {
             alert("Failed to load player data");
         });
 }
-
 function populateModalPlayerDialog(obj) {
     $("#m_player_contact_information_div").empty();
 
@@ -65,40 +64,43 @@ function populateModalPlayerDialog(obj) {
     $('#m_player_expPlace').text(obj.Rating.ExpPlace + " /");
     $('#m_player_moneyPlace').text(obj.Rating.MoneyPlace + " /");
     $('#m_player_powerPlace').text(obj.Rating.WarPowerPlace + ")");
-    $('#m_player_residence_land_coat_of_arms').attr('src', coatOfArmsUrl + obj.Player.ResidenceLand + '.png');    
+    $('#m_player_residence_land_coat_of_arms').attr('src', coatOfArmsUrl + obj.Player.ResidenceLand + '.png');
     $('#m_player_residence_country_name').text(obj.ResidenceCountry.Name);
     $('#m_player_residence_land_name').text(obj.Player.ResidenceLand);
     $('#m_player_population').text(obj.Peasants.Count);
 
     if (obj.PlayerInformation.Description != null) {
         $('#m_player_notes').text(obj.PlayerInformation.Description);
-    }
-    else {
+    } else {
         $('#m_player_notes').text("No player notes");
     }
+
     const m_player_contact_information_div = document.getElementById("m_player_contact_information_div");
 
     if (obj.PlayerInformation.Vk == null
-     && obj.PlayerInformation.Telegram == null
-     && obj.PlayerInformation.Discord == null
-     && obj.PlayerInformation.Facebook == null) {
+        && obj.PlayerInformation.Telegram == null
+        && obj.PlayerInformation.Discord == null
+        && obj.PlayerInformation.Facebook == null) {
         const noLinks = document.createElement("p");
         noLinks.innerHTML = "No contact data";
         noLinks.classList.add("font-weight-normal", "mb-0");
         m_player_contact_information_div.appendChild(noLinks);
-    }
-    else {
+    } else {
         if (obj.PlayerInformation.Vk != null) {
             const vkDiv = document.createElement("div");
             vkDiv.classList.add("lhst_scale", "d-flex");
             m_player_contact_information_div.appendChild(vkDiv);
 
             const vkImg = document.createElement("img");
-            vkImg.src = 'img/interface-icons/vk.png';
+            vkImg.src = 'img/interface-icons/vk1.png';
             vkImg.loading = "lazy";
             vkImg.alt = "vk";
             vkImg.title = "vk";
             vkImg.classList.add("align-self-center", "mr-3", "lhst_share_img");
+            vkImg.style.cursor = "pointer";  // Добавляем курсор указателя для кликабельности
+            vkImg.onclick = function () {
+                window.open('https://vk.com/' + obj.PlayerInformation.Vk, '_blank');
+            };
             vkDiv.appendChild(vkImg);
 
             const vkLink = document.createElement("p");
@@ -108,17 +110,20 @@ function populateModalPlayerDialog(obj) {
         }
 
         if (obj.PlayerInformation.Telegram != null) {
-
             const tgDiv = document.createElement("div");
             tgDiv.classList.add("lhst_scale", "d-flex");
             m_player_contact_information_div.appendChild(tgDiv);
 
             const tgImg = document.createElement("img");
-            tgImg.src = 'img/interface-icons/telegram.png';
+            tgImg.src = 'img/interface-icons/telegram1.png';
             tgImg.loading = "lazy";
             tgImg.alt = "telegram";
             tgImg.title = "telegram";
             tgImg.classList.add("align-self-center", "mr-3", "lhst_share_img");
+            tgImg.style.cursor = "pointer";
+            tgImg.onclick = function () {
+                window.open('https://t.me/' + obj.PlayerInformation.Telegram, '_blank');
+            };
             tgDiv.appendChild(tgImg);
 
             const tgLink = document.createElement("p");
@@ -128,17 +133,20 @@ function populateModalPlayerDialog(obj) {
         }
 
         if (obj.PlayerInformation.Discord != null) {
-
             const dsDiv = document.createElement("div");
             dsDiv.classList.add("lhst_scale", "d-flex");
             m_player_contact_information_div.appendChild(dsDiv);
 
             const dsImg = document.createElement("img");
-            dsImg.src = 'img/interface-icons/discord.png';
+            dsImg.src = 'img/interface-icons/discord1.png';
             dsImg.loading = "lazy";
             dsImg.alt = "discord";
             dsImg.title = "discord";
             dsImg.classList.add("align-self-center", "mr-3", "lhst_share_img");
+            dsImg.style.cursor = "pointer";
+            dsImg.onclick = function () {
+                window.open('https://discord.com/users/' + obj.PlayerInformation.Discord, '_blank');
+            };
             dsDiv.appendChild(dsImg);
 
             const dsLink = document.createElement("p");
@@ -148,17 +156,20 @@ function populateModalPlayerDialog(obj) {
         }
 
         if (obj.PlayerInformation.Facebook != null) {
-
             const fbDiv = document.createElement("div");
             fbDiv.classList.add("lhst_scale", "d-flex");
             m_player_contact_information_div.appendChild(fbDiv);
 
             const fbImg = document.createElement("img");
-            fbImg.src = 'img/interface-icons/facebook.png';
+            fbImg.src = 'img/interface-icons/facebook1.png';
             fbImg.loading = "lazy";
             fbImg.alt = "facebook";
             fbImg.title = "facebook";
             fbImg.classList.add("align-self-center", "mr-3", "lhst_share_img");
+            fbImg.style.cursor = "pointer";
+            fbImg.onclick = function () {
+                window.open('https://www.facebook.com/' + obj.PlayerInformation.Facebook, '_blank');
+            };
             fbDiv.appendChild(fbImg);
 
             const fbLink = document.createElement("p");

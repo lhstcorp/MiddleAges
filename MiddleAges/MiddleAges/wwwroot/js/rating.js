@@ -81,11 +81,11 @@ function populateGrid(ratingList) {
     for (let i = 0; i < ratingList.Ratings.length; i++) {
 
         const ratingNode = document.createElement("div");
-        ratingNode.classList.add("row");
+        ratingNode.classList.add("row", "mb-1");
         ratingGrid.appendChild(ratingNode);
 
         const totalPlaceDiv = document.createElement("div");
-        ratingNode.appendChild(totalPlaceDiv);
+        ratingNode.appendChild(totalPlaceDiv);        
 
         const totalPlaceP = document.createElement("p");
         totalPlaceP.classList.add("mb-0", "mt-2", "lhst_rating-small-ints");
@@ -97,7 +97,7 @@ function populateGrid(ratingList) {
         ratingNode.appendChild(playerImgDiv);
 
         const playerImg = document.createElement("img");
-        playerImg.src = playerAvatarsUrl + ratingList.Ratings[i].Player.ImageURL + '.webp';
+        playerImg.src = playerAvatarsUrl + ratingList.Ratings[i].Player.ImageURL;
         playerImg.classList.add("country_card-population-img", "lhst_cursor_pointer", "m_playerBtn");
         playerImg.dataset.playerid = ratingList.Ratings[i].Player.Id;
         playerImg.loading = "lazy";

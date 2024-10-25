@@ -32,13 +32,15 @@
 
 .lhst_rating_loupe {
     width: 25px;
-    height: 25px
+    height: 25px;
+    border-width: 0px;
 }
 
     .lhst_rating_loupe:hover {
-        border-style: outset
+        box-shadow: 0 0 5px rgba(255, 223, 150, 0.8), 0 0 10px rgba(255, 200, 100, 0.5);
     }
 
     .lhst_rating_loupe:active {
-        border-style: inset
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }

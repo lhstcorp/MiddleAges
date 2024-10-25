@@ -78,3 +78,50 @@ function upgradeAttribute() {
             alert("Unfortunately attribute wasn't upgraded");
         });
 }
+
+function getUtcNow() {
+    return new Date().toISOString(); // Преобразует время в формат ISO
+}
+
+// Функция для проверки времени и активации мигания кнопки
+function checkProductionStatus() {
+    $.ajax({
+        url: 'Main/CheckProductionStatus',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            landId: landId
+        },
+        success: function (response) {
+            if (!response || response.length === 0) {
+                console.error('Error: Empty or invalid response');
+                return;
+            }
+
+            const currentUtcTime = getUtcNow();  // Получаем текущее время UTC
+            const productionBtn = document.getElementById("productionBtn");  // Получаем кнопку
+            var productionEndTime = response.EndDateTimeProduction;
+
+            if (!productionEndTime) {
+                console.error("Error: EndDateTimeProduction not provided");
+                return;
+            }
+
+            // Сравниваем текущее время с временем окончания производства
+            if (currentUtcTime > productionEndTime) {
+                // Если текущее время больше времени конца производства, добавляем анимацию
+                productionBtn.classList.add("blinking");
+            } else {
+                // Иначе убираем мигание
+                productionBtn.classList.remove("blinking");
+            }
+        },
+        error: function () {
+            console.error("Error: Unable to fetch production status");
+        }
+    });
+}
+
+// Запускаем проверку каждую секунду
+setInterval(checkProductionStatus, 1000);
+

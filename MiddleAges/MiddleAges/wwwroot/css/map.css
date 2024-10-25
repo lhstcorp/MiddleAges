@@ -13,7 +13,8 @@
 
 #global_region_map {
     cursor: pointer;
-    z-index: 1200
+    z-index: 1200;
+    filter: brightness(0.9);
 }
 
     #global_region_map polygon {
@@ -26,6 +27,7 @@
         #global_region_map polygon:hover {
             filter: brightness(0.85)
         }
+
 
 #lhst_map_img {
     z-index: 1
@@ -45,5 +47,7 @@
     }
 
     .lhst_btn_moveToRegion:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }

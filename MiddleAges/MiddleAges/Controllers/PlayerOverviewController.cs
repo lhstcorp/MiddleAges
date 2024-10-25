@@ -4,9 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace MiddleAges.Controllers
@@ -92,5 +94,44 @@ namespace MiddleAges.Controllers
                 return View();
             }
         }
+        //[HttpPost]
+        //public async Task<IActionResult> Submit(FormModel model)
+        //{
+        //    // Получаем токен с клиента
+        //    var recaptchaResponse = Request.Form["g-recaptcha-response"];
+
+        //    // Проверяем reCAPTCHA
+        //    var isCaptchaValid = await ValidateRecaptcha(recaptchaResponse);
+
+        //    if (!isCaptchaValid)
+        //    {
+        //        ModelState.AddModelError("Recaptcha", "reCAPTCHA verification failed.");
+        //        return View(model); // Показываем форму с ошибкой
+        //    }
+
+        //    // Если валидация пройдена, продолжаем обработку
+        //    // Дальнейшая логика для создания аккаунта...
+        //}
+
+        //private async Task<bool> ValidateRecaptcha(string recaptchaResponse)
+        //{
+        //    var secret = "ВАШ_SECRET_KEY"; // Ваш secret key
+
+        //    using (var httpClient = new HttpClient())
+        //    {
+        //        var content = new FormUrlEncodedContent(new[]
+        //        {
+        //    new KeyValuePair<string, string>("secret", secret),
+        //    new KeyValuePair<string, string>("response", recaptchaResponse)
+        //});
+
+        //        var response = await httpClient.PostAsync("https://www.google.com/recaptcha/api/siteverify", content);
+        //        var jsonString = await response.Content.ReadAsStringAsync();
+
+        //        dynamic jsonData = JsonConvert.DeserializeObject(jsonString);
+        //        return jsonData.success == "true";
+        //    }
+        //}
+
     }
 }

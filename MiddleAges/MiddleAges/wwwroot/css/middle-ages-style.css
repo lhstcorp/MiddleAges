@@ -7,10 +7,16 @@
 }
 
 body {
-    background-color: var(--wheat-color);
+    /*background-color: var(--wheat-color);
+
     background-size: 100%;
-    margin: 0
+    margin: 0;*/
+    background: linear-gradient(135deg, #FFF4D1, #F3C99D, #D9A065);
+    background-size: 100%;
+    margin: 0;
+    
 }
+
 
 .header {
     border-bottom: 1px solid;
@@ -65,10 +71,15 @@ body {
 .nav-avatar-img {
     height: 100px;
     width: 100px;
-    border-style: solid !important;
-    border-width: 1px !important;
-    border-color: #000 !important;
-    border-radius: 7px;
+    border: 1px solid transparent; /* Убираем стандартную черную границу */
+    border-radius: 7px; /* Немного более округлые углы */
+    vertical-align: top;
+    /* Золотистый градиент на рамке */
+    background-image: linear-gradient(#232323, #232323), /* основной темный фон */
+    linear-gradient(to right, #d4af37, #f0e68c); /* золотистый градиент на рамке */
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 1px; /* Расстояние для рамки */
     vertical-align: top
 }
 
@@ -83,7 +94,8 @@ body {
     }
 
         .lhst_scale img:hover {
-            transform: scale(1.1)
+            transform: scale(1.1);
+            
         }
 
     .lhst_scale div {
@@ -97,16 +109,22 @@ body {
 
     .lhst_scale polygon {
         transition: .1s;
-        display: block
+        display: block;
+        stroke: transparent; /* Прозрачная обводка по умолчанию */
+        stroke-width: 0; /* Без толщины по умолчанию */
     }
 
         .lhst_scale polygon:hover {
             transform: scale(0.995);
-            border-style: outset
+            border-style: outset;
+            stroke: var(--yellow-color) !important; /* цветная граница */
+            stroke-width: 2; /* Толщина границы */
+            
         }
 
         .lhst_scale polygon:active {
-            border-style: inset
+            border-style: inset;
+            
         }
 
     .lhst_scale a {
@@ -119,11 +137,14 @@ body {
         .lhst_scale a:hover {
             transform: scale(1.05);
             border-color: var(--main-color);
+            box-shadow: 0 0 5px rgba(255, 223, 150, 0.8), 0 0 10px rgba(255, 200, 100, 0.5);
             border-style: outset
         }
 
         .lhst_scale a:active {
-            border-style: inset
+            border-style: inset;
+            transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
         }
 
     .lhst_scale button {
@@ -137,11 +158,14 @@ body {
             transform: scale(1.05);
             border-color: var(--main-color);
             border-style: outset;
+            box-shadow: 0 0 5px rgba(255, 223, 150, 0.8), 0 0 10px rgba(255, 200, 100, 0.5);
             filter: brightness(1.3)
         }
 
         .lhst_scale button:active {
-            border-style: inset
+            border-style: inset;
+            transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
         }
 
 .player-overview-div-inline {
@@ -197,11 +221,14 @@ li a.lhst_nav {
         -webkit-text-fill-color: var(--yellow-color);
         font-weight: 700;
         border-style: outset;
+        box-shadow: 0 0 5px rgba(255, 223, 150, 0.8), 0 0 10px rgba(255, 200, 100, 0.5);
         filter: brightness(1.3)
     }
 
     li a.lhst_nav:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
 
 li menu.lhst_nav {
@@ -223,6 +250,7 @@ li menu.lhst_nav {
     li menu.lhst_nav:hover {
         -webkit-text-stroke: thin var(--add-color);
         -webkit-text-fill-color: var(--yellow-color);
+        box-shadow: 0 0 5px rgba(255, 223, 150, 0.8), 0 0 10px rgba(255, 200, 100, 0.5);
         font-weight: 700
     }
 
@@ -245,11 +273,14 @@ li button.lhst_nav {
         -webkit-text-stroke: thin var(--add-color);
         -webkit-text-fill-color: var(--yellow-color);
         font-weight: 700;
+        box-shadow: 0 0 5px rgba(255, 223, 150, 0.8), 0 0 10px rgba(255, 200, 100, 0.5);
         border-style: outset
     }
 
     li button.lhst_nav:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
 
 .lhst_inline {
@@ -275,11 +306,19 @@ li button.lhst_nav {
 .header {
     background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 20%
+    /*background-color: #232323;*/ /* Основной фон */
+    /*background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
+    background-size: 40px 40px;*/ /* Размер узора */
+    /*background-position: 0 0, 20px 20px, 20px 20px, 0 0;*/
 }
 
 .footer {
     background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 20%
+    /*background-color: #232323;*/ /* Основной фон */
+    /*background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
+    background-size: 40px 40px;*/ /* Размер узора */
+    /*background-position: 0 0, 20px 20px, 20px 20px, 0 0;*/
 }
 
 .lhst_vertical-line {
@@ -292,6 +331,10 @@ li button.lhst_nav {
 .lhst_left-side-bar {
     background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 10%;
+    /*background-color: #232323;*/ /* Основной фон */
+    /*background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
+    background-size: 40px 40px;*/ /* Размер узора */
+    /*background-position: 0 0, 20px 20px, 20px 20px, 0 0;*/
     width: 229px;
     min-width: 229px;
     position: fixed;
@@ -403,7 +446,9 @@ footer {
     }
 
     .lhst_btn_building_lvlup:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
 
 .lhst_btn_unit_recruit {
@@ -423,7 +468,9 @@ footer {
     }
 
     .lhst_btn_unit_recruit:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
 
 .lhst_btn_logout {
@@ -434,6 +481,7 @@ footer {
     height: 26.2px;
     font-size: revert;
         font-family: 'Sitka Display','Arial',Arial,sans-serif;
+
 }
 
     .lhst_btn_logout:hover {
@@ -443,7 +491,9 @@ footer {
     }
 
     .lhst_btn_logout:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
 
 .lhst_btn_group_selected_land {
@@ -640,9 +690,21 @@ lhst_marquee {
 }
 
 .lhst_background_image {
-    background-image: url(../img/menu-icons/stone19.png);
-    background-size: 50%
+    /* Основные размеры и центрирование */
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    /* Более выраженный и контрастный градиент */
+    background: linear-gradient(120deg, rgba(30, 30, 30, 0.95), rgba(80, 80, 80, 0.9) 50%, rgba(60, 60, 60, 0.95) 70%, rgba(90, 90, 90, 0.9)),
+                linear-gradient(240deg, rgba(80, 80, 80, 0.9), rgba(60, 60, 60, 0.95) 50%, rgba(40, 40, 40, 0.9) 70%, rgba(70, 70, 70, 0.95));
+    background-size: 300% 300%;
+    position: relative;
 }
+
 
 .lhst_cursor_pointer {
     cursor: pointer
@@ -692,6 +754,7 @@ lhst_marquee {
     border-radius: 6px;
     color: var(--wheat-color);
     padding: 1rem;
+
    
 }
 
@@ -742,6 +805,25 @@ lhst_marquee {
         border-radius: 5px
     }
 
+@keyframes flash {
+    0% {
+        background-color: #4caf50;
+    }
+
+    50% {
+        background-color: #fff700;
+    }
+
+    100% {
+        background-color: #4caf50;
+    }
+}
+
+/* Класс для вспышки */
+.flash {
+    animation: flash 0.5s ease-in-out;
+}
+
 .lhst_unitRecruit_width {
     width: 126px
 }
@@ -759,7 +841,9 @@ lhst_marquee {
     }
 
     .lhst_default_button:active {
-        border-style: inset
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
 
 [data-title]:hover:after {
@@ -899,7 +983,7 @@ lhst_marquee {
 }
 
 .lhst_cursor_text {
-    cursor: text
+    cursor: textcursor: pointer;
 }
 
 .lhst_cursor_move {
@@ -913,3 +997,80 @@ lhst_marquee {
 .lhst_brightness {
     filter: brightness(1.3)
 }
+
+.lhst_checkbox {
+    background-color: #ffffff2b;
+    border-radius: 100px;
+    padding: 1px;
+    margin: 10px;
+    cursor: pointer;
+    transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    align-items: center;
+    position: relative;
+    display: block;
+    width: 51px;
+    height: 29px;
+    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, rgba(0, 0, 0, 0.21) 0px 0px 0px 24px inset, #22cc3f 0px 0px 0px 0px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+    .lhst_checkbox::after {
+        content: "";
+        display: flex;
+        top: 2.3px;
+        left: 2px;
+        width: 26px;
+        height: 26px;
+        background-color: var(--wheat-color);
+        border-radius: 200px;
+        position: absolute;
+        box-shadow: transparent 0px 0px 0px 2px, rgba(0, 0, 0, 0.3) 0px 6px 6px;
+        transition: left 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s, background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0s;
+        will-change: left, background-color;
+    }
+
+.switch input[type="checkbox"]:checked + .lhst_checkbox {
+    box-shadow: rgba(0, 0, 0, 0.62) 0px 0px 5px inset, var(--green-color) 0px 0px 0px 2px inset, var(--green-color) 0px 0px 0px 24px inset, rgba(224, 224, 224, 0.45) 0px 1px 0px 0px;
+}
+
+    .switch input[type="checkbox"]:checked + .lhst_checkbox::after {
+        left: 24px;
+    }
+
+.switch input[type="checkbox"] {
+    display: none;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.blinking {
+    animation: blink 1s infinite;
+}
+
+#passwordStrength {
+    width: 100%;
+    background-color: #e0e0e0;
+}
+
+#strengthBar {
+    height: 10px;
+    width: 0%;
+}
+
+.lhst_margin_logout {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+

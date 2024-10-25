@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <title>Middle Ages: Стань легендой средневековья!</title>
     <meta name="description" content="Станьте правителем могущественной империи в мире, полном интриг и битв" />
     <meta name="keywords" content="gaming, online games, multiplayer, strategy, tactics, war games, simulation, role-playing, adventure, historical, fantasy, real-time strategy, turn-based strategy, PvP, PvE, world-building, management, resource management, civilization, campaign, guilds, alliances, quests, units, heroes, maps, territories, kingdoms, realms, sieges, diplomacy, trade, economy, technology, development, expansion, domination, victory, defeat, combat, defense, attack, troops, armies, military, conquest, empire, dynasty, throne, medieval, feudal, castle, knight, monarch, sovereign, ruler, leader, strategy guide" />
@@ -34,10 +35,11 @@
     <link rel="stylesheet" href="~/css/modal-land.css" />
 </head>
 
-    <body>
+<body>
         @* <div id="rekstr">
             <script type="text/javascript" language="JavaScript" src="/js/rttr.js"></script>  РЕКЛАМНАЯ СТРОКА
         </div> *@
+       
         <div class="header text-muted">
             <div class="row">
                 @if (User.Identity.IsAuthenticated)
@@ -75,8 +77,8 @@
 
 
                         </div>
-                        <div class="lhst_inline lhst_nav lhst_header_margin float-right vw-40">
-                            <form class="form-inline lhst_inline align-bottom ml-4 mb-2" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                        <div class="lhst_inline lhst_nav lhst_header_margin float-right lhst_margin_logout vw-40">
+                            <form class="form-inline lhst_inline align-bottom ml-4 mb-2 " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button type="submit" class="lhst_btn_logout">Logout</button>
                             </form>
                         </div>
@@ -189,13 +191,13 @@
 
     <div class="row p-0">
         <div class="col-2 p-0">
-            <img id="imgFrom" class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/Hrodna.png" alt="">
+            <img id="imgFrom" class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/Hrodna.png" loading="lazy" alt="">
         </div>
         <div class="col-2 p-0">
             <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
             <p id="landFromName" class="lhst_wars_lands_text ">LandFrom</p>
             <div>
-                <img class="float-left" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" data-title="Army strength" alt="">
+                <img class="float-left" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" loading="lazy" data-title="Army strength" alt="">
                 <p id="attackersArmyStrength" class="float-left mt-2 mb-0">0%</p>
             </div>
         </div>
@@ -205,27 +207,27 @@
                     <p id="soldiersCountLeft" class="text-right lhst_country_info_region_value" data-title="Attackers Soldiers">937</p>
                 </div>
                 <div class="col-2 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" data-title="Attackers Soldiers" alt="">
+                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" loading="lazy" data-title="Attackers Soldiers" alt="">
                 </div>
                 <div class="col-2 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" data-title="Defenders Soldiers" alt="">
+                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" loading="lazy" data-title="Defenders Soldiers" alt="">
                 </div>
                 <div class="col-4 p-0">
-                    <p id="soldiersCountRight" class="lhst_country_info_region_value" data-title="Defenders Soldiers">647</p>
+                    <p id="soldiersCountRight" class="lhst_country_info_region_value" loading="lazy" data-title="Defenders Soldiers">647</p>
                 </div>
             </div>
             <div class="row p-0">
                 <div class="col-4 p-0 text-right">
-                    <p id="armiesCountLeft" class="text-right lhst_country_info_region_value" data-title="Attackers Lords">0</p>
+                    <p id="armiesCountLeft" class="text-right lhst_country_info_region_value" loading="lazy" data-title="Attackers Lords">0</p>
                 </div>
                 <div class="col-2 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" data-title="Attackers Lords" alt="">
+                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" loading="lazy" data-title="Attackers Lords" alt="">
                 </div>
                 <div class="col-2 p-0">
-                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" data-title="Defenders Lords" alt="">
+                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" loading="lazy" data-title="Defenders Lords" alt="">
                 </div>
                 <div class="col-4 p-0 ">
-                    <p id="armiesCountRight" class="lhst_country_info_region_value" data-title="Defenders Lords">12</p>
+                    <p id="armiesCountRight" class="lhst_country_info_region_value" loading="lazy" data-title="Defenders Lords">12</p>
                 </div>
             </div>
             <div class="row p-0">
@@ -248,13 +250,13 @@
             <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
             <p id="landToName" class="lhst_wars_lands_text ">LandTo</p>
             <div>
-                <img class="float-right" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" data-title="Army strength" alt="">
+                <img class="float-right" style="width: 30px; height: 30px" loading="lazy" src="../img/attributes/warfare.png" data-title="Army strength" alt="">
                 <p id="defendersArmyStrength" class="float-right mt-2 mb-0">0%</p>
             </div>
         </div>
 
         <div class="col-2 p-0 float-right">
-            <img id="imgTo" class="lhst_war_country_img lhst_country_history_img" src="../img/map-regions-icons-middle-ages/Lahoisk.png" alt="">
+            <img id="imgTo" class="lhst_war_country_img lhst_country_history_img" loading="lazy" src="../img/map-regions-icons-middle-ages/Lahoisk.png" alt="">
         </div>
 
 

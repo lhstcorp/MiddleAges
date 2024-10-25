@@ -81,19 +81,20 @@
 }
 
 .lhst_country_history_line {
-    width: 692px;
+/*    width: 692px;*/
     height: 1px;
     background-color: var(--wheat-color)
 }
 
 .lhst_country_history_comment {
-    height: 50px;
+/*    height: 50px;*/
     align-items: center;
-    display: ruby-text
+    display: flex
 }
 
 .country_card-population-img {
-    height: 30px
+    height: 30px;
+    border-radius: 5px;
 }
 
 .country_card-money-img {
@@ -141,7 +142,8 @@
     border-width: 2px;
     border-color: var(--wheat-color);
     color: var(--wheat-color);
-    max-height: calc(100vh - 336px)
+    max-height: calc(100vh - 386px);
+    display: inline-block;
 }
 
 .lhst_country_history_img {
@@ -162,7 +164,7 @@
         transform: scale(1.05)
     }
 
-.lhst_king_nav-avatar-img {
+/*.lhst_king_nav-avatar-img {
     height: 80px;
     width: 80px;
     border-style: solid !important;
@@ -170,6 +172,21 @@
     border-color: #000 !important;
     border-radius: 7px;
     vertical-align: top
+}*/
+
+.lhst_king_nav-avatar-img {
+    height: 80px;
+    width: 80px;
+    border: 1px solid transparent; /* Убираем стандартную черную границу */
+    border-radius: 7px; /* Немного более округлые углы */
+    vertical-align: top;
+    /* Золотистый градиент на рамке */
+    background-image: linear-gradient(#232323, #232323), /* основной темный фон */
+    linear-gradient(to right, #d4af37, #f0e68c); /* золотистый градиент на рамке */
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    padding: 1px; /* Расстояние для рамки */
+   
 }
 
 .lhst_slider_small_screen {

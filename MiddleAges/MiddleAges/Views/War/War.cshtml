@@ -35,11 +35,11 @@
                         <div class="col-2 p-0">
                             @if (allWars[i].War.IsRevolt)
                             {
-                                <img class="lhst_war_country_img" src="../img/default-icon/rebel-coat.png" alt="">
+                                <img class="lhst_war_country_img" src="../img/default-icon/rebel-coat.png" alt="" loading="lazy">
                             }
                             else
                             {
-                                <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="">
+                                <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="" loading="lazy">
                             }
                         </div>
                         <div class="col-2 p-0">
@@ -52,10 +52,10 @@
                                     <p class="text-right lhst_country_info_region_value mb-0" data-title="Attackers Soldiers">@allWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="" loading="lazy">
                                 </div>
                                 <div class="col-4 p-0">
                                     <p class="lhst_country_info_region_value" data-title="Defenders Soldiers">@allWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
@@ -66,10 +66,10 @@
                                     <p class="text-right lhst_country_info_region_value mb-0" data-title="Attackers Lords">@allWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0 ">
                                     <p class="lhst_country_info_region_value" data-title="Defenders Lords">@allWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
@@ -106,7 +106,7 @@
                             <p class="lhst_wars_lands_text ">@allWars[i].LandTo.LandId</p>
                         </div>
                         <div class="col-2 p-0">
-                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="">
+                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="" loading="lazy">
                         </div>
                     </div>
                 }
@@ -118,11 +118,11 @@
                         <div class="col-2 p-0">
                             @if (countryWars[i].War.IsRevolt)
                             {
-                                <img class="lhst_war_country_img" src="../img/default-icon/rebel-coat.png" alt="">
+                                <img class="lhst_war_country_img" src="../img/default-icon/rebel-coat.png" alt="" loading="lazy">
                             }
                             else
                             {
-                                <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandFrom.LandId).png" alt="">
+                                <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandFrom.LandId).png" alt="" loading="lazy">
                             }
                         </div>
                         <div class="col-2 p-0">
@@ -135,10 +135,10 @@
                                     <p class="text-right lhst_country_info_region_value mb-0" data-title="Attackers Soldiers">@countryWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="" loading="lazy">
                                 </div>
                                 <div class="col-4 p-0">
                                     <p class="text-right lhst_country_info_region_value mb-0" data-title="Defenders Soldiers">@countryWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
@@ -149,10 +149,10 @@
                                     <p class="text-right lhst_country_info_region_value mb-0" data-title="Attackers Lords">@countryWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="" loading="lazy">
                                 </div>
                                 <div class="col-4 p-0">
                                     <p class="text-right lhst_country_info_region_value mb-0" data-title="Defenders Lords">@countryWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
@@ -189,7 +189,7 @@
                             <p class="lhst_wars_lands_text ">@countryWars[i].LandTo.LandId</p>
                         </div>
                         <div class="col-2 p-0">
-                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandTo.LandId).png" alt="">
+                            <img class="lhst_war_country_img" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandTo.LandId).png" alt="" loading="lazy">
                         </div>
                     </div>
                 }
