@@ -91,8 +91,8 @@
 
 .lhst_avatar_image_div {
     text-align: center;
-    height: 400px;
-    width: 280px;
+/*    height: 400px;
+    width: 280px;*/
     margin-left: 10px;
     padding: 10px;
     background-image: url(../img/menu-icons/black-scratch-lines.png);
@@ -221,7 +221,6 @@
 }
 
 .lhst_avatar_info_div {
-    width: 817px;
     margin-left: 10px;
     padding: 15px;
     background-image: url(../img/menu-icons/black-scratch-lines.png);
@@ -269,8 +268,9 @@
 .lhst_settings_button {
     background: radial-gradient(var(--add-color),black);
     transition: .3s;
-    color: #f4ebdb;
-    border-radius: 5px;
+    color: var(--wheat-color);
+    border-radius: 8px;
+    border-width: 0px;
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
     line-height: 1.2
 }
@@ -299,7 +299,7 @@
 }
 
 .lhst_labelFile_size {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: 600;
     align-self: end
 }
@@ -326,13 +326,28 @@
 
 .custom-file-upload {
     display: inline-block;
-    padding: 3px 0 0 0;
+    padding: 5px 0 0 0;
     width: 120px;
     height: 28px;
     cursor: pointer;
     background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
-    border-width: 1px;
+    border-width: 0px;
+    border-radius: 8px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    text-align: center;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+}
+
+#uploadCustomAvatarBtn {
+    display: inline-block;
+    padding: 5px 0 0 0;
+    width: 150px;
+    height: 28px;
+    cursor: pointer;
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
+    border-width: 0px;
     border-radius: 8px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     text-align: center;
@@ -340,7 +355,6 @@
 }
 
 .file-info {
-    margin-top: 10px;
     font-size: 14px;
     color: var(--wheat-color);
 }
