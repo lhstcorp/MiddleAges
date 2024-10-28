@@ -107,7 +107,7 @@ function populateArmySideDiv(divName, armyList, currentPlayer) {
         const armyNode = document.createElement("div");
 
         const playerImg = document.createElement("img");
-        playerImg.src = playerAvatarsUrl + armyList[i].Player.ImageURL + '.webp';
+        playerImg.src = playerAvatarsUrl + armyList[i].Player.ImageURL;
         playerImg.height = 32;
         playerImg.loading = "lazy";
         playerImg.classList.add("lhst_country_history_img", "lhst_cursor_pointer", "m_playerBtn");
