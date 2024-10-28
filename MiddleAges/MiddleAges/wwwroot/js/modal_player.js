@@ -55,7 +55,7 @@ function populateModalPlayerDialog(obj) {
 
     $('#m_player_playerName').text(obj.Player.UserName);
     $('#m_player_playerDescription').text(obj.PlayerDescription);
-    $('#m_player_avatar').attr('src', playerAvatarsUrl + obj.Player.ImageURL + '.webp');
+    $('#m_player_avatar').attr('src', playerAvatarsUrl + obj.Player.ImageURL);
     $('#m_player_lvl').text("- - - - -[Lvl: " + obj.Player.Lvl + "] - - - - -");
     $('#m_player_lvl_progress_bar').val(parseInt(obj.LvlProgressBarValue));
     $('#m_player_lvl_progress_bar').attr('max', parseInt(obj.LvlProgressBarMaxValue));

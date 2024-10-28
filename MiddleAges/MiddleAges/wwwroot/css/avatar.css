@@ -265,28 +265,6 @@
     font-size: 12px
 }
 
-.lhst_settings_button {
-    background: radial-gradient(var(--add-color),black);
-    transition: .3s;
-    color: var(--wheat-color);
-    border-radius: 8px;
-    border-width: 0px;
-    font-family: 'Sitka Display','Arial',Arial,sans-serif;
-    line-height: 1.2
-}
-
-    .lhst_settings_button:hover {
-        background: radial-gradient(var(--green-color),black);
-        color: var(--yellow-color);
-        border-style: outset
-    }
-
-    .lhst_settings_button:active {
-        border-style: inset;
-        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
-    }
-
 ::placeholder {
     color: lightgray;
     opacity: 90%;
@@ -301,7 +279,8 @@
 .lhst_labelFile_size {
     font-size: 14px;
     font-weight: 600;
-    align-self: end
+    align-self: end;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
 }
 
 .lhst_form-control {
@@ -324,49 +303,33 @@
     display: none;
 }
 
-.custom-file-upload {
+.lhst_settings_button {
     display: inline-block;
-    padding: 5px 0 0 0;
-    width: 120px;
+    padding: 5px 7px 0 7px;
     height: 28px;
-    cursor: pointer;
     background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
-    border-width: 0px;
-    border-radius: 8px;
+    border-radius: 3px;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     text-align: center;
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
 }
 
-#uploadCustomAvatarBtn {
-    display: inline-block;
-    padding: 5px 0 0 0;
-    width: 150px;
-    height: 28px;
-    cursor: pointer;
-    background: radial-gradient(var(--add-color),black);
-    color: var(--wheat-color);
-    border-width: 0px;
-    border-radius: 8px;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    text-align: center;
-    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+.lhst_settings_button:hover {
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style: outset
+}
+
+.lhst_settings_button:active {
+    border-style: inset;
+    transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
 }
 
 .file-info {
     font-size: 14px;
     color: var(--wheat-color);
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
 }
 
-    .custom-file-upload:hover {
-        background: radial-gradient(var(--green-color),black);
-        color: var(--yellow-color);
-        border-style: outset
-    }
-
-    .custom-file-upload:active {
-        border-style: inset;
-        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
-    }
