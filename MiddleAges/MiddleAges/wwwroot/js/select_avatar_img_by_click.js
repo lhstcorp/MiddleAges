@@ -4,5 +4,6 @@ for (var i = 0; i < selectedImgs.length; i++) {
     selectedImgs[i].onclick = function () {
         let url = '../img/avatars/';
         $('#avatar_selected_img').attr('src', url + this.id + '.webp');
+        $('#update_avatar_btn').addClass('blinking');
     }
 }

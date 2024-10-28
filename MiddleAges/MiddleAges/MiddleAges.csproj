@@ -10,7 +10,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\settings_upload_custom_avatar.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\modal-land.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\settings_upload_custom_avatar.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\js\settings_upload_custom_avatar.js" />
   </ItemGroup>
 
   <ItemGroup>
