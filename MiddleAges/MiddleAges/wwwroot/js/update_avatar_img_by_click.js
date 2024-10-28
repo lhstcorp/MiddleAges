@@ -25,6 +25,7 @@ function updateAvatar(url) {
     .done(function (data) {
         if (data == 'OK') {
             $('#player_avatar').attr('src', url);
+            $('#update_avatar_btn').removeClass('blinking');
         }
     })
     .fail(function (data) {

@@ -68,24 +68,22 @@ namespace MiddleAges.Controllers
             return Json("OK");
         }
 
-        // Метод для обновления аватара
         [HttpPost]
         public async Task<IActionResult> UploadAvatar(IFormFile avatarFile)
         {
-
-            // Установите лимит в байтах. Например, 2 МБ = 2 * 1024 * 1024 байт.
-            long maxFileSize = 512 * 512;
+            bool ret = false;
+            long maxFileSize = 512 * 1024;
 
             var permittedExtensions = new[] { ".png", ".jpg", ".jpeg", ".webp" };
 
             if (avatarFile == null || avatarFile.Length == 0)
             {
-                return BadRequest("Файл не выбран.");
+                ret = true; // Файл не выбран
             }
 
             if (avatarFile.Length > maxFileSize)
             {
-                ModelState.AddModelError("avatarFile", "Размер файла не должен превышать 512 KB.");
+                ret = true; //"Размер файла не должен превышать 512 KB.";
             }
 
             var extension = Path.GetExtension(avatarFile.FileName).ToLowerInvariant();
@@ -93,10 +91,15 @@ namespace MiddleAges.Controllers
             // Проверяем расширение файла
             if (!permittedExtensions.Contains(extension))
             {
-                ModelState.AddModelError("avatarFile", "Допустимые форматы: png, jpg, jpeg, webp.");
+                ret = true; // "Допустимые форматы: png, jpg, jpeg, webp.";
             }
 
             Player player = await _userManager.GetUserAsync(HttpContext.User);
+
+            if (player.Money < 300)
+            {
+                ret = true; // Not enough money
+            }
 
             // Путь для сохранения загруженного изображения
             var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/avatars");
@@ -107,20 +110,24 @@ namespace MiddleAges.Controllers
                 Directory.CreateDirectory(uploadPath);
             }
 
-            // Создаем уникальное имя файла, можно использовать идентификатор пользователя, чтобы избежать коллизий
-            var fileName = $"{player.Id}_{Path.GetFileName(avatarFile.FileName)}";
-            var filePath = Path.Combine(uploadPath, fileName);
+            if (!ret)
+            { 
+                // Создаем уникальное имя файла, можно использовать идентификатор пользователя, чтобы избежать коллизий
+                var fileName = $"{player.Id}_{Path.GetFileName(avatarFile.FileName)}";
+                var filePath = Path.Combine(uploadPath, fileName);
 
-            // Сохраняем файл на диск
-            using (var stream = new FileStream(filePath, FileMode.Create))
-            {
-                await avatarFile.CopyToAsync(stream);
+                // Сохраняем файл на диск
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await avatarFile.CopyToAsync(stream);
+                }
+
+                // Обновляем поле ImageURL для пользователя, сохраняя путь к новому аватару
+                player.ImageURL = $"{fileName}";
+                player.Money -= 300;
+                _context.Update(player);
+                await _context.SaveChangesAsync();
             }
-
-            // Обновляем поле ImageURL для пользователя, сохраняя путь к новому аватару
-            player.ImageURL = $"{fileName}";
-            _context.Update(player);
-            await _context.SaveChangesAsync();
 
             return RedirectToAction("Index"); // Возвращаем пользователя обратно к настройкам
         }
