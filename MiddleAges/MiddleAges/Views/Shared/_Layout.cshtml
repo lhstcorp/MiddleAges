@@ -263,19 +263,8 @@
     </div>
     <div class="row p-0 overflow-auto">
         <div id="attackersDiv" class="col-6 p0 pt-3 lhst_slider">
-            @for (int i = 0; i < 50; i++)
-            {
-                <img class="lhst_country_history_img" height="32" src="~/img/avatars/1.webp" alt="" loading="lazy">
-                <p class="lhst_country_info_region_value">96537</p>
-
-            }
         </div>
         <div id="defendersDiv" class="col-6 p0 pt-3 lhst_slider">
-            @for (int i = 0; i < 50; i++)
-            {
-                <img class="lhst_country_history_img" height="32" src="~/img/avatars/1.webp" alt="" loading="lazy">
-                <p class="lhst_country_info_region_value">54937</p>
-            }
         </div>
     </div>
 </div>
@@ -284,62 +273,148 @@
 <div class="lhst_dialog_land modal" id="m_land_dialog">
     <section>
         <div class="tab">
-            <button id="m_landOverviewBtn" class="active" onclick="openLandOverviewTab()">Overview</button>
-            <button id="m_landDevelopmentBtn" onclick="openLandDevelopmentTab()">Development</button>
-            <div id="m_land_overviewTab" class="d-block lhst_modal_land">
-                <div>
-                    <img id="m_landCoatOfArms" class="lhst_land_coat_of_arms_image" alt="" loading="lazy" src="~/img/map-regions-icons-middle-ages/Hrodna.png"/>                    
-                </div>
-                <div class="lhst_main_info_profile">
-                    <div class="ml-3">                        
-                        <p id="m_land_name" class="mb-0 mt-2" style="line-height: 0.5; font-size: 20px">Hrodna</p>
+            <button id="m_landOverviewBtn" class="active" onclick="m_land_tab_changed(this, 'm_land_overviewTab')">Overview</button>
+            <button id="m_landDevelopmentBtn" onclick="m_land_tab_changed(this, 'm_land_developmentTab')">Development</button>
+            <div class="float-right">
+                <button class="lhst_btn_dialog_cancel" onclick="hideModalLandDialog()">x</button>
+            </div>
+            <div id="m_land_overviewTab" class="d-flex lhst_modal_land m_land_tab">
+                <div class="m-2 d-flex">
+                    <div>
+                        <img id="m_landCoatOfArms" class="lhst_land_coat_of_arms_image" alt="" loading="lazy" src="~/img/map-regions-icons-middle-ages/Hrodna.png"/>                    
+                    </div>
+                    <div class="lhst_main_info_profile">
+                        <div class="ml-3">                        
+                            <p id="m_land_name" class="mb-0 mt-2" style="line-height: 0.5; font-size: 20px">Hrodna</p>
                         
-                        <div class="row float-left">
-                            <img class="lhst_profile_rating_img " src="~/img/default-icon/state-crown.png" alt="" data-title="State" loading="lazy" />
-                            <p id="m_land_country" class="mb-0" style="margin-top: 0.30rem">Avalonium</p>
-                        </div>
+                            <div class="row float-left">
+                                <img class="lhst_profile_rating_img " src="~/img/default-icon/state-crown.png" alt="" data-title="State" loading="lazy" />
+                                <p id="m_land_country" class="mb-0" style="margin-top: 0.30rem">Avalonium</p>
+                            </div>
 
-                        <br />
+                            <br />
 
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Ranking place: </p>
-                            <p id="m_land_rankingPlace" class="mb-0">112</p>
-                            <p class="lhst_land_attribute_value">/207</p>
-                        </div>
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Ranking place: </p>
+                                <p id="m_land_rankingPlace" class="mb-0">112</p>
+                                <p class="lhst_land_attribute_value">/207</p>
+                            </div>
 
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Governor: </p>
-                            <p id="m_land_governor" class="lhst_land_attribute_value">Hedwig</p>
-                        </div>
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Governor: </p>
+                                <p id="m_land_governor" class="lhst_land_attribute_value">Hedwig</p>
+                            </div>
 
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Lords: </p>
-                            <p id="m_land_lordsCount" class="lhst_land_attribute_value">3</p>
-                        </div>
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Lords: </p>
+                                <p id="m_land_lordsCount" class="lhst_land_attribute_value">3</p>
+                            </div>
 
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Residents: </p>
-                            <p id="m_land_residentsCount" class="lhst_land_attribute_value">2</p>
-                        </div>
-
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Land taxes: </p>
-                            <p id="m_land_taxes" class="lhst_land_attribute_value">20%</p>
-                        </div>
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Residents: </p>
+                                <p id="m_land_residentsCount" class="lhst_land_attribute_value">2</p>
+                            </div>
                         
-                        @* <div class="row float-left">
-                            <p id="m_player_totalPlace" class="mb-0 mt-1">#3 (</p>
-                            <img class="lhst_profile_rating_img " src="~/img/rating-icons/exp.png" alt="" data-title="Experience" loading="lazy" />
-                            <p id="m_player_expPlace" data-title="Experience" class="mb-0 mt-1">1 /</p>
-                            <img class="lhst_profile_rating_img " src="~/img/rating-icons/money.png" alt="" data-title="Money" loading="lazy" />
-                            <p id="m_player_moneyPlace" data-title="Money" class="mb-0 mt-1">1 /</p>
-                            <img class="lhst_profile_rating_img " src="~/img/rating-icons/power.png" alt="" data-title="War Power" loading="lazy" />
-                            <p id="m_player_powerPlace" data-title="War Power" class="mb-0 mt-1">1)</p>
-                        </div> *@
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Balance: </p>
+                                <img class="mr-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><p id="m_land_overview_money" class="lhst_land_attribute_value lhst_clr-money">540</p>
+                            </div>
+
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Land taxes: </p>
+                                <p id="m_land_taxes" class="lhst_land_attribute_value">20%</p>
+                            </div>                        
+                        </div>
                     </div>
                 </div>
-                <div class="float-right">
-                    <button class="lhst_btn_dialog_cancel" onclick="hideModalLandDialog()">x</button>
+            </div>
+            <div id="m_land_developmentTab" class="d-none lhst_modal_land m_land_tab">
+                <div class="m-2">
+                    <div class="lhst_building_ext_card lhst_inline image-parlax">
+                        <div class="image-container">
+                            <div class="lhst_main_data_image myImg front-side" width="117" height="117" style="background-image: url(../img/buildings/land-buildings/infrastructure.jpg)"></div>
+                            <div class="back-side">
+                                <div class="lhst_inline inner">
+                                    <img class="lhst_coins-img lhst_brightness" src="~/img/interface-icons/coins.png" alt="" />
+                                    <p class="lhst_brightness">Price: 10</p>
+                                    <p id="infrastructurePrice" class="lhst_brightness">10</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="lhst_inline lhst_building_card_left_part">
+                                <div class="d-flex">
+                                    <p class="lhst_card_properties">Infrastructure</p>
+                                    <div class="lhst_tooltip lhst_cursor_help">
+                                        🛈
+                                        <span class="lhst_tooltiptext">
+                                            Infrastructure sucks a lot.
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="lhst_card_properties">Level: 1</p>
+                            </div>
+                            <div class="lhst_inline">
+                                <button class="lhst_btn_building_lvlup">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lhst_building_ext_card lhst_inline image-parlax">
+                        <div class="image-container">
+                            <div class="lhst_main_data_image myImg front-side" width="117" height="117" style="background-image: url(../img/buildings/land-buildings/market.jpg)"></div>
+                            <div class="back-side">
+                                <div class="lhst_inline inner">
+                                    <img class="lhst_coins-img lhst_brightness" src="~/img/interface-icons/coins.png" alt="" />
+                                    <p class="lhst_brightness">Price: 10</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="lhst_inline lhst_building_card_left_part">
+                                <div class="d-flex">
+                                    <p class="lhst_card_properties">Market</p>
+                                    <div class="lhst_tooltip lhst_cursor_help">
+                                        <span class="lhst_tooltiptext">
+                                            Market sucks a lot.
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="lhst_card_properties">Level: 1</p>
+                            </div>
+                            <div class="lhst_inline">
+                                <button class="lhst_btn_building_lvlup">+</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="lhst_building_ext_card lhst_inline image-parlax">
+                        <div class="image-container">
+                            <div class="lhst_main_data_image myImg front-side" width="117" height="117" style="background-image: url(../img/buildings/land-buildings/fortification.jpg)"></div>
+                            <div class="back-side">
+                                <div class="lhst_inline inner">
+                                    <img class="lhst_coins-img lhst_brightness" src="~/img/interface-icons/coins.png" alt="" />
+                                    <p class="lhst_brightness">Price: 10</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="lhst_inline lhst_building_card_left_part">
+                                <div class="d-flex">
+                                    <p class="lhst_card_properties">Fortification</p>
+                                    <div class="lhst_tooltip lhst_cursor_help">
+                                        <span class="lhst_tooltiptext">
+                                            Fortification sucks a lot.
+                                        </span>
+                                    </div>
+                                </div>
+                                <p class="lhst_card_properties">Level: 1</p>
+                            </div>
+                            <div class="lhst_inline">
+                                <button class="lhst_btn_building_lvlup">+</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
