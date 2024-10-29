@@ -200,5 +200,41 @@ namespace MiddleAges.Controllers
 
             return playerDescription;
         }
+
+        public JsonResult GetLandById(string id)
+        {
+            var landQuery = _context.Lands
+                                .Where(l => l.LandId == id)
+                                .Join(_context.Countries,
+                                    l => l.CountryId,
+                                    c => c.CountryId,
+                                    (l, c) => new { Land = l, Country = c })
+                                .Join(_context.LandBuildings,
+                                    combined => combined.Land.LandId,
+                                    lb => lb.LandId,
+                                    (combined, lb) => new { combined.Land, combined.Country, LandBuilding = lb })
+                                .Select(combined => new { Land = combined.Land, Country = combined.Country, LandBuilding = combined.LandBuilding }).ToList();
+            /*
+            Land land = landQuery.Land.Fi;
+
+            War war = warsQuery.War;
+            Land landFrom = warsQuery.LandFrom;
+            Land landTo = warsQuery.LandTo;
+            Country countryFrom = warsQuery.CountryFrom;
+            Country countryTo = warsQuery.CountryTo;
+
+            WarInfoViewModel warInfoViewModel = new WarInfoViewModel
+            {
+                War = war,
+                LandFrom = landFrom,
+                LandTo = landTo,
+                CountryFrom = countryFrom,
+                CountryTo = countryTo
+            };
+
+            return Json(JsonSerializer.Serialize(warInfoViewModel));
+            */
+            return null;
+        }
     }
 }

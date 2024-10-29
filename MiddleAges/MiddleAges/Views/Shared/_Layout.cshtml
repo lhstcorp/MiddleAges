@@ -279,52 +279,54 @@
                 <button class="lhst_btn_dialog_cancel" onclick="hideModalLandDialog()">x</button>
             </div>
             <div id="m_land_overviewTab" class="d-flex lhst_modal_land m_land_tab">
-                <div>
-                    <img id="m_landCoatOfArms" class="lhst_land_coat_of_arms_image" alt="" loading="lazy" src="~/img/map-regions-icons-middle-ages/Hrodna.png"/>                    
-                </div>
-                <div class="lhst_main_info_profile">
-                    <div class="ml-3">                        
-                        <p id="m_land_name" class="mb-0 mt-2" style="line-height: 0.5; font-size: 20px">Hrodna</p>
-                        
-                        <div class="row float-left">
-                            <img class="lhst_profile_rating_img " src="~/img/default-icon/state-crown.png" alt="" data-title="State" loading="lazy" />
-                            <p id="m_land_country" class="mb-0" style="margin-top: 0.30rem">Avalonium</p>
-                        </div>
-
-                        <br />
-
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Ranking place: </p>
-                            <p id="m_land_rankingPlace" class="mb-0">112</p>
-                            <p class="lhst_land_attribute_value">/207</p>
-                        </div>
-
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Governor: </p>
-                            <p id="m_land_governor" class="lhst_land_attribute_value">Hedwig</p>
-                        </div>
-
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Lords: </p>
-                            <p id="m_land_lordsCount" class="lhst_land_attribute_value">3</p>
-                        </div>
-
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Residents: </p>
-                            <p id="m_land_residentsCount" class="lhst_land_attribute_value">2</p>
-                        </div>
-                        
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Balance: </p>
-                            <img class="mr-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><p id="m_land_overview_money" class="lhst_land_attribute_value lhst_clr-money">540</p>
-                        </div>
-
-                        <div class="row float-left">
-                            <p class="lhst_land_attribute">Land taxes: </p>
-                            <p id="m_land_taxes" class="lhst_land_attribute_value">20%</p>
-                        </div>                        
+                <div class="m-2 d-flex">
+                    <div>
+                        <img id="m_landCoatOfArms" class="lhst_land_coat_of_arms_image" alt="" loading="lazy" src="~/img/map-regions-icons-middle-ages/Hrodna.png"/>                    
                     </div>
-                </div>                
+                    <div class="lhst_main_info_profile">
+                        <div class="ml-3">                        
+                            <p id="m_land_name" class="mb-0 mt-2" style="line-height: 0.5; font-size: 20px">Hrodna</p>
+                        
+                            <div class="row float-left">
+                                <img class="lhst_profile_rating_img " src="~/img/default-icon/state-crown.png" alt="" data-title="State" loading="lazy" />
+                                <p id="m_land_country" class="mb-0" style="margin-top: 0.30rem">Avalonium</p>
+                            </div>
+
+                            <br />
+
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Ranking place: </p>
+                                <p id="m_land_rankingPlace" class="mb-0">112</p>
+                                <p class="lhst_land_attribute_value">/207</p>
+                            </div>
+
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Governor: </p>
+                                <p id="m_land_governor" class="lhst_land_attribute_value">Hedwig</p>
+                            </div>
+
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Lords: </p>
+                                <p id="m_land_lordsCount" class="lhst_land_attribute_value">3</p>
+                            </div>
+
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Residents: </p>
+                                <p id="m_land_residentsCount" class="lhst_land_attribute_value">2</p>
+                            </div>
+                        
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Balance: </p>
+                                <img class="mr-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><p id="m_land_overview_money" class="lhst_land_attribute_value lhst_clr-money">540</p>
+                            </div>
+
+                            <div class="row float-left">
+                                <p class="lhst_land_attribute">Land taxes: </p>
+                                <p id="m_land_taxes" class="lhst_land_attribute_value">20%</p>
+                            </div>                        
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="m_land_developmentTab" class="d-none lhst_modal_land m_land_tab">
                 <div class="m-2">
@@ -335,6 +337,7 @@
                                 <div class="lhst_inline inner">
                                     <img class="lhst_coins-img lhst_brightness" src="~/img/interface-icons/coins.png" alt="" />
                                     <p class="lhst_brightness">Price: 10</p>
+                                    <p id="infrastructurePrice" class="lhst_brightness">10</p>
                                 </div>
                             </div>
                         </div>
@@ -343,6 +346,7 @@
                                 <div class="d-flex">
                                     <p class="lhst_card_properties">Infrastructure</p>
                                     <div class="lhst_tooltip lhst_cursor_help">
+                                        🛈
                                         <span class="lhst_tooltiptext">
                                             Infrastructure sucks a lot.
                                         </span>
