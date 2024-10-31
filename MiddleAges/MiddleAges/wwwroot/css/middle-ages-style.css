@@ -31,35 +31,35 @@ body {
     border-color: #000
 }
 
-    .header-menu.main-btn {
-        background-image: url(../img/menu-icons/main_img.png);
-        background-size: 100%
-    }
+.header-menu.main-btn {
+    background-image: url(../img/menu-icons/main_img.png);
+    background-size: 100%
+}
 
-    .header-menu.map-btn {
-        background-image: url(../img/menu-icons/map-icon.png);
-        background-size: 100%
-    }
+.header-menu.map-btn {
+    background-image: url(../img/menu-icons/map-icon.png);
+    background-size: 100%
+}
 
-    .header-menu.state-btn {
-        background-image: url(../img/menu-icons/country-icon.png);
-        background-size: 100%
-    }
+.header-menu.state-btn {
+    background-image: url(../img/menu-icons/country-icon.png);
+    background-size: 100%
+}
 
-    .header-menu.settings-btn {
-        background-image: url(../img/menu-icons/settings.jpg);
-        background-size: 100%
-    }
+.header-menu.settings-btn {
+    background-image: url(../img/menu-icons/settings.jpg);
+    background-size: 100%
+}
 
-    .header-menu.rating-btn {
-        background-image: url(../img/menu-icons/rating.png);
-        background-size: 100%
-    }
+.header-menu.rating-btn {
+    background-image: url(../img/menu-icons/rating.png);
+    background-size: 100%
+}
 
-    .header-menu.wars-btn {
-        background-image: url(../img/menu-icons/war.png);
-        background-size: 100%
-    }
+.header-menu.wars-btn {
+    background-image: url(../img/menu-icons/war.png);
+    background-size: 100%
+}
 
 .coins-btn {
     background-image: url(../img/interface-icons/coins.png);
@@ -1046,10 +1046,6 @@ lhst_marquee {
     border-style: solid;
     border-width: 2px;
     border-color: var(--main-color);
-    border-radius: 10px;
-    padding: 10px 20px;
-    font-weight: bold;
-    font-family: 'MedievalSharp', cursive;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 3px rgba(255, 223, 150, 0.4), 0 0 6px rgba(255, 200, 100, 0.3); /* Начальная тень */
 }
