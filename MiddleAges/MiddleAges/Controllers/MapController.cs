@@ -61,7 +61,8 @@ namespace MiddleAges.Controllers
 
         public JsonResult GetLandDataById(string id)
         {
-            Land land = _context.Lands.Include(c => c.Country).FirstOrDefault(l => l.LandId == id);            
+            Land land = _context.Lands.Include(l => l.Country)
+                                      .Include(l => l.Governor).FirstOrDefault(l => l.LandId == id);            
 
             if (land == null)
             {
@@ -74,8 +75,8 @@ namespace MiddleAges.Controllers
             mapSelectedLandViewModel.Country = land.Country;
             mapSelectedLandViewModel.Population = GetLandPopulation(land.LandId).Result;
             mapSelectedLandViewModel.LordsCount = GetLandLordsCount(land.LandId).Result;
-
-            
+            mapSelectedLandViewModel.ResidentsCount = GetLandResidentsCount(land.LandId).Result;
+            mapSelectedLandViewModel.LandBuildings = GetLandBuildings(land.LandId).Result;
 
             mapSelectedLandViewModel.BorderWith = GetLandBorderWith(land.LandId);
 
@@ -104,6 +105,7 @@ namespace MiddleAges.Controllers
 
             return Json(warList);
         }
+
         public JsonResult FetchPlayer()
         {
             Player player = _userManager.GetUserAsync(HttpContext.User).Result;
@@ -145,6 +147,13 @@ namespace MiddleAges.Controllers
         private async Task<int> GetLandLordsCount(string landId)
         {
             int lordsCount = await _context.Players.Where(p => p.CurrentLand == landId).CountAsync();
+
+            return lordsCount;
+        }
+
+        private async Task<int> GetLandResidentsCount(string landId)
+        {
+            int lordsCount = await _context.Players.Where(p => p.ResidenceLand == landId).CountAsync();
 
             return lordsCount;
         }
@@ -241,6 +250,13 @@ namespace MiddleAges.Controllers
             }
 
             return borderLandsStr;
+        }
+
+        private async Task<List<LandBuilding>> GetLandBuildings(string landId)
+        {
+            List<LandBuilding> landBuildings = await _context.LandBuildings.Where(lb => lb.LandId == landId).ToListAsync();
+            
+            return landBuildings;
         }
     }
 }
