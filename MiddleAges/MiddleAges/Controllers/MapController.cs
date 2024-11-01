@@ -34,16 +34,8 @@ namespace MiddleAges.Controllers
         public async Task<IActionResult> Index()
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
-            player = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(p => p.Id == player.Id);
 
-            MapSelectedLandViewModel mapSelectedLandViewModel = new MapSelectedLandViewModel();
-
-            mapSelectedLandViewModel.Player = player;
-            mapSelectedLandViewModel.Land = player.Land;
-            mapSelectedLandViewModel.Country = player.Land.Country;
-            mapSelectedLandViewModel.Population = await GetLandPopulation(player.CurrentLand);
-            mapSelectedLandViewModel.LordsCount = await GetLandLordsCount(player.CurrentLand);
-            mapSelectedLandViewModel.BorderWith = GetLandBorderWith(player.CurrentLand);
+            MapSelectedLandViewModel mapSelectedLandViewModel = GetMapSelectedLandViewModel(player.CurrentLand).Result;
 
             return View("Map", mapSelectedLandViewModel);
         }
@@ -57,20 +49,30 @@ namespace MiddleAges.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }     
+        }
 
         public JsonResult GetLandDataById(string id)
-        {
-            Land land = _context.Lands.Include(l => l.Country)
-                                      .Include(l => l.Governor).FirstOrDefault(l => l.LandId == id);            
-
-            if (land == null)
+        {            
+            if (id == null)
             {
                 return Json("NotFound");
             }
 
+            MapSelectedLandViewModel mapSelectedLandViewModel = GetMapSelectedLandViewModel(id).Result;
+
+            return Json(JsonSerializer.Serialize(mapSelectedLandViewModel));
+        }
+
+        public async Task<MapSelectedLandViewModel> GetMapSelectedLandViewModel(string id)
+        {
+            Land land = await _context.Lands.Include(l => l.Country).ThenInclude(l => l.Ruler)
+                                      .Include(l => l.Governor).FirstOrDefaultAsync(l => l.LandId == id);
+
+            var player = await _userManager.GetUserAsync(HttpContext.User);
+
             MapSelectedLandViewModel mapSelectedLandViewModel = new MapSelectedLandViewModel();
 
+            mapSelectedLandViewModel.Player = player;
             mapSelectedLandViewModel.Land = land;
             mapSelectedLandViewModel.Country = land.Country;
             mapSelectedLandViewModel.Population = GetLandPopulation(land.LandId).Result;
@@ -80,7 +82,7 @@ namespace MiddleAges.Controllers
 
             mapSelectedLandViewModel.BorderWith = GetLandBorderWith(land.LandId);
 
-            return Json(JsonSerializer.Serialize(mapSelectedLandViewModel));
+            return mapSelectedLandViewModel;
         }
 
         public JsonResult FetchLandColors()
