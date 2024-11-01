@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 function showModalLandDialog() {
-    landId = $(this).data("landId");
+    landId = $(this).data("land");
 
     if (landId) {
         getLandById(landId);
@@ -41,7 +41,7 @@ function m_land_tab_changed(evt, tabName) {
 
 function getLandById(id) {
     $.ajax({
-        url: 'Main/GetLandById/' + id,
+        url: 'Map/GetLandDataById/' + id,
         type: 'get',
         datatype: 'json',
         contentType: 'application/json;charset=utf-8',
@@ -71,6 +71,21 @@ function getLandById(id) {
         });
 }
 
-m_land_populateOverviewData() {
+function m_land_populateOverviewData(landData) {
+    $('#m_land_name').text(landData.Land.LandId);
+    $('#m_landCoatOfArms').attr('src', coatOfArmsUrl + landData.Land.LandId + '.png');
+    $('#m_land_country').text(landData.Country.Name);
+    $('#m_land_rankingPlace').text("-1");
 
+    if (landData.Land.Governor !== undefined) {
+        $('#m_land_governor').text(landData.Land.Governor.UserName);
+    }
+    else {
+        $('#m_land_governor').text("...");
+    }
+
+    $('#m_land_lordsCount').text(landData.LordsCount);
+    $('#m_land_residentsCount').text(landData.ResidentsCount);
+    $('#m_land_overview_money').text(landData.Land.Money.toFixed(2));
+    $('#m_land_taxes').text(landData.Land.LandTax);
 }

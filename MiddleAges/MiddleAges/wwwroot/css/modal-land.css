@@ -9,9 +9,6 @@
 .lhst_modal_land {
     background-image: url(../img/menu-icons/black-scratch-lines.png);
     background-size: 100%;
-    border-radius: 20px;
-    border-width: 2px;
-    border-color: var(--wheat-color);
     color: var(--wheat-color)
 }
 
