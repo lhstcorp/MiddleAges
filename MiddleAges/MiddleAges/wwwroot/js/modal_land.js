@@ -89,3 +89,7 @@ function m_land_populateOverviewData(landData) {
     $('#m_land_overview_money').text(landData.Land.Money.toFixed(2));
     $('#m_land_taxes').text(landData.Land.LandTax);
 }
+
+function m_land_updateBuildingClicked(landBuildingType) {
+
+}
