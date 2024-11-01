@@ -130,6 +130,7 @@ namespace MiddleAges.Data
                 .HasOne(q => q.Land)
                 .WithMany()
                 .HasForeignKey(q => q.LandId);
+
         }
 
         public DbSet<Player> Players { get; set; }

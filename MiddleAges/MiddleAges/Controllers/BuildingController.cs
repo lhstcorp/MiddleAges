@@ -21,10 +21,12 @@ namespace MiddleAges.Controllers
             _context = context;
             _userManager = userManager;
         }
+
         public IActionResult Index()
         {
             return View();
         }
+
         [HttpPost]
         public async Task<IActionResult> LvlUp(string buildingId)
         {

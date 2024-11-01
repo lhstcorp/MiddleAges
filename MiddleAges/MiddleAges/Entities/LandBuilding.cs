@@ -1,4 +1,5 @@
 ﻿using MiddleAges.Enums;
+using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace MiddleAges.Entities
@@ -6,7 +7,7 @@ namespace MiddleAges.Entities
     public class LandBuilding
     {
         [Key]
-        public string BuildingId { get; set; }
+        public Guid BuildingId { get; set; }
         public string LandId { get; set; }
         public LandBuildingType BuildingType { get; set; }
         public int Lvl { get; set; }

@@ -73,6 +73,14 @@
                                 <li class="lhst_nav ">
                                     <partial name="_LoginPartial" />
                                 </li>
+                                @{
+                                    if (User.IsInRole("Admin"))
+                                    {
+                                        <li class="lhst_nav ">
+                                            <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Admin" asp-action="Index">Administrator Panel</a>
+                                        </li>
+                                    }
+                                }
                             </ul>
 
 
@@ -356,7 +364,7 @@
                                 <p class="lhst_card_properties">Level: 1</p>
                             </div>
                             <div class="lhst_inline">
-                                <button class="lhst_btn_building_lvlup">+</button>
+                                <button onclick="m_land_updateBuildingClicked(1)" class="lhst_btn_building_lvlup">+</button>
                             </div>
                         </div>
                     </div>
@@ -384,7 +392,7 @@
                                 <p class="lhst_card_properties">Level: 1</p>
                             </div>
                             <div class="lhst_inline">
-                                <button class="lhst_btn_building_lvlup">+</button>
+                                <button onclick="m_land_updateBuildingClicked(2)" class="lhst_btn_building_lvlup">+</button>
                             </div>
                         </div>
                     </div>
@@ -412,7 +420,7 @@
                                 <p class="lhst_card_properties">Level: 1</p>
                             </div>
                             <div class="lhst_inline">
-                                <button class="lhst_btn_building_lvlup">+</button>
+                                <button onclick="m_land_updateBuildingClicked(3)" class="lhst_btn_building_lvlup">+</button>
                             </div>
                         </div>
                     </div>

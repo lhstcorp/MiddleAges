@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiddleAges.Data;
 
 namespace MiddleAges.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241101135143_LandBuildingKeyChangesV2")]
+    partial class LandBuildingKeyChangesV2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -330,14 +332,12 @@ namespace MiddleAges.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("LandId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Lvl")
                         .HasColumnType("int");
 
                     b.HasKey("BuildingId");
-
-                    b.HasIndex("LandId");
 
                     b.ToTable("LandBuildings");
                 });
@@ -795,15 +795,6 @@ namespace MiddleAges.Migrations
                     b.Navigation("Country");
 
                     b.Navigation("Governor");
-                });
-
-            modelBuilder.Entity("MiddleAges.Entities.LandBuilding", b =>
-                {
-                    b.HasOne("MiddleAges.Entities.Land", "Land")
-                        .WithMany()
-                        .HasForeignKey("LandId");
-
-                    b.Navigation("Land");
                 });
 
             modelBuilder.Entity("MiddleAges.Entities.Law", b =>
