@@ -61,6 +61,7 @@ function getLandById(id) {
             if (data != 'NotFound') {
                 let obj = JSON.parse(data);
                 m_land_populateOverviewData(obj);
+                m_land_populateDevelopmentData(obj);
             }
             else {
                 alert(unexpectedErrorMessage);
@@ -77,8 +78,9 @@ function m_land_populateOverviewData(landData) {
     $('#m_land_country').text(landData.Country.Name);
     $('#m_land_rankingPlace').text("-1");
 
-    if (landData.Land.Governor !== undefined) {
-        $('#m_land_governor').text(landData.Land.Governor.UserName);
+    if (landData.Governor !== undefined
+     && landData.Governor !== null) {
+        $('#m_land_governor').text(landData.Governor.UserName);
     }
     else {
         $('#m_land_governor').text("...");
@@ -90,6 +92,54 @@ function m_land_populateOverviewData(landData) {
     $('#m_land_taxes').text(landData.Land.LandTax);
 }
 
-function m_land_updateBuildingClicked(landBuildingType) {
+function m_land_populateDevelopmentData(landData) {
+    const basePrice = 10;
 
+    $('#infrastructureLvl').text(landData.LandBuildings[0].Lvl);
+    $('#infrastructurePrice').text(basePrice + 2 * (landData.LandBuildings[0].Lvl - 1));
+
+    $('#marketLvl').text(landData.LandBuildings[1].Lvl);
+    $('#marketPrice').text(basePrice + 2 * (landData.LandBuildings[1].Lvl - 1));
+
+    $('#fortificationLvl').text(landData.LandBuildings[2].Lvl);
+    $('#fortificationPrice').text(basePrice + 2 * (landData.LandBuildings[2].Lvl - 1));
+}
+
+function m_land_updateBuildingClicked(landBuildingType) {
+    $.ajax({
+        url: 'Map/UpdateLandBuilding',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            landId: landId,
+            landBuildingType: landBuildingType
+        },
+        success: function (response) {
+            if (response == null || response == undefined || response.length == 0) {
+                return 'Error';
+            }
+            else {
+                return response;
+            }
+        },
+        error: function (response) {
+            return 'Error';
+        }
+    })
+        .done(function (data) {
+            let obj = JSON.parse(data);
+            if (obj != 'Error') {
+                m_land_refreshLandData();
+            }
+            else {
+                alert("The building has not been improved.");
+            }
+        })
+        .fail(function (data) {
+
+        });
+}
+
+function m_land_refreshLandData() {
+    getLandById(landId);
 }

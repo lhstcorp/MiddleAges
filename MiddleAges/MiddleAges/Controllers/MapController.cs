@@ -75,6 +75,8 @@ namespace MiddleAges.Controllers
             mapSelectedLandViewModel.Player = player;
             mapSelectedLandViewModel.Land = land;
             mapSelectedLandViewModel.Country = land.Country;
+            mapSelectedLandViewModel.Governor = land.Governor;
+            mapSelectedLandViewModel.Ruler = land.Country.Ruler;
             mapSelectedLandViewModel.Population = GetLandPopulation(land.LandId).Result;
             mapSelectedLandViewModel.LordsCount = GetLandLordsCount(land.LandId).Result;
             mapSelectedLandViewModel.ResidentsCount = GetLandResidentsCount(land.LandId).Result;
@@ -259,6 +261,39 @@ namespace MiddleAges.Controllers
             List<LandBuilding> landBuildings = await _context.LandBuildings.Where(lb => lb.LandId == landId).ToListAsync();
             
             return landBuildings;
+        }
+
+        public async Task<IActionResult> UpdateLandBuilding(string landId, string landBuildingType)
+        {
+            string result = "Error";
+
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            LandBuilding landBuilding = await _context.LandBuildings.Include(lb => lb.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(lb => lb.LandId == landId && (int)lb.BuildingType == Convert.ToInt32(landBuildingType));
+            
+            double landBuildingPrice = GetLandBuildingPrice(landBuilding);
+
+            if (landBuilding != null
+             && landBuilding.Land.Money > landBuildingPrice
+             && (landBuilding.Land.GovernorId == player.Id
+              || landBuilding.Land.Country.RulerId == player.Id)) 
+            {
+                landBuilding.Lvl += 1;
+                _context.Update(landBuilding);
+
+                landBuilding.Land.Money -= landBuildingPrice;
+                _context.Update(landBuilding.Land);
+
+                result = "OK";
+
+                await _context.SaveChangesAsync();
+            }
+
+            return Json(JsonSerializer.Serialize(result));
+        }
+
+        private double GetLandBuildingPrice(LandBuilding landBuilding) 
+        {
+            return CommonLogic.BaseLandBuildingPrice + 2 * (landBuilding.Lvl - 1);
         }
     }
 }

@@ -289,48 +289,48 @@
             <div id="m_land_overviewTab" class="d-flex lhst_modal_land m_land_tab">
                 <div class="m-2 d-flex">
                     <div>
-                        <img id="m_landCoatOfArms" class="lhst_land_coat_of_arms_image" alt="" loading="lazy" src="~/img/map-regions-icons-middle-ages/Hrodna.png"/>                    
+                        <img id="m_landCoatOfArms" class="lhst_land_coat_of_arms_image" alt="" loading="lazy"/>                    
                     </div>
                     <div class="lhst_main_info_profile">
                         <div class="ml-3">                        
-                            <p id="m_land_name" class="mb-0 mt-2" style="line-height: 0.5; font-size: 20px">Hrodna</p>
+                            <p id="m_land_name" class="mb-0 mt-2" style="line-height: 0.5; font-size: 20px"></p>
                         
                             <div class="row float-left">
                                 <img class="lhst_profile_rating_img " src="~/img/default-icon/state-crown.png" alt="" data-title="State" loading="lazy" />
-                                <p id="m_land_country" class="mb-0" style="margin-top: 0.30rem">Avalonium</p>
+                                <p id="m_land_country" class="mb-0" style="margin-top: 0.30rem"></p>
                             </div>
 
                             <br />
 
                             <div class="row float-left">
                                 <p class="lhst_land_attribute">Ranking place: </p>
-                                <p id="m_land_rankingPlace" class="mb-0">112</p>
+                                <p id="m_land_rankingPlace" class="mb-0"></p>
                                 <p class="lhst_land_attribute_value">/207</p>
                             </div>
 
                             <div class="row float-left">
                                 <p class="lhst_land_attribute">Governor: </p>
-                                <p id="m_land_governor" class="lhst_land_attribute_value">Hedwig</p>
+                                <p id="m_land_governor" class="lhst_land_attribute_value"></p>
                             </div>
 
                             <div class="row float-left">
                                 <p class="lhst_land_attribute">Lords: </p>
-                                <p id="m_land_lordsCount" class="lhst_land_attribute_value">3</p>
+                                <p id="m_land_lordsCount" class="lhst_land_attribute_value"></p>
                             </div>
 
                             <div class="row float-left">
                                 <p class="lhst_land_attribute">Residents: </p>
-                                <p id="m_land_residentsCount" class="lhst_land_attribute_value">2</p>
+                                <p id="m_land_residentsCount" class="lhst_land_attribute_value"></p>
                             </div>
                         
                             <div class="row float-left">
                                 <p class="lhst_land_attribute">Balance: </p>
-                                <img class="mr-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><p id="m_land_overview_money" class="lhst_land_attribute_value lhst_clr-money">540</p>
+                                <img class="mr-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><p id="m_land_overview_money" class="lhst_land_attribute_value lhst_clr-money"></p>
                             </div>
 
                             <div class="row float-left">
                                 <p class="lhst_land_attribute">Land taxes: </p>
-                                <p id="m_land_taxes" class="mb-0">20</p>
+                                <p id="m_land_taxes" class="mb-0"></p>
                                 <p class="lhst_land_attribute_value">%</p>
                             </div>                        
                         </div>
@@ -345,8 +345,7 @@
                             <div class="back-side">
                                 <div class="lhst_inline inner">
                                     <img class="lhst_coins-img lhst_brightness" src="~/img/interface-icons/coins.png" alt="" />
-                                    <p class="lhst_brightness">Price: 10</p>
-                                    <p id="infrastructurePrice" class="lhst_brightness">10</p>
+                                    <p class="lhst_brightness">Price: <span id="infrastructurePrice"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -361,7 +360,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <p class="lhst_card_properties">Level: 1</p>
+                                <p class="lhst_card_properties">Level: <span id="infrastructureLvl"></span></p>
                             </div>
                             <div class="lhst_inline">
                                 <button onclick="m_land_updateBuildingClicked(1)" class="lhst_btn_building_lvlup">+</button>
@@ -375,7 +374,7 @@
                             <div class="back-side">
                                 <div class="lhst_inline inner">
                                     <img class="lhst_coins-img lhst_brightness" src="~/img/interface-icons/coins.png" alt="" />
-                                    <p class="lhst_brightness">Price: 10</p>
+                                    <p class="lhst_brightness">Price: <span id="marketPrice"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -384,12 +383,13 @@
                                 <div class="d-flex">
                                     <p class="lhst_card_properties">Market</p>
                                     <div class="lhst_tooltip lhst_cursor_help">
+                                        🛈
                                         <span class="lhst_tooltiptext">
                                             Market sucks a lot.
                                         </span>
                                     </div>
                                 </div>
-                                <p class="lhst_card_properties">Level: 1</p>
+                                <p class="lhst_card_properties">Level: <span id="marketLvl"></span></p>
                             </div>
                             <div class="lhst_inline">
                                 <button onclick="m_land_updateBuildingClicked(2)" class="lhst_btn_building_lvlup">+</button>
@@ -403,7 +403,7 @@
                             <div class="back-side">
                                 <div class="lhst_inline inner">
                                     <img class="lhst_coins-img lhst_brightness" src="~/img/interface-icons/coins.png" alt="" />
-                                    <p class="lhst_brightness">Price: 10</p>
+                                    <p class="lhst_brightness">Price: <span id="fortificationPrice"></span></p>
                                 </div>
                             </div>
                         </div>
@@ -412,12 +412,13 @@
                                 <div class="d-flex">
                                     <p class="lhst_card_properties">Fortification</p>
                                     <div class="lhst_tooltip lhst_cursor_help">
+                                        🛈
                                         <span class="lhst_tooltiptext">
                                             Fortification sucks a lot.
                                         </span>
                                     </div>
                                 </div>
-                                <p class="lhst_card_properties">Level: 1</p>
+                                <p class="lhst_card_properties">Level: <span id="fortificationLvl"></span></p>
                             </div>
                             <div class="lhst_inline">
                                 <button onclick="m_land_updateBuildingClicked(3)" class="lhst_btn_building_lvlup">+</button>
