@@ -11,6 +11,7 @@ namespace MiddleAges.Models
 {
     public static class CommonLogic
     {
+        public const double BaseLandBuildingPrice = 10;
         public static string getBuildingNameByType(int _buildingType)
         {
             string buildingName = "";
