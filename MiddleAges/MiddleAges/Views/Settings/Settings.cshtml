@@ -5,7 +5,7 @@
 }
 
 <div class="d-flex">
-    <div class="lhst_avatar_left-side-bar lhst_avatar_vertical-alignment-top "></div>
+    <div id="settingsLeftSideBar" class="lhst_avatar_left-side-bar lhst_avatar_vertical-alignment-top "></div>
 
     <div class="d-block lhst_main-section">
         <div class="lhst_vertical-alignment-top lhst_avatar_inline mt-2">
@@ -48,7 +48,7 @@
 
         <div class="lhst_vertical-alignment-top lhst_info-section lhst_avatar_inline mt-2">
             <div class="lhst_avatar_info_div lhst_slider">
-                <div class="d-flex ">
+                <div id="contactInfo">
                     <div>
                         <p class="lhst_country_king_size mb-0">Contact Information</p>
                         <div>
@@ -70,7 +70,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ml-3">
+                    <div>
                         <p class="lhst_country_king_size mb-0">Description</p>
                         <div>
                             <textarea id="player_description" class="lhst_contact_info_input_description mt-1" type="text" maxlength="256" placeholder="Write here everything you think is necessary.">@Model.PlayerInformation.Description</textarea>

@@ -62,6 +62,8 @@
                         <input name="dismissedCount" id="dismissedCount" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@Model.Units[i].Count" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
                         <datalist id="values">
                             <option value=@Model.Units[i].Count />
+                          @*   <option value=10 />
+                            <option value=100/> *@
                         </datalist>
                         <input type="submit" class="lhst_btn_unit_recruit" value="Dismiss" />
                     </form>
