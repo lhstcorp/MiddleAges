@@ -96,27 +96,14 @@
     .lhst_wars_lands_text {
         font-size: 6px
     }
-
-    .lhst_chat_div {
-        display: none
-    }
     .dropdown-toggle{
         display:block;
     }
 
-    #layoutButtons{
-        display:none;
-    }
     .dropdown{
         display: inline-block;
     }
-    #logoutBtn{
-        display:none;
-    }
-    #settingsLeftSideBar{
-        width: 0px;
-        display:none;
-    }
+
     .lhst_main-section{
         margin-left: 0px;
     }
@@ -149,6 +136,18 @@
     #contactInfo{
         display:block;
         margin-left:0px;
+    }
+
+    .lhst_background_image {
+        background: rgba(0, 0, 0, 0)
+    }
+
+    .mobileMapButtonsDiv {
+        display: block;
+    }
+
+    .lhst_mobile{
+        display:none;
     }
 
 }
