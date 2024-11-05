@@ -314,7 +314,8 @@ li button.lhst_nav {
 
 .footer {
     background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 20%
+    background-size: 20%;
+    display:inline-flex;
     /*background-color: #232323;*/ /* Основной фон */
     /*background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
     background-size: 40px 40px;*/ /* Размер узора */
@@ -1081,4 +1082,73 @@ lhst_marquee {
     top: 10px;
     right: 20px;
 }
+
+
+.dropdown {
+    position: relative;
+    display: none;
+}
+
+.dropdown-toggle {
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
+    border-radius: 3px;
+    padding: 5px 5px;
+    font-size: 16px;
+    cursor: pointer;
+    display: none;
+}
+
+    .dropdown-toggle:hover {
+        background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
+        color: var(--yellow-color);
+        border-style: outset
+    }
+
+    .dropdown-toggle:active {
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
+    }
+
+.dropdown-menu {
+    display: none; /* скрыто по умолчанию */
+    position: absolute;
+    background: radial-gradient(var(--add-color),black);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* Эффект свечения */
+    z-index: 1;
+   
+}
+
+#contactInfo{
+    display:flex;
+}
+
+.mobileMapButtonsDiv {
+    position: absolute;
+    bottom: 64px;
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-size: 100%;
+    display:none;
+}
+
+    /*.dropdown-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .dropdown-menu li {
+    }
+
+        .dropdown-menu li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .dropdown-menu li:hover {
+            background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
+            color: var(--yellow-color);
+            border-style: outset
+        }*/
 

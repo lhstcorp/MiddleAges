@@ -4,7 +4,7 @@
 <div class="lhst_chat_but_marg d-inline-flex">
     <button id="showChatBtn" onclick="showPopup()" class="lhst_but_open_chat lhst_btn_unit_recruit align-bottom lhst_nav lhst_display_grid">&#8743; &emsp; &#8743;</button>
     <button id="hideChatBtn" onclick="hidePopup()" class="lhst_but_open_chat lhst_btn_unit_recruit align-bottom lhst_nav lhst_display_grid">&#8744; &emsp; &#8744;</button>
-    <div id="chatWindow" class="lhst_chat_div float-right align-bottom lhst_nav lhst_display_grid">
+    <div id="chatWindow" class="lhst_chat_div lhst_mobile float-right align-bottom lhst_nav lhst_display_grid">
         <div id="globalChatMessagesContainer" class="lhst_slider lhst_chat_container">
             @foreach (var message in Model)
             {
@@ -16,13 +16,17 @@
                         <p class="animation-text lhst_country_history_text text-left lhst_username_text lhst_cursor_pointer m_playerBtn" data-playerid="@message.PlayerId">@message.Player.UserName</p>
                         <p class="lhst_country_history_text text-left lhst_chat_text">@message.MessageValue</p>
                     </div>
-                    <time class="mr-2 lhst_chat_message_timestamp">@message.PublishingDateTime</time>
+                    <time datetime="@message.PublishingDateTime.ToString("yyyy-MM-ddTHH:mm:ss")" class="mr-2 lhst_chat_message_timestamp">
+                        @message.PublishingDateTime.ToString("HH:mm")
+                    </time>
+
+
                 </div>
                 <div class="lhst_chat_line mb-1"></div>
             }
         </div>
 
-        <form id="chatForm" name="chatForm" class="my-3">
+        <form id="chatForm" name="chatForm" class="lhst_form_center">
             <input id="globalChatUserInput" type="hidden" name="globalChatUser" value="@User.Identity.Name" />
             <input id="globalChatMessageInput" name="globalChatMessage" type="text" maxlength="50" class="lhst_chat_input" placeholder="Message" rows="2" minlength="1" required />
             <input class="lhst_button_input" type="submit" id="sendMessageToGlobalChatButton" name="sendMessageToGlobalChat" value="&#10148;" />

@@ -50,7 +50,52 @@
                     <div class="lhst_inline lhst_vertical-line"></div>
 
                     <div class="align-items-center d-inline-flex">
-                        <div class="lhst_inline lhst_nav lhst_header_margin lhst_scale float-left">
+
+
+                    <div class="dropdown">
+                        <button class="dropdown-toggle ml-2" onclick="toggleDropdown()">Menu</button>
+                        <div id="menuContainer" class="dropdown-menu">
+                            <ul class="lhst_nav p-0">
+                                <li class="lhst_nav">
+                                    <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
+                                </li>
+                                <li class="lhst_nav">
+                                    <a class="nav-link text-dark header-menu lhst_nav map-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
+                                </li>
+                                <li class="lhst_nav">
+                                    <a class="nav-link text-dark header-menu lhst_nav state-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Country" asp-action="Index">Country</a>
+                                </li>
+                                <li class="lhst_nav">
+                                    <a class="nav-link text-dark header-menu lhst_nav settings-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
+                                </li>
+                                <li class="lhst_nav">
+                                    <a class="nav-link text-dark header-menu lhst_nav rating-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Rating" asp-action="Index">Rating</a>
+                                </li>
+                                <li class="lhst_nav">
+                                    <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="War" asp-action="Index">Wars</a>
+                                </li>
+                                <li class="lhst_nav">
+                                    <partial name="_LoginPartial" />
+                                </li>
+                                
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <li class="lhst_nav">
+                                        <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Admin" asp-action="Index">Administrator Panel</a>
+                                    </li>
+                                }
+                            </ul>
+                            <div class="lhst_inline lhst_nav lhst_header_margin">
+                                <form class="form-inline lhst_inline align-bottom" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="lhst_btn_logout">Logout</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    @* <button id="showMenuBut" class="mobile-menu-toggle header-menu lhst_shadow_text lhst_scale d-none lhst_btn_logout" onclick="toggleMenu()">
+                        ☰ Menu
+                    </button> *@
+                        <div class="lhst_inline lhst_nav lhst_header_margin lhst_scale float-left lhst_mobile">
                             <ul class="lhst_nav p-0">
                                 <li class="lhst_nav ">
                                     <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
@@ -85,7 +130,7 @@
 
 
                         </div>
-                        <div class="lhst_inline lhst_nav lhst_header_margin float-right lhst_margin_logout vw-40">
+                        <div class="lhst_inline lhst_nav lhst_header_margin float-right lhst_margin_logout vw-40 lhst_mobile">
                             <form class="form-inline lhst_inline align-bottom ml-4 mb-2 " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button type="submit" class="lhst_btn_logout">Logout</button>
                             </form>
@@ -110,7 +155,7 @@
                 @RenderBody()
             </main>
         </div>
-        <footer class="footer text-muted d-inline-flex">
+        <footer class="footer text-muted lhst_mobile">
             <div class="container lhst_footer-text ">
                 &copy; 2023 - MiddleAges - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
             </div>

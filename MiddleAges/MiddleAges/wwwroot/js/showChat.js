@@ -13,3 +13,17 @@ function hidePopup() {
     hideButton.style.display = "none";
     showButton.style.display = "grid";
 }
+
+function toggleDropdown() {
+    const menu = document.getElementById("menuContainer");
+    menu.style.display = "block";
+}
+
+document.addEventListener('click', function (event) {
+    const dropdown = document.getElementById("menuContainer");
+    const toggleButton = document.querySelector(".dropdown-toggle");
+    if (!dropdown.contains(event.target) && !toggleButton.contains(event.target)) {
+        dropdown.style.display = "none";
+    }
+});
+

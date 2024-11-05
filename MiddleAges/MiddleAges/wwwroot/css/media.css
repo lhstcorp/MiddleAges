@@ -87,7 +87,8 @@
     }
 }
 
-@media screen and (max-width:807px) {
+
+@media screen and (max-width:960px) {
     .lhst_wars_country_text {
         font-size: 9px
     }
@@ -95,11 +96,63 @@
     .lhst_wars_lands_text {
         font-size: 6px
     }
-
-    .lhst_chat_div {
-        display: none
+    .dropdown-toggle{
+        display:block;
     }
+
+    .dropdown{
+        display: inline-block;
+    }
+
+    .lhst_main-section{
+        margin-left: 0px;
+    }
+    .lhst_avatar_image_div {
+        margin-bottom: 10px;
+        height: 250px;
+    }
+    .lhst_avatar_selection_div{
+        width: 120px;
+        height:250px;
+    }
+
+    .lhst_avatar_main_image {
+        height: 80px;
+        width: 80px
+    }
+
+
+    .lhst_avatar_main_data_image {
+        height: 90px;
+        width: 90px
+    }
+    .lhst_info-section{
+        margin: 0px;
+    }
+
+    .lhst_avatar_info_div {
+        width: auto
+    }
+    #contactInfo{
+        display:block;
+        margin-left:0px;
+    }
+
+    .lhst_background_image {
+        background: rgba(0, 0, 0, 0)
+    }
+
+    .mobileMapButtonsDiv {
+        display: block;
+    }
+
+    .lhst_mobile{
+        display:none;
+    }
+
 }
+
+
 
 @media screen and (max-width:1639px) {
     .auth_text_font {
@@ -206,26 +259,12 @@
         width: auto
     }
 
-    .lhst_avatar_image_div {
-        height: 350px;
-        width: 220px;
-        max-height: calc(100vh - 212px)
-    }
-
-    .lhst_avatar_main_image {
-        height: 150px;
-        width: 150px
-    }
 
     .lhst_btn_avatar_confirm {
         width: 87px;
         height: 39px
     }
 
-    .lhst_avatar_main_data_image {
-        height: 90px;
-        width: 90px
-    }
 
     .lhst_avatar_independent_land_description_divs {
         height: 350px;
@@ -233,15 +272,12 @@
         max-height: calc(100vh - 212px)
     }
 
-    .lhst_avatar_selection_div {
+/*    .lhst_avatar_selection_div {
         height: 350px;
         width: 310px;
         max-height: calc(100vh - 212px)
-    }
+    }*/
 
-    .lhst_avatar_info_div {
-        width: 535px
-    }
 
     .auth_height {
         height: 200px
@@ -277,9 +313,11 @@
         font-size: 10px
     }
 
-    .lhst_law_btn {
+/*    .lhst_law_btn {
         width: 40px;
         height: 40px;
         font-size: 9px
-    }
+    }*/
 }
+
+
