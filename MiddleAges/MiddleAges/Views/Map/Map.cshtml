@@ -22,70 +22,73 @@
             <path id="BE-VBR" data-title="Flemish Brabant" class="land" d="M474.19,145.65l14.9,6.2l11.65,-10.83l7.84,7.9l-8.05,1.11l-14.34,24.04l9.43,10.31l18.38,1.66l-16.55,59.62l0,0l-15.68,-12.63l0,0l-7.29,-6.07l-11.05,8.25l-32.1,-19.48l-22.9,2.3l-1.63,17.33l-7.57,-6.53l-13.71,11.1l-6.19,-8.52l-23.46,12.02l-7.43,-5.42l-17.12,13.94l-17.99,-12.65l-10.68,7.29l0,0l-36.45,4.9l-3.11,-12.74l0,0h10.89l-0.54,-13.46l21.98,-4.26l-4.08,-15.01l10.43,-28.97l13.21,0.12l-3.58,-11.09l17.12,-10.26l1.42,-10.98l0,0l27.31,2.13l2.88,10.76l36.53,1.36l19.61,-10.45l2.57,8.05l18.38,-12.34l5.06,8.57L474.19,145.65zM365.59,186.22L365.59,186.22l-20.99,2.95l-13.52,23.29L358,228.61l20.5,-8.41l-11.52,-32.01L365.59,186.22z" />
             <path id="BE-VWV" data-title="West Flanders" class="land" d="M160.4,42.39L162.91,71.35L162.91,71.35L158.77,96.98L168.63,106.66L153.21,125.68L175.56,141.61L169.26,169.48L178.32,173.76L169.64,185.61L181.78,187.82L176.73,197.02L190.13,216.09L178.07,227.85L178.07,227.85L158.63,245.6L148.13,231.56L123.13,231.37L123.13,231.37L117.84,220.98L92.42,226.07L92.42,226.07L88.8,214.56L76.41,219.75L81.02,225.82L57.85,233.06L61.92,246.39L61.92,246.39L47.74,240.45L34.84,214.74L17.8,214.1L10.85,202.67L9.05,181.12L17.14,172.59L0,128.86L124.26,53.82L124.77,43.66L127.12,54.29L127.18,43.41L132.98,50.62z" />
         </svg>*@
+    @if (Model.DeviceType == "Desktop")
+    {
+        <div class="lhst_left-side-bar lhst_slider_small_screen lhst_vertical-alignment-top lhst_mobile">
+            <div class="lhst_left_side_bar_land_content row justify-content-md-center">
+                <div class="col lhst_map_region_icon_left_bar_col">
+                    <img id="selected_land_coat_of_arms" onclick="openWikiLink()" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer" alt="map region coat of arms" loading="lazy" />
+                </div>
+                <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">             
+                    <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>                    
+                    <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name lhst_cursor_pointer">@Model.Land.LandId</p>
+                </div>
+            </div>
 
-    <div class="lhst_left-side-bar lhst_slider_small_screen lhst_vertical-alignment-top lhst_mobile">
-        <div class="lhst_left_side_bar_land_content row justify-content-md-center">
-            <div class="col lhst_map_region_icon_left_bar_col">
-                <img id="selected_land_coat_of_arms" onclick="openWikiLink()" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer" alt="map region coat of arms" loading="lazy" />
+            <div>
+                <div class="row">
+                    <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Population" alt="" loading="lazy" />
+                    <p id="population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population" >@Model.Population</p>
+                </div>
+                <div class="row">
+                    <img src="../img/default-icon/players.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Lords" alt="" loading="lazy" />
+                    <p id="lordsCount" class="lhst_cursor_pointer lhst_clr-wheat float-left mt-2 mb-0" data-title="Lords" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
+                </div>
             </div>
-            <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">             
-                <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>                    
-                <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name lhst_cursor_pointer">@Model.Land.LandId</p>
-            </div>
-        </div>
-        <div>
-            <div class="row">
-                <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Population" alt="" loading="lazy" />
-                <p id="population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population" >@Model.Population</p>
-            </div>
-            <div class="row">
-                <img src="../img/default-icon/players.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Lords" alt="" loading="lazy" />
-                <p id="lordsCount" class="lhst_cursor_pointer lhst_clr-wheat float-left mt-2 mb-0" data-title="Lords" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
-            </div>
-        </div>
 
-        <div>
-            <p id="map_border_with" class="ml-2 mb-0 mt-2 mr-2 lhst_clr-wheat" style="font-weight: 400">Has borders with: @Model.BorderWith</p>
-        </div>
-
-        <div>
-            <p class="lhst_clr-wheat mt-3 mb-0 ml-2">Actions</p>
-            <div class="lhst_line mb-1"></div>
-        </div>
-        <div class="ml-2">
-            <div class="d-flex mb-1">
-                <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Move to" onclick="moveToLand()" />
-                <img src="../img/interface-icons/map-icons/currentland.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Your current location" alt="" loading="lazy" />
+            <div>
+                <p id="map_border_with" class="ml-2 mb-0 mt-2 mr-2 lhst_clr-wheat" style="font-weight: 400">Has borders with: @Model.BorderWith</p>
             </div>
-            <div class="d-flex mb-1">
-                <input id="settleBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Settle down" onclick="settleDown()" />
-                <img src="../img/interface-icons/map-icons/residence.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Your residence land" alt="" loading="lazy" />
-            </div>
-            <div class="d-flex mb-1">
-                <button id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') onclick="startAnUprising()">
-                    <p class="w-100 flex-wrap mb-1 font-weight-normal">Start an uprising (<img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -300</span>)</p>
-                </button>
-                <img src="../img/interface-icons/map-icons/revolt.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Uprisings" alt="" loading="lazy" />
-            </div>
-            @*   <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" /> *@
-        </div>
-        <div>
-            <p class="font-weight-bolder mb-0 mt-2 ml-2 lhst_clr-wheat">Включить текстуры</p>
-            <label class="switch">
-                <input type="checkbox" id="texture-toggle" onchange="toggleTextures()">
-                <span class="lhst_checkbox"></span>
-            </label>
-        </div>
 
-        <div>
-            <p class="font-weight-bolder mb-0 mt-2 ml-2 lhst_clr-wheat">Включить гербы</p>
-            <label class="switch">
-                <input type="checkbox" id="heraldic-toggle" onchange="toggleHeraldic()">
-                <span class="lhst_checkbox"></span>
-            </label>
-        </div>
+            <div>
+                <p class="lhst_clr-wheat mt-3 mb-0 ml-2">Actions</p>
+                <div class="lhst_line mb-1"></div>
+            </div>
+            <div class="ml-2">
+                <div class="d-flex mb-1">
+                    <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Move to" onclick="moveToLand()" />
+                    <img src="../img/interface-icons/map-icons/currentland.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Your current location" alt="" loading="lazy" />
+                </div>
+                <div class="d-flex mb-1">
+                    <input id="settleBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Settle down" onclick="settleDown()" />
+                    <img src="../img/interface-icons/map-icons/residence.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Your residence land" alt="" loading="lazy" />
+                </div>
+                <div class="d-flex mb-1">
+                    <button id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') onclick="startAnUprising()">
+                        <p class="w-100 flex-wrap mb-1 font-weight-normal">Start an uprising (<img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -300</span>)</p>
+                    </button>
+                    <img src="../img/interface-icons/map-icons/revolt.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Uprisings" alt="" loading="lazy" />
+                </div>
+                @*   <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" /> *@
+            </div>
+            <div>
+                <p class="font-weight-bolder mb-0 mt-2 ml-2 lhst_clr-wheat">Включить текстуры</p>
+                <label class="switch">
+                    <input type="checkbox" id="texture-toggle" onchange="toggleTextures()">
+                    <span class="lhst_checkbox"></span>
+                </label>
+            </div>
 
-    </div>
+            <div>
+                <p class="font-weight-bolder mb-0 mt-2 ml-2 lhst_clr-wheat">Включить гербы</p>
+                <label class="switch">
+                    <input type="checkbox" id="heraldic-toggle" onchange="toggleHeraldic()">
+                    <span class="lhst_checkbox"></span>
+                </label>
+            </div>
+        </div>
+    }
+
     <div class="lhst_map-container lhst_vertical-alignment-top lhst_main-section" id="belarus-map">
         <svg class="lhst_svg-map over lhst_background_image lhst_cursor_move" viewBox="0 0 1000 890" id="lhst_svg_map">
             <filter style="color-interpolation-filters:sRGB;" id="filter3" x="0" y="0" width="1" height="1">
@@ -342,57 +345,60 @@
                
             </g>
         </svg>
-        <div class="mobileMapButtonsDiv">
-            <div class="d-flex">
-                <div class="lhst_left_side_bar_land_content row justify-content-md-center">
-                    <div class="col lhst_map_region_icon_left_bar_col">
-                        <img id="selected_land_coat_of_arms" onclick="openWikiLink()" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer" alt="map region coat of arms" loading="lazy" />
-                    </div>
-                    <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">
-                        <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
-                        <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name lhst_cursor_pointer">@Model.Land.LandId</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="row">
-                        <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Population" alt="" loading="lazy" />
-                        <p id="population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population">@Model.Population</p>
-                    </div>
-                    <div class="row">
-                        <img src="../img/default-icon/players.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Lords" alt="" loading="lazy" />
-                        <p id="lordsCount" class="lhst_cursor_pointer lhst_clr-wheat float-left mt-2 mb-0" data-title="Lords" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
-                    </div>
-                </div>
 
-                <div>
-                    <p id="map_border_with" class="ml-2 mb-0 mt-2 mr-2 lhst_clr-wheat" style="font-weight: 400">Has borders with: @Model.BorderWith</p>
+        @if (Model.DeviceType == "Mobile")
+        {
+            <div class="mobileMapButtonsDiv">
+                <div class="d-flex">
+                    <div class="lhst_left_side_bar_land_content row justify-content-md-center">
+                        <div class="col lhst_map_region_icon_left_bar_col">
+                            <img id="selected_land_coat_of_arms" onclick="openWikiLink()" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer" alt="map region coat of arms" loading="lazy" />
+                        </div>
+                        <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">
+                            <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
+                            <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name lhst_cursor_pointer">@Model.Land.LandId</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Population" alt="" loading="lazy" />
+                            <p id="population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population">@Model.Population</p>
+                        </div>
+                        <div class="row">
+                            <img src="../img/default-icon/players.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Lords" alt="" loading="lazy" />
+                            <p id="lordsCount" class="lhst_cursor_pointer lhst_clr-wheat float-left mt-2 mb-0" data-title="Lords" onclick="openResidentsCountryDialog()">@Model.LordsCount</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p id="map_border_with" class="ml-2 mb-0 mt-2 mr-2 lhst_clr-wheat" style="font-weight: 400">Has borders with: @Model.BorderWith</p>
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div>
+                        <p class="lhst_clr-wheat mt-3 mb-0 ml-2">Actions</p>
+                        <div class="lhst_line mb-1"></div>
+                    </div>
+                    <div class="ml-2">
+                        <div class="d-flex mb-1">
+                            <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Move to" onclick="moveToLand()" />
+                            <img src="../img/interface-icons/map-icons/currentland.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Your current location" alt="" loading="lazy" />
+                        </div>
+                        <div class="d-flex mb-1">
+                            <input id="settleBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Settle down" onclick="settleDown()" />
+                            <img src="../img/interface-icons/map-icons/residence.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Your residence land" alt="" loading="lazy" />
+                        </div>
+                        <div class="d-flex mb-1">
+                            <button id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') onclick="startAnUprising()">
+                                <p class="w-100 flex-wrap mb-1 font-weight-normal">Start an uprising (<img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -300</span>)</p>
+                            </button>
+                            <img src="../img/interface-icons/map-icons/revolt.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Uprisings" alt="" loading="lazy" />
+                        </div>
+                        @*   <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" /> *@
+                    </div>
                 </div>
             </div>
-            <div class="d-flex">
-                <div>
-                    <p class="lhst_clr-wheat mt-3 mb-0 ml-2">Actions</p>
-                    <div class="lhst_line mb-1"></div>
-                </div>
-                <div class="ml-2">
-                    <div class="d-flex mb-1">
-                        <input id="moveToBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Move to" onclick="moveToLand()" />
-                        <img src="../img/interface-icons/map-icons/currentland.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Your current location" alt="" loading="lazy" />
-                    </div>
-                    <div class="d-flex mb-1">
-                        <input id="settleBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Settle down" onclick="settleDown()" />
-                        <img src="../img/interface-icons/map-icons/residence.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Your residence land" alt="" loading="lazy" />
-                    </div>
-                    <div class="d-flex mb-1">
-                        <button id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') onclick="startAnUprising()">
-                            <p class="w-100 flex-wrap mb-1 font-weight-normal">Start an uprising (<img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -300</span>)</p>
-                        </button>
-                        <img src="../img/interface-icons/map-icons/revolt.svg" class="lhst_info_region_icon_left_bar float-left ml-2" title="Uprisings" alt="" loading="lazy" />
-                    </div>
-                    @*   <input id="startAnUprisingBtn" type="submit" class="lhst_btn_moveToRegion" data-selectedland=@Model.Land.LandId.Replace(' ', '_') value="Start an uprising" onclick="startAnUprising()" /> *@
-                </div>
-            </div>
-
-        </div>
+        }
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/map.js"></script>

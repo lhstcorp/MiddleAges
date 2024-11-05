@@ -82,6 +82,11 @@ namespace MiddleAges.Controllers
             mapSelectedLandViewModel.ResidentsCount = GetLandResidentsCount(land.LandId).Result;
             mapSelectedLandViewModel.LandBuildings = GetLandBuildings(land.LandId).Result;
 
+            var userAgent = Request.Headers["User-Agent"].ToString();
+            var deviceType = userAgent.Contains("Mobi") ? "Mobile" : "Desktop";
+
+            mapSelectedLandViewModel.DeviceType = deviceType;
+
             mapSelectedLandViewModel.BorderWith = GetLandBorderWith(land.LandId);
 
             return mapSelectedLandViewModel;
