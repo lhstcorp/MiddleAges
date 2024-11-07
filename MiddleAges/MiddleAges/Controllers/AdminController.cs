@@ -33,9 +33,9 @@ namespace MiddleAges.Controllers
         {
             List<Land> lands = _context.Lands.ToList();
 
-            List<LandBuilding> landBuildings = _context.LandBuildings.ToList();
+            List<LandBuilding> landBuildings = _context.LandBuildings.ToList();            
 
-            for (int i = 0; i  < lands.Count; i++)
+            for (int i = 0; i < lands.Count; i++)
             {
                 LandBuilding infrastructure = landBuildings.FirstOrDefault(lb => lb.LandId == lands[i].LandId && lb.BuildingType == LandBuildingType.Infrastructure);
 
@@ -57,9 +57,18 @@ namespace MiddleAges.Controllers
                 {
                     CreateLandBuilding(lands[i].LandId, LandBuildingType.Fortification);
                 }
-            }
 
-            await _context.SaveChangesAsync();
+                // -----
+
+                LandDevelopmentShare landDevelopmentShare = _context.LandDevelopmentShares.FirstOrDefault(ld => ld.LandId == lands[i].LandId);
+
+                if (landDevelopmentShare == null)
+                {
+                    CreateInitialLandDevelopmentShare(lands[i].LandId);
+                }
+
+                await _context.SaveChangesAsync();
+            }            
 
             return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Admin"));
         }
@@ -73,6 +82,18 @@ namespace MiddleAges.Controllers
             landBuilding.Lvl = 1;
 
             _context.Add(landBuilding);
+        }
+
+        private void CreateInitialLandDevelopmentShare(string landId)
+        {
+            LandDevelopmentShare landDevelopmentShare = new LandDevelopmentShare();
+
+            landDevelopmentShare.LandId = landId;
+            landDevelopmentShare.InfrastructureShare = 1;
+            landDevelopmentShare.MarketShare = 1;
+            landDevelopmentShare.FortificationShare = 1;
+
+            _context.Add(landDevelopmentShare);
         }
     }
 }
