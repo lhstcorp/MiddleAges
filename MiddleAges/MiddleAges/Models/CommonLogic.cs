@@ -11,7 +11,11 @@ namespace MiddleAges.Models
 {
     public static class CommonLogic
     {
+        public const double LandsCount = 207;
         public const double BaseLandBuildingPrice = 10;
+        public const double BasePeasantIncome = 0.01;
+        public const double BaseGoldLimit = 1000;
+
         public static string getBuildingNameByType(int _buildingType)
         {
             string buildingName = "";

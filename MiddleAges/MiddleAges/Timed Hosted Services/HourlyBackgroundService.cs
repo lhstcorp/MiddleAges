@@ -81,15 +81,16 @@ namespace MiddleAges.Timed_Hosted_Services
 
         private void CalculateProductionIncome(Player player)
         {
-            const double _peasantHourSalary = 0.01;
-
             Unit peasants = _context.Units.FirstOrDefault(u => u.PlayerId == player.Id && u.Type == (int)UnitType.Peasant);
             Land land = _context.Lands.Include(l => l.Country).FirstOrDefault(l => l.LandId == player.ResidenceLand);
+            LandDevelopmentShare landDevelopmentShare = _context.LandDevelopmentShares.FirstOrDefault(ld => ld.LandId == player.ResidenceLand);
             PlayerAttribute playerAttribute = _context.PlayerAttributes.FirstOrDefault(pa => pa.PlayerId == player.Id);
+
+            double peasantHourIncome = CommonLogic.BasePeasantIncome * CommonLogic.LandsCount * landDevelopmentShare.MarketShare;
 
             if (land.ProductionLimit > 0)
             {
-                double hourIncome = peasants.Count * _peasantHourSalary * (1 + 0.02 * playerAttribute.Management); // 100% + 2% * Management attribute
+                double hourIncome = peasants.Count * peasantHourIncome * (1 + 0.02 * playerAttribute.Management); // 100% + 2% * Management attribute
                 player.Money += hourIncome * (1 - (land.LandTax / 100.00));
                 player.MoneyProduced += hourIncome * (1 - (land.LandTax / 100.00));
 

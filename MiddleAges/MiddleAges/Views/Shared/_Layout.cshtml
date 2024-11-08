@@ -250,8 +250,15 @@
             <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
             <p id="landFromName" class="lhst_wars_lands_text ">LandFrom</p>
             <div>
-                <img class="float-left" style="width: 30px; height: 30px" src="../img/attributes/warfare.png" loading="lazy" data-title="Army strength" alt="">
-                <p id="attackersArmyStrength" class="float-left mt-2 mb-0">0%</p>
+                <img class="float-left" style="width: 30px; height: 30px" src="../img/interface-icons/war/army-strength.png" loading="lazy" data-title="Army strength" alt="">
+                    
+                <p id="attackersArmyStrength" class="float-left mt-2 mb-0 lhst_cursor_help">0%</p>
+                <div class="lhst_tooltip lhst_cursor_help ml-1 mt-1 mb-0">
+                    🛈
+                    <span class="lhst_tooltiptext">
+                        Army strength: average warfare of all participants
+                    </span>
+                </div>
             </div>
         </div>
         <div class="col-4 p-0">
@@ -303,8 +310,14 @@
             <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
             <p id="landToName" class="lhst_wars_lands_text ">LandTo</p>
             <div>
-                <img class="float-right" style="width: 30px; height: 30px" loading="lazy" src="../img/attributes/warfare.png" data-title="Army strength" alt="">
+                <img class="float-right" style="width: 30px; height: 30px" loading="lazy" src="../img/interface-icons/war/army-strength.png" data-title="Army strength" alt="">
                 <p id="defendersArmyStrength" class="float-right mt-2 mb-0">0%</p>
+                <div class="lhst_tooltip lhst_cursor_help float-right mr-1 mt-1 mb-0">
+                    🛈
+                    <span class="lhst_tooltiptext">
+                        Army strength: average warfare of all participants
+                    </span>
+                </div>
             </div>
         </div>
 
@@ -401,8 +414,9 @@
                                     <div class="lhst_tooltip lhst_cursor_help">
                                         🛈
                                         <span class="lhst_tooltiptext">
-                                            Infrastructure sucks a lot.
+                                            Infrastructure: increases gold limit in the region.
                                         </span>
+                                        @* With equal infrastructure in all regions, the base value of the gold limit is 1000. However, the current building allows you to make the gold limit value floating. The gold limit is calculated as the number of all regions * 1000 coins * the share of your infrastructure relative to the whole world. *@
                                     </div>
                                 </div>
                                 <p class="lhst_card_properties">Level: <span id="infrastructureLvl"></span></p>
@@ -430,7 +444,7 @@
                                     <div class="lhst_tooltip lhst_cursor_help">
                                         🛈
                                         <span class="lhst_tooltiptext">
-                                            Market sucks a lot.
+                                            Market: increases the income received from your peasants.
                                         </span>
                                     </div>
                                 </div>
@@ -459,7 +473,7 @@
                                     <div class="lhst_tooltip lhst_cursor_help">
                                         🛈
                                         <span class="lhst_tooltiptext">
-                                            Fortification sucks a lot.
+                                            Fortification: increases strength in war.
                                         </span>
                                     </div>
                                 </div>
