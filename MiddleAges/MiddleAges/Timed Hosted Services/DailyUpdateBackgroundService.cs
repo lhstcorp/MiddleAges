@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
+using MiddleAges.Models;
 using MiddleAges.Temporary_Entities;
 using System;
 using System.Collections.Generic;
@@ -64,12 +65,18 @@ namespace MiddleAges.Timed_Hosted_Services
         public void UpdateProductionLimits()
         {
             List<Land> lands = _context.Lands.ToList();
+            List<LandDevelopmentShare> landDevelopmentShares = _context.LandDevelopmentShares.ToList();
 
             if (lands.Count > 0)
             {
                 foreach (var land in lands)
                 {
-                    land.ProductionLimit = 1000;
+                    LandDevelopmentShare landDevelopmentShare = landDevelopmentShares.FirstOrDefault(ld => ld.LandId == land.LandId);
+
+                    if (landDevelopmentShare != null)
+                    {
+                        land.ProductionLimit = CommonLogic.BaseGoldLimit * CommonLogic.LandsCount * landDevelopmentShare.InfrastructureShare;
+                    }                    
 
                     _context.Update(land);
                 }
