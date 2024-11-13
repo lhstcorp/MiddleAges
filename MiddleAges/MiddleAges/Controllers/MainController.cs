@@ -44,14 +44,20 @@ namespace MiddleAges.Controllers
             PlayerAttribute playerAttribute = await _context.PlayerAttributes.FirstOrDefaultAsync(pa => pa.PlayerId == player.Id);
             List<PlayerLocalEvent> playerLocalEvents = await _context.PlayerLocalEvents.Where(le => le.PlayerId == player.Id).ToListAsync();
 
+            LandDevelopmentShare landDevelopmentShare = await _context.LandDevelopmentShares.FirstOrDefaultAsync(ld => ld.LandId == player.ResidenceLand);
+
+            double peasantHourIncome = CommonLogic.BasePeasantIncome * CommonLogic.LandsCount * landDevelopmentShare.MarketShare;
+
             MainInfoViewModel mainInfoViewModel = new MainInfoViewModel
             {
                 Player = player,
                 PlayerAttribute = playerAttribute,
                 ResidenceLand = residenceLand,
                 Units = units,
-                PlayerLocalEvents = playerLocalEvents
+                PlayerLocalEvents = playerLocalEvents,
+                PeasantHourIncome = peasantHourIncome
             };
+
             return View("Main", mainInfoViewModel);
         }
 

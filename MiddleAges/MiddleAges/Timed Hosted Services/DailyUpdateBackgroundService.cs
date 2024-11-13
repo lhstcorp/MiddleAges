@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
+using MiddleAges.Models;
 using MiddleAges.Temporary_Entities;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,7 @@ namespace MiddleAges.Timed_Hosted_Services
             {
                 _context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
+                CalculateLandDevelopmentShares();
                 UpdateProductionLimits();
                 UpdatePlayerDailyData();
                 CalculateRatingPlaces();
@@ -63,12 +65,18 @@ namespace MiddleAges.Timed_Hosted_Services
         public void UpdateProductionLimits()
         {
             List<Land> lands = _context.Lands.ToList();
+            List<LandDevelopmentShare> landDevelopmentShares = _context.LandDevelopmentShares.ToList();
 
             if (lands.Count > 0)
             {
                 foreach (var land in lands)
                 {
-                    land.ProductionLimit = 1000;
+                    LandDevelopmentShare landDevelopmentShare = landDevelopmentShares.FirstOrDefault(ld => ld.LandId == land.LandId);
+
+                    if (landDevelopmentShare != null)
+                    {
+                        land.ProductionLimit = CommonLogic.BaseGoldLimit * CommonLogic.LandsCount * landDevelopmentShare.InfrastructureShare;
+                    }                    
 
                     _context.Update(land);
                 }
@@ -175,6 +183,48 @@ namespace MiddleAges.Timed_Hosted_Services
             foreach (Rating r in ratings)
             {
                 _context.Add(r);
+            }
+        }
+
+        public void CalculateLandDevelopmentShares()
+        {
+            var query = _context.Lands
+                                .Join(_context.LandBuildings,
+                                      l => l.LandId,
+                                      lb => lb.LandId,
+                                      (l, lb) => new { Land = l, LandBuilding = lb })
+                                .Join(_context.LandDevelopmentShares,
+                                      combined => combined.Land.LandId,
+                                      ld => ld.LandId,
+                                      (combined, ld) => new { combined.Land, combined.LandBuilding, LandDevelopmentShare = ld }).ToList();
+
+            List<Land> lands = _context.Lands.ToList();
+            List<LandBuilding> landBuildings = _context.LandBuildings.ToList();
+            List<LandDevelopmentShare> landDevelopmentShares = _context.LandDevelopmentShares.ToList();
+
+            double totalInfrastructureBuildings = landBuildings.Where(lb => lb.BuildingType == LandBuildingType.Infrastructure).Sum(lb => lb.Lvl);
+            double totalMarketBuildings = landBuildings.Where(lb => lb.BuildingType == LandBuildingType.Market).Sum(lb => lb.Lvl);
+            double totalFortificationBuildings = landBuildings.Where(lb => lb.BuildingType == LandBuildingType.Fortification).Sum(lb => lb.Lvl);
+
+            if (lands.Count > 0)
+            {
+                foreach (var land in lands)
+                {
+                    LandDevelopmentShare landDevelopmentShare = landDevelopmentShares.FirstOrDefault(ld => ld.LandId == land.LandId);
+
+                    if (landDevelopmentShares != null)
+                    {
+                        double landInfrastructureLvl = landBuildings.FirstOrDefault(lb => lb.BuildingType == LandBuildingType.Infrastructure && lb.LandId == land.LandId).Lvl;
+                        double landMarketLvl = landBuildings.FirstOrDefault(lb => lb.BuildingType == LandBuildingType.Infrastructure && lb.LandId == land.LandId).Lvl;
+                        double landFortificationLvl = landBuildings.FirstOrDefault(lb => lb.BuildingType == LandBuildingType.Infrastructure && lb.LandId == land.LandId).Lvl;
+
+                        landDevelopmentShare.InfrastructureShare = landInfrastructureLvl / totalInfrastructureBuildings;
+                        landDevelopmentShare.MarketShare = landMarketLvl / totalMarketBuildings;
+                        landDevelopmentShare.FortificationShare = landFortificationLvl / totalFortificationBuildings;
+
+                        _context.Update(landDevelopmentShare);
+                    }
+                }
             }
         }
 
