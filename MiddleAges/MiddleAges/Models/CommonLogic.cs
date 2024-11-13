@@ -137,6 +137,11 @@ namespace MiddleAges.Models
             return averageArmyWarfare;
         }
 
+        public static double GetFortificationValue(double currentFortification, double maxFortification)
+        {
+            return currentFortification/maxFortification;
+        }
+
         public static long GetRequiredExpByLvl(long lvl)
         {
             long requiredExp = Convert.ToInt32(Math.Floor(Math.Pow(1.4, lvl)));
