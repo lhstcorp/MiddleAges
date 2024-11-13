@@ -96,16 +96,23 @@
     .lhst_wars_lands_text {
         font-size: 6px
     }
-    .dropdown-toggle{
-        display:block;
+    .dropdown-toggle {
+        display: block;
+        padding: 0;
+        font-size: 50px;
+        width: 100%;
+        height: 100%;
     }
 
     .dropdown{
         display: inline-block;
+        width: 100%;
+        height: 100%;
     }
 
     .lhst_main-section{
         margin-left: 0px;
+        margin-top: 0px;
     }
     .lhst_avatar_image_div {
         margin-bottom: 10px;
@@ -144,10 +151,51 @@
 
     .mobileMapButtonsDiv {
         display: block;
+        position: absolute;
+        bottom: 0;
     }
 
-    .lhst_mobile{
+    .mobileMainDiv {
+        display: block;
+    }
+
+    .lhst_desktop{
         display:none;
+    }
+
+    .lhst_leftSideBar_country_name{
+        margin-top: 0px;
+    }
+
+    .lhst_left_side_bar_land_content{
+        margin: 0.5em !important;
+        padding: 5px !important;
+    }
+
+    .lhst_header_margin{
+        margin: 0;
+    }
+
+    button.dropdown-toggle::after{
+        content: none;
+    }
+
+    .lhst_main-section_mainmenu {
+        margin-left: 10px;
+        margin-top: 250px;
+    }
+
+    .lhst_left-side-bar {
+        height: auto;
+        width: 100%;
+        z-index: 2;
+    }
+
+    .lhst_menu_but{
+        width:40%;
+    }
+    .header{
+        z-index: 3;
     }
 
 }
