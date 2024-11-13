@@ -215,8 +215,8 @@ namespace MiddleAges.Timed_Hosted_Services
                     if (landDevelopmentShares != null)
                     {
                         double landInfrastructureLvl = landBuildings.FirstOrDefault(lb => lb.BuildingType == LandBuildingType.Infrastructure && lb.LandId == land.LandId).Lvl;
-                        double landMarketLvl = landBuildings.FirstOrDefault(lb => lb.BuildingType == LandBuildingType.Infrastructure && lb.LandId == land.LandId).Lvl;
-                        double landFortificationLvl = landBuildings.FirstOrDefault(lb => lb.BuildingType == LandBuildingType.Infrastructure && lb.LandId == land.LandId).Lvl;
+                        double landMarketLvl = landBuildings.FirstOrDefault(lb => lb.BuildingType == LandBuildingType.Market && lb.LandId == land.LandId).Lvl;
+                        double landFortificationLvl = landBuildings.FirstOrDefault(lb => lb.BuildingType == LandBuildingType.Fortification && lb.LandId == land.LandId).Lvl;
 
                         landDevelopmentShare.InfrastructureShare = landInfrastructureLvl / totalInfrastructureBuildings;
                         landDevelopmentShare.MarketShare = landMarketLvl / totalMarketBuildings;
