@@ -334,11 +334,10 @@ namespace MiddleAges.Timed_Hosted_Services
             Land defeatLand = _context.Lands.Include(l => l.Country).FirstOrDefault(l => l.LandId == defeatLandId);
 
             if (war.IsRevolt)
-            {
-                CheckLastCountryLand(defeatLand);
-
+            {   
                 if (result == WarResult.Victory) //if the rebels got success
                 {
+                    CheckLastCountryLand(defeatLand);
                     Country rebelCountry = CreateNewRebelCountry(war, defeatLand);
                     TransferLandToVictoryCountry(defeatLand, rebelCountry);
                 }

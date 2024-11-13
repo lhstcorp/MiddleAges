@@ -161,6 +161,29 @@ namespace MiddleAges.Controllers
             double attackersArmyStrength = 100 + Math.Round(CommonLogic.GetAverageArmyWarfare(attackersArmies, attackersPlayerAttributes) * 2, 2);
             double defendersArmyStrength = 100 + Math.Round(CommonLogic.GetAverageArmyWarfare(defendersArmies, defendersPlayerAttributes) * 2, 2);
 
+            var attackersFortificationStrengthQuery = _context.LandDevelopmentShares
+                                                .Join(_context.Wars,
+                                                    ld => ld.LandId,
+                                                    w => w.LandIdFrom,
+                                                    (ld, w) => new { LandDevelopmentShare = ld, War = w})
+                                                .FirstOrDefault(q => q.War.WarId.ToString() == id);
+
+            LandDevelopmentShare attackersLandDevelopmentShare = attackersFortificationStrengthQuery.LandDevelopmentShare;
+
+            var defendersFortificationStrengthQuery = _context.LandDevelopmentShares
+                                                .Join(_context.Wars,
+                                                    ld => ld.LandId,
+                                                    w => w.LandIdFrom,
+                                                    (ld, w) => new { LandDevelopmentShare = ld, War = w })
+                                                .FirstOrDefault(q => q.War.WarId.ToString() == id);
+
+            LandDevelopmentShare defendersLandDevelopmentShare = defendersFortificationStrengthQuery.LandDevelopmentShare;
+
+            LandDevelopmentShare maxFortificationLandDevelopmentShare = _context.LandDevelopmentShares.OrderByDescending(lds => lds.FortificationShare).FirstOrDefault();
+
+            double attackersFortificationStrength = Math.Round(100 * CommonLogic.GetFortificationValue(attackersLandDevelopmentShare.FortificationShare, maxFortificationLandDevelopmentShare.FortificationShare));
+            double defendersFortificationStrength = Math.Round(100 * CommonLogic.GetFortificationValue(defendersLandDevelopmentShare.FortificationShare, maxFortificationLandDevelopmentShare.FortificationShare));
+
             WarArmiesViewModel warArmiesViewModel = new WarArmiesViewModel
             {
                 AttackersArmies = attackersArmies,
@@ -169,6 +192,8 @@ namespace MiddleAges.Controllers
                 DefendersSoldiersCount = defendersArmies.Sum(a => a.SoldiersCount),
                 AttackersArmyStrength = attackersArmyStrength,
                 DefendersArmyStrength = defendersArmyStrength,
+                AttackersFortificationStrength = attackersFortificationStrength,
+                DefendersFortificationStrength = defendersFortificationStrength,
                 Player = player
             };
 
