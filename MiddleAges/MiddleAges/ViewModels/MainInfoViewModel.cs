@@ -14,5 +14,6 @@ namespace MiddleAges.ViewModels
         public List<Unit> Units { get; set; }
         public List<PlayerLocalEvent> PlayerLocalEvents { get; set; }
         public double PeasantHourIncome { get; set; }
+        public string DeviceType { get; set; }
     }
 }
