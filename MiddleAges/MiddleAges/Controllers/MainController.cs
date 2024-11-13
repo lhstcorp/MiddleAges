@@ -48,6 +48,9 @@ namespace MiddleAges.Controllers
 
             double peasantHourIncome = CommonLogic.BasePeasantIncome * CommonLogic.LandsCount * landDevelopmentShare.MarketShare;
 
+            var userAgent = Request.Headers["User-Agent"].ToString();
+            var deviceType = userAgent.Contains("Mobi") ? "Mobile" : "Desktop";
+
             MainInfoViewModel mainInfoViewModel = new MainInfoViewModel
             {
                 Player = player,
@@ -55,8 +58,10 @@ namespace MiddleAges.Controllers
                 ResidenceLand = residenceLand,
                 Units = units,
                 PlayerLocalEvents = playerLocalEvents,
-                PeasantHourIncome = peasantHourIncome
-            };
+                PeasantHourIncome = peasantHourIncome,
+                DeviceType = deviceType
+
+        };
 
             return View("Main", mainInfoViewModel);
         }
