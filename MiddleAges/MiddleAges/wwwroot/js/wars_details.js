@@ -95,6 +95,8 @@ function populateArmyData(obj) {
     $('#soldiersCountRight').text(obj.DefendersSoldiersCount);
     $('#attackersArmyStrength').text(obj.AttackersArmyStrength + '%');
     $('#defendersArmyStrength').text(obj.DefendersArmyStrength + '%');
+    $('#attackersFortificationStrength').text(obj.AttackersFortificationStrength + '%');
+    $('#defendersFortificationStrength').text(obj.DefendersFortificationStrength + '%');
 
     populateArmySideDiv("attackersDiv", obj.AttackersArmies, obj.Player); //populates attackers armies
     populateArmySideDiv("defendersDiv", obj.DefendersArmies, obj.Player); //populates defenders armies
