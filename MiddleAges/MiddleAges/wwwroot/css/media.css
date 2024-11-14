@@ -88,7 +88,7 @@
 }
 
 
-@media screen and (max-width:960px) {
+@media screen and (max-width:960px) and (orientation: portrait) {
     .lhst_wars_country_text {
         font-size: 9px
     }
@@ -111,8 +111,8 @@
     }
 
     .lhst_main-section{
-        margin-left: 0px;
-        margin-top: 0px;
+        margin-left: 0;
+
     }
     .lhst_avatar_image_div {
         margin-bottom: 10px;
@@ -148,11 +148,21 @@
     .lhst_background_image {
         background: rgba(0, 0, 0, 0)
     }
+    .lhst_svg-map{
+        margin-top:-120px;
+    }
 
     .mobileMapButtonsDiv {
         display: block;
         position: absolute;
         bottom: 0;
+    }
+
+    .mobileCountryButtonsDiv {
+        display: block;
+/*        position: absolute;
+        bottom: 0;*/
+        width: 100%;
     }
 
     .mobileMainDiv {
@@ -191,18 +201,84 @@
         z-index: 2;
     }
 
-    .lhst_menu_but{
-        width:40%;
+/*    .lhst_left-side-bar-country{
+        position: absolute !important;
+        bottom: 0 !important;
+    }*/
+
+    .lhst_menu_but {
+        width: 40%;
     }
     .header{
         z-index: 3;
     }
+    .mobile_display_country{
+        display: block;
+        margin-left:10px;
+        margin-right:10px;
+    }
+    .lhst_country_div {
+        text-align: center;
+        width: 100%;
+        min-width: 260px;
+        margin-left:0;
+        margin-top:0;
+    }
+    .lhst_country_img{
+        height:100px;
+        margin:0;
+    }
+    .lhst_king_nav-avatar-img{
+        height:40px;
+        width:40px;
+        padding:0;
+    }
+    .lhst_country_king_size{
+        font-size:12px;
+        font-weight:200;
+    }
+    p{
+        font-size: 12px;
+    }
+    .country_card-population-img{
+        height:20px;
+    }
+    .lhst_country_info_region_value{
+        font-size:10px;
 
+    }
+    .country_card-money-img{
+        height:20px;
+    }
+    .country_card-land-img{
+        height:30px;
+    }
+
+    .lhst_country_history_div{
+        margin-left:0;
+        width:100%;
+        padding:5px;
+        height:220px;
+    }
+    .lhst_law_btn{
+        height:50px;
+        width:50px;
+        font-size:12px;
+    }
+    .lhst_country_history_img{
+        height:30px;
+    }
+    .lhst_country_history_comment{
+        height:35px;
+    }
+    .lhst_country_history_text{
+        font-size:10px;
+    }
 }
 
 
 
-@media screen and (max-width:1639px) {
+@media screen and (max-width:1639px) and (min-width: 959px) {
     .auth_text_font {
         font-family: Algerian;
         font-size: 56px;
@@ -342,7 +418,7 @@
     }
 }
 
-@media screen and (max-width:1270px) {
+@media screen and (max-width:1270px) and (min-width: 959px) {
     .lhst_chat_div {
         display: none
     }
@@ -361,7 +437,7 @@
         font-size: 10px
     }
 
-/*    .lhst_law_btn {
+    /*    .lhst_law_btn {
         width: 40px;
         height: 40px;
         font-size: 9px

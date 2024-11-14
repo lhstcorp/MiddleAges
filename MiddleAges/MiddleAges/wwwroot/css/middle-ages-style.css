@@ -1135,6 +1135,17 @@ lhst_marquee {
     display:none;
 }
 
+.mobileCountryButtonsDiv {
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-size: 100%;
+    display: none;
+}
+
+.mobile_display_country{
+    display: inline-flex;
+}
+
+
     /*.dropdown-menu ul {
         list-style: none;
         padding: 0;

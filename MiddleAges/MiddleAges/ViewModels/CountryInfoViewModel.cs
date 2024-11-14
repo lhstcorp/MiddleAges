@@ -17,5 +17,6 @@ namespace MiddleAges.ViewModels
         public long PeasantsCount { get; set; }
         public long SoldiersCount { get; set; }
         public long LordsCount { get; set; }
+        public string DeviceType { get; set; }
     }
 }

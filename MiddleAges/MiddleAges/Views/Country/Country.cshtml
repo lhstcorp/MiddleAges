@@ -10,37 +10,40 @@
 
     Player player = await UserManager.GetUserAsync(User);
     List<Law> lawsOrderByTime = new List<Law>();
-    lawsOrderByTime = Model.Laws.OrderByDescending(z => z.PublishingDateTime).ToList();    
+    lawsOrderByTime = Model.Laws.OrderByDescending(z => z.PublishingDateTime).ToList();
 }
 
 <div class="d-flex ">
-    <div class="lhst_left-side-bar lhst_vertical-alignment-top ">
-        @{
-            string disabled = Model.Ruler.Id != player.Id ? "disabled" : "";
-        }
+    @if (Model.DeviceType == "Desktop")
+    {
+        <div class="lhst_left-side-bar lhst_vertical-alignment-top lhst_left-side-bar-country">
+            @{
+                string disabled = Model.Ruler.Id != player.Id ? "disabled" : "";
+            }
 
-        <div class="lhst_country_buttons_div lhst_scale mt-3">
-            @*ПЕРЕИМЕНОВАНИЕ*@
-            <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
-            @*ИЗМНЕНЕНИЕ ЦВЕТА*@
-            <button @disabled class="header-menu color-btn lhst_shadow_text lhst_law_btn" onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
-            @*Смена столицы*@
-            <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
-            @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
-            <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer land</button>
-            @*  @*Установление налога*@
-            <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
-            @*Смена правителя*@
-            <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
-            @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
-            <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
-            @*Назначить губернатора*@
-            <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openAppointGovernorDialog()">Appoint a governor</button>
-            @*распустить страну*@
-            <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
+            <div class="lhst_country_buttons_div lhst_scale mt-3">
+                @*ПЕРЕИМЕНОВАНИЕ*@
+                <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
+                @*ИЗМНЕНЕНИЕ ЦВЕТА*@
+                <button @disabled class="header-menu color-btn lhst_shadow_text lhst_law_btn" onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
+                @*Смена столицы*@
+                <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
+                @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
+                <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer land</button>
+                @*  @*Установление налога*@
+                <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
+                @*Смена правителя*@
+                <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
+                @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
+                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
+                @*Назначить губернатора*@
+                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openAppointGovernorDialog()">Appoint a governor</button>
+                @*распустить страну*@
+                <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
+            </div>
         </div>
-    </div>
-    <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding d-inline-flex lhst_font_size">
+    }
+    <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding mobile_display_country lhst_font_size">
         <div class="lhst_avatar_inline lhst_country_div align-top lhst_slider_lands_screen ">
             <p class="lhst_country_king_size mb-0" >@Model.Country.Name</p>
             <p class="lhst_country_king_size mb-0">@Model.Country.CapitalId</p>
@@ -100,23 +103,56 @@
                 }
             </div>
         </div>
-        <div>
-           
+
+        @if (Model.DeviceType == "Mobile")
+        {
+            <div class="mobileCountryButtonsDiv">
+                <div class="lhst_left-side-bar lhst_vertical-alignment-top lhst_left-side-bar-country">
+                    @{
+                        string disabled = Model.Ruler.Id != player.Id ? "disabled" : "";
+                    }
+
+                    <div class="lhst_country_buttons_div lhst_scale mt-3">
+                        @*ПЕРЕИМЕНОВАНИЕ*@
+                        <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
+                        @*ИЗМНЕНЕНИЕ ЦВЕТА*@
+                        <button @disabled class="header-menu color-btn lhst_shadow_text lhst_law_btn" onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
+                        @*Смена столицы*@
+                        <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
+                        @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
+                        <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer land</button>
+                        @*  @*Установление налога*@
+                        <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
+                        @*Смена правителя*@
+                        <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
+                        @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
+                        <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
+                        @*Назначить губернатора*@
+                        <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openAppointGovernorDialog()">Appoint a governor</button>
+                        @*распустить страну*@
+                        <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
+                    </div>
+                </div>
+            </div>
+        }
+        <div>           
            @*  <p class="lhst_possessions_titles ml-3">Statute of @(Model.Country.Name)</p> *@
             <div class="lhst_country_history_div align-top lhst_nav lhst_slider ">
                 @for (int i = 0; i < lawsOrderByTime.Count(); i++)
                 {
                     <div class="lhst_country_history_comment text-left!important">
-                        <img class="lhst_country_history_img" title="@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type))" id="country_history_img" height="42" src="../img/menu-icons/@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type)).jfif" alt="" loading="lazy"/>
-                        <p class="lhst_country_history_text">@String.Format(CommonLogic.getLawDescriptionByType(lawsOrderByTime[i].Type), lawsOrderByTime[i].Value2, lawsOrderByTime[i].Value1)</p>
+                        <img class="lhst_country_history_img " title="@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type))" id="country_history_img" height="42" src="../img/menu-icons/@(@CommonLogic.getLawNameByType(lawsOrderByTime[i].Type)).jfif" alt="" loading="lazy"/>
+                        <p class="lhst_country_history_text ">@String.Format(CommonLogic.getLawDescriptionByType(lawsOrderByTime[i].Type), lawsOrderByTime[i].Value2, lawsOrderByTime[i].Value1)</p>
                         <img class="lhst_country_history_img ml-5" src="../img/interface-icons/stamp.png" height="52" alt="" loading="lazy">
-                        <time class="float-right" datetime="2016-11-18T09:54">@lawsOrderByTime[i].PublishingDateTime</time>
+                        <time class="float-right lhst_country_history_text" datetime="2016-11-18T09:54">@lawsOrderByTime[i].PublishingDateTime.ToString("dd.MM.yy HH:mm")</time>
                     </div>
                     <div class="lhst_country_history_line mb-0"></div>
                 }
             </div>
         </div>
     </div>
+    
+    
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/country_page_actions.js"></script>
 </div>

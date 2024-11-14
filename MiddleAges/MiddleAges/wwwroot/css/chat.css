@@ -115,7 +115,9 @@
     }
 
 .lhst_chat_but_marg {
-    margin-top: 141px
+    position: absolute;
+    right:0;
+    top:140px;
 }
 
 .lhst_but_open_chat {
