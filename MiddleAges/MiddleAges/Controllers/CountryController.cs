@@ -65,6 +65,8 @@ namespace MiddleAges.Controllers
                 List<BorderLand> borderLands = borderLandsQuery.Select(q => q.BorderLand).ToList();
 
                 List<Unit> countryUnits = await GetCountryUnits(country.CountryId);
+                var userAgent = Request.Headers["User-Agent"].ToString();
+                var deviceType = userAgent.Contains("Mobi") ? "Mobile" : "Desktop";
 
                 var countryInfoViewModel = new CountryInfoViewModel
                 {
@@ -78,7 +80,8 @@ namespace MiddleAges.Controllers
                     BorderLands = borderLands,
                     PeasantsCount = countryUnits.Where(u => u.Type == (int)UnitType.Peasant).Sum(u => u.Count),
                     SoldiersCount = countryUnits.Where(u => u.Type == (int)UnitType.Soldier).Sum(u => u.Count),
-                    LordsCount = countryUnits.GroupBy(u => u.PlayerId).Count()
+                    LordsCount = countryUnits.GroupBy(u => u.PlayerId).Count(),
+                    DeviceType = deviceType
                 };
 
                 return View("Country", countryInfoViewModel);
