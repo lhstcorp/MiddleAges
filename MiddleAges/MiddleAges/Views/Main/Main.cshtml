@@ -8,7 +8,7 @@
 <div class="d-flex">
     @if (Model.DeviceType == "Desktop")
     {
-        <div class="lhst_left-side-bar lhst_vertical-alignment-top">
+        <div class="lhst_left-side-bar lhst_vertical-alignment-top lhst_desktop">
             <div class="lhst_left_side_bar_land_content row justify-content-md-center">
                 <div class="col lhst_map_region_icon_left_bar_col">
                     <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Player.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
@@ -20,26 +20,25 @@
 
             </div>
         </div>
-    }
-
-    @if (Model.DeviceType == "Mobile")
-    {
-        <div class="lhst_left-side-bar lhst_vertical-alignment-top">
-            <div class="lhst_left_side_bar_land_content row justify-content-md-center">
-                <div class="col lhst_map_region_icon_left_bar_col">
-                    <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Player.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
-                </div>
-                <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
-                    <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
-                    <p class="lhst_current_land_name lhst_leftSideBar_land_name m_landBtn lhst_cursor_pointer" data-land=@Model.Player.CurrentLand>@Model.Player.CurrentLand</p>
-                </div>
-
-            </div>
-        </div>
-    }
+    }    
 
     <div class="lhst_vertical-alignment-top lhst_main-section_mainmenu lhst_main_section_padding">
         <div class="float-left mr-3">
+
+            @if (Model.DeviceType == "Mobile")
+            {
+                <p class="lhst_possessions_titles">Location</p>
+                <div class="lhst_left_side_bar_land_content row justify-content-md-center lhst_panel_background">
+                    <div class="col lhst_map_region_icon_left_bar_col">
+                        <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Player.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
+                    </div>
+                    <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
+                        <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
+                        <p class="lhst_current_land_name lhst_leftSideBar_land_name m_landBtn lhst_cursor_pointer" data-land=@Model.Player.CurrentLand>@Model.Player.CurrentLand</p>
+                    </div>
+                </div>
+            }
+
             @await Component.InvokeAsync(typeof(BuildingsViewComponent))
             @await Component.InvokeAsync(typeof(UnitsViewComponent))
         </div>

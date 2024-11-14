@@ -17,7 +17,6 @@ body {
     
 }
 
-
 .header {
     border-bottom: 1px solid;
     position: fixed;
@@ -1143,6 +1142,11 @@ lhst_marquee {
 
 .mobile_display_country{
     display: inline-flex;
+}
+
+.lhst_panel_background {
+    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-size: 100%;
 }
 
 
