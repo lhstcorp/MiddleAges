@@ -206,13 +206,38 @@ namespace MiddleAges.Timed_Hosted_Services
             double attackersArmyStrength = 100 + Math.Round(CommonLogic.GetAverageArmyWarfare(attackersArmies, attackersPlayerAttributes) * 2, 2);
             double defendersArmyStrength = 100 + Math.Round(CommonLogic.GetAverageArmyWarfare(defendersArmies, defendersPlayerAttributes) * 2, 2);
 
+            // Fortification strengths -->
+            var attackersFortificationStrengthQuery = _context.LandDevelopmentShares
+                                                .Join(_context.Wars,
+                                                    ld => ld.LandId,
+                                                    w => w.LandIdFrom,
+                                                    (ld, w) => new { LandDevelopmentShare = ld, War = w })
+                                                .FirstOrDefault(q => q.War.WarId == war.WarId);
+
+            LandDevelopmentShare attackersLandDevelopmentShare = attackersFortificationStrengthQuery.LandDevelopmentShare;
+
+            var defendersFortificationStrengthQuery = _context.LandDevelopmentShares
+                                                .Join(_context.Wars,
+                                                    ld => ld.LandId,
+                                                    w => w.LandIdFrom,
+                                                    (ld, w) => new { LandDevelopmentShare = ld, War = w })
+                                                .FirstOrDefault(q => q.War.WarId == war.WarId);
+
+            LandDevelopmentShare defendersLandDevelopmentShare = defendersFortificationStrengthQuery.LandDevelopmentShare;
+
+            LandDevelopmentShare maxFortificationLandDevelopmentShare = _context.LandDevelopmentShares.OrderByDescending(lds => lds.FortificationShare).FirstOrDefault();
+
+            double attackersFortificationStrength = Math.Round(100 * CommonLogic.GetFortificationValue(attackersLandDevelopmentShare.FortificationShare, maxFortificationLandDevelopmentShare.FortificationShare));
+            double defendersFortificationStrength = Math.Round(100 * CommonLogic.GetFortificationValue(defendersLandDevelopmentShare.FortificationShare, maxFortificationLandDevelopmentShare.FortificationShare));
+            // <--
+
             double attackersSoldiersCount = attackersArmies.Sum(a => a.SoldiersCount);
             double defendersSoldiersCount = defendersArmies.Sum(a => a.SoldiersCount);
 
             if (!CheckEndOfWar(war, attackersSoldiersCount, defendersSoldiersCount))
             {
-                double attackersPower = attackersSoldiersCount * attackersArmyStrength;
-                double defendersPower = defendersSoldiersCount * defendersArmyStrength;
+                double attackersPower = attackersSoldiersCount * attackersArmyStrength * attackersFortificationStrength;
+                double defendersPower = defendersSoldiersCount * defendersArmyStrength * defendersFortificationStrength;
 
                 double attackersPerc = attackersPower / (attackersPower + defendersPower);
                 double defendersPerc = 1 - attackersPerc;
