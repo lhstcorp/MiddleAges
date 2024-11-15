@@ -400,6 +400,39 @@ namespace MiddleAges.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> TransferMoney(string landId, double amount)
+        {
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == landId);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId == land.CountryId);
+
+            if (player.Id == country.RulerId
+             && land.CountryId == country.CountryId
+             && country.Money >= amount
+             && amount > 0)
+            {
+                Law law = new Law();
+                law.CountryId = country.CountryId;
+                law.PlayerId = player.Id;
+                law.Type = (int)LawType.TransferingMoney;
+                law.PublishingDateTime = DateTime.UtcNow;
+                law.Value1 = amount.ToString();
+                law.Value2 = landId;
+                _context.Add(law);
+
+                country.Money -= amount;
+                _context.Update(country);
+
+                land.Money += amount;
+                _context.Update(land);
+                
+                await _context.SaveChangesAsync();
+            }
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Country"));
+        }        
+
+        [HttpPost]
         public async Task<IActionResult> DisbandCountry()
         {
             Player player = await _userManager.GetUserAsync(HttpContext.User);
