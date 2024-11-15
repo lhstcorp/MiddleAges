@@ -76,10 +76,15 @@ function openWarsMenuScreensDialog() {
 function hideWarsMenuScreensDialog() {
     $('#warsMenuScreensDialog').modal('hide');
 }
-
 function openAppointGovernorDialog() {
     $('#appointGovernorDialog').modal('show');
 }
 function hideAppointGovernorDialog() {
     $('#appointGovernorDialog').modal('hide');
+}
+function openTransferingMoneyDialog() {
+    $('#transferingMoneyDialog').modal('show');
+}
+function hideTransferingMoneyDialog() {
+    $('#transferingMoneyDialog').modal('hide');
 }

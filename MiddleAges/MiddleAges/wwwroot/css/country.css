@@ -41,6 +41,16 @@
     background-size: 100%
 }
 
+.header-menu.appoint-governor-btn {
+    background-image: url(../img/menu-icons/AppointGovernor.jfif);
+    background-size: 100%
+}
+
+.header-menu.transfer-money-btn {
+    background-image: url(../img/menu-icons/TransferingMoney.jfif);
+    background-size: 100%
+}
+
 .header-menu.disband-btn {
     background-image: url(../img/menu-icons/Disbanding.jfif);
     background-size: 100%
