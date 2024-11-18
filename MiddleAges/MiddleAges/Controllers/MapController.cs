@@ -87,7 +87,7 @@ namespace MiddleAges.Controllers
 
             mapSelectedLandViewModel.DeviceType = deviceType;
 
-            mapSelectedLandViewModel.BorderWith = GetLandBorderWith(land.LandId);
+            mapSelectedLandViewModel.BorderWith = GetLandBorderWithList(land.LandId);
 
             return mapSelectedLandViewModel;
         }
@@ -242,23 +242,30 @@ namespace MiddleAges.Controllers
             return Json(JsonSerializer.Serialize(result));
         }
 
-        private string GetLandBorderWith(string landId)
+        //private string GetLandBorderWith(string landId)
+        //{
+        //    List<BorderLand> borderLands = _context.BorderLands.Where(bl => bl.LandId == landId).ToList();
+
+        //    string borderLandsStr = "";
+
+        //    for (int i = 0; i < borderLands.Count; i++)
+        //    {
+        //        if (borderLandsStr.Length > 0)
+        //        {
+        //            borderLandsStr += ", ";
+        //        }
+
+        //        borderLandsStr += borderLands[i].BorderLandId;
+        //    }
+
+        //    return borderLandsStr;
+        //}
+
+        private List<BorderLand> GetLandBorderWithList(string landId)
         {
             List<BorderLand> borderLands = _context.BorderLands.Where(bl => bl.LandId == landId).ToList();
 
-            string borderLandsStr = "";
-
-            for (int i = 0; i < borderLands.Count; i++)
-            {
-                if (borderLandsStr.Length > 0)
-                {
-                    borderLandsStr += ", ";
-                }
-
-                borderLandsStr += borderLands[i].BorderLandId;
-            }
-
-            return borderLandsStr;
+            return borderLands;
         }
 
         private async Task<List<LandBuilding>> GetLandBuildings(string landId)

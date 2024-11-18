@@ -1149,6 +1149,14 @@ lhst_marquee {
     background-size: 100%;
 }
 
+.lhst_geo_object {
+    color: var(--wheat-color);
+}
+
+.lhst_geo_object:hover {
+    color: var(--yellow-color);
+}
+
 
     /*.dropdown-menu ul {
         list-style: none;
