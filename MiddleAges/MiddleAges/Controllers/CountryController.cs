@@ -65,6 +65,7 @@ namespace MiddleAges.Controllers
                 List<BorderLand> borderLands = borderLandsQuery.Select(q => q.BorderLand).ToList();
 
                 List<Unit> countryUnits = await GetCountryUnits(country.CountryId);
+
                 var userAgent = Request.Headers["User-Agent"].ToString();
                 var deviceType = userAgent.Contains("Mobi") ? "Mobile" : "Desktop";
 

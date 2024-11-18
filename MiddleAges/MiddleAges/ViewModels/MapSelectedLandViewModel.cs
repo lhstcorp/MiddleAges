@@ -16,7 +16,7 @@ namespace MiddleAges.ViewModels
         public int Population { get; set; }
         public int LordsCount { get; set; }
         public int ResidentsCount { get; set; }
-        public string BorderWith { get; set; }
+        public List<BorderLand> BorderWith { get; set; }
         public string DeviceType { get; set; }
         public List<LandBuilding> LandBuildings { get; set; }
     }
