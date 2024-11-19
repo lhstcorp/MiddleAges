@@ -86,6 +86,11 @@ function populateWarData(obj) {
     
     $('#imgFrom').attr('src', coatOfArmsUrl + obj.LandFrom.LandId + '.png');
     $('#imgTo').attr('src', coatOfArmsUrl + obj.LandTo.LandId + '.png');
+
+    $('#landFromName').data("land", obj.LandFrom.LandId);
+    $('#landToName').data("land", obj.LandTo.LandId);
+    $('#imgFrom').data("land", obj.LandFrom.LandId);
+    $('#imgTo').data("land", obj.LandTo.LandId);
 }
 
 function populateArmyData(obj) {
