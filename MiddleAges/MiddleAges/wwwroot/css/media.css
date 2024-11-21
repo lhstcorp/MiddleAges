@@ -157,13 +157,6 @@
         bottom: 0;
     }
 
-    .mobileCountryButtonsDiv {
-        display: block;
-/*        position: absolute;
-        bottom: 0;*/
-        width: 100%;
-    }
-
     .mobileMainDiv {
         display: block;
     }
@@ -199,13 +192,13 @@
         z-index: 2;
     }
 
-/*    .lhst_left-side-bar-country{
-        position: absolute !important;
-        bottom: 0 !important;
-    }*/
+    .lhst_country_buttons_div{
+        margin:0;
+    }
 
     .lhst_menu_but {
-        width: 40%;
+        width: calc(100vw - 230px);
+        max-width: calc(100vw - 230px);
     }
     .header{
         z-index: 3;
@@ -272,6 +265,25 @@
     .lhst_country_history_text{
         font-size:10px;
     }
+
+    .lhst_scale polygon {
+        transition: none;
+    }
+
+        .lhst_scale polygon:hover {
+            transform:none;
+            border-style: none;
+            stroke-width: 0; /* цветная граница */
+            stroke: none;
+        }
+
+        .lhst_scale polygon:active {
+            border-style: none;
+        }
+    #global_region_map polygon:hover {
+        filter: none;
+    }
+                                       
 }
 
 

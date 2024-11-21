@@ -1,5 +1,6 @@
 ﻿:root {
-    --main-color: #232323;
+    /*--main-color: #232323;*/
+    --main-color: #FFEBCD;
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
@@ -72,6 +73,19 @@
     max-height: calc(100vh - 212px)
 }
 
+.lhst_left-side-bar-country-mobile {
+    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-size: 10%;
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+    position: relative;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: var(--wheat-color);
+    display:block;
+}
+
 .lhst_country_img {
     display: inline-block;
     height: 250px;
@@ -128,11 +142,11 @@
 
 .lhst_country_buttons_div {
     text-align: left;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 10px;
     padding: 5px;
     background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-size: 50%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
