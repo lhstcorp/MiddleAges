@@ -467,7 +467,7 @@ footer {
 }
 
     .lhst_btn_unit_recruit:hover {
-        background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
+        background: radial-gradient(var(--green-color) 0%,black);
         color: var(--yellow-color);
         border-style: outset
     }
@@ -1085,6 +1085,7 @@ lhst_marquee {
     position: absolute;
     top: 10px;
     right: 20px;
+    justify-items: center;
 }
 
 
