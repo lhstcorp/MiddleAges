@@ -1,9 +1,10 @@
 ﻿:root {
---main-color:#232323;
---add-color:#393939;
---green-color:#2d9062;
---yellow-color:#faaf08;
---wheat-color:#FFEBCD
+    /*--main-color:#232323;*/
+    --main-color: #FFEBCD;
+    --add-color: #393939;
+    --green-color: #2d9062;
+    --yellow-color: #faaf08;
+    --wheat-color: #FFEBCD
 }
 
 .auth_background {
