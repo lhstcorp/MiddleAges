@@ -4,7 +4,8 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 .lhst_vertical_line {
@@ -17,7 +18,7 @@
     max-height: calc(100vh - 212px);
     margin-top: 10px;
     margin-left: 10px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 100%;
     border-radius: 20px;
     color: var(--wheat-color);
@@ -38,7 +39,7 @@
 
 .lhst_inWars {
     text-align: left;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 100%;
     border-radius: 20px;
     color: var(--wheat-color)

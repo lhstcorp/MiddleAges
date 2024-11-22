@@ -4,7 +4,8 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 .header-menu.rename-btn {
@@ -63,7 +64,7 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 50%;
     border-radius: 20px;
     border-width: 2px;
@@ -74,7 +75,7 @@
 }
 
 .lhst_left-side-bar-country-mobile {
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 10%;
     margin-top: 10px;
     width: auto;
@@ -83,7 +84,7 @@
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
-    display:block;
+    display: block;
 }
 
 .lhst_country_img {
@@ -145,7 +146,7 @@
     margin-top: 20px;
     margin-left: 10px;
     padding: 5px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 50%;
     border-radius: 20px;
     border-width: 2px;
@@ -160,7 +161,7 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 30%;
     border-radius: 20px;
     border-width: 2px;
