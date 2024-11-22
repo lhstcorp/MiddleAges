@@ -16,12 +16,12 @@
 <div class="d-flex ">
     @if (Model.DeviceType == "Desktop")
     {
-        <div class="lhst_left-side-bar lhst_vertical-alignment-top lhst_left-side-bar-country">
+        <div class="lhst_vertical-alignment-top lhst_left-side-bar">
             @{
                 string disabled = Model.Ruler.Id != player.Id ? "disabled" : "";
             }
 
-            <div class="lhst_country_buttons_div lhst_scale mt-3">
+            <div class="lhst_country_buttons_div lhst_scale">
                 @*ПЕРЕИМЕНОВАНИЕ*@
                 <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
                 @*ИЗМНЕНЕНИЕ ЦВЕТА*@
@@ -108,13 +108,12 @@
 
         @if (Model.DeviceType == "Mobile")
         {
-            <div class="mobileCountryButtonsDiv">
-                <div class="lhst_left-side-bar lhst_vertical-alignment-top lhst_left-side-bar-country">
+                <div class="lhst_left-side-bar-country-mobile">
                     @{
                         string disabled = Model.Ruler.Id != player.Id ? "disabled" : "";
                     }
 
-                    <div class="lhst_country_buttons_div lhst_scale mt-3">
+                    <div class="lhst_country_buttons_div lhst_scale">
                         @*ПЕРЕИМЕНОВАНИЕ*@
                         <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
                         @*ИЗМНЕНЕНИЕ ЦВЕТА*@
@@ -137,7 +136,6 @@
                         <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>
                     </div>
                 </div>
-            </div>
         }
         <div>
             <div class="lhst_country_history_div align-top lhst_nav lhst_slider ">

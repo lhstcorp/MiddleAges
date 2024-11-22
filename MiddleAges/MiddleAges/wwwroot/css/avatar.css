@@ -1,9 +1,11 @@
 :root {
-    --main-color: #232323;
+    /* --main-color: #232323;*/
+    --main-color: #FFEBCD;
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 .lhst_avatar_vertical-alignment-top {
@@ -16,8 +18,8 @@
 }
 
 .lhst_avatar_left-side-bar {
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 60%;
     width: 229px;
     min-width: 229px;
     position: fixed;
@@ -36,9 +38,9 @@
     display: inline-block
 }
 
-.lhst_avatar_main_data_image {
+.lhst_avatar_main_data_image_div {
     border-style: solid;
-    border-width: 2px;
+    border-width: 1px;
     border-color: var(--main-color);
     border-radius: 10px;
     height: 120px;
@@ -49,13 +51,24 @@
     /* Добавляем плавный переход для эффекта */
 }
 
-    .lhst_avatar_main_data_image:hover {
+.lhst_avatar_main_data_image {
+    border:0;
+    border-radius: 10px;
+    height: 120px;
+    width: 120px;
+    display: inline-block;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    /* Добавляем плавный переход для эффекта */
+}
+
+    .lhst_avatar_main_data_image_div:hover {
         box-shadow: 0 0 5px rgba(255, 223, 150, 0.8), 0 0 10px rgba(255, 200, 100, 0.5);
         /* Мягкое свечение голубовато-желтого цвета */
     }
 
     /* Эффект нажатия */
-    .lhst_avatar_main_data_image:active {
+    .lhst_avatar_main_data_image_div:active {
         transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
@@ -81,8 +94,8 @@
     height: 400px;
     width: 530px;
     padding: 15px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 40%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -91,12 +104,12 @@
 
 .lhst_avatar_image_div {
     text-align: center;
-/*    height: 400px;
+    /*    height: 400px;
     width: 280px;*/
     margin-left: 10px;
     padding: 10px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 60%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -223,8 +236,8 @@
 .lhst_avatar_info_div {
     margin-left: 10px;
     padding: 15px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 30%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -318,7 +331,6 @@
 .lhst_settings_button:hover {
     background: radial-gradient(var(--green-color),black);
     color: var(--yellow-color);
-    border-style: outset
 }
 
 .lhst_settings_button:active {

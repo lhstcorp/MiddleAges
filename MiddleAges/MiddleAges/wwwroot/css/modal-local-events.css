@@ -1,22 +1,23 @@
 ﻿:root {
-    --main-color: #232323;
+    /*--main-color: #232323;*/
+    --main-color: #FFEBCD;
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 .lhst_event_btn {
     width: 119px;
-    height: 90px;
-    padding: 5px;
+    height: 80px;
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
     border-color: #000;
     color: var(--wheat-color);
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
-    margin: 2px;
+    margin-right: 5px;
     font-size: 14px;
     line-height: 1;
     vertical-align: middle;
@@ -40,7 +41,7 @@
     margin: 20vh auto;
     border: solid;
     padding: 1em;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 100%;
     color: var(--wheat-color);
     width: 500px;

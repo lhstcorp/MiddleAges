@@ -1,9 +1,11 @@
 :root {
-    --main-color: #232323;
+    /*--main-color: #232323;*/
+    --main-color: #FFEBCD;
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 .lhst_svg-map {
@@ -19,7 +21,7 @@
 
     #global_region_map polygon {
         stroke-width: 1;
-        stroke: var(--main-color);
+        stroke: var(--add-color);
         fill: transparent;
         opacity: 100%
     }

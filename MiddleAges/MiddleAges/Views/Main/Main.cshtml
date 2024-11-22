@@ -30,7 +30,7 @@
                 <p class="lhst_possessions_titles">Location</p>
                 <div class="lhst_left_side_bar_land_content row justify-content-md-center lhst_panel_background">
                     <div class="col lhst_map_region_icon_left_bar_col">
-                        <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Player.CurrentLand).png" class="lhst_map_region_icon_left_barlhst_cursor_pointer m_landBtn" alt="map region coat of arms" loading="lazy" data-land=@Model.Player.CurrentLand />
+                        <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Player.CurrentLand).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer m_landBtn" alt="map region coat of arms" loading="lazy" data-land=@Model.Player.CurrentLand />
                     </div>
                     <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
                         <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
@@ -194,6 +194,7 @@
                     <p id="Leadership" class="p-0 lhst_attr_value font-weight-bolder mb-0 mt-2 mr-2">@Model.PlayerAttribute.Leadership</p>
                     <input class="attrBtn p-0 lhst_btn_building_lvlup mt-1 mb-0" type="submit" value="+" data-attributename="Leadership" />
                 </div>
+                <input class="attrBtn p-0 lhst_tb_unit_recruit mt-1 mb-0" type="submit" data-attributename="Reset" value="Reset" />
             </div>
         </div>
 
@@ -203,10 +204,10 @@
                 <div class="row">
                     <p class="lhst_possessions_titles" style="width: 250px">Local Events</p>
                 </div>
-                <div class="row lhst_scale lhst_blur-image">
+                <div class="lhst_scale lhst_blur-image d-flex p-2">
                     @for (int i = 0; i < Model.PlayerLocalEvents.Count; i++)
                     {
-                        <button class="lhst_shadow_text lhst_event_btn" style="background-image: url(../img/local-events/@(Model.PlayerLocalEvents[i].EventId)_preview.jpg);" data-localeventid=@Model.PlayerLocalEvents[i].LocalEventId></button>
+                            <button class="lhst_shadow_text lhst_event_btn" style="background-image: url(../img/local-events/@(Model.PlayerLocalEvents[i].EventId)_preview.jpg);" data-localeventid=@Model.PlayerLocalEvents[i].LocalEventId></button>
                     }
                 </div>
             </div>

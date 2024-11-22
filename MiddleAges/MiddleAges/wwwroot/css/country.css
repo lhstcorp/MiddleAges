@@ -1,9 +1,11 @@
 ﻿:root {
-    --main-color: #232323;
+    /*--main-color: #232323;*/
+    --main-color: #FFEBCD;
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 .header-menu.rename-btn {
@@ -62,7 +64,7 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 50%;
     border-radius: 20px;
     border-width: 2px;
@@ -70,6 +72,19 @@
     color: var(--wheat-color);
     min-width: 370px;
     max-height: calc(100vh - 212px)
+}
+
+.lhst_left-side-bar-country-mobile {
+    background-image: var(--pattern);
+    background-size: 10%;
+    margin-top: 10px;
+    width: auto;
+    height: auto;
+    position: relative;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: var(--wheat-color);
+    display: block;
 }
 
 .lhst_country_img {
@@ -128,11 +143,11 @@
 
 .lhst_country_buttons_div {
     text-align: left;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-left: 10px;
     padding: 5px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 50%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -146,7 +161,7 @@
     margin-top: 10px;
     margin-left: 10px;
     padding: 10px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 30%;
     border-radius: 20px;
     border-width: 2px;

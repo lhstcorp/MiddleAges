@@ -7,13 +7,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <title>Middle Ages: Стань легендой средневековья!</title>
+   
+    <title>Grand Duchy: Стань легендой средневековья!</title>
     <meta name="description" content="Станьте правителем могущественной империи в мире, полном интриг и битв" />
     <meta name="keywords" content="gaming, online games, multiplayer, strategy, tactics, war games, simulation, role-playing, adventure, historical, fantasy, real-time strategy, turn-based strategy, PvP, PvE, world-building, management, resource management, civilization, campaign, guilds, alliances, quests, units, heroes, maps, territories, kingdoms, realms, sieges, diplomacy, trade, economy, technology, development, expansion, domination, victory, defeat, combat, defense, attack, troops, armies, military, conquest, empire, dynasty, throne, medieval, feudal, castle, knight, monarch, sovereign, ruler, leader, strategy guide" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
-    <title>@ViewData["Title"] - MiddleAges</title>
+    <title>@ViewData["Title"] - Grand Duchy</title>
     <link rel="icon" type="image/x-icon" href="~/img/interface-icons/gerb.ico">
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -33,6 +33,7 @@
     <link rel="stylesheet" href="~/css/modal-player.css" />
     <link rel="stylesheet" href="~/css/modal-local-events.css" />
     <link rel="stylesheet" href="~/css/modal-land.css" />
+    <link rel="stylesheet" href="~/css/yatranslate.css">
 </head>
 
 <body>
@@ -50,51 +51,69 @@
                     <div class="lhst_inline lhst_vertical-line"></div>
 
                     <div class="align-items-center d-inline-flex lhst_menu_but">
-
-
-                    <div class="dropdown">
-                        <button class="dropdown-toggle" onclick="toggleDropdown()">☰</button>
-                        <div id="menuContainer" class="dropdown-menu">
-                            <ul class="lhst_nav p-0">
-                                <li class="lhst_nav">
-                                    <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
-                                </li>
-                                <li class="lhst_nav">
-                                    <a class="nav-link text-dark header-menu lhst_nav map-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
-                                </li>
-                                <li class="lhst_nav">
-                                    <a class="nav-link text-dark header-menu lhst_nav state-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Country" asp-action="Index">Country</a>
-                                </li>
-                                <li class="lhst_nav">
-                                    <a class="nav-link text-dark header-menu lhst_nav settings-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
-                                </li>
-                                <li class="lhst_nav">
-                                    <a class="nav-link text-dark header-menu lhst_nav rating-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Rating" asp-action="Index">Rating</a>
-                                </li>
-                                <li class="lhst_nav">
-                                    <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="War" asp-action="Index">Wars</a>
-                                </li>
-                                <li class="lhst_nav">
-                                    <partial name="_LoginPartial" />
-                                </li>
-                                
-                                @if (User.IsInRole("Admin"))
-                                {
+                        <div class="dropdown">
+                            <button class="dropdown-toggle" onclick="toggleDropdown()">☰</button>
+                            <div id="menuContainer" class="dropdown-menu">
+                                <ul class="lhst_nav p-0">
                                     <li class="lhst_nav">
-                                        <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Admin" asp-action="Index">Administrator Panel</a>
+                                        <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
                                     </li>
-                                }
-                            </ul>
-                            <div class="lhst_inline lhst_nav lhst_header_margin">
-                                <form class="form-inline lhst_inline align-bottom" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                    <button type="submit" class="lhst_btn_logout">Logout</button>
-                                </form>
+                                    <li class="lhst_nav">
+                                        <a class="nav-link text-dark header-menu lhst_nav map-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
+                                    </li>
+                                    <li class="lhst_nav">
+                                        <a class="nav-link text-dark header-menu lhst_nav state-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Country" asp-action="Index">Country</a>
+                                    </li>
+                                    <li class="lhst_nav">
+                                        <a class="nav-link text-dark header-menu lhst_nav settings-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Settings" asp-action="Index">Settings</a>
+                                    </li>
+                                    <li class="lhst_nav">
+                                        <a class="nav-link text-dark header-menu lhst_nav rating-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Rating" asp-action="Index">Rating</a>
+                                    </li>
+                                    <li class="lhst_nav">
+                                        <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="War" asp-action="Index">Wars</a>
+                                    </li>
+                                    <li class="lhst_nav">
+                                        <partial name="_LoginPartial" />
+                                    </li>
+                                
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li class="lhst_nav">
+                                            <a class="nav-link text-dark header-menu lhst_nav wars-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Admin" asp-action="Index">Administrator Panel</a>
+                                        </li>
+                                    }
+                                </ul>
+                                <div class="lhst_inline lhst_nav lhst_header_margin">
+                                    <form class="form-inline lhst_inline align-bottom" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="lhst_btn_logout">Logout</button>
+                                    </form>
+                                </div>
+                                <div class="lang lang_fixed">
+                                    <div id="ytWidget" style="display: none;"></div>
+                                    <div class="lang__link lang__link_select" data-lang-active>
+                                        <img class="lang__img lang__img_select" src="/img/lang-icons/lang__en.png" alt="en">
+                                    </div>
+                                    <div class="lang__list" data-lang-list>
+                                        <a class="lang__link lang__link_sub" data-ya-lang="ru">
+                                            <img class="lang__img" src="~/img/lang-icons/lang__ru.png" alt="ru">
+                                        </a>
+                                        <a class="lang__link lang__link_sub" data-ya-lang="en">
+                                            <img class="lang__img" src="~/img/lang-icons/lang__en.png" alt="en">
+                                        </a>
+                                        <a class="lang__link lang__link_sub" data-ya-lang="de">
+                                            <img class="lang__img" src="~/img/lang-icons/lang__de.png" alt="de">
+                                        </a>
+                                        <a class="lang__link lang__link_sub" data-ya-lang="be">
+                                            <img class="lang__img" src="~/img/lang-icons/lang__be.png" alt="be">
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    @* <button id="showMenuBut" class="mobile-menu-toggle header-menu lhst_shadow_text lhst_scale d-none lhst_btn_logout" onclick="toggleMenu()">
-                        ☰ Menu
-                    </button> *@
+                        @* <button id="showMenuBut" class="mobile-menu-toggle header-menu lhst_shadow_text lhst_scale d-none lhst_btn_logout" onclick="toggleMenu()">
+                            ☰ Menu
+                        </button> *@
                         <div class="lhst_inline lhst_nav lhst_header_margin lhst_scale float-left lhst_desktop">
                             <ul class="lhst_nav p-0">
                                 <li class="lhst_nav ">
@@ -130,13 +149,37 @@
 
 
                         </div>
-                        <div class="lhst_inline lhst_nav lhst_header_margin float-right lhst_margin_logout vw-40 lhst_desktop">
-                            <form class="form-inline lhst_inline align-bottom ml-4 mb-2 " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                                <button type="submit" class="lhst_btn_logout">Logout</button>
-                            </form>
-                        </div>
+                        <div class="d-block lhst_margin_logout ">
+                            
+                            <div class="lhst_inline lhst_nav lhst_header_margin float-right vw-40 lhst_desktop">
+                                <form class="form-inline lhst_inline align-bottom ml-4 mb-2 " asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                    <button type="submit" class="lhst_btn_logout">Logout</button>
+                                </form>
+                            </div>
 
+                            <div class="lang lang_fixed lhst_desktop">
+                                <div id="ytWidget" style="display: none;"></div>
+                                <div class="lang__link lang__link_select" data-lang-active>
+                                    <img class="lang__img lang__img_select" src="/img/lang-icons/lang__en.png" alt="en">
+                                </div>
+                                <div class="lang__list" data-lang-list>
+                                    <a class="lang__link lang__link_sub" data-ya-lang="ru">
+                                        <img class="lang__img" src="~/img/lang-icons/lang__ru.png" alt="ru">
+                                    </a>
+                                    <a class="lang__link lang__link_sub" data-ya-lang="en">
+                                        <img class="lang__img" src="~/img/lang-icons/lang__en.png" alt="en">
+                                    </a>
+                                    <a class="lang__link lang__link_sub" data-ya-lang="de">
+                                        <img class="lang__img" src="~/img/lang-icons/lang__de.png" alt="de">
+                                    </a>
+                                    <a class="lang__link lang__link_sub" data-ya-lang="be">
+                                        <img class="lang__img" src="~/img/lang-icons/lang__be.png" alt="be">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                        
                 }
                 else
                 {
@@ -157,7 +200,7 @@
         </div>
         <footer class="footer text-muted lhst_desktop">
             <div class="container lhst_footer-text ">
-                &copy; 2023 - MiddleAges - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
+                &copy; 2023 - Grand Duchy - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
             </div>
             <div class="container align-self-center lhst_footer-text d-flex mt-3">
                 <p class="mr-1">Server time:</p>
@@ -175,6 +218,8 @@
         <script src="~/js/server_time.js"></script>
         <script src="~/js/modal_player.js"></script>
         <script src="~/js/modal_land.js"></script>
+        <script src="~/js/yatranslate.js"></script>
+
 
         @*<script src="~/js/snow.js" type="text/javascript" language="JavaScript"></script>*@
         @await RenderSectionAsync("Scripts", required: false)

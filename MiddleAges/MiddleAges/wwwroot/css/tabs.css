@@ -1,9 +1,11 @@
 :root {
-    --main-color: #232323;
+    /* --main-color: #232323;*/
+    --main-color: #FFEBCD;
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 .tab {
@@ -42,8 +44,8 @@
     width: 333px;
     margin-top: 10px;
     margin-left: 10px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 40%;
     border-radius: 20px;
     color: var(--wheat-color);
     padding: 5px
@@ -52,8 +54,8 @@
 .lhst_inTab {
     text-align: left;
     height: calc(100vh - 315px);
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 50%;
     color: var(--wheat-color) #4c473d
 }
 
