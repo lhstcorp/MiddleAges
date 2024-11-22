@@ -10,15 +10,14 @@
 
 .lhst_event_btn {
     width: 119px;
-    height: 90px;
-    padding: 5px;
+    height: 80px;
     border-style: solid;
     border-radius: 6px;
     border-width: 1px;
     border-color: #000;
     color: var(--wheat-color);
     font-family: 'Sitka Display','Arial',Arial,sans-serif;
-    margin: 2px;
+    margin-right: 5px;
     font-size: 14px;
     line-height: 1;
     vertical-align: middle;
