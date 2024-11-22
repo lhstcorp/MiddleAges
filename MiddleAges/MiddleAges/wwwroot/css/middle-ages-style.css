@@ -7,6 +7,7 @@
     --wheat-color: #FFEBCD;
     --dark-theme: linear-gradient(315deg, rgb(35, 35, 35) 16%, rgb(55, 55, 55) 80%);
     --main-theme: linear-gradient(135deg, #FFF4D1, #F3C99D, #D9A065);
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 body {
@@ -307,18 +308,14 @@ li button.lhst_nav {
 }
 
 .header {
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 20%
-    /*background-color: #232323;*/ /* Основной фон */
-    /*background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
-    background-size: 40px 40px;*/ /* Размер узора */
-    /*background-position: 0 0, 20px 20px, 20px 20px, 0 0;*/
+    background-image: var(--pattern);
+    background-size: 10%
 }
 
 .footer {
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 20%;
-    display:inline-flex;
+    background-image: var(--pattern);
+    background-size: 10%;
+    display: inline-flex;
     /*background-color: #232323;*/ /* Основной фон */
     /*background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
     background-size: 40px 40px;*/ /* Размер узора */
@@ -333,8 +330,8 @@ li button.lhst_nav {
 }
 
 .lhst_left-side-bar {
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 50%;
+    background-image: var(--pattern);
+    background-size: 60%;
     /*background-color: #232323;*/ /* Основной фон */
     /*background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(-45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%), linear-gradient(-45deg, transparent 75%, rgba(0, 0, 0, 0.1) 75%);
     background-size: 40px 40px;*/ /* Размер узора */
@@ -395,7 +392,7 @@ footer {
     /*border-width: 0px;*/
     border-width: 2px;
     border-color: #2b2b2b;
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: var(--pattern);
     /*background-image: conic-gradient(from 235deg at 41% 47%,#232323 16%,#faaf08 33%,#faaf08 58%,#232323 70%);*/
     /*background-repeat: no-repeat;*/
     background-size: 100%;
@@ -705,9 +702,7 @@ lhst_marquee {
     overflow: hidden;
 
     /* Более выраженный и контрастный градиент */
-    background: linear-gradient(120deg, rgba(30, 30, 30, 0.95), rgba(80, 80, 80, 0.9) 50%, rgba(60, 60, 60, 0.95) 70%, rgba(90, 90, 90, 0.9)),
-                linear-gradient(240deg, rgba(80, 80, 80, 0.9), rgba(60, 60, 60, 0.95) 50%, rgba(40, 40, 40, 0.9) 70%, rgba(70, 70, 70, 0.95));
-    background-size: 300% 300%;
+    background: var(--dark-theme);
     position: relative;
 }
 
@@ -755,13 +750,11 @@ lhst_marquee {
     border-style: solid;
     border-width: 2px;
     border-color: #2b2b2b;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 60%;
     border-radius: 6px;
     color: var(--wheat-color);
     padding: 1rem;
-
-   
 }
 
 
@@ -929,7 +922,7 @@ lhst_marquee {
     border-bottom: 1px var(--main-color);
     font-weight: 100;
     margin: -2px 0 0 2px;
-    box-shadow: 0 0 3px rgba(56,54,54,0.86);
+
     text-align: justify;
     color: var(--wheat-color);
         font-family: 'Sitka Display','Arial',Arial,sans-serif;
@@ -1134,9 +1127,9 @@ lhst_marquee {
 }
 
 .mobileMapButtonsDiv {
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 50%;
-    display:none;
+    display: none;
 }
 
 .mobile_display_country{
@@ -1144,7 +1137,7 @@ lhst_marquee {
 }
 
 .lhst_panel_background {
-    background-image: url("../img/menu-icons/black-scratch-lines.png");
+    background-image: var(--pattern);
     background-size: 50%;
 }
 

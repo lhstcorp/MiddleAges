@@ -4,7 +4,8 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 .lhst_dialog {
@@ -13,7 +14,7 @@
     margin: 40vh auto;
     border: solid;
     padding: 1em;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 100%;
     color: var(--wheat-color);
     width: 300px;
@@ -96,7 +97,7 @@
     margin: 20vh auto;
     border: solid;
     padding: 1em;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 100%;
     color: var(--wheat-color);
     height: 50vh;
@@ -120,7 +121,7 @@
     margin: 20vh auto;
     border: solid;
     padding: 1em;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
+    background-image: var(--pattern);
     background-size: 100%;
     color: var(--wheat-color);
     height: 600px;

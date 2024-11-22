@@ -4,7 +4,8 @@
     --add-color: #393939;
     --green-color: #2d9062;
     --yellow-color: #faaf08;
-    --wheat-color: #FFEBCD
+    --wheat-color: #FFEBCD;
+    --pattern: url(../img/menu-icons/black-scratch-lines.png);
 }
 
 @font-face {
@@ -16,8 +17,8 @@
     /*text-align: center;*/
     max-height: calc(100vh - 212px);
     padding: 10px;
-    background-image: url(../img/menu-icons/black-scratch-lines.png);
-    background-size: 100%;
+    background-image: var(--pattern);
+    background-size: 50%;
     border-radius: 20px 0 0 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
