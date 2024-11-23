@@ -87,10 +87,10 @@ function populateWarData(obj) {
     $('#imgFrom').attr('src', coatOfArmsUrl + obj.LandFrom.LandId + '.png');
     $('#imgTo').attr('src', coatOfArmsUrl + obj.LandTo.LandId + '.png');
 
-    $('#landFromName').data("land", obj.LandFrom.LandId);
-    $('#landToName').data("land", obj.LandTo.LandId);
-    $('#imgFrom').data("land", obj.LandFrom.LandId);
-    $('#imgTo').data("land", obj.LandTo.LandId);
+    $('#landFromName').data("land", obj.LandFrom.LandId.replace(' ', '_'));
+    $('#landToName').data("land", obj.LandTo.LandId.replace(' ', '_'));
+    $('#imgFrom').data("land", obj.LandFrom.LandId.replace(' ', '_'));
+    $('#imgTo').data("land", obj.LandTo.LandId.replace(' ', '_'));
 }
 
 function populateArmyData(obj) {
