@@ -38,12 +38,12 @@
                             }
                             else
                             {
-                                <img class="lhst_war_country_img lhst_cursor_pointer m_landBtn" data-land="@allWars[i].LandFrom.LandId" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandFrom.LandId).png" alt="" loading="lazy">
+                                <img class="lhst_war_country_img lhst_cursor_pointer m_landBtn" data-land="@allWars[i].LandFrom.LandId.Replace(' ', '_')" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandFrom.LandId).png" alt="" loading="lazy">
                             }
                         </div>
                         <div class="col-2 p-0">
                             <p class="lhst_wars_country_text ">@allWars[i].CountryFrom.Name</p>
-                            <p class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn" data-land="@allWars[i].LandFrom.LandId">@allWars[i].LandFrom.LandId</p>
+                            <p class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn" data-land="@allWars[i].LandFrom.LandId.Replace(' ', '_')">@allWars[i].LandFrom.LandId</p>
                         </div>
                         <div class="col-4 p-0">
                             <div class="row p-0">
@@ -102,10 +102,10 @@
                         </div>
                         <div class="col-2 p-0 text-right">
                             <p class="lhst_wars_country_text ">@allWars[i].CountryTo.Name</p>
-                            <p class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn" data-land="@allWars[i].LandTo.LandId">@allWars[i].LandTo.LandId</p>
+                            <p class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn" data-land="@allWars[i].LandTo.LandId.Replace(' ', '_')">@allWars[i].LandTo.LandId</p>
                         </div>
                         <div class="col-2 p-0">
-                            <img class="lhst_war_country_img lhst_cursor_pointer m_landBtn" data-land="@allWars[i].LandTo.LandId" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="" loading="lazy">
+                            <img class="lhst_war_country_img lhst_cursor_pointer m_landBtn" data-land="@allWars[i].LandTo.LandId.Replace(' ', '_')" src="../img/map-regions-icons-middle-ages/@(allWars[i].LandTo.LandId).png" alt="" loading="lazy">
                         </div>
                     </div>
                 }
@@ -121,12 +121,12 @@
                             }
                             else
                             {
-                                <img class="lhst_war_country_img lhst_cursor_pointer m_landBtn" data-land="@countryWars[i].LandFrom.LandId" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandFrom.LandId).png" alt="" loading="lazy">
+                                <img class="lhst_war_country_img lhst_cursor_pointer m_landBtn" data-land="@countryWars[i].LandFrom.LandId.Replace(' ', '_')" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandFrom.LandId).png" alt="" loading="lazy">
                             }
                         </div>
                         <div class="col-2 p-0">
                             <p class="lhst_wars_country_text ">@countryWars[i].CountryFrom.Name</p>
-                            <p class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn" data-land="@countryWars[i].LandFrom.LandId">@countryWars[i].LandFrom.LandId</p>
+                            <p class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn" data-land="@countryWars[i].LandFrom.LandId.Replace(' ', '_')">@countryWars[i].LandFrom.LandId</p>
                         </div>
                         <div class="col-4 p-0">
                             <div class="row p-0">
@@ -185,10 +185,10 @@
                         </div>
                         <div class="col-2 p-0 text-right">
                             <p class="lhst_wars_country_text ">@countryWars[i].CountryTo.Name</p>
-                            <p class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn" data-land="@countryWars[i].LandTo.LandId">@countryWars[i].LandTo.LandId</p>
+                            <p class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn" data-land="@countryWars[i].LandTo.LandId.Replace(' ', '_')">@countryWars[i].LandTo.LandId</p>
                         </div>
                         <div class="col-2 p-0">
-                            <img class="lhst_war_country_img lhst_cursor_pointer m_landBtn" data-land="@countryWars[i].LandTo.LandId" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandTo.LandId).png" alt="" loading="lazy">
+                            <img class="lhst_war_country_img lhst_cursor_pointer m_landBtn" data-land="@countryWars[i].LandTo.LandId.Replace(' ', '_')" src="../img/map-regions-icons-middle-ages/@(countryWars[i].LandTo.LandId).png" alt="" loading="lazy">
                         </div>
                     </div>
                 }

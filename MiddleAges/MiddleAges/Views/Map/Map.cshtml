@@ -27,11 +27,11 @@
         <div class="lhst_left-side-bar lhst_slider_small_screen lhst_vertical-alignment-top lhst_desktop">
             <div class="lhst_left_side_bar_land_content row justify-content-md-center">
                 <div class="col lhst_map_region_icon_left_bar_col">
-                    <img id="selected_land_coat_of_arms" @* onclick="openWikiLink()" *@ src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer m_landBtn" alt="map region coat of arms" loading="lazy" data-land=@Model.Land.LandId />
+                    <img id="selected_land_coat_of_arms" @* onclick="openWikiLink()" *@ src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer m_landBtn" alt="map region coat of arms" loading="lazy" data-land=@Model.Land.LandId.Replace(' ', '_') />
                 </div>
                 <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">             
                     <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
-                    <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Land.LandId>@Model.Land.LandId</p>
+                    <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Land.LandId.Replace(' ', '_')>@Model.Land.LandId</p>
                 </div>
             </div>
 
@@ -53,11 +53,11 @@
                         {
                             if (i != Model.BorderWith.Count - 1)
                             {
-                                <span class="lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.BorderWith[i].BorderLandId>@(Model.BorderWith[i].BorderLandId),</span>
+                                <span class="lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.BorderWith[i].BorderLandId.Replace(' ', '_')>@(Model.BorderWith[i].BorderLandId),</span>
                             }
                             else
                             {
-                                <span class="lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.BorderWith[i].BorderLandId>@Model.BorderWith[i].BorderLandId</span>
+                                <span class="lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.BorderWith[i].BorderLandId.Replace(' ', '_')>@Model.BorderWith[i].BorderLandId</span>
                             }
                         }
                     }
