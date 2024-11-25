@@ -15,7 +15,7 @@
                 </div>
                 <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
                     <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
-                    <p class="lhst_current_land_name lhst_leftSideBar_land_name lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Player.CurrentLand>@Model.Player.CurrentLand</p>
+                    <p class="lhst_current_land_name lhst_leftSideBar_land_name lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Player.CurrentLand.Replace(' ', '_')>@Model.Player.CurrentLand</p>
                 </div>
 
             </div>
@@ -34,7 +34,7 @@
                     </div>
                     <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
                         <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
-                        <p class="lhst_current_land_name lhst_leftSideBar_land_name lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Player.CurrentLand>@Model.Player.CurrentLand</p>
+                        <p class="lhst_current_land_name lhst_leftSideBar_land_name lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Player.CurrentLand.Replace(' ', '_')>@Model.Player.CurrentLand</p>
                     </div>
                 </div>
             }
@@ -108,7 +108,7 @@
                     <span class="lhst_tooltiptext_production">
                         Residence prod land:
                     </span>
-                    <span class="ml-1 lhst_geo_object lhst_cursor_pointer m_landBtn" data-land=@Model.ResidenceLand.LandId>@Model.ResidenceLand.LandId</span>
+                    <span class="ml-1 lhst_geo_object lhst_cursor_pointer m_landBtn" data-land=@Model.ResidenceLand.LandId.Replace(' ', '_')>@Model.ResidenceLand.LandId</span>
                 </p>
                 
                 <p class="w-100 flex-wrap mb-0 font-weight-normal lhst_tooltip_production lhst_cursor_help">

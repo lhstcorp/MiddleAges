@@ -5,7 +5,7 @@ $(document).ready(function () {
 });
 
 function showModalLandDialog() {
-    landId = $(this).data("land");
+    landId = $(this).data("land").replace('_', ' ');
 
     if (landId) {
         getLandById(landId);

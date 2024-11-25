@@ -29,12 +29,32 @@ function fillLandSideBar(id) {
             let obj = JSON.parse(data);
             $('#selected_country_name').text(obj.Land.Country.Name);
             $('#selected_land_name').text(obj.Land.LandId.replace('_', ' '));
+            $('#selected_land_name').data("land", obj.Land.LandId.replace(' ', '_'));
             $('#population').text(obj.Population);
             $('#lordsCount').text(obj.LordsCount);
-            $('#map_border_with').text('Has borders with: ' + obj.BorderWith);
+            
+            let borderWithText = 'Has borders with: ';
+            $('#map_border_with').text('Has borders with: ');
+            
+            obj.BorderWith.forEach((region, index) => {
+                // Создаем элемент <span>
+                const spanElement = document.createElement("span");
+                // Устанавливаем текст для <span>
+                spanElement.textContent = region.BorderLandId;
+                spanElement.classList.add("lhst_geo_object", "m_landBtn", "lhst_cursor_pointer");
+                spanElement.dataset.land = region.BorderLandId.replace(' ', '_');
+                // Добавляем <span> к <p>
+                $('#map_border_with').append(spanElement);
+
+                // Добавляем запятую и пробел, если это не последний элемент
+                if (index < obj.BorderWith.length - 1) {
+                    $('#map_border_with').append(document.createTextNode(", "));
+                }
+            });
 
             let url = '../img/map-regions-icons-middle-ages/';
             $('#selected_land_coat_of_arms').attr('src', url + obj.Land.LandId + '.png');
+            $('#selected_land_coat_of_arms').data("land", obj.Land.LandId.replace(' ', '_'));
             
             $('#moveToBtn').data("selectedland", obj.Land.LandId.replace(' ', '_'));
             $('#settleBtn').data("selectedland", obj.Land.LandId.replace(' ', '_'));
