@@ -118,7 +118,7 @@
         height: 250px;
     }
     .lhst_avatar_selection_div{
-        width: 120px;
+        width: 174px;
         height:250px;
     }
 
@@ -127,12 +127,16 @@
         width: 80px
     }
 
+    .lhst_avatar_main_data_image_div{
+        width: 70px;
+        height: 70px;
+    }
 
     .lhst_avatar_main_data_image {
-        height: 90px;
-        width: 90px
+        height: 70px;
+        width: 70px
     }
-    .lhst_info-section{
+    .lhst_info-section {
         margin: 0px;
     }
 
@@ -251,14 +255,20 @@
         padding:5px;
         height:220px;
     }
-    .lhst_law_btn{
-        height:50px;
-        width:50px;
-        font-size:12px;
+    .lhst_btn_war_modal{
+        font-size:9px;
     }
-    .lhst_country_history_img{
+    .lhst_tb_war_modal{
+        font-size: 10px;
+    }
+    .lhst_law_btn {
+        height: 50px;
+        width: 50px;
+        font-size: 12px;
+    }
+    /*.lhst_country_history_img{
         height:30px;
-    }
+    }*/
     .lhst_country_history_comment{
         height:35px;
     }

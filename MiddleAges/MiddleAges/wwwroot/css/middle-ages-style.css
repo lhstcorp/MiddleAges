@@ -763,7 +763,7 @@ lhst_marquee {
     background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
     border-radius: 3px;
-    width: 48px;
+    width: -webkit-fill-available;
     margin-left: 3px;
     height: 26.2px;
     font-size: revert
@@ -771,7 +771,7 @@ lhst_marquee {
 
 .lhst_tb_war_modal {
     align-content: end;
-    width: 48px;
+    width: -webkit-fill-available;
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
@@ -834,7 +834,7 @@ lhst_marquee {
 }
 
 .lhst_default_button:hover {
-    background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
+    background: radial-gradient(var(--green-color) 0%,black);
     color: var(--yellow-color);
     border-style: outset
 }
@@ -1100,7 +1100,7 @@ lhst_marquee {
 }
 
     .dropdown-toggle:hover {
-        background: radial-gradient(var(--green-color) 0%,var(--main-color) 90%);
+        background: radial-gradient(var(--green-color) 0%,black);
         color: var(--yellow-color);
         border-style: outset
     }
@@ -1128,7 +1128,7 @@ lhst_marquee {
 
 .mobileMapButtonsDiv {
     background-image: var(--pattern);
-    background-size: 50%;
+    background-size: 20%;
     display: none;
 }
 

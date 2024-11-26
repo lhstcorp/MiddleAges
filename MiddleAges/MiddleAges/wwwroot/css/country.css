@@ -65,7 +65,7 @@
     margin-left: 10px;
     padding: 10px;
     background-image: var(--pattern);
-    background-size: 50%;
+    background-size: 40%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -147,7 +147,7 @@
     margin-left: 10px;
     padding: 5px;
     background-image: var(--pattern);
-    background-size: 50%;
+    background-size: 40%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
