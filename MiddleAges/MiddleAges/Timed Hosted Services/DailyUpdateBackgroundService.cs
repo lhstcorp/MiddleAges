@@ -121,6 +121,7 @@ namespace MiddleAges.Timed_Hosted_Services
                 ratingCalculatedPoints.ExpPoints = u.Player.Exp;
                 ratingCalculatedPoints.MoneyPoints = u.Player.Money;
                 ratingCalculatedPoints.WarPowerPoints = u.Count * playerAttributes.FirstOrDefault(pa => pa.PlayerId == u.PlayerId).Warfare;
+                ratingCalculatedPoints.WarPowerPoints = u.Count * (1 + Convert.ToDouble(playerAttributes.FirstOrDefault(pa => pa.PlayerId == u.PlayerId).Warfare) / 100.00 * 2.00);
 
                 ratingCalculatedPointsList.Add(ratingCalculatedPoints);
             }
