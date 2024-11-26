@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Grand Duchy";
 }
-<script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
+@* <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script> *@
 <body class="auth_background ">
 
     <div class="auth_text_color text-center lhst_slider auth_max_height">
@@ -19,8 +19,8 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-sm-12 col-md-4 mt-5">
-                            <p >
-                                Middle Ages - первый проект, разработанный компанией lhstcorp. Это средневековая игра в жанре стратегии, которая позволит попасть в Беларусь тех времен. Сражения за земли с другими игроками, организация восстаний, правление собственным государством - всё это вы сможете опробовать в данной игре. MIDDLE AGES - стань легендой средневековья!
+                            <p>
+                                On a languid evening over strong ale, you, being a wealthy nobleman, are thinking about your difficult lot. Your lifetime was marked by the difficult era of the Middle Ages. Constant wars and epidemics have brought destruction to your lands. The peasants rebel and refuse to serve you as they did your father. Despite the fatigue, there is determination in your eyes! After all, only you can lead your dynasty and your lands to prosperity! Develop your lands and build a strong army, become a fearsome war lord or a peaceful merchant!
                             </p>
                         </div>
                         <div class="col-sm-12 col-md-4">
@@ -38,21 +38,16 @@
                                     <span asp-validation-for="Input.UserName" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center password" tabindex="2">
-                                    <input asp-for="Input.Password" id="password-input" name="password-inpur-register" class="auth_form-control " placeholder="PASSWORD" type="password" oninput="checkPasswordStrength()" />
+                                    <input asp-for="Input.Password" id="password-input" class="auth_form-control " placeholder="PASSWORD" type="password" />
                                     <a href="#" class="password-control" onclick="show_hide_password(this);"></a>
                                     <span asp-validation-for="Input.Password" class="text-danger"></span>
-                                   @*  <div id="passwordStrength" style="margin-top: 10px;">
-                                        <div id="strengthBar" style="height: 10px, width: 0%; background-color: red;"></div>
-                                    </div>
-
-                                    <p id="strengthText" style="font-weight: bold;"></p> *@
                                 </div>
                                 <div class="form-group  text-center password" tabindex="3">
                                     <input asp-for="Input.ConfirmPassword" id="password-input-confirm" class="auth_form-control " placeholder="CONFIRM PASSWORD" type="password" />
                                     <a href="#" class="password-control" onclick="show_hide_password_confirm(this);"></a>
                                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                 </div>
-                                <div class="g-recaptcha" data-sitekey="6LetGmIqAAAAAG3a0wiVTGRnAkq0_1gmGU4zL_Tq"></div>
+                                @* <div class="g-recaptcha" data-sitekey="6LetGmIqAAAAAG3a0wiVTGRnAkq0_1gmGU4zL_Tq"></div> *@
                                 <div class="form-group  text-center " tabindex="4">
                                     <button type="submit" class="btn auth_btn auth_text_font_but ">CREATE ACCOUNT</button>
                                 </div>
