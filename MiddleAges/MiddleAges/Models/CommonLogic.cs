@@ -15,6 +15,7 @@ namespace MiddleAges.Models
         public const double BaseLandBuildingPrice = 10;
         public const double BasePeasantIncome = 0.01;
         public const double BaseGoldLimit = 1000;
+        public const double WarfareImpactPerc = 2.00;
 
         public static string getBuildingNameByType(int _buildingType)
         {
