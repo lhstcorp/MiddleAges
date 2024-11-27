@@ -58,6 +58,11 @@
     background-size: 100%
 }
 
+.header-menu.banner-btn {
+    background-image: url(../img/menu-icons/ChangingBanner.jpg);
+    background-size: 100%
+}
+
 .lhst_country_div {
     text-align: center;
     width: 370px;
@@ -319,3 +324,7 @@
     .lhst_slider_lands_screen:hover::-webkit-scrollbar-track {
         background: var(--scrollbar-color-track)
     }
+
+#bannerFile{
+    display: none
+}
