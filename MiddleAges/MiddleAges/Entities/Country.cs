@@ -18,6 +18,7 @@ namespace MiddleAges.Entities
         public string RulerId { get; set; }
         [DefaultValue(0)]
         public double Money { get; set; }
+        public string ImageURL { get; set; }
         [JsonIgnore]
         public Player Ruler { get; set; }
     }
