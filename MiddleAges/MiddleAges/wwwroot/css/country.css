@@ -58,6 +58,11 @@
     background-size: 100%
 }
 
+.header-menu.banner-btn {
+    background-image: url(../img/menu-icons/ChangingBanner.jpg);
+    background-size: 100%
+}
+
 .lhst_country_div {
     text-align: center;
     width: 370px;
@@ -65,7 +70,7 @@
     margin-left: 10px;
     padding: 10px;
     background-image: var(--pattern);
-    background-size: 50%;
+    background-size: 40%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -147,7 +152,7 @@
     margin-left: 10px;
     padding: 5px;
     background-image: var(--pattern);
-    background-size: 50%;
+    background-size: 40%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -319,3 +324,7 @@
     .lhst_slider_lands_screen:hover::-webkit-scrollbar-track {
         background: var(--scrollbar-color-track)
     }
+
+#bannerFile{
+    display: none
+}

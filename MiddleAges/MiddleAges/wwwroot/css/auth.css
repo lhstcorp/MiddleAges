@@ -6,6 +6,7 @@
     --yellow-color: #faaf08;
     --wheat-color: #FFEBCD;
     --pattern: url(../img/menu-icons/black-scratch-lines.png);
+    --black-color: #232323;
 }
 
 .auth_background {
@@ -87,8 +88,8 @@ display:block;
 width:100%;
 padding:.25rem .75rem;
 font-weight:700;
-color:var(--main-color);
-background-color:var(--wheat-color);
+color:var(--wheat-color);
+background-color:var(--black-color);
 background-clip:padding-box;
 border:0 solid var(--add-color);
 border-radius:4px;
@@ -96,7 +97,7 @@ transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,background-
 }
 
 .auth_form-control::placeholder {
-color:var(--main-color);
+color:var(--add-color);
 opacity:90%
 }
 

@@ -88,3 +88,9 @@ function openTransferingMoneyDialog() {
 function hideTransferingMoneyDialog() {
     $('#transferingMoneyDialog').modal('hide');
 }
+function openChangingBannerCountryDialog() {
+    $('#changingBannerCountryDialog').modal('show');
+}
+function hideChangingBannerCountryDialog() {
+    $('#changingBannerCountryDialog').modal('hide');
+}

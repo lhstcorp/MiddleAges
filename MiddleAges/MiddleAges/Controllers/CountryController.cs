@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
@@ -9,6 +10,7 @@ using MiddleAges.Migrations;
 using MiddleAges.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 namespace MiddleAges.Controllers
@@ -475,6 +477,71 @@ namespace MiddleAges.Controllers
                                                 .Where(combined => combined.Land.CountryId == countryId).Select(q => q.Unit).ToListAsync();
 
             return countryUnits;
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UploadBanner(IFormFile bannerFile)
+        {
+            bool ret = false;
+            long maxFileSize = 512 * 1024;
+
+            var permittedExtensions = new[] { ".png", ".jpg", ".jpeg", ".webp" };
+
+            if (bannerFile == null || bannerFile.Length == 0)
+            {
+                ret = true; // Файл не выбран
+            }
+
+            if (bannerFile.Length > maxFileSize)
+            {
+                ret = true; //"Размер файла не должен превышать 512 KB.";
+            }
+
+            var extension = Path.GetExtension(bannerFile.FileName).ToLowerInvariant();
+
+            // Проверяем расширение файла
+            if (!permittedExtensions.Contains(extension))
+            {
+                ret = true; // "Допустимые форматы: png, jpg, jpeg, webp.";
+            }
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            Land land = await _context.Lands.FirstOrDefaultAsync(k => k.LandId == player.CurrentLand);
+            Country country = await _context.Countries.Include(r => r.Ruler).FirstOrDefaultAsync(k => k.CountryId.ToString() == land.CountryId.ToString());
+
+            if (country.Money < 300)
+            {
+                ret = true; // Not enough money
+            }
+
+            // Путь для сохранения загруженного изображения
+            var uploadPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img/map-regions-icons-middle-ages");
+
+            // Создаем директорию, если её нет
+            if (!Directory.Exists(uploadPath))
+            {
+                Directory.CreateDirectory(uploadPath);
+            }
+
+            if (!ret)
+            {
+                // Создаем уникальное имя файла, можно использовать идентификатор пользователя, чтобы избежать коллизий
+                var fileName = $"{country.CountryId}_{Path.GetFileName(bannerFile.FileName)}";
+                var filePath = Path.Combine(uploadPath, fileName);
+
+                // Сохраняем файл на диск
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await bannerFile.CopyToAsync(stream);
+                }
+
+                // Обновляем поле ImageURL для пользователя, сохраняя путь к новому аватару
+                country.ImageURL = $"{fileName}";
+                country.Money -= 300;
+                _context.Update(country);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Index"); // Возвращаем пользователя обратно к настройкам
         }
     }
 }

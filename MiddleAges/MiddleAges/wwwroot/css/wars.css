@@ -19,7 +19,7 @@
     margin-top: 10px;
     margin-left: 10px;
     background-image: var(--pattern);
-    background-size: 100%;
+    background-size: 15%;
     border-radius: 20px;
     color: var(--wheat-color);
     padding: 5px
@@ -40,7 +40,7 @@
 .lhst_inWars {
     text-align: left;
     background-image: var(--pattern);
-    background-size: 100%;
+    background-size: 20%;
     border-radius: 20px;
     color: var(--wheat-color)
 }

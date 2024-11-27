@@ -15,9 +15,10 @@
     border: solid;
     padding: 1em;
     background-image: var(--pattern);
-    background-size: 100%;
+    background-size: 50%;
     color: var(--wheat-color);
-    width: 300px;
+    width: auto;
+    max-width: 300px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     border-radius: 5px;
     position: fixed;
@@ -58,19 +59,19 @@
     height: 26.2px;
     margin-bottom: 3px;
     margin-left: 4px;
-    background: radial-gradient(var(--add-color),var(--main-color));
+    background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
     border-radius: 3px;
     font-weight: 700
 }
 
 .lhst_option:checked {
-    background: var(--wheat-color) linear-gradient(var(--add-color),var(--main-color));
+    background: var(--wheat-color) linear-gradient(var(--add-color),black);
     color: var(--add-color)
 }
 
 .lhst_option {
-    background: var(--main-color) linear-gradient(var(--add-color),var(--main-color));
+    background: var(--add-color) linear-gradient(var(--add-color),black);
     color: var(--wheat-color)
 }
 
@@ -90,6 +91,10 @@
     .lhst_btn_dialog_cancel:active {
         border-style: inset
     }
+.lhst_btn_dialog_cancel_div{
+    position: absolute;
+    right: 10px;
+}
 
 .lhst_dialog_wars {
     left: 0;
@@ -98,10 +103,11 @@
     border: solid;
     padding: 1em;
     background-image: var(--pattern);
-    background-size: 100%;
+    background-size: 20%;
     color: var(--wheat-color);
-    height: 50vh;
-    width: 700px;
+    height: auto;
+    width: auto;
+    max-width: 700px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     border-radius: 5px;
     position: fixed;
@@ -125,7 +131,8 @@
     background-size: 100%;
     color: var(--wheat-color);
     height: 600px;
-    width: 1100px;
+    width: auto;
+    max-width: 1100px;
     box-shadow: 0 0 5px rgba(0,0,0,0.5);
     border-radius: 5px;
     position: fixed;
