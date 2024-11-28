@@ -42,14 +42,35 @@
     font-size: revert
 }
 
-    .lhst_btn_moveToRegion:hover {
-        background: radial-gradient(var(--green-color),black);
-        color: var(--yellow-color);
-        border-style: outset
-    }
+.lhst_btn_moveToRegion:hover {
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style: outset
+}
 
-    .lhst_btn_moveToRegion:active {
-        border-style: inset;
-        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
-    }
+.lhst_btn_moveToRegion:active {
+    border-style: inset;
+    transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
+}
+
+.lhst_left_side_bar_country_content {
+    margin: 1.5em .5em .5em .5em !important;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    background: linear-gradient(#fff2, transparent);
+    border: 1px solid #333;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.lhst_left_side_bar_land_content {
+    margin: .0em .5em .5em .5em !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: linear-gradient(#fff2, transparent);
+    border: 1px solid #333;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
