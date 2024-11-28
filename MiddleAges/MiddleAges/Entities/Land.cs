@@ -22,6 +22,7 @@ namespace MiddleAges.Entities
         [DefaultValue(0)]
         public double Money { get; set; }
         public string GovernorId { get; set; }
+        public int RatingPlace { get; set; }
         public Country Country { get; set; }
         [JsonIgnore]
         public Player Governor { get; set; }

@@ -76,7 +76,7 @@ function m_land_populateOverviewData(landData) {
     $('#m_land_name').text(landData.Land.LandId);
     $('#m_landCoatOfArms').attr('src', coatOfArmsUrl + landData.Land.LandId + '.png');
     $('#m_land_country').text(landData.Country.Name);
-    $('#m_land_rankingPlace').text("-1");
+    $('#m_land_rankingPlace').text(landData.Land.RatingPlace);
 
     if (landData.Governor !== undefined
      && landData.Governor !== null) {

@@ -80,6 +80,7 @@ namespace MiddleAges.Controllers
             mapSelectedLandViewModel.Population = GetLandPopulation(land.LandId).Result;
             mapSelectedLandViewModel.LordsCount = GetLandLordsCount(land.LandId).Result;
             mapSelectedLandViewModel.ResidentsCount = GetLandResidentsCount(land.LandId).Result;
+            mapSelectedLandViewModel.CountryLandsCount = await GetCountryLandsCount(land.CountryId);
             mapSelectedLandViewModel.LandBuildings = GetLandBuildings(land.LandId).Result;
 
             var userAgent = Request.Headers["User-Agent"].ToString();
@@ -165,6 +166,16 @@ namespace MiddleAges.Controllers
             int lordsCount = await _context.Players.Where(p => p.ResidenceLand == landId).CountAsync();
 
             return lordsCount;
+        }
+
+        private async Task<int> GetCountryLandsCount(Guid? countryId)
+        {
+            if (countryId == null) 
+                return 0;
+
+            int countryLandsCount = await _context.Lands.Where(l => l.CountryId == countryId).CountAsync();
+
+            return countryLandsCount;
         }
 
         public async Task<IActionResult> SettleDown(string landId)

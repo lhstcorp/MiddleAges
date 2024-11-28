@@ -561,16 +561,6 @@ footer {
     margin-left: 10px
 }
 
-.lhst_left_side_bar_land_content {
-    margin: 1.5em .5em .5em .5em !important;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background: linear-gradient(#fff2, transparent);
-    border: 1px solid #333;
-    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-}
-
 .lhst_selected_land_text_content {
     margin: 5px;
     text-align: center;
