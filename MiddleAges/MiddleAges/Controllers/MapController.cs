@@ -29,6 +29,7 @@ namespace MiddleAges.Controllers
             _logger = logger;
             _context = context;
             _userManager = userManager;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
@@ -317,6 +318,25 @@ namespace MiddleAges.Controllers
         private double GetLandBuildingPrice(LandBuilding landBuilding) 
         {
             return CommonLogic.BaseLandBuildingPrice + 2 * (landBuilding.Lvl - 1);
+        }
+
+        public async Task<IActionResult> GetRulerAccess(string id)
+        {
+            bool result = false;
+
+            if (id != null)
+            {
+                Player player = await _userManager.GetUserAsync(HttpContext.User);
+                Land land = await _context.Lands.Include(l => l.Country).FirstOrDefaultAsync(l => l.LandId == id);
+
+                if (land.GovernorId == player.Id
+                 || land.Country.RulerId == player.Id)
+                {
+                    result = true;
+                }
+            }
+
+            return Json(JsonSerializer.Serialize(result));
         }
     }
 }
