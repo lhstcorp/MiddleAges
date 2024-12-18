@@ -88,6 +88,7 @@ namespace MiddleAges.Models
                 (int)LawType.SetLandTaxes => "{0} taxes were set at {1}%",
                 (int)LawType.AppointGovernor => "{0} became the governor of {1}",
                 (int)LawType.TransferingMoney => "{0} solids from the state treasury were transferred to {1}",
+                (int)LawType.ChangingBanner => "Country banner has been changed",
                 _ => ""
             };
             return lawDescription;
@@ -107,6 +108,7 @@ namespace MiddleAges.Models
                 (int)LawType.SetLandTaxes => "SetLandTaxes",
                 (int)LawType.AppointGovernor => "AppointGovernor",
                 (int)LawType.TransferingMoney => "TransferingMoney",
+                (int)LawType.ChangingBanner => "ChangingBanner",
                 _ => ""
             };
             return lawName;

@@ -25,24 +25,37 @@
     @if (Model.DeviceType == "Desktop")
     {
         <div class="lhst_left-side-bar lhst_slider_small_screen lhst_vertical-alignment-top lhst_desktop">
+            <div class="lhst_left_side_bar_country_content row justify-content-md-center">
+                <div class="col lhst_map_region_icon_left_bar_col">
+                    @if(Model.Country.ImageURL != null)
+                    {
+                        <img id="selected_country_coat_of_arms" src="../img/country-banners/@Model.Country.ImageURL" class="lhst_map_region_icon_left_bar lhst_cursor_pointer" alt="country coat of arms" loading="lazy" />
+                    }
+                    else
+                    {
+                        <img id="selected_country_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Country.CapitalId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer" alt="country coat of arms" loading="lazy" />
+                    }
+                </div>
+                <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">
+                    <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
+                    <p class="lhst_current_land_name lhst_leftSideBar_land_name">Lands count: <span id="selected_country_lands_count">@Model.CountryLandsCount</span></p>
+                </div>
+            </div>
+
             <div class="lhst_left_side_bar_land_content row justify-content-md-center">
                 <div class="col lhst_map_region_icon_left_bar_col">
                     <img id="selected_land_coat_of_arms" @* onclick="openWikiLink()" *@ src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer m_landBtn" alt="map region coat of arms" loading="lazy" data-land=@Model.Land.LandId.Replace(' ', '_') />
                 </div>
-                <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">             
-                    <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>
-                    <p id="selected_land_name" class="lhst_current_land_name lhst_leftSideBar_land_name lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Land.LandId.Replace(' ', '_')>@Model.Land.LandId</p>
-                </div>
-            </div>
-
-            <div>
-                <div class="row">
-                    <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Population" alt="" loading="lazy" />
-                    <p id="population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population" >@Model.Population</p>
-                </div>
-                <div class="row">
-                    <img src="../img/default-icon/players.png" class="lhst_info_region_icon_left_bar float-left ml-2" title="Lords" alt="" loading="lazy" />
-                    <p id="lordsCount" class="lhst_clr-wheat float-left mt-2 mb-0" data-title="Lords" @* onclick="openResidentsCountryDialog()" *@>@Model.LordsCount</p>
+                <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col mt-2">
+                    <p id="selected_land_name" class="lhst_current_land_name mb-1 lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Land.LandId.Replace(' ', '_') style="font-size: 16px; font-weight:200">@Model.Land.LandId</p>
+                    <div class="row">
+                        <img src="../img/default-icon/farmer.png" class="lhst_info_region_icon_left_bar float-left" title="Population" alt="" loading="lazy" />
+                        <p id="population" class="float-left mt-2 mb-0 lhst_clr-wheat" data-title="Population">@Model.Population</p>
+                    </div>
+                    <div class="row">
+                        <img src="../img/default-icon/players.png" class="lhst_info_region_icon_left_bar float-left" title="Lords" alt="" loading="lazy" />
+                        <p id="lordsCount" class="lhst_clr-wheat float-left mt-2 mb-0" data-title="Lords" @* onclick="openResidentsCountryDialog()" *@>@Model.LordsCount</p>
+                    </div>
                 </div>
             </div>
 

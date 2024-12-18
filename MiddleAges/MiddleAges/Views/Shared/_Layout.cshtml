@@ -405,8 +405,9 @@
 <div class="lhst_dialog_land modal" id="m_land_dialog">
     <section>
         <div class="tab lhst_modal_land">
-            <button id="m_landOverviewBtn" class="active" onclick="m_land_tab_changed(this, 'm_land_overviewTab')">Overview</button>
-            <button id="m_landDevelopmentBtn" onclick="m_land_tab_changed(this, 'm_land_developmentTab')">Development</button>
+            <button id="m_landOverviewBtn" class="active" onclick="m_land_tab_changed('m_land_overviewTab')">Overview</button>
+            <button id="m_landDevelopmentBtn" onclick="m_land_tab_changed('m_land_developmentTab')">Development</button>
+            <button id="m_landActionBtn" onclick="m_land_tab_changed('m_land_actionTab')">Actions</button>
             <div class="float-right">
                 <button class="lhst_btn_dialog_cancel" onclick="hideModalLandDialog()">x</button>
             </div>
@@ -427,7 +428,7 @@
                             <br />
 
                             <div class="row float-left">
-                                <p class="lhst_land_attribute">Ranking place: </p>
+                                <p class="lhst_land_attribute">Rating place: </p>
                                 <p id="m_land_rankingPlace" class="mb-0"></p>
                                 <p class="lhst_land_attribute_value">/207</p>
                             </div>
@@ -550,6 +551,16 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div id="m_land_actionTab" class="d-none lhst_modal_land m_land_tab">
+                <div class="m-2">
+                    <div class="row float-left">
+                        <p class="lhst_land_attribute">Balance: </p>
+                        <img class="mr-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><p id="m_land_action_landMoney" class="lhst_land_attribute_value lhst_clr-money"></p>
+                    </div>
+                    <input id="m_land_action_moneyTransferAmount" class="lhst_tb_war_modal" type="number" value="0" max="0" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                    <button onclick="m_land_transferMoneyToCountryProcess()">Transfer money to country treasury</button>
                 </div>
             </div>
         </div>

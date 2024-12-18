@@ -44,7 +44,8 @@ namespace MiddleAges.Timed_Hosted_Services
                 CalculateLandDevelopmentShares();
                 UpdateProductionLimits();
                 UpdatePlayerDailyData();
-                CalculateRatingPlaces();
+                CalculatePlayerRatingPlaces();
+                CalculateLandRatingPlaces();
 
                 _context.SaveChanges();
             }
@@ -99,7 +100,7 @@ namespace MiddleAges.Timed_Hosted_Services
             }
         }
 
-        private void CalculateRatingPlaces()
+        private void CalculatePlayerRatingPlaces()
         {
             var query = _context.Units
                                 .Include(u => u.Player)
@@ -184,6 +185,17 @@ namespace MiddleAges.Timed_Hosted_Services
             foreach (Rating r in ratings)
             {
                 _context.Add(r);
+            }
+        }
+
+        private void CalculateLandRatingPlaces()
+        {
+            List<LandDevelopmentShare> landDevelopmentShares = _context.LandDevelopmentShares.OrderByDescending(lds => lds.InfrastructureShare + lds.MarketShare + lds.FortificationShare).Include(lds => lds.Land).ToList();
+
+            for (int i = 1; i <= landDevelopmentShares.Count; i++)
+            {
+                landDevelopmentShares[i - 1].Land.RatingPlace = i;
+                _context.Update(landDevelopmentShares[i - 1].Land);
             }
         }
 

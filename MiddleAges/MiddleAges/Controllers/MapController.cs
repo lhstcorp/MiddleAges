@@ -29,6 +29,7 @@ namespace MiddleAges.Controllers
             _logger = logger;
             _context = context;
             _userManager = userManager;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index()
@@ -80,6 +81,7 @@ namespace MiddleAges.Controllers
             mapSelectedLandViewModel.Population = GetLandPopulation(land.LandId).Result;
             mapSelectedLandViewModel.LordsCount = GetLandLordsCount(land.LandId).Result;
             mapSelectedLandViewModel.ResidentsCount = GetLandResidentsCount(land.LandId).Result;
+            mapSelectedLandViewModel.CountryLandsCount = await GetCountryLandsCount(land.CountryId);
             mapSelectedLandViewModel.LandBuildings = GetLandBuildings(land.LandId).Result;
 
             var userAgent = Request.Headers["User-Agent"].ToString();
@@ -165,6 +167,16 @@ namespace MiddleAges.Controllers
             int lordsCount = await _context.Players.Where(p => p.ResidenceLand == landId).CountAsync();
 
             return lordsCount;
+        }
+
+        private async Task<int> GetCountryLandsCount(Guid? countryId)
+        {
+            if (countryId == null) 
+                return 0;
+
+            int countryLandsCount = await _context.Lands.Where(l => l.CountryId == countryId).CountAsync();
+
+            return countryLandsCount;
         }
 
         public async Task<IActionResult> SettleDown(string landId)
@@ -306,6 +318,25 @@ namespace MiddleAges.Controllers
         private double GetLandBuildingPrice(LandBuilding landBuilding) 
         {
             return CommonLogic.BaseLandBuildingPrice + 2 * (landBuilding.Lvl - 1);
+        }
+
+        public async Task<IActionResult> GetRulerAccess(string id)
+        {
+            bool result = false;
+
+            if (id != null)
+            {
+                Player player = await _userManager.GetUserAsync(HttpContext.User);
+                Land land = await _context.Lands.Include(l => l.Country).FirstOrDefaultAsync(l => l.LandId == id);
+
+                if (land.GovernorId == player.Id
+                 || land.Country.RulerId == player.Id)
+                {
+                    result = true;
+                }
+            }
+
+            return Json(JsonSerializer.Serialize(result));
         }
     }
 }

@@ -28,6 +28,19 @@ function fillLandSideBar(id) {
         if (data != 'NotFound') {
             let obj = JSON.parse(data);
             $('#selected_country_name').text(obj.Land.Country.Name);
+
+            let landCoatOfArmsUrl = '../img/map-regions-icons-middle-ages/';
+            let countryBannersUrl = '../img/country-banners/';
+
+            if (obj.Country.ImageURL != null) {
+                
+                $('#selected_country_coat_of_arms').attr('src', countryBannersUrl + obj.Country.ImageURL);
+            }
+            else {
+                $('#selected_country_coat_of_arms').attr('src', landCoatOfArmsUrl + obj.Country.CapitalId + '.png');
+            }
+
+            $('#selected_country_lands_count').text(obj.CountryLandsCount);
             $('#selected_land_name').text(obj.Land.LandId.replace('_', ' '));
             $('#selected_land_name').data("land", obj.Land.LandId.replace(' ', '_'));
             $('#population').text(obj.Population);
@@ -51,9 +64,8 @@ function fillLandSideBar(id) {
                     $('#map_border_with').append(document.createTextNode(", "));
                 }
             });
-
-            let url = '../img/map-regions-icons-middle-ages/';
-            $('#selected_land_coat_of_arms').attr('src', url + obj.Land.LandId + '.png');
+                        
+            $('#selected_land_coat_of_arms').attr('src', landCoatOfArmsUrl + obj.Land.LandId + '.png');
             $('#selected_land_coat_of_arms').data("land", obj.Land.LandId.replace(' ', '_'));
             
             $('#moveToBtn').data("selectedland", obj.Land.LandId.replace(' ', '_'));

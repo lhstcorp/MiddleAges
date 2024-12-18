@@ -8,17 +8,23 @@ function showModalLandDialog() {
     landId = $(this).data("land").replace('_', ' ');
 
     if (landId) {
-        getLandById(landId);
+        m_land_loadDialog(landId);
+        $('#m_land_dialog').modal('show');
     }
-
-    $('#m_land_dialog').modal('show');
 }
 
 function hideModalLandDialog() {
     $('#m_land_dialog').modal('hide');
 }
 
-function m_land_tab_changed(evt, tabName) {
+function m_land_loadDialog(landId) {
+    getLandById(landId);
+    m_land_tab_changed('m_land_overviewTab');
+    m_land_setRulerAccessVisibility(landId);
+    m_land_initBalanceFields();
+}
+
+function m_land_tab_changed(tabName) {
     // Объявить все переменные
     var i, tabs;
     // Получить все элементы с помощью class="warcontent" и спрятать их
@@ -72,11 +78,42 @@ function getLandById(id) {
         });
 }
 
+function m_land_setRulerAccessVisibility(id) {
+    $.ajax({
+        url: 'Map/GetRulerAccess/' + id,
+        type: 'get',
+        datatype: 'json',
+        contentType: 'application/json;charset=utf-8',
+        success: function (response) {
+            if (response == null || response == undefined || response.length == 0) {
+                return 'NotFound';
+            }
+            else {
+                return response;
+            }
+        },
+        error: function (response) {
+            return 'NotFound';
+        }
+    })
+        .done(function (data) {
+            if (data != 'true') {
+                $('#m_landActionBtn').hide();
+            }
+            else {
+                $('#m_landActionBtn').show();
+            }
+        })
+        .fail(function (data) {
+            alert(unexpectedErrorMessage);
+        });
+}
+
 function m_land_populateOverviewData(landData) {
     $('#m_land_name').text(landData.Land.LandId);
     $('#m_landCoatOfArms').attr('src', coatOfArmsUrl + landData.Land.LandId + '.png');
     $('#m_land_country').text(landData.Country.Name);
-    $('#m_land_rankingPlace').text("-1");
+    $('#m_land_rankingPlace').text(landData.Land.RatingPlace);
 
     if (landData.Governor !== undefined
      && landData.Governor !== null) {
@@ -142,4 +179,51 @@ function m_land_updateBuildingClicked(landBuildingType) {
 
 function m_land_refreshLandData() {
     getLandById(landId);
+}
+
+function m_land_transferMoneyToCountryProcess() {
+    let transferAmount = $('#m_land_action_moneyTransferAmount').val();
+
+    if (transferAmount > 0) {
+        m_land_transferMoneyToCountry(transferAmount);
+    }
+}
+
+function m_land_transferMoneyToCountry(transferAmount) {
+    $.ajax({
+        url: 'Map/TransferMoneyToCountry',
+        type: 'post',
+        datatype: 'json',
+        data: {
+            landId: landId,
+            transferAmount: transferAmount
+        },
+        success: function (response) {
+            if (response == null || response == undefined || response.length == 0) {
+                return 'Error';
+            }
+            else {
+                return response;
+            }
+        },
+        error: function (response) {
+            return 'Error';
+        }
+    })
+        .done(function (data) {
+            let obj = JSON.parse(data);
+            if (obj != 'Error') {
+                refreshBalanceFields();
+            }
+            else {
+                alert("Insufficient funds.");
+            }
+        })
+        .fail(function (data) {
+            alert("Insufficient funds.");
+        });
+}
+
+function m_land_initBalanceFields() {
+
 }
