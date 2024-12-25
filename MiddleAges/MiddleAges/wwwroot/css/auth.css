@@ -97,8 +97,8 @@ transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out,background-
 }
 
 .auth_form-control::placeholder {
-color:var(--add-color);
-opacity:90%
+color: darkgrey;
+opacity:80%
 }
 
 .auth_form-control:focus::placeholder {

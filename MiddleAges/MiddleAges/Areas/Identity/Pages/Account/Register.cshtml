@@ -8,17 +8,17 @@
 
     <div class="auth_text_color text-center lhst_slider auth_max_height">
        
-        <div class="d-inline-block text-center mt-5 ">
+        <div class="d-inline-block text-center">
             <div>
-                <p class="auth_text_font ml-3 mt-5">@ViewData["Title"]</p>
-                <div class="mb-5">
+                <p class="auth_text_font ml-3">@ViewData["Title"]</p>
+                <div class="mb-3">
                     <img class="auth_width_img auth_height" src="~/img/interface-icons/main-coat-of-arms.png" alt="" loading="lazy" />
                 </div>
             </div>
-            <div class="row mt-5">
+            <div class="row mt-2">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-sm-12 col-md-4 mt-5">
+                        <div class="col-sm-12 col-md-4 mt-2">
                             <p>
                                 On a languid evening over strong ale, you, being a wealthy nobleman, are thinking about your difficult lot. Your lifetime was marked by the difficult era of the Middle Ages. Constant wars and epidemics have brought destruction to your lands. The peasants rebel and refuse to serve you as they did your father. Despite the fatigue, there is determination in your eyes! After all, only you can lead your dynasty and your lands to prosperity! Develop your lands and build a strong army, become a fearsome war lord or a peaceful merchant!
                             </p>
@@ -30,20 +30,20 @@
                                 <hr />
                                 <div asp-validation-summary="All" class="text-danger"></div>
                                 <div class="form-group  text-center " tabindex="0" >
-                                    <input asp-for="Input.Email" class="auth_form-control " placeholder="EMAIL" type="email" autofocus autocomplete="on" />
+                                    <input asp-for="Input.Email" class="auth_form-control " placeholder="e-mail" type="email" autofocus autocomplete="on" />
                                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center " tabindex="1">
-                                    <input asp-for="Input.UserName" class="auth_form-control " placeholder="USERNAME" maxlength="10"/>
+                                    <input asp-for="Input.UserName" class="auth_form-control " placeholder="Username" maxlength="10"/>
                                     <span asp-validation-for="Input.UserName" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center password" tabindex="2">
-                                    <input asp-for="Input.Password" id="password-input" class="auth_form-control " placeholder="PASSWORD" type="password" />
+                                    <input asp-for="Input.Password" id="password-input" class="auth_form-control " placeholder="Password" type="password" />
                                     <a href="#" class="password-control" onclick="show_hide_password(this);"></a>
                                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center password" tabindex="3">
-                                    <input asp-for="Input.ConfirmPassword" id="password-input-confirm" class="auth_form-control " placeholder="CONFIRM PASSWORD" type="password" />
+                                    <input asp-for="Input.ConfirmPassword" id="password-input-confirm" class="auth_form-control " placeholder="Confirm password" type="password" />
                                     <a href="#" class="password-control" onclick="show_hide_password_confirm(this);"></a>
                                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                 </div>

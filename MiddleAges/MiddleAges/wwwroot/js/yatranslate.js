@@ -65,6 +65,7 @@ function yaTranslateGetCode() {
 }
 
 function yaTranslateHtmlHandler(code) {
+
     // Получаем язык на который переводим и производим необходимые манипуляции с DOM
     // We get the language to which we translate and produce the necessary manipulations with DOM 
     document.querySelector('[data-lang-active]').innerHTML = `<img class="lang__img lang__img_select" src="/img/lang-icons/lang__${code}.png" alt="${code}">`;

@@ -29,9 +29,9 @@
     }
 
     li a.lhst_nav {
-        width: 60px;
-        height: 60px;
-        font-size: 11px
+        width: 80px;
+        height: 80px;
+        font-size: 12px
     }
 }
 
@@ -283,7 +283,7 @@
         .lhst_scale polygon:hover {
             transform:none;
             border-style: none;
-            stroke-width: 0; /* цветная граница */
+            stroke-width: 0; /* пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ */
             stroke: none;
         }
 
