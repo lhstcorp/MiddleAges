@@ -542,7 +542,7 @@ footer {
 
 .lhst_map_region_icon_left_bar {
     display: inline-block;
-    height: 100px
+    height: 80px
 }
 
 .lhst_info_region_icon_left_bar {
@@ -991,7 +991,7 @@ lhst_marquee {
     background-color: #ffffff2b;
     border-radius: 100px;
     padding: 1px;
-    margin: 10px;
+    margin: 5px 0px 0px 5px;
     cursor: pointer;
     transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1) 0s;
     align-items: center;
