@@ -20,7 +20,7 @@
     margin-left: 10px;
     background-image: var(--pattern);
     background-size: 15%;
-    border-radius: 20px;
+    border-radius: 5px;
     color: var(--wheat-color);
     padding: 5px
 }
@@ -56,4 +56,26 @@
 .lhst_row_height {
     height: 30px;
     margin-top: 20px
+}
+
+.lhst_btn_war_modal {
+    align-content: end;
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
+    border-radius: 3px;
+    width: -webkit-fill-available;
+    margin-left: 3px;
+    height: 26.2px;
+    font-size: revert
+}
+
+.lhst_tb_war_modal {
+    align-content: end;
+    width: -webkit-fill-available;
+    height: 26.2px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
+    border-radius: 3px
 }

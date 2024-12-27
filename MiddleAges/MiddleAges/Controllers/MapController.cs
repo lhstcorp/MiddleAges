@@ -338,5 +338,46 @@ namespace MiddleAges.Controllers
 
             return Json(JsonSerializer.Serialize(result));
         }
+
+        public JsonResult GetLandForTransferingMoney(string id)
+        {
+            if (id == null)
+            {
+                return Json("NotFound");
+            }
+
+            Land land = _context.Lands.FirstOrDefault(l => l.LandId == id);
+
+            return Json(JsonSerializer.Serialize(land));
+        }
+
+        public async Task<IActionResult> TransferMoneyToCountry(string landId, string transferAmountValue)
+        {
+            string result = "Error";
+
+            if (landId != null
+             && transferAmountValue != null)
+            {
+                Player player = await _userManager.GetUserAsync(HttpContext.User);
+                Land land = await _context.Lands.Include(l => l.Country).FirstOrDefaultAsync(l => l.LandId == landId);
+
+                double transferAmount = Convert.ToDouble(transferAmountValue);
+
+                if ((land.GovernorId == player.Id
+                  || land.Country.RulerId == player.Id)
+                 && land.Money >= transferAmount)
+                {
+                    result = "OK";
+
+                    land.Money -= transferAmount;
+                    land.Country.Money += transferAmount;
+                    _context.Update(land);
+                    
+                    await _context.SaveChangesAsync();
+                }
+            }
+
+            return Json(JsonSerializer.Serialize(result));
+        }
     }
 }

@@ -21,7 +21,6 @@ function m_land_loadDialog(landId) {
     getLandById(landId);
     m_land_tab_changed('m_land_overviewTab');
     m_land_setRulerAccessVisibility(landId);
-    m_land_initBalanceFields();
 }
 
 function m_land_tab_changed(tabName) {
@@ -68,6 +67,7 @@ function getLandById(id) {
                 let obj = JSON.parse(data);
                 m_land_populateOverviewData(obj);
                 m_land_populateDevelopmentData(obj);
+                m_land_populateActionData(obj);
             }
             else {
                 alert(unexpectedErrorMessage);
@@ -181,49 +181,6 @@ function m_land_refreshLandData() {
     getLandById(landId);
 }
 
-function m_land_transferMoneyToCountryProcess() {
-    let transferAmount = $('#m_land_action_moneyTransferAmount').val();
-
-    if (transferAmount > 0) {
-        m_land_transferMoneyToCountry(transferAmount);
-    }
-}
-
-function m_land_transferMoneyToCountry(transferAmount) {
-    $.ajax({
-        url: 'Map/TransferMoneyToCountry',
-        type: 'post',
-        datatype: 'json',
-        data: {
-            landId: landId,
-            transferAmount: transferAmount
-        },
-        success: function (response) {
-            if (response == null || response == undefined || response.length == 0) {
-                return 'Error';
-            }
-            else {
-                return response;
-            }
-        },
-        error: function (response) {
-            return 'Error';
-        }
-    })
-        .done(function (data) {
-            let obj = JSON.parse(data);
-            if (obj != 'Error') {
-                refreshBalanceFields();
-            }
-            else {
-                alert("Insufficient funds.");
-            }
-        })
-        .fail(function (data) {
-            alert("Insufficient funds.");
-        });
-}
-
-function m_land_initBalanceFields() {
-
+function m_land_populateActionData(obj) {
+    $('#m_land_transfer_money_show_btn').data("land", obj.Land.LandId.replace(' ', '_'));
 }

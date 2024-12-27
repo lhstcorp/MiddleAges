@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <Content Remove="wwwroot\js\country_upload_custom_banner.js" />
+    <Content Remove="wwwroot\js\modal_land_transfer_money.js" />
     <Content Remove="wwwroot\js\newFile.js" />
     <Content Remove="wwwroot\js\settings_upload_custom_avatar.js" />
   </ItemGroup>
@@ -18,12 +19,14 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\modal-land.css" />
     <_ContentIncludedByDefault Remove="wwwroot\js\country_upload_custom_banner.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\modal_land_transfer_money.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\newFile.js" />
     <_ContentIncludedByDefault Remove="wwwroot\js\settings_upload_custom_avatar.js" />
   </ItemGroup>
 
   <ItemGroup>
     <None Include="wwwroot\js\country_upload_custom_banner.js" />
+    <None Include="wwwroot\js\modal_land_transfer_money.js" />
     <None Include="wwwroot\js\newFile.js" />
     <None Include="wwwroot\js\settings_upload_custom_avatar.js" />
   </ItemGroup>
