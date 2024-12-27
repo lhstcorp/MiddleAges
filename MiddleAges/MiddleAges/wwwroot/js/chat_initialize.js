@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Loop through each time element
     timeElements.forEach(timeElement => {
         const utcString = $(timeElement).text();
-        const localTimeString = convertUTCToLocal(utcString);
+        const localTimeString = utcString;//convertUTCToLocal(utcString);
         $(timeElement).text(localTimeString);
     });
 

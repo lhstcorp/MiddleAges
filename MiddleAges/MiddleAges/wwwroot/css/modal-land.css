@@ -60,3 +60,14 @@
     width: 100px;
     margin-bottom: 0px;
 }
+
+.lhst_tb_land_transfer_money {
+    align-content: end;
+    height: 26.2px;
+    width: 150px;
+    margin-bottom: 3px;
+    margin-left: 4px;
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
+    border-radius: 3px
+}
