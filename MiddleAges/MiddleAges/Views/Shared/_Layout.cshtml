@@ -227,6 +227,7 @@
     </body>
 </html>
 
+@* Profile modal *@
 <div class="lhst_dialog_profile modal" id="m_player_dialog">
     <section>
         <div class="d-flex lhst_modal_profile">
@@ -237,7 +238,11 @@
             </div>
             <div class="lhst_main_info_profile">
                 <div class="ml-3">
-                    <p id="m_player_playerName" class="lhst_country_king_size mb-0">Player Name</p>
+                    <div class="row">
+                        <p id="m_player_playerName" class="lhst_country_king_size mb-0">Player Name</p>
+                        <img src="~/img/interface-icons/online.png" alt="Online" data-title="Status" loading="lazy" />
+                    </div>
+                    
                     <p id="m_player_playerDescription" class="lhst_dialog_profile_player_description mb-0">Status of player</p>
                     <div class="row float-left">
                         <p id="m_player_totalPlace" class="mb-0 mt-1">#3 (</p>

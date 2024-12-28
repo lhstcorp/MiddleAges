@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MiddleAges.Models;
+using MiddleAges.Data;
 
 namespace MiddleAges.Models
 {
@@ -378,6 +379,14 @@ namespace MiddleAges.Models
         {
             Random random = new Random();
             return random.NextDouble() * (maximum - minimum) + minimum;
+        }
+
+        public static void UpdateLastPlayerActivityDateTime(ApplicationDbContext context, Player player)
+        {
+            player.LastActivityDateTime = DateTime.UtcNow;
+            context.Update(player);
+
+            context.SaveChanges();
         }
     }
 }
