@@ -35,6 +35,8 @@ namespace MiddleAges.Controllers
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
 
+            CommonLogic.UpdateLastPlayerActivityDateTime(_context, player);
+
             player = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(p => p.Id == player.Id);
 
             Land residenceLand = await _context.Lands.Include(l => l.Country).FirstOrDefaultAsync(l => l.LandId == player.ResidenceLand);
@@ -61,7 +63,7 @@ namespace MiddleAges.Controllers
                 PeasantHourIncome = peasantHourIncome,
                 DeviceType = deviceType
 
-        };
+            };            
 
             return View("Main", mainInfoViewModel);
         }
