@@ -1122,6 +1122,24 @@ lhst_marquee {
     color: var(--yellow-color);
 }
 
+.lhst_profile_object {
+    color: var(--wheat-color);
+}
+
+.lhst_profile_object:hover {
+    color: var(--yellow-color);
+}
+
+.lhst_left_side_bar_online_players_content {
+    margin: 0em .5em .5em .5em !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: linear-gradient(#fff2, transparent);
+    border: 1px solid #333;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
 
     /*.dropdown-menu ul {
         list-style: none;
