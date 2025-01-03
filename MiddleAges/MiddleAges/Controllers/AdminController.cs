@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using MiddleAges.Enums;
 using MiddleAges.Models;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace MiddleAges.Controllers
 {
@@ -94,6 +95,141 @@ namespace MiddleAges.Controllers
             landDevelopmentShare.FortificationShare = 1;
 
             _context.Add(landDevelopmentShare);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ClearDatabase()
+        {
+            Country independentLandsCountry = await _context.Countries.FirstOrDefaultAsync(c => c.CountryId.ToString() == CommonLogic.IndependentLandsCountryId);
+            Player admin = await _context.Players.FirstOrDefaultAsync(p => p.Id == CommonLogic.AdminId);
+
+            // Delete army records
+            List<Army> armies = await _context.Armies.ToListAsync();
+            
+            foreach (Army army in armies)
+            {
+                _context.Remove(army);
+            }
+
+            // Delete war records
+            List<War> wars = await _context.Wars.ToListAsync();
+
+            foreach(War war in wars)
+            {
+                _context.Remove(war);
+            }
+
+            // Delete law records
+            List<Law> laws = await _context.Laws.ToListAsync();
+
+            foreach (Law law in laws)
+            {
+                _context.Remove(law);
+            }
+
+            // Delete country records
+            List<Country> countries = await _context.Countries.Where(c => c.CountryId != independentLandsCountry.CountryId).ToListAsync();
+
+            foreach (Country country in countries)
+            {
+                _context.Remove(country);
+            }
+
+            // Refresh land records
+            List<Land> lands = await _context.Lands.Where(l => l.CountryId != independentLandsCountry.CountryId).ToListAsync();
+
+            foreach (Land land in lands)
+            {
+                land.CountryId = independentLandsCountry.CountryId;
+
+                _context.Update(land);
+            }
+
+            // Refresh land records
+            List<LandBuilding> landBuildings = await _context.LandBuildings.Where(lb => lb.Lvl > 1).ToListAsync();
+
+            foreach (LandBuilding landBuilding in landBuildings)
+            {
+                landBuilding.Lvl = 1;
+
+                _context.Update(landBuilding);
+            }
+
+            // Delete rating records
+            List<Rating> ratings = await _context.Ratings.ToListAsync();
+
+            foreach (Rating rating in ratings)
+            {
+                _context.Remove(rating);
+            }
+
+            // Delete PlayerAttribute records
+            List<PlayerAttribute> playerAttributes = await _context.PlayerAttributes.Where(pa => pa.PlayerId != admin.Id).ToListAsync();
+
+            foreach (PlayerAttribute playerAttribute in playerAttributes)
+            {
+                _context.Remove(playerAttribute);
+            }
+
+            // Delete PlayerInformation records
+            List<PlayerInformation> playerInformations = await _context.PlayerInformations.Where(pi => pi.PlayerId != admin.Id).ToListAsync();
+
+            foreach (PlayerInformation playerInformation in playerInformations)
+            {
+                _context.Remove(playerInformation);
+            }
+
+            // Delete PlayerLocalEvent records
+            List<PlayerLocalEvent> playerLocalEvents = await _context.PlayerLocalEvents.ToListAsync();
+
+            foreach (PlayerLocalEvent playerLocalEvent in playerLocalEvents)
+            {
+                _context.Remove(playerLocalEvent);
+            }
+
+            // Delete PlayerStatistics records
+            List<PlayerStatistics> playerStatistics = await _context.PlayerStatistics.Where(ps => ps.PlayerId != admin.Id).ToListAsync();
+
+            foreach (PlayerStatistics ps in playerStatistics)
+            {
+                _context.Remove(ps);
+            }
+
+            // Delete unit records.
+            List<Unit> units = await _context.Units.Where(u => u.PlayerId != admin.Id).ToListAsync();
+
+            foreach (Unit unit in units)
+            {
+                _context.Remove(unit);
+            }
+
+            // Delete building records.
+            List<Building> buildings = await _context.Buildings.Where(b => b.PlayerId != admin.Id).ToListAsync();
+
+            foreach (Building building in buildings)
+            {
+                _context.Remove(building);
+            }
+
+            // Delete ChatMessage records
+            List<ChatMessage> chatMessages = await _context.ChatMessages.ToListAsync();
+
+            foreach (ChatMessage chatMessage in chatMessages)
+            {
+                _context.Remove(chatMessage);
+            }
+
+            // Delete player records.
+            List<Player> players = await _context.Players.Where(b => b.Id != admin.Id).ToListAsync();
+
+            foreach (Player player in players)
+            {
+                _context.Remove(player);
+            }
+
+            await _context.SaveChangesAsync();
+
+            return await Task.Run<ActionResult>(() => RedirectToAction("Index", "Admin"));
         }
     }
 }
