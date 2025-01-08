@@ -819,30 +819,37 @@ lhst_marquee {
 }
 
 [data-title]:hover:after {
-    opacity: 1;
-    transition: all .1s ease .2s;
-    visibility: visible
+    visibility: visible;
+    transition: all .5s ease
 }
 
 [data-title]:after {
     content: attr(data-title);
-    background-color: var(--main-color);
-    color: var(--yellow-color);
-    font-size: 100%;
+    visibility: hidden;
+    background-color: rgba(0,0,0,.9);
+    color: #f4ebdb;
+    text-align: center;
+    border-radius: 6px;
     position: absolute;
-    padding: 2px 5px;
-    left: 100%;
-    white-space: nowrap;
-    box-shadow: 1px 1px 3px var(--main-color);
-    opacity: 0;
-    border: 1px solid var(--yellow-color);
-    border-radius: 2px;
-    z-index: 99999;
-    visibility: hidden
+    z-index: 1;
+    font-family: 'Comfortaa',cursive;
+    text-align: justify;
+    bottom: 100%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.9) transparent transparent
 }
 
 [data-title] {
-    position: relative
+    position: relative;
+    display: inline-flex;
+    border-bottom: 1px var(--main-color);
+    font-weight: 100;
+    margin: -2px 0 0 2px;
+
+    text-align: justify;
+    color: var(--wheat-color);
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
 }
 
 .lhst_tooltip {
