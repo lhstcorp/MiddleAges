@@ -218,6 +218,7 @@
         <script src="~/js/server_time.js"></script>
         <script src="~/js/modal_player.js"></script>
         <script src="~/js/modal_land.js"></script>
+        <script src="~/js/modal_land_transfer_money.js"></script>
         <script src="~/js/yatranslate.js"></script>
 
 
@@ -226,6 +227,7 @@
     </body>
 </html>
 
+@* Profile modal *@
 <div class="lhst_dialog_profile modal" id="m_player_dialog">
     <section>
         <div class="d-flex lhst_modal_profile">
@@ -236,7 +238,11 @@
             </div>
             <div class="lhst_main_info_profile">
                 <div class="ml-3">
-                    <p id="m_player_playerName" class="lhst_country_king_size mb-0">Player Name</p>
+                    <div class="row">
+                        <p id="m_player_playerName" class="lhst_country_king_size mb-0">Player Name</p>
+                        <img id="m_player_onlineStatus" src="~/img/interface-icons/online.png" alt="Online" data-title="Status" loading="lazy" />
+                    </div>
+                    
                     <p id="m_player_playerDescription" class="lhst_dialog_profile_player_description mb-0">Status of player</p>
                     <div class="row float-left">
                         <p id="m_player_totalPlace" class="mb-0 mt-1">#3 (</p>
@@ -554,15 +560,35 @@
                 </div>
             </div>
             <div id="m_land_actionTab" class="d-none lhst_modal_land m_land_tab">
-                <div class="m-2">
-                    <div class="row float-left">
-                        <p class="lhst_land_attribute">Balance: </p>
-                        <img class="mr-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><p id="m_land_action_landMoney" class="lhst_land_attribute_value lhst_clr-money"></p>
-                    </div>
-                    <input id="m_land_action_moneyTransferAmount" class="lhst_tb_war_modal" type="number" value="0" max="0" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                    <button onclick="m_land_transferMoneyToCountryProcess()">Transfer money to country treasury</button>
+                <div class="m-2">  
+                    <button id="m_land_transfer_money_show_btn" onclick="showModalLandTransferMoneyDialog()">Transfer money to country treasury</button>
                 </div>
             </div>
         </div>
+    </section>
+</div>
+
+<div class="lhst_dialog_land modal" id="m_land_transfer_money_dialog">
+    <div class="float-right">
+        <button class="lhst_btn_dialog_cancel" onclick="hideModalLandTransferMoneyDialog()">x</button>
+    </div>
+
+    <section>
+        <h2 class="text-center lhst_dialog_title">Transfer money to country treasury</h2>
+
+        <br/>
+
+        <div class="row float-left">
+            <p class="lhst_land_attribute">Balance: </p>
+            <img class="mr-1 lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><p id="m_land_transfer_money_landMoney" class="lhst_land_attribute_value lhst_clr-money"></p>
+        </div>
+
+        <br/>
+
+        <input id="m_land_action_moneyTransferAmount" class="lhst_tb_land_transfer_money" type="number" value="0" max="0" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+
+        <br />
+
+        <button class="lhst_default_button" onclick="m_land_transferMoneyToCountryProcess()">Transfer money</button>
     </section>
 </div>

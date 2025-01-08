@@ -747,29 +747,6 @@ lhst_marquee {
     padding: 1rem;
 }
 
-
-.lhst_btn_war_modal {
-    align-content: end;
-    background: radial-gradient(var(--add-color),black);
-    color: var(--wheat-color);
-    border-radius: 3px;
-    width: -webkit-fill-available;
-    margin-left: 3px;
-    height: 26.2px;
-    font-size: revert
-}
-
-.lhst_tb_war_modal {
-    align-content: end;
-    width: -webkit-fill-available;
-    height: 26.2px;
-    margin-bottom: 3px;
-    margin-left: 4px;
-    background: radial-gradient(var(--add-color),black);
-    color: var(--wheat-color);
-    border-radius: 3px
-}
-
 .lhst_font_size-smaller {
     font-size: smaller
 }
@@ -818,9 +795,15 @@ lhst_marquee {
 }
 
 .lhst_default_button {
-    background: radial-gradient(var(--add-color),black);
+    /*background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
-    border-radius: 3px
+    border-radius: 3px*/
+    background: radial-gradient(var(--add-color), black);
+    transition: .3s;
+    color: #f4ebdb;
+    border-radius: 5px;
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
+    line-height: 1.2;
 }
 
 .lhst_default_button:hover {
@@ -1137,6 +1120,25 @@ lhst_marquee {
 
 .lhst_geo_object:hover {
     color: var(--yellow-color);
+}
+
+.lhst_profile_object {
+    color: var(--wheat-color);
+}
+
+.lhst_profile_object:hover {
+    color: var(--yellow-color);
+}
+
+.lhst_left_side_bar_online_players_content {
+    margin: 0em .5em .5em .5em !important;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background: linear-gradient(#fff2, transparent);
+    border: 1px solid #333;
+    box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    max-height: 250px;
 }
 
 

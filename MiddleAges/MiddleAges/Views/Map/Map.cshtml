@@ -372,7 +372,7 @@
                 <div class="d-flex">
                     <div class="lhst_left_side_bar_land_content row justify-content-md-center">
                         <div class="col lhst_map_region_icon_left_bar_col">
-                            <img id="selected_land_coat_of_arms" onclick="openWikiLink()" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer" alt="map region coat of arms" loading="lazy" />
+                            <img id="selected_land_coat_of_arms" onclick="openWikiLink()" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer" alt="map region coat of arms" loading="lazy" data-land=@Model.Land.LandId.Replace(' ', '_') />
                         </div>
                         <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
                             <p id="selected_country_name" class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Country.Name</p>

@@ -75,6 +75,18 @@ function populateModalPlayerDialog(obj) {
         $('#m_player_notes').text("No player notes");
     }
 
+    let currentUTCdate = new Date(new Date() - 60 * 60 * 1000);
+    currentUTCdate = new Date(currentUTCdate.getTime() + currentUTCdate.getTimezoneOffset() * 60 * 1000);
+
+    let playerLastActivityDate = new Date(obj.Player.LastActivityDateTime);
+
+    if (new Date(obj.Player.LastActivityDateTime) < currentUTCdate) {
+        $('#m_player_onlineStatus').hide();
+    }
+    else {
+        $('#m_player_onlineStatus').show();
+    }
+
     const m_player_contact_information_div = document.getElementById("m_player_contact_information_div");
 
     if (obj.PlayerInformation.Vk == null

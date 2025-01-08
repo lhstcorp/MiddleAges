@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MiddleAges.Models;
+using MiddleAges.Data;
 
 namespace MiddleAges.Models
 {
@@ -16,6 +17,9 @@ namespace MiddleAges.Models
         public const double BasePeasantIncome = 0.01;
         public const double BaseGoldLimit = 1000;
         public const double WarfareImpactPerc = 2.00;
+        public const int    PlayerOnlineMinutes = 60;
+        public const string IndependentLandsCountryId = "CAF6F518-3730-4692-AB56-FC755E7FF957";
+        public const string AdminId = "04805b01-4ec4-4e98-ba9b-1b08c7054026";
 
         public static string getBuildingNameByType(int _buildingType)
         {
@@ -378,6 +382,14 @@ namespace MiddleAges.Models
         {
             Random random = new Random();
             return random.NextDouble() * (maximum - minimum) + minimum;
+        }
+
+        public static void UpdateLastPlayerActivityDateTime(ApplicationDbContext context, Player player)
+        {
+            player.LastActivityDateTime = DateTime.UtcNow;
+            context.Update(player);
+
+            context.SaveChanges();
         }
     }
 }

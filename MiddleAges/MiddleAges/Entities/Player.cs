@@ -23,7 +23,9 @@ namespace MiddleAges.Entities
         public DateTime EndDateTimeProduction { get; set; }
         public double MoneyProduced { get; set; } //meaning today
         public double MoneySpent { get; set; } //meaning today
-        public Land Land { get; set; }
+        public DateTime RegistrationDateTime { get; set; }
+        public DateTime LastActivityDateTime { get; set; }
+        public Land Land { get; set; } 
     }
 }
 
