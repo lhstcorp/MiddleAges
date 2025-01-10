@@ -1168,4 +1168,9 @@ lhst_marquee {
             color: var(--yellow-color);
             border-style: outset
         }*/
-
+.lhst_main_leftbar_online {
+    text-align: left;
+    max-height: 250px;
+    background-size: 50%;
+    color: var(--wheat-color) #4c473d;
+}
