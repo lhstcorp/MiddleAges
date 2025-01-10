@@ -19,18 +19,22 @@
                 </div>
             </div>
 
-            <div class="lhst_left_side_bar_online_players_content justify-content-md-center">
+            <div class="lhst_left_side_bar_online_players_content justify-content-md-center ">
+                
                 <div class="row">
                     <p class="font-weight-light lhst_clr-wheat mb-0 ml-2" style="margin:4px; font-size:16px;">Online players (@Model.OnlinePlayers.Count)</p>
                     <img src="~/img/interface-icons/online.png" alt="Online" data-title="Status" loading="lazy" />
                 </div>
+             
 
                 <div class="lhst_line ml-0 mr-0 mb-0" bis_skin_checked="1"></div>
+                <div class="lhst_main_leftbar_online lhst_slider">
+                    @for (int i = 0; i < Model.OnlinePlayers.Count; i++)
+                    {
+                        <p class="ml-2 mt-1 mb-0 lhst_profile_object m_playerBtn lhst_cursor_pointer" data-playerid=@Model.OnlinePlayers[i].Id>@Model.OnlinePlayers[i].UserName</p>
+                    }
+                </div>
 
-                @for (int i = 0; i < Model.OnlinePlayers.Count; i++)
-                {
-                    <p class="ml-2 mt-1 mb-0 lhst_profile_object m_playerBtn lhst_cursor_pointer" data-playerid=@Model.OnlinePlayers[i].Id>@Model.OnlinePlayers[i].UserName</p>
-                }
             </div>
         </div>
     }    
