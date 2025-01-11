@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <UserSecretsId>aspnet-MiddleAges-C8D11D07-2384-4135-92E8-01DE1E3425BE</UserSecretsId>
+	<AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+	  <AllowUntrustedCertificate>true</AllowUntrustedCertificate>
+	  <EnvironmentName>Production</EnvironmentName>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

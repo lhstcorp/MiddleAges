@@ -32,9 +32,9 @@ namespace MiddleAges.Controllers
         // GET: PlayerOverviewController
         public async Task<IActionResult> Index()
         {
-            //List<Rating> rating = await _context.Ratings.Include(r => r.Player).Where(r => r.TotalPlace <= ratingLinesPerPage).OrderBy(r => r.TotalPlace).ToListAsync();
-            //return View("Rating", rating);
-            return View("Rating");
+            List<Rating> rating = await _context.Ratings.Include(r => r.Player).Where(r => r.TotalPlace <= ratingLinesPerPage).OrderBy(r => r.TotalPlace).ToListAsync();
+            return View("Rating", rating);
+            //return View("Rating");
         }
 
         public async Task<IActionResult> GetRatingByCategoryAndPage(string category, string page)

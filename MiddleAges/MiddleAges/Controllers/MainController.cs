@@ -35,6 +35,11 @@ namespace MiddleAges.Controllers
         {
             var player = await _userManager.GetUserAsync(HttpContext.User);
 
+            //var remoteIpAddress = HttpContext.Connection.RemoteIpAddress;
+            //var ipAddress = remoteIpAddress.AddressFamily == System.Net.Sockets.AddressFamily.InterNetworkV6
+            //    ? remoteIpAddress.MapToIPv4().ToString()
+            //    : remoteIpAddress.ToString();
+
             CommonLogic.UpdateLastPlayerActivityDateTime(_context, player);
 
             player = await _context.Players.Include(p => p.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(p => p.Id == player.Id);

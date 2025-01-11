@@ -483,3 +483,4 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+/MiddleAges/MiddleAges/appsettings.json
