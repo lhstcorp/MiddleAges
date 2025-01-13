@@ -49,6 +49,7 @@ namespace MiddleAges.Controllers
             LocalEventViewModel localEventViewModel = new LocalEventViewModel
             {
                 LocalEvent = localEvent,
+                AssignedDateTime = playerLocalEvent.AssignedDateTime,
                 Option1Element = GenerateOptionElement(localEvent, 1),
                 Option2Element = GenerateOptionElement(localEvent, 2)
             };

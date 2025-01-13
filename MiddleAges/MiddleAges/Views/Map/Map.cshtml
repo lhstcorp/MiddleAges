@@ -41,7 +41,7 @@
             </div>
 
             <div class="lhst_left_side_bar_land_content d-flex">
-                <img id="selected_land_coat_of_arms" @* onclick="openWikiLink()" *@ src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer m_landBtn" alt="map region coat of arms" loading="lazy" data-land=@Model.Land.LandId.Replace(' ', '_') />
+                <img id="selected_land_coat_of_arms" onclick="openWikiLink()" src="../img/map-regions-icons-middle-ages/@(Model.Land.LandId).png" class="lhst_map_region_icon_left_bar lhst_cursor_pointer m_landBtn" alt="map region coat of arms" loading="lazy" data-land=@Model.Land.LandId.Replace(' ', '_') />
                 <div class="ml-2">
                     <p id="selected_land_name" class="lhst_current_land_name mb-1 lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.Land.LandId.Replace(' ', '_') style="font-size: 16px; font-weight:200">@Model.Land.LandId</p>
                     <div class="row">
