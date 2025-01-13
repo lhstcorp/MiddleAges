@@ -64,6 +64,11 @@ body {
     background-size: 100%
 }
 
+.header-menu.shop-btn {
+    background-image: url(../img/menu-icons/shop.jpg);
+    background-size: 100%
+}
+
 .coins-btn {
     background-image: url(../img/interface-icons/coins.png);
     background-size: 100%;

@@ -128,7 +128,7 @@
     border: solid;
     padding: 1em;
     background-image: var(--pattern);
-    background-size: 100%;
+    background-size: 20%;
     color: var(--wheat-color);
     height: 600px;
     width: auto;
