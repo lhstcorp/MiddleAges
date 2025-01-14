@@ -293,7 +293,48 @@
     #global_region_map polygon:hover {
         filter: none;
     }
-                                       
+
+    li a.lhst_nav {
+       
+        height: 50px;
+        
+    }
+
+    .header-menu.main-btn {
+        background-position: center;
+        align-content: center;
+    }
+
+    .header-menu.map-btn {%;
+        background-position: center;
+        align-content: center;
+    }
+
+    .header-menu.state-btn {
+        background-position: center;
+        align-content: center;
+    }
+
+    .header-menu.settings-btn {
+        background-position: center;
+        align-content: center;
+    }
+
+    .header-menu.rating-btn {
+        background-position: center;
+        align-content: center;
+    }
+
+    .header-menu.wars-btn {
+        background-position: center;
+        align-content: center;
+    }
+
+    .header-menu.shop-btn {
+        background-position: center;
+        align-content: center;
+    }
+
 }
 
 
