@@ -54,7 +54,7 @@
                         <div class="dropdown">
                             <button class="dropdown-toggle" onclick="toggleDropdown()">☰</button>
                             <div id="menuContainer" class="dropdown-menu">
-                                <ul class="lhst_nav p-0">
+                                <ul class="lhst_nav p-0 ">
                                     <li class="lhst_nav">
                                         <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
                                     </li>
@@ -212,9 +212,14 @@
                 <p class="mr-1">Server time:</p>
                 <p id="serverTime"></p>
             </div>
-            <script src="https://yastatic.net/share2/share.js"></script>
+            @* <script src="https://yastatic.net/share2/share.js"></script> *@
 
-            <div class="ya-share2 align-self-center mr-3" data-curtain data-lang="en" data-color-scheme="blackwhite" data-services="vkontakte,telegram,twitter,viber"></div>
+            @* <div class="ya-share2 align-self-center mr-3" data-curtain data-lang="en" data-color-scheme="blackwhite" data-services="vkontakte,telegram,twitter,viber"></div> *@
+            <div>
+                <img id="tgGrandDuchyLink" class="align-self-center mr-1 mt-1 lhst_share_img lhst_cursor_pointer" src="~/img/interface-icons/telegram1.png" loading="lazy" alt="telegram" data-title="telegram" onclick="redirectToGrandDuchyTG()" />
+                <img id="dsGrandDuchyLink" class="align-self-center mr-1 mt-1 lhst_share_img lhst_cursor_pointer" src="~/img/interface-icons/discord1.png" loading="lazy" alt="discord" data-title="discord" onclick="redirectToGrandDuchyDiscord()" />
+            </div>
+
 
         </footer>
         <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -226,6 +231,7 @@
         <script src="~/js/modal_land.js"></script>
         <script src="~/js/modal_land_transfer_money.js"></script>
         <script src="~/js/yatranslate.js"></script>
+        <script src="~/js/socialMedia_link.js"></script>
 
 
         @*<script src="~/js/snow.js" type="text/javascript" language="JavaScript"></script>*@

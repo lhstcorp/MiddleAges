@@ -56,3 +56,13 @@ function redirectToFacebook() {
 // Добавляем обработчик события клика для картинки
 document.getElementById('fbLink').addEventListener('click', redirectToFacebook);
 
+function redirectToGrandDuchyTG() {
+    var tgGrandDuchy = '+SmUblfwPtJE0OWNi';
+    window.open('https://t.me/' + tgGrandDuchy, '_blank');
+}
+
+function redirectToGrandDuchyDiscord() {
+    var discordGrandDuchyID = '+SmUblfwPtJE0OWNi';
+    window.open('https://discord.gg/DS4dcrAg');
+}
+

@@ -10,7 +10,7 @@
 
 .lhst_modal_profile {
     background-image: var(--pattern);
-    background-size: 100%;
+    background-size: 30%;
     border-radius: 20px;
     border-width: 2px;
     border-color: var(--wheat-color);
@@ -53,7 +53,7 @@
     border: solid;
     padding: 1em;
     background-image: var(--pattern);
-    background-size: 100%;
+    background-size: 30%;
     color: var(--wheat-color);
     width: auto;
     max-width: 500px;

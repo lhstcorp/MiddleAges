@@ -5,7 +5,13 @@ var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
 connection.on("ReceiveMessageFromGlobalChat", function (userId, userName, profilePicUrl, messageContent, utcTimestamp) {
 
     // Get the formatted datetime string
-    let formattedDate = formatDateTime(new Date(utcTimestamp));
+    //let formattedDate = formatDateTime(new Date(utcTimestamp));
+    let date = new Date(utcTimestamp); // Преобразуем метку времени в объект Date
+    let hours = date.getUTCHours().toString().padStart(2, '0'); // Часы в формате UTC
+    let minutes = date.getUTCMinutes().toString().padStart(2, '0'); // Минуты в формате UTC
+
+    // Формируем строку с временем
+    let formattedTime = hours + ':' + minutes;
 
     // Create the outer div
     let outerDiv = document.createElement("div");
@@ -50,7 +56,7 @@ connection.on("ReceiveMessageFromGlobalChat", function (userId, userName, profil
     let timeElement = document.createElement("time");
     timeElement.className = "mr-2";
     timeElement.setAttribute("datetime", "T09:54");
-    timeElement.textContent = formattedDate;
+    timeElement.textContent = formattedTime;
 
     // Append inputs to the outer div
     outerDiv.appendChild(imgContainerDiv);
@@ -96,13 +102,21 @@ document.getElementById("sendMessageToGlobalChatButton").addEventListener("click
 });
 
 // Put the datetime string in the correct format for display
+//function formatDateTime(dateTime) {
+//    return ("0" + dateTime.getUTCDate()).slice(-2) + "."
+//        + ("0" + (dateTime.getUTCMonth() + 1)).slice(-2) + "."
+//        + dateTime.getUTCFullYear() + " "
+//        + ("0" + dateTime.getUTCHours()).slice(-2) + ":"
+//        + ("0" + dateTime.getUTCMinutes()).slice(-2) + ":"
+//        + ("0" + dateTime.getUTCSeconds()).slice(-2);
+//}
 function formatDateTime(dateTime) {
-    return ("0" + dateTime.getDate()).slice(-2) + "."
-        + ("0" + (dateTime.getMonth() + 1)).slice(-2) + "."
-        + dateTime.getFullYear() + " "
-        + ("0" + dateTime.getHours()).slice(-2) + ":"
-        + ("0" + dateTime.getMinutes()).slice(-2) + ":"
-        + ("0" + dateTime.getSeconds()).slice(-2); 
+    return dateTime.getUTCFullYear() + "-"
+        + ("0" + (dateTime.getUTCMonth() + 1)).slice(-2) + "-"
+        + ("0" + dateTime.getUTCDate()).slice(-2) + "T"
+        + ("0" + dateTime.getUTCHours()).slice(-2) + ":"
+        + ("0" + dateTime.getUTCMinutes()).slice(-2) + ":"
+        + ("0" + dateTime.getUTCSeconds()).slice(-2) + "Z";
 }
 
 // Disable the send button for 1.5 seconds after sending message
