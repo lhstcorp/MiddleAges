@@ -90,8 +90,8 @@ body {
     border-radius: 7px; /* Немного более округлые углы */
     vertical-align: top;
     /* Золотистый градиент на рамке */
-    background-image: linear-gradient(#232323, #232323), /* основной темный фон */
-    linear-gradient(to right, #453b1d, #f0e68c); /* золотистый градиент на рамке // #d4af37 - first color*/
+    background-image: linear-gradient(#232323, #232323), /* �������� ������ ��� */
+    linear-gradient(to right, #d4af37, #f0e68c);
     background-origin: border-box;
     background-clip: content-box, border-box;
     padding: 1px; /* Расстояние для рамки */
@@ -434,11 +434,13 @@ footer {
 
 .lhst_card_properties {
     margin: 2px;
-    color: var(--wheat-color)
+    color: var(--wheat-color);
+    width: 100%
 }
 
 .lhst_building_card_left_part {
-    width: 96px
+    width: 96px;
+    justify-items: left;
 }
 
 .lhst_btn_building_lvlup {

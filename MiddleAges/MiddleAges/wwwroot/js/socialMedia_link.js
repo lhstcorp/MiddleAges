@@ -57,12 +57,10 @@ function redirectToFacebook() {
 document.getElementById('fbLink').addEventListener('click', redirectToFacebook);
 
 function redirectToGrandDuchyTG() {
-    var tgGrandDuchy = '+SmUblfwPtJE0OWNi';
-    window.open('https://t.me/' + tgGrandDuchy, '_blank');
+    window.open('https://t.me/+SmUblfwPtJE0OWNi');
 }
 
 function redirectToGrandDuchyDiscord() {
-    var discordGrandDuchyID = '+SmUblfwPtJE0OWNi';
     window.open('https://discord.gg/DS4dcrAg');
 }
 

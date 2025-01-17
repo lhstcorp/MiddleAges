@@ -40,7 +40,7 @@
     }    
 
     <div class="lhst_vertical-alignment-top lhst_main-section_mainmenu lhst_main_section_padding">
-        <div class="float-left mr-3">
+        <div class="float-left mr-3 lhst_main_div">
 
             @if (Model.DeviceType == "Mobile")
             {
@@ -59,10 +59,10 @@
             @await Component.InvokeAsync(typeof(BuildingsViewComponent))
             @await Component.InvokeAsync(typeof(UnitsViewComponent))
         </div>
-        <div class="float-left mr-3">
+        <div class="float-left mr-3 lhst_main_div">
             <p class="lhst_possessions_titles">Production</p>
             <div class="lhst_production_card">
-                <p class="w-100 flex-wrap mb-2 font-weight-normal">Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</p>
+                <p class="w-100 flex-wrap mb-2 font-weight-normal lhst_text_left">Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</p>
                 @{
                     string productionStatusString;
                     string productionBtnText;
@@ -175,7 +175,7 @@
             </div>
         </div>
 
-        <div class="float-left mb-2 mr-3">
+        <div class="float-left mb-2 mr-3 lhst_main_div">
             <div class="d-flex">
                 <p class="lhst_possessions_titles">Attributes</p>
                 <p class="lhst_possessions_titles">(<span id="availAttrPointsMainSection">@CommonLogic.GetAvailAttrPoints(Model.Player.Lvl, Model.PlayerAttribute)</span> <img class="lhst_attr_coin_img" loading="lazy" src="~/img/attributes/attrPoint.png" alt="" />)</p>
@@ -217,9 +217,9 @@
 
         @if (Model.PlayerLocalEvents.Count > 0)
         {
-            <div class="d-block float-left mb-2" style="width: 250px">
+            <div class="d-block float-left mb-2 lhst_main_div">
                 <div class="row">
-                    <p class="lhst_possessions_titles" style="width: 250px">Local Events</p>
+                    <p class="lhst_possessions_titles">Local Events</p>
                 </div>
                 <div class="lhst_scale lhst_blur-image d-flex p-2">
                     @for (int i = 0; i < Model.PlayerLocalEvents.Count; i++)
