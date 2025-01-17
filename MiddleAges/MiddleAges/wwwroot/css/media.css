@@ -109,9 +109,11 @@
         height: 100%;
     }
 
-    .lhst_main-section{
-        margin-left: 0;
-
+    .lhst_main-section {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 100%;
+        text-align: center;
     }
     .lhst_avatar_image_div {
         margin-bottom: 10px;
@@ -188,6 +190,8 @@
 
     .lhst_main-section_mainmenu {
         margin-left: 10px;
+        margin-right: 10px;
+        display: block;
     }
 
     .lhst_left-side-bar {
@@ -253,7 +257,7 @@
         margin-left:0;
         width:100%;
         padding:5px;
-        height:220px;
+        height:300px;
     }
     .lhst_btn_war_modal{
         font-size:9px;
@@ -335,6 +339,42 @@
         align-content: center;
     }
 
+    .lhst_main_div {
+        text-align: center;
+        width: 100%;
+        min-width: 260px;
+        margin-left: 0;
+        margin-top: 0;
+        justify-items: center;
+    }
+
+    .lhst_settings_div {
+        text-align: center;
+        width: 100%;
+        min-width: 260px;
+        margin-left: 0;
+        margin-top: 0;
+        justify-items: center;
+    }
+
+    .lhst_rating-img{
+        width: 20px;
+    }
+
+    .lhst_card_properties {
+        width: auto
+    }
+    .lhst_text_left{
+        text-align: left;
+    }
+
+    .lhst_attr_name{
+        text-align:left;
+    }
+
+    .lhst_btn_war_modal{
+        margin-left: 1px;
+    }
 }
 
 

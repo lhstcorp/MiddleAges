@@ -292,7 +292,7 @@ namespace MiddleAges.Controllers
              && landTaxValue <= 100
              && stateTaxValue >= 0
              && stateTaxValue <= 100
-             && country.Money >= 1)
+             && country.Money >= 0)
             {                
                 Law law = new Law();
                 law.CountryId = country.CountryId;
@@ -307,7 +307,7 @@ namespace MiddleAges.Controllers
                 land.CountryTax = stateTaxValue;
                 _context.Update(land);
 
-                country.Money -= 1;
+                //country.Money -= 1;
                 _context.Update(country);
 
                 await _context.SaveChangesAsync();               
