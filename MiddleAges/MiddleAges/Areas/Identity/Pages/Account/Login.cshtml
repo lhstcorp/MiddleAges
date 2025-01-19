@@ -35,7 +35,7 @@
                                     <a href="#" class="password-control" onclick="show_hide_password(this);"></a>
                                     <span asp-validation-for="Input.Password" class="text-danger "></span>                                    
                                 </div>
-                                <div class="form-group text-center mb-0" tabindex="2">                                    
+                                <div class="form-group text-center mb-0 mt-2" tabindex="2">                                    
                                     <button type="submit" class="btn auth_btn auth_text_font_but ">Sign in</button>
                                 </div>
                                 @* <div class="form-group">
@@ -47,7 +47,7 @@
                                     </div>
                                 </div> *@
                                 @* <hr /> *@
-                                <div class="form-group d-inline-flex">
+                                <div class="form-group d-inline-flex mt-2">
                                     <p class="mr-2">
                                         <a asp-page="./Register" class="auth_text_font_a" asp-route-returnUrl="@Model.ReturnUrl">Create accont</a>
                                     </p>
@@ -59,7 +59,7 @@
 
                             </form>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-4 lhst_desktop">
                             <div class="row d-inline-flex">
                                 <div class="col-6 lhst_scale">
                                     <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/main_menu.jpg" alt="" loading="lazy" data-title="main_menu" onclick="openMainMenuScreensDialog()" />

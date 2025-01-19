@@ -52,7 +52,11 @@ function populateModalLocalEventDialog(obj) {
     $('#m_local_events_title').text(obj.LocalEvent.Title);
     $('#m_local_events_img').attr('src', localEventsImagesUrl + obj.LocalEvent.EventId + '.jpg');
     $('#m_local_events_description').text(obj.LocalEvent.Description);
-
+/*    $('#m_local_events_asssignedDateTime').text('Event assigned ' + obj.AssignedDateTime);*/
+    const dateTime = new Date(obj.AssignedDateTime); // Преобразуем строку в объект Date
+    const dateOnly = dateTime.toLocaleDateString(); // Извлекаем только дату
+    const timeOnly = dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Извлекаем только часы и минуты
+    $('#m_local_events_asssignedDateTime').text('Event assigned on ' + dateOnly + ' at ' + timeOnly);
     $('#m_local_events_option1').html(obj.Option1Element);
     $('#m_local_events_option2').html(obj.Option2Element);
 }

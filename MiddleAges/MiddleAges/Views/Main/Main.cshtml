@@ -11,7 +11,7 @@
         <div class="lhst_left-side-bar lhst_vertical-alignment-top lhst_desktop">
             <div class="lhst_left_side_bar_country_content row justify-content-md-center">
                 <div class="col lhst_map_region_icon_left_bar_col">
-                    <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Player.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy" />
+                    <img id="selected_land_coat_of_arms" src="../img/map-regions-icons-middle-ages/@(Model.Player.CurrentLand).png" class="lhst_map_region_icon_left_bar" alt="map region coat of arms" loading="lazy"/>
                 </div>
                 <div class="col lhst_current_land_text_content lhst_map_region_icon_left_bar_col">
                     <p class="lhst_current_land_name mb-0 lhst_leftSideBar_country_name">@Model.Player.Land.Country.Name</p>
@@ -40,7 +40,7 @@
     }    
 
     <div class="lhst_vertical-alignment-top lhst_main-section_mainmenu lhst_main_section_padding">
-        <div class="float-left mr-3">
+        <div class="float-left mr-3 lhst_main_div">
 
             @if (Model.DeviceType == "Mobile")
             {
@@ -59,10 +59,10 @@
             @await Component.InvokeAsync(typeof(BuildingsViewComponent))
             @await Component.InvokeAsync(typeof(UnitsViewComponent))
         </div>
-        <div class="float-left mr-3">
+        <div class="float-left mr-3 lhst_main_div">
             <p class="lhst_possessions_titles">Production</p>
             <div class="lhst_production_card">
-                <p class="w-100 flex-wrap mb-2 font-weight-normal">Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</p>
+                <p class="w-100 flex-wrap mb-2 font-weight-normal lhst_text_left">Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</p>
                 @{
                     string productionStatusString;
                     string productionBtnText;
@@ -175,7 +175,7 @@
             </div>
         </div>
 
-        <div class="float-left mb-2 mr-3">
+        <div class="float-left mb-2 mr-3 lhst_main_div">
             <div class="d-flex">
                 <p class="lhst_possessions_titles">Attributes</p>
                 <p class="lhst_possessions_titles">(<span id="availAttrPointsMainSection">@CommonLogic.GetAvailAttrPoints(Model.Player.Lvl, Model.PlayerAttribute)</span> <img class="lhst_attr_coin_img" loading="lazy" src="~/img/attributes/attrPoint.png" alt="" />)</p>
@@ -217,9 +217,9 @@
 
         @if (Model.PlayerLocalEvents.Count > 0)
         {
-            <div class="d-block float-left mb-2" style="width: 250px">
+            <div class="d-block float-left mb-2 lhst_main_div">
                 <div class="row">
-                    <p class="lhst_possessions_titles" style="width: 250px">Local Events</p>
+                    <p class="lhst_possessions_titles">Local Events</p>
                 </div>
                 <div class="lhst_scale lhst_blur-image d-flex p-2">
                     @for (int i = 0; i < Model.PlayerLocalEvents.Count; i++)
@@ -257,6 +257,7 @@
     <button id="m_local_events_option1" class="lhst_event_option_btn lhst_default_button mb-1" data-option="1"></button>
     <button id="m_local_events_option2" class="lhst_event_option_btn lhst_default_button" data-option="2"></button>
 
-    <p class="mt-2 mb-0" style="font-weight: 400">Event assigned 08/07/2024 at: 17:51</p>
+    <p id="m_local_events_asssignedDateTime" class="mt-2 mb-0" style="font-weight: 400">Event assigned </p>
+
     <p class="mb-0" style="font-weight: 400">If you don't select anything, the event will change to another one after 6 hours</p>
 </div>

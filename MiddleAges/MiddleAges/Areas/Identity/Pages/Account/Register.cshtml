@@ -8,7 +8,7 @@
 
     <div class="auth_text_color text-center lhst_slider auth_max_height">
        
-        <div class="d-inline-block text-center">
+        <div class="d-inline-block text-center mt-3">
             <div>
                 <p class="auth_text_font ml-3">@ViewData["Title"]</p>
                 <div class="mb-3">
@@ -27,14 +27,13 @@
                     
                             <form asp-route-returnUrl="@Model.ReturnUrl" method="post" class="text-center">
                                 <h4 class="auth_text_font_login text-center">Create a new account</h4>
-                                <hr />
                                 <div asp-validation-summary="All" class="text-danger"></div>
                                 <div class="form-group  text-center " tabindex="0" >
                                     <input asp-for="Input.Email" class="auth_form-control " placeholder="e-mail" type="email" autofocus autocomplete="on" />
                                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center " tabindex="1">
-                                    <input asp-for="Input.UserName" class="auth_form-control " placeholder="Username" maxlength="10"/>
+                                    <input asp-for="Input.UserName" class="auth_form-control " placeholder="Username" maxlength="15"/>
                                     <span asp-validation-for="Input.UserName" class="text-danger"></span>
                                 </div>
                                 <div class="form-group  text-center password" tabindex="2">
@@ -48,11 +47,11 @@
                                     <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                 </div>
                                 @* <div class="g-recaptcha" data-sitekey="6LetGmIqAAAAAG3a0wiVTGRnAkq0_1gmGU4zL_Tq"></div> *@
-                                <div class="form-group  text-center " tabindex="4">
+                                <div class="form-group  text-center mt-2" tabindex="4">
                                     <button type="submit" class="btn auth_btn auth_text_font_but ">CREATE ACCOUNT</button>
                                 </div>
-                                <hr />
-                                <div class="form-group d-inline-flex auth_div_width">
+                                @* <hr /> *@
+                                <div class="form-group d-inline-flex auth_div_width mt-2">
                                     <p class="w-50 ">
                                         <a asp-page="./Login" class="auth_text_font_a " asp-route-returnUrl="@Model.ReturnUrl">Login</a>
                                     </p>
@@ -62,7 +61,7 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="col-sm-12 col-md-4">
+                        <div class="col-sm-12 col-md-4 lhst_desktop">
                             <div class="row d-inline-flex">
                                 <div class="col-6 lhst_scale">
                                     <img class="auth_height_side lhst_cursor_pointer" src="~/img/menu-icons/main_menu.jpg" alt="" loading="lazy" data-title="main_menu" onclick="openMainMenuScreensDialog()" />
