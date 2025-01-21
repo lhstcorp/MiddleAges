@@ -1,5 +1,6 @@
 ﻿const localEventsImagesUrl = '../img/local-events/';
 var localEventId;
+var localEventButtonControl;
 
 $(document).ready(function () {
     $(document).on("click", ".lhst_event_btn", showModalLocalEventDialog);
@@ -10,6 +11,7 @@ $(document).ready(function () {
 });
 
 function showModalLocalEventDialog() {    
+    localEventButtonControl = $(this);
     localEventId = $(this).data("localeventid");
 
     getLocalEventById(localEventId);
@@ -92,6 +94,7 @@ function selectLocalEventOption(optionNum) {
         let obj = JSON.parse(data);
         if (obj == 'Ok') {
             getPlayerData();
+            hideLocalEventButton();
         }
         else if (obj == 'ValidationFailed') {
             alert("Not enough property to fulfill the option.");
@@ -146,6 +149,10 @@ function refreshPlayerData(obj) {
     $('#unit-0-count').text(obj.Peasants.Count);
     $('#unit-1-count').text(obj.Soldiers.Count);
     
+}
+
+function hideLocalEventButton() {
+    localEventButtonControl.hide();
 }
 
 function hideModalLocalEventDialog() {
