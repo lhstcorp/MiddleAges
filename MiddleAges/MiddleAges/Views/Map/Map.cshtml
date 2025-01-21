@@ -391,7 +391,21 @@
                     </div>
 
                     <div>
-                        <p id="map_border_with" class="ml-2 mb-0 mt-2 mr-2 lhst_clr-wheat" style="font-weight: 400">Has borders with: @Model.BorderWith</p>
+                        <p id="map_border_with" class="ml-2 mb-0 mt-2 mr-2 lhst_clr-wheat" style="font-weight: 400">Has borders with: @Model.BorderWith
+                            @{
+                                for (int i = 0; i < Model.BorderWith.Count; i++)
+                                {
+                                    if (i != Model.BorderWith.Count - 1)
+                                    {
+                                        <span class="lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.BorderWith[i].BorderLandId.Replace(' ', '_')>@(Model.BorderWith[i].BorderLandId),</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="lhst_geo_object m_landBtn lhst_cursor_pointer" data-land=@Model.BorderWith[i].BorderLandId.Replace(' ', '_')>@Model.BorderWith[i].BorderLandId</span>
+                                    }
+                                }
+                            }
+                        </p>
                     </div>
 
                     <div class="d-flex">
