@@ -318,7 +318,7 @@
 
                 <p id="attackersArmyStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
                 <div class="lhst_tooltip lhst_cursor_help ml-1 mb-0">
-                    🛈
+                    ?
                     <span class="lhst_tooltiptext">
                         Army strength: average warfare of all participants
                     </span>
@@ -329,7 +329,7 @@
 
                 <p id="attackersFortificationStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
                 <div class="lhst_tooltip lhst_cursor_help ml-1 mb-0">
-                    🛈
+                    ?
                     <span class="lhst_tooltiptext">
                         Fortification strength: this modifier is based on the level of land fortification
                     </span>
@@ -370,10 +370,14 @@
                     <input id="soldiersCountLeftValue" name="unitsAmountLeftCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
                 </div>
                 <div class="col-3 p-0 text-right">
-                    <input type="submit" class="lhst_btn_war_modal" onclick="sendTroopsLeftSide()" value="Send" />
+                    <button type="submit" class="lhst_btn_war_modal" onclick="sendTroopsLeftSide()" >
+                        Send
+                    </button>
                 </div>
                 <div class="col-3 p-0">
-                    <input type="submit" class="lhst_btn_war_modal" onclick="sendTroopsRightSide()" value="Send" />
+                    <button type="submit" class="lhst_btn_war_modal" onclick="sendTroopsRightSide()"> 
+                        Send
+                    </button>
                 </div>
                 <div class="col-3 p-0">
                     <input id="soldiersCountRightValue" name="unitsAmountRightCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
@@ -388,7 +392,7 @@
                 <img class="float-right" style="width: 24px; height: 24px" loading="lazy" src="../img/interface-icons/war/army-strength.png" data-title="Army strength" alt="">
                 <p id="defendersArmyStrength" class="float-right mt-1 mb-0">0%</p>
                 <div class="lhst_tooltip lhst_cursor_help float-right mr-1 mt-1 mb-0">
-                    🛈
+                    ?
                     <span class="lhst_tooltiptext">
                         Army strength: average warfare of all participants
                     </span>
@@ -398,7 +402,7 @@
                 <img class="float-right" style="width: 24px; height: 24px" loading="lazy" src="../img/interface-icons/war/fortification-strength.png" data-title="Fortification strength" alt="">
                 <p id="defendersFortificationStrength" class="float-right mt-1 mb-0">0%</p>
                 <div class="lhst_tooltip lhst_cursor_help float-right mr-1 mb-0">
-                    🛈
+                    ?
                     <span class="lhst_tooltiptext">
                         Fortification strength: this modifier is based on the level of land fortification
                     </span>
@@ -503,7 +507,7 @@
                                 <div class="d-flex">
                                     <p class="lhst_card_properties">Infrastructure</p>
                                     <div class="lhst_tooltip lhst_cursor_help">
-                                        🛈
+                                        ?
                                         <span class="lhst_tooltiptext">
                                             Infrastructure: increases gold limit in the region.
                                         </span>
@@ -533,7 +537,7 @@
                                 <div class="d-flex">
                                     <p class="lhst_card_properties">Market</p>
                                     <div class="lhst_tooltip lhst_cursor_help">
-                                        🛈
+                                        ?
                                         <span class="lhst_tooltiptext">
                                             Market: increases the income received from your peasants.
                                         </span>
@@ -562,7 +566,7 @@
                                 <div class="d-flex">
                                     <p class="lhst_card_properties">Fortification</p>
                                     <div class="lhst_tooltip lhst_cursor_help">
-                                        🛈
+                                        ?
                                         <span class="lhst_tooltiptext">
                                             Fortification: increases strength in war.
                                         </span>
