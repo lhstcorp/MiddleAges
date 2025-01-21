@@ -96,7 +96,8 @@
     display: inline-block;
     height: 250px;
     margin-top: 10px;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    border-radius: inherit;
 }
 
 .lhst_country_king_size {

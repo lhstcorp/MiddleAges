@@ -556,7 +556,9 @@ footer {
 
 .lhst_map_region_icon_left_bar {
     display: inline-block;
-    height: 80px
+    height: 80px;
+    margin-left: inherit;
+    border-radius:inherit;
 }
 
 .lhst_info_region_icon_left_bar {
@@ -596,7 +598,8 @@ footer {
 }
 
 .lhst_map_region_icon_left_bar_col {
-    padding: 0 !important
+    padding: 0 !important;
+    border-radius: inherit;
 }
 
 .lhst_tb_unit_recruit::-webkit-outer-spin-button, .lhst_tb_unit_recruit::-webkit-inner-spin-button {
@@ -890,7 +893,7 @@ lhst_marquee {
         bottom: 125%;
         left: 50%;
         margin-left: -110px;
-        font-family: 'Comfortaa',cursive;
+        font-family: 'Comfortaa';
         text-align: justify
     }
 
@@ -976,7 +979,7 @@ lhst_marquee {
 }
 
 .lhst_cursor_text {
-    cursor: textcursor: pointer;
+    cursor: text;
 }
 
 .lhst_cursor_move {
@@ -1187,4 +1190,8 @@ lhst_marquee {
     max-height: 250px;
     background-size: 50%;
     color: var(--wheat-color) #4c473d;
+}
+
+svg {
+    touch-action: none;
 }
