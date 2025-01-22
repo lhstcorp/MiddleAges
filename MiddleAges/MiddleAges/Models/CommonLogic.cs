@@ -372,7 +372,32 @@ namespace MiddleAges.Models
             landIds.Add("Lomza");
             landIds.Add("Grajewo");
             landIds.Add("Kolno");
-            
+
+            landIds.Add("Kovel");
+            landIds.Add("Kamen-Kashirski");
+            landIds.Add("Volodimir");
+            landIds.Add("Lutsk");
+            landIds.Add("Varash");
+            landIds.Add("Sarni");
+            landIds.Add("Rivne");
+            landIds.Add("Dubno");
+            landIds.Add("Zvyagel");
+            landIds.Add("Korosten");
+            landIds.Add("Zhitomir");
+            landIds.Add("Berdichiv");
+            landIds.Add("Vishgorod");
+            landIds.Add("Bucha");
+            landIds.Add("Fastiv");
+            landIds.Add("Kyiv");
+            landIds.Add("Brovari");
+            landIds.Add("Borispil");
+            landIds.Add("Obuhiv");
+            landIds.Add("Bila_Cerkva");
+            landIds.Add("Nizhin");
+            landIds.Add("Chernigiv");
+            landIds.Add("Korukivka");
+            landIds.Add("Novgorod-Siverskii");
+            landIds.Add("Priluki");
 
             Random randNum = new Random();
             int aRandomPos = randNum.Next(landIds.Count);
