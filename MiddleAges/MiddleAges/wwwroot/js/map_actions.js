@@ -409,7 +409,33 @@ function showHeraldicIcons() {
     addHeraldicIcon('Zambrow', '../img/map-regions-icons-middle-ages/Zambrow.png');
     addHeraldicIcon('Lomza', '../img/map-regions-icons-middle-ages/Lomza.png');
     addHeraldicIcon('Grajewo', '../img/map-regions-icons-middle-ages/Grajewo.png');
-    addHeraldicIcon('Kolno', '../img/map-regions-icons-middle-ages/Kolno.png')
+    addHeraldicIcon('Kolno', '../img/map-regions-icons-middle-ages/Kolno.png');
+
+    addHeraldicIcon('Kovel', '../img/map-regions-icons-middle-ages/Kovel.png');
+    addHeraldicIcon('Kamen-Kashirski', '../img/map-regions-icons-middle-ages/Kamen-Kashirski.png');
+    addHeraldicIcon('Volodimir', '../img/map-regions-icons-middle-ages/Volodimir.png');
+    addHeraldicIcon('Lutsk', '../img/map-regions-icons-middle-ages/Lutsk.png');
+    addHeraldicIcon('Varash', '../img/map-regions-icons-middle-ages/Varash.png');
+    addHeraldicIcon('Sarni', '../img/map-regions-icons-middle-ages/Sarni.png');
+    addHeraldicIcon('Rivne', '../img/map-regions-icons-middle-ages/Rivne.png');
+    addHeraldicIcon('Dubno', '../img/map-regions-icons-middle-ages/Dubno.png');
+    addHeraldicIcon('Zvyagel', '../img/map-regions-icons-middle-ages/Zvyagel.png');
+    addHeraldicIcon('Korosten', '../img/map-regions-icons-middle-ages/Korosten.png');
+    addHeraldicIcon('Zhitomir', '../img/map-regions-icons-middle-ages/Zhitomir.png');
+    addHeraldicIcon('Berdichiv', '../img/map-regions-icons-middle-ages/Berdichiv.png');
+    addHeraldicIcon('Vishgorod', '../img/map-regions-icons-middle-ages/Vishgorod.png');
+    addHeraldicIcon('Bucha', '../img/map-regions-icons-middle-ages/Bucha.png')
+    addHeraldicIcon('Fastiv', '../img/map-regions-icons-middle-ages/Fastiv.png');
+    addHeraldicIcon('Kyiv', '../img/map-regions-icons-middle-ages/Kyiv.png');
+    addHeraldicIcon('Brovari', '../img/map-regions-icons-middle-ages/Brovari.png');
+    addHeraldicIcon('Borispil', '../img/map-regions-icons-middle-ages/Borispil.png');
+    addHeraldicIcon('Obuhiv', '../img/map-regions-icons-middle-ages/Obuhiv.png');
+    addHeraldicIcon('Bila_Cerkva', '../img/map-regions-icons-middle-ages/Bila_Cerkva.png');
+    addHeraldicIcon('Nizhin', '../img/map-regions-icons-middle-ages/Nizhin.png');
+    addHeraldicIcon('Chernigiv', '../img/map-regions-icons-middle-ages/Chernigiv.png');
+    addHeraldicIcon('Korukivka', '../img/map-regions-icons-middle-ages/Korukivka.png');
+    addHeraldicIcon('Novgorod-Siverskii', '../img/map-regions-icons-middle-ages/Novgorod-Siverskii.png');
+    addHeraldicIcon('Priluki', '../img/map-regions-icons-middle-ages/Priluki.png');
 
     // Добавляйте гербы для других регионов
 }
