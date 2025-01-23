@@ -19,6 +19,7 @@ namespace MiddleAges.Models
         public const double WarfareImpactPerc = 2.00;
         public const int    PlayerOnlineMinutes = 60;
         public const double LandBuildingDestructionPercentage = 0.5;
+        public const double AttributePointResetCostMultiplier = 3.5;
         public const string IndependentLandsCountryId = "CAF6F518-3730-4692-AB56-FC755E7FF957";
         public const string AdminId = "04805b01-4ec4-4e98-ba9b-1b08c7054026";
 
@@ -157,6 +158,11 @@ namespace MiddleAges.Models
             long requiredExp = Convert.ToInt32(Math.Floor(Math.Pow(1.4, lvl)));
 
             return requiredExp;
+        }
+
+        public static double CalculateAttributePointReset(int playerLvl)
+        {
+            return playerLvl * AttributePointResetCostMultiplier;
         }
 
         public static string getRandomMapLandId()
