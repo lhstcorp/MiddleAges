@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
 using MiddleAges.Entities;
 using MiddleAges.Enums;
+using MiddleAges.Migrations;
 using MiddleAges.Models;
 
 namespace MiddleAges.Areas.Identity.Pages.Account
@@ -142,16 +144,52 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             unit = new Unit { PlayerId = userId, Type = (int)UnitType.Soldier, Lvl = 1, Count = 0, LandId = currentLandId };
             _context.Units.Add(unit);
 
-            PlayerStatistics playerStatistics = new PlayerStatistics { PlayerId = userId, SoldiersKilled = 0, SoldiersLost = 0 };
+            Entities.PlayerStatistics playerStatistics = new Entities.PlayerStatistics { PlayerId = userId, SoldiersKilled = 0, SoldiersLost = 0 };
             _context.PlayerStatistics.Add(playerStatistics);
 
             PlayerAttribute playerAttribute = new PlayerAttribute { PlayerId = userId };
             _context.PlayerAttributes.Add(playerAttribute);
 
-            PlayerInformation playerInformation = new PlayerInformation { PlayerId = userId };
+            Entities.PlayerInformation playerInformation = new Entities.PlayerInformation { PlayerId = userId };
             _context.PlayerInformations.Add(playerInformation);
 
+            int randomEventId = new Random().Next(1, 54); //MaxID - 1
+                        
+            AddRandomLocalEvent(userId, randomEventId);
+            AddRandomLocalEvent(userId, randomEventId + 1);
+
+            InitPlayerRating(userId);
+
             await _context.SaveChangesAsync();
+        }
+
+        private void AddRandomLocalEvent(string playerId, int eventId)
+        {
+            PlayerLocalEvent localEvent = new PlayerLocalEvent
+            {
+                PlayerId = playerId,
+                EventId = eventId,
+                AssignedDateTime = DateTime.UtcNow
+            };
+
+            _context.Add(localEvent);
+        }
+
+        private void InitPlayerRating(string playerId)
+        {
+            int playersCount = _context.Players.Count();
+
+            Rating rating = new Rating
+            {
+                RatingId = new Guid(),
+                PlayerId = playerId,
+                ExpPlace = playersCount,
+                MoneyPlace = playersCount,
+                WarPowerPlace = playersCount,
+                TotalPlace = playersCount
+            };
+
+            _context.Add(rating);
         }
     }
 }

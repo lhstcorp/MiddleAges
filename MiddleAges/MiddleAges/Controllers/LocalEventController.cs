@@ -199,7 +199,7 @@ namespace MiddleAges.Controllers
                     optionValue *= Math.Round(unit.Count * 0.01 * (1 + Convert.ToDouble(playerAttribute.Management) * 0.02));
                     break;
                 case 2:
-                    optionValue *= Convert.ToDouble(CommonLogic.GetRequiredExpByLvl(player.Lvl + 1) - CommonLogic.GetRequiredExpByLvl(player.Lvl)) / 100.00;
+                    optionValue *= Math.Round(Convert.ToDouble(CommonLogic.GetRequiredExpByLvl(player.Lvl + 1) - CommonLogic.GetRequiredExpByLvl(player.Lvl)) / 100.00);
                     break;
             }
 
@@ -341,10 +341,13 @@ namespace MiddleAges.Controllers
         {
             bool ret = true;
 
-            Unit peasants = _context.Units.FirstOrDefault(u => u.PlayerId == player.Id
+            Unit soldiers = _context.Units.FirstOrDefault(u => u.PlayerId == player.Id
                                                             && u.Type == (int)UnitType.Soldier);
 
-            if (peasants.Count < -optionValue)
+            List<Army> armies = _context.Armies.Where(a => a.PlayerId == player.Id).ToList();
+            int soldiersInArmy = armies.Sum(a => a.SoldiersCount);
+
+            if (soldiers.Count - soldiersInArmy < -optionValue)
             {
                 ret = false;
             }
