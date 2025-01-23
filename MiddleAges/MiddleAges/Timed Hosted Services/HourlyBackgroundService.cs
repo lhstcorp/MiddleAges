@@ -377,6 +377,7 @@ namespace MiddleAges.Timed_Hosted_Services
             war.WarResult = (int)result;
             _context.Update(war);
 
+            DestroyBuildingsAfterWar(defeatLand);
             DisbandWarArmies(war);
         }
 
@@ -495,23 +496,38 @@ namespace MiddleAges.Timed_Hosted_Services
             {
                 int playerlocalEventsCount = activeLocalEvents.FindAll(le => le.PlayerId == player.Id).Count;
 
+                int randomEventId = new Random().Next(1, 54); //MaxID - 1
+
                 for (int i = 0; i < 2 - playerlocalEventsCount; i++) // if playerlocalEventsCount < 2 but + additional check because we can have 0 events
                 { 
-                    AddRandomLocalEvent(player.Id);
+                    AddRandomLocalEvent(player.Id, randomEventId);
+                    randomEventId++;
                 }
             }
         }
 
-        private void AddRandomLocalEvent(string playerId)
+        private void AddRandomLocalEvent(string playerId, int eventId)
         {
             PlayerLocalEvent localEvent = new PlayerLocalEvent
             {
                 PlayerId = playerId,
-                EventId = new Random().Next(1, 33),
+                EventId = eventId,
                 AssignedDateTime = DateTime.UtcNow
             };
 
             _context.Add(localEvent);
+        }
+
+        private void DestroyBuildingsAfterWar(Land defeatLand)
+        {
+            List<LandBuilding> landBuildings  = _context.LandBuildings.Where(lb => lb.LandId == defeatLand.LandId).ToList();
+
+            for (int i = 0; i < landBuildings.Count; i++)
+            {
+                landBuildings[i].Lvl = (int)Math.Ceiling(Convert.ToDouble(landBuildings[i].Lvl) * CommonLogic.LandBuildingDestructionPercentage);
+
+                _context.Update(landBuildings[i]);
+            }
         }
     }
 }

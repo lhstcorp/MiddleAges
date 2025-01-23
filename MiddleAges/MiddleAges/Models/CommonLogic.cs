@@ -18,6 +18,8 @@ namespace MiddleAges.Models
         public const double BaseGoldLimit = 1000;
         public const double WarfareImpactPerc = 2.00;
         public const int    PlayerOnlineMinutes = 60;
+        public const double LandBuildingDestructionPercentage = 0.5;
+        public const double AttributePointResetCostMultiplier = 3.5;
         public const string IndependentLandsCountryId = "CAF6F518-3730-4692-AB56-FC755E7FF957";
         public const string AdminId = "04805b01-4ec4-4e98-ba9b-1b08c7054026";
 
@@ -156,6 +158,11 @@ namespace MiddleAges.Models
             long requiredExp = Convert.ToInt32(Math.Floor(Math.Pow(1.4, lvl)));
 
             return requiredExp;
+        }
+
+        public static double CalculateAttributePointReset(int playerLvl)
+        {
+            return playerLvl * AttributePointResetCostMultiplier;
         }
 
         public static string getRandomMapLandId()
@@ -371,7 +378,32 @@ namespace MiddleAges.Models
             landIds.Add("Lomza");
             landIds.Add("Grajewo");
             landIds.Add("Kolno");
-            
+
+            landIds.Add("Kovel");
+            landIds.Add("Kamen-Kashirski");
+            landIds.Add("Volodimir");
+            landIds.Add("Lutsk");
+            landIds.Add("Varash");
+            landIds.Add("Sarni");
+            landIds.Add("Rivne");
+            landIds.Add("Dubno");
+            landIds.Add("Zvyagel");
+            landIds.Add("Korosten");
+            landIds.Add("Zhitomir");
+            landIds.Add("Berdichiv");
+            landIds.Add("Vishgorod");
+            landIds.Add("Bucha");
+            landIds.Add("Fastiv");
+            landIds.Add("Kyiv");
+            landIds.Add("Brovari");
+            landIds.Add("Borispil");
+            landIds.Add("Obuhiv");
+            landIds.Add("Bila Cerkva");
+            landIds.Add("Nizhin");
+            landIds.Add("Chernigiv");
+            landIds.Add("Korukivka");
+            landIds.Add("Novgorod-Siverskii");
+            landIds.Add("Priluki");
 
             Random randNum = new Random();
             int aRandomPos = randNum.Next(landIds.Count);

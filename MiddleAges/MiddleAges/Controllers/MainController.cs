@@ -140,8 +140,59 @@ namespace MiddleAges.Controllers
             return Json(JsonSerializer.Serialize(result));
         }
 
+        public async Task<IActionResult> ResetAttribute(string attributename)
+        {
+            ResetAttributeViewModel resetAttributeViewModel = new ResetAttributeViewModel
+            {
+                Status = "Error"
+            };
+
+            int attributeValue = 0;
+
+            Player player = await _userManager.GetUserAsync(HttpContext.User);
+            PlayerAttribute playerAttribute = await _context.PlayerAttributes.FirstOrDefaultAsync(pa => pa.PlayerId == player.Id);
+            double resetCost = CommonLogic.CalculateAttributePointReset(player.Lvl);
+
+            if (player != null
+             && player.Money >= resetCost
+             && attributename != null)
+            {
+                switch (attributename)
+                {
+                    case "Management":
+                        playerAttribute.Management -= 1;
+                        attributeValue = playerAttribute.Management;
+                        break;
+                    case "Warfare":
+                        playerAttribute.Warfare -= 1;
+                        attributeValue = playerAttribute.Warfare;
+                        break;
+                    case "Leadership":
+                        playerAttribute.Leadership -= 1;
+                        attributeValue = playerAttribute.Leadership;
+                        break;
+                }
+
+                if (attributeValue >= 0)
+                {
+                    player.Money -= resetCost;
+
+                    _context.Update(player);
+                    _context.Update(playerAttribute);
+                    await _context.SaveChangesAsync();
+
+                    resetAttributeViewModel.Status = "Ok";
+                    resetAttributeViewModel.AttributeValue = attributeValue;
+                    resetAttributeViewModel.PlayerMoney = player.Money;
+                }
+            }
+
+            return Json(JsonSerializer.Serialize(resetAttributeViewModel));
+        }
+
         public JsonResult GetPlayerById(string id)
         {
+            
             var playerQuery = _context.Players
                                 .Where(p => p.Id == id)
                                 .Join(_context.Ratings,
@@ -175,7 +226,7 @@ namespace MiddleAges.Controllers
                                 //        (combined, c) => new { combined.Player, combined.Rating, combined.PlayerInformation, combined.Unit, combined.ResidenceLand, combined.ResidenceCountry, combined.CurrentLand, CurrentCountry = c })
                                 //.Select(combined => new { Player = combined.Player, Rating = combined.Rating, PlayerInformation = combined.PlayerInformation, Unit = combined.Unit, ResidenceLand = combined.ResidenceLand, ResidenceCountry = combined.ResidenceCountry, CurrentLand = combined.CurrentLand, CurrentCountry = combined.CurrentCountry }).FirstOrDefault();
                                 .Select(combined => new { Player = combined.Player, Rating = combined.Rating, PlayerInformation = combined.PlayerInformation, Unit = combined.Unit, ResidenceLand = combined.ResidenceLand, ResidenceCountry = combined.ResidenceCountry }).FirstOrDefault();
-
+            
             ModalPlayerViewModel modalPlayerViewModel = new ModalPlayerViewModel
             {
                 Player = playerQuery.Player,

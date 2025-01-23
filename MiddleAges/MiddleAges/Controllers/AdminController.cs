@@ -9,6 +9,8 @@ using MiddleAges.Enums;
 using MiddleAges.Models;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using MiddleAges.ViewModels;
+using MiddleAges.Temporary_Entities;
 
 namespace MiddleAges.Controllers
 {
@@ -95,6 +97,42 @@ namespace MiddleAges.Controllers
             landDevelopmentShare.FortificationShare = 1;
 
             _context.Add(landDevelopmentShare);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CheckBorderLandMismatches()
+        {
+            List<BorderLandMismatch> borderLandMismatches = new List<BorderLandMismatch>();
+            string greenSpan = "<span style=\"color: limegreen; font-weight: 700\">{0} | {1} | {2}</span>";
+
+            List<Land> lands = await _context.Lands.ToListAsync();
+
+            for (int i = 0; i < lands.Count; i++)
+            {
+                List<BorderLand> borderLandsFrom = await _context.BorderLands.Where(bl => bl.BorderLandId == lands[i].LandId).ToListAsync();
+                List<BorderLand> borderLandsTo = await _context.BorderLands.Where(bl => bl.LandId == lands[i].LandId).ToListAsync();
+
+                if (borderLandsFrom.Count != borderLandsTo.Count
+                 || borderLandsFrom.Count == 0
+                 || borderLandsTo.Count   == 0)
+                {
+                    BorderLandMismatch borderLandMismatch = new BorderLandMismatch
+                    {
+                        LandId = lands[i].LandId,
+                        LandFromMentions = borderLandsFrom.Count,
+                        LandToMentions = borderLandsTo.Count
+                    };
+
+                    borderLandMismatches.Add(borderLandMismatch);
+                }
+            }
+
+            AdminViewModel adminViewModel = new AdminViewModel
+            {
+                BorderLandMismatches = borderLandMismatches
+            };
+
+            return await Task.Run<ActionResult>(() => View("Admin", adminViewModel));
         }
 
         [HttpPost]
