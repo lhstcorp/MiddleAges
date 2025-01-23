@@ -430,7 +430,7 @@ function showHeraldicIcons() {
     addHeraldicIcon('Brovari', '../img/map-regions-icons-middle-ages/Brovari.png');
     addHeraldicIcon('Borispil', '../img/map-regions-icons-middle-ages/Borispil.png');
     addHeraldicIcon('Obuhiv', '../img/map-regions-icons-middle-ages/Obuhiv.png');
-    addHeraldicIcon('Bila_Cerkva', '../img/map-regions-icons-middle-ages/Bila_Cerkva.png');
+    addHeraldicIcon('Bila_Cerkva', '../img/map-regions-icons-middle-ages/Bila Cerkva.png');
     addHeraldicIcon('Nizhin', '../img/map-regions-icons-middle-ages/Nizhin.png');
     addHeraldicIcon('Chernigiv', '../img/map-regions-icons-middle-ages/Chernigiv.png');
     addHeraldicIcon('Korukivka', '../img/map-regions-icons-middle-ages/Korukivka.png');
