@@ -392,7 +392,7 @@ namespace MiddleAges.Models
             landIds.Add("Brovari");
             landIds.Add("Borispil");
             landIds.Add("Obuhiv");
-            landIds.Add("Bila_Cerkva");
+            landIds.Add("Bila Cerkva");
             landIds.Add("Nizhin");
             landIds.Add("Chernigiv");
             landIds.Add("Korukivka");
