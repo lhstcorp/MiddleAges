@@ -83,8 +83,14 @@ function populateWarData(obj) {
     $('#landFromName').text(obj.LandFrom.LandId);
     $('#countryToName').text(obj.CountryTo.Name);
     $('#landToName').text(obj.LandTo.LandId);    
+
+    if (obj.War.IsRevolt) {
+        $('#imgFrom').attr('src', '../img/default-icon/rebel-coat.png');
+    }
+    else {
+        $('#imgFrom').attr('src', coatOfArmsUrl + obj.LandFrom.LandId + '.png');
+    }
     
-    $('#imgFrom').attr('src', coatOfArmsUrl + obj.LandFrom.LandId + '.png');
     $('#imgTo').attr('src', coatOfArmsUrl + obj.LandTo.LandId + '.png');
 
     $('#landFromName').data("land", obj.LandFrom.LandId.replace(' ', '_'));
