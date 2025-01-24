@@ -220,7 +220,11 @@ namespace MiddleAges.Controllers
 
         public async Task<IActionResult> StartAnUprising(string landId)
         {
-            string result = "Error";
+            StartAnUprisingViewModel startAnUprisingViewModel = new StartAnUprisingViewModel
+            { 
+                Status = "Error"
+            };
+
             Player player = await _userManager.GetUserAsync(HttpContext.User);
             Land land = await _context.Lands.Include(l => l.Country).FirstOrDefaultAsync(a => a.LandId == landId);
             War warCheck = await _context.Wars.FirstOrDefaultAsync(w => (w.LandIdFrom == landId
@@ -248,10 +252,12 @@ namespace MiddleAges.Controllers
 
                 await _context.SaveChangesAsync();
 
-                result = "Ok";
+                startAnUprisingViewModel.Status = "Ok";
+                startAnUprisingViewModel.War = war;
+                startAnUprisingViewModel.Player = player;
             }
 
-            return Json(JsonSerializer.Serialize(result));
+            return Json(JsonSerializer.Serialize(startAnUprisingViewModel));
         }
 
         //private string GetLandBorderWith(string landId)

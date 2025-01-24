@@ -110,12 +110,13 @@ function startAnUprising() {
     })
         .done(function (data) {
             let obj = JSON.parse(data);
-            if (obj == 'Error') {
+            if (obj.Status == 'Error') {
                 alert("Unfortunately you haven't started the rebellion on this land");
             }
             else {
-                addRevoltIcon(landId);
+                addRevoltIcon(landId, obj.War.WarId);
                 setLocationBtnEnableability(landId);
+                refreshPlayerData(obj.Player)
             }
         })
         .fail(function (data) {
@@ -123,7 +124,7 @@ function startAnUprising() {
         });
 }
 
-function addRevoltIcon(landId) {
+function addRevoltIcon(landId, warId) {
     const landPolygon = document.getElementById(landId.replace(' ', '_'));
     let landCenter = getPolygonCenter(landPolygon.animatedPoints);
 
@@ -139,9 +140,16 @@ function addRevoltIcon(landId) {
 
     var revoltIcon = document.createElementNS('http://www.w3.org/2000/svg', 'image');
     revoltIcon.setAttribute('href', '../img/interface-icons/map-icons/revolt.svg');
+    revoltIcon.dataset.warid = warId;
+    revoltIcon.classList.add("lhst_cursor_pointer", "warDetailsBtn");
     revoltSvg.appendChild(revoltIcon);
 
     map.appendChild(revoltSvg);
+}
+
+function refreshPlayerData(player) {
+    const playerMoney = document.getElementById("player-money");
+    playerMoney.innerText = player.Money.toFixed(2);
 }
 
 function toggleTextures() {
