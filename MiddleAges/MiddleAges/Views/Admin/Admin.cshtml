@@ -1,23 +1,41 @@
-﻿<div class="d-flex">
+﻿@model MiddleAges.ViewModels.AdminViewModel
+
+<div class="d-flex">
     <div class="lhst_left-side-bar lhst_vertical-alignment-top">
-        <div class="lhst_left_side_bar_land_content row justify-content-md-center">
+        <div class="lhst_left_side_bar_country_content row justify-content-md-center">
             <form asp-controller="Admin" asp-action="CreateInitialLandBuildings">
                 <button type="submit" class="lhst_settings_button">
                     <p class="w-100 flex-wrap mb-1 font-weight-normal">Create initial land buildings</p>
+                </button>
+            </form>
+            <form asp-controller="Admin" asp-action="CheckBorderLandMismatches">
+                <button type="submit" class="lhst_settings_button">
+                    <p class="w-100 flex-wrap mb-1 font-weight-normal">Check border land mismatches</p>
                 </button>
             </form>
             <form asp-controller="Admin" asp-action="ClearDatabase">
                 <button type="submit" class="lhst_settings_button">
                     <p class="w-100 flex-wrap mb-1 font-weight-normal">Clear database</p>
                 </button>
-            </form>
+            </form>            
         </div>
     </div>
 
     <div class="lhst_vertical-alignment-top lhst_main-section_mainmenu lhst_main_section_padding">
         <div class="float-left mr-3">
-            <div>
-                <p>Hello Admin</p>
+            <p class="lhst_clr-wheat mt-1 mb-0">Development output</p>
+
+            <div class="lhst_developer_output pt-2">
+                @if(Model != null)
+                {
+                    if (Model.BorderLandMismatches != null)
+                    {
+                        for (int i = 0; i < Model.BorderLandMismatches.Count; i++)
+                        {
+                            <p class="ml-2 mt-0 mr-2 mb-0">@Model.BorderLandMismatches[i].LandId | @Model.BorderLandMismatches[i].LandFromMentions | @Model.BorderLandMismatches[i].LandToMentions</p>
+                        }
+                    }                    
+                }
             </div>
         </div>
     </div>

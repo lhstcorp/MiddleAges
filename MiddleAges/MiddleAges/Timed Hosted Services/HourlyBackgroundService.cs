@@ -522,11 +522,11 @@ namespace MiddleAges.Timed_Hosted_Services
         {
             List<LandBuilding> landBuildings  = _context.LandBuildings.Where(lb => lb.LandId == defeatLand.LandId).ToList();
 
-            for (int i = 0; i <= landBuildings.Count; i++)
+            for (int i = 0; i < landBuildings.Count; i++)
             {
                 landBuildings[i].Lvl = (int)Math.Ceiling(Convert.ToDouble(landBuildings[i].Lvl) * CommonLogic.LandBuildingDestructionPercentage);
 
-                _context.Update(landBuildings);
+                _context.Update(landBuildings[i]);
             }
         }
     }
