@@ -1,5 +1,6 @@
 ﻿@page
 @model LoginModel
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Grand Duchy";
@@ -35,8 +36,10 @@
                                     <a href="#" class="password-control" onclick="show_hide_password(this);"></a>
                                     <span asp-validation-for="Input.Password" class="text-danger "></span>                                    
                                 </div>
-                                <div class="form-group text-center mb-0 mt-2" tabindex="2">                                    
-                                    <button type="submit" class="btn auth_btn auth_text_font_but ">Sign in</button>
+                                <div class="form-group text-center mb-0 mt-2" tabindex="2">
+                                    <button type="submit" class="btn auth_btn auth_text_font_but">
+                                        @Localizer["SignIn"]
+                                    </button>
                                 </div>
                                 @* <div class="form-group">
                                     <div class="checkbox">
@@ -49,7 +52,7 @@
                                 @* <hr /> *@
                                 <div class="form-group d-inline-flex mt-2">
                                     <p class="mr-2">
-                                        <a asp-page="./Register" class="auth_text_font_a" asp-route-returnUrl="@Model.ReturnUrl">Create accont</a>
+                                        <a asp-page="./Register" class="auth_text_font_a" asp-route-returnUrl="@Model.ReturnUrl">Create account</a>
                                     </p>
                                     <p>
                                         <a id="forgot-password" class="auth_text_font_a" asp-page="./ForgotPassword">Forgot your password?</a>
