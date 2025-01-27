@@ -16,6 +16,7 @@ using System.Threading.Tasks;
 
 namespace MiddleAges.Controllers
 {
+    [Authorize]
     public class UnitController : Controller
     {
         private readonly ILogger<MainController> _logger;

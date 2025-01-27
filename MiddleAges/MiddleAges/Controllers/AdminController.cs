@@ -11,9 +11,11 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using MiddleAges.ViewModels;
 using MiddleAges.Temporary_Entities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MiddleAges.Controllers
 {
+    [Authorize]
     public class AdminController : Controller
     {
         private readonly ILogger<MainController> _logger;

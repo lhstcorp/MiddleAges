@@ -9,9 +9,11 @@ using MiddleAges.Enums;
 using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MiddleAges.Controllers
 {
+    [Authorize]
     public class ChatController : Controller
     {
         private readonly ILogger<ChatController> _logger;

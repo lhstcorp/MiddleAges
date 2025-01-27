@@ -39,7 +39,10 @@
     background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
     border-radius: 3px;
-    font-size: revert
+    font-size: revert;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-color: #666060;
 }
 
 .lhst_btn_moveToRegion:hover {

@@ -7,9 +7,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using MiddleAges.Enums;
 using MiddleAges.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MiddleAges.Controllers
 {
+    [Authorize]
     public class BuildingController : Controller
     {
         private readonly ILogger<MainController> _logger;
