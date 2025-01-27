@@ -15,6 +15,10 @@ namespace MiddleAges.Areas.Identity
         public void Configure(IWebHostBuilder builder)
         {
             builder.ConfigureServices((context, services) => {
+                services.AddLocalization(options => options.ResourcesPath = "Resources");
+                services.AddControllersWithViews()
+                        .AddViewLocalization()
+                        .AddDataAnnotationsLocalization();
             });
         }
     }
