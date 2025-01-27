@@ -28,10 +28,8 @@ namespace MiddleAges
         {
             services.Configure<FormOptions>(options =>
             {
-                options.MultipartBodyLengthLimit = 512 * 512; // Ограничение 2 MB на все multipart-запросы
+                options.MultipartBodyLengthLimit = 512 * 512;
             });
-
-            // Остальные сервисы
         }
     }
 }

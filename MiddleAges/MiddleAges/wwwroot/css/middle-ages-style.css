@@ -435,11 +435,14 @@ footer {
 .lhst_card_properties {
     margin: 2px;
     color: var(--wheat-color);
-    width: 100%
 }
 
 .lhst_building_card_left_part {
     width: 96px;
+    justify-items: left;
+}
+
+.lhst_unit_card_left_part {
     justify-items: left;
 }
 

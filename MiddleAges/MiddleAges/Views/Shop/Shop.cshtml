@@ -1,4 +1,6 @@
-﻿<div class="d-flex">
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
+
+<div class="d-flex">
     <div class="lhst_avatar_left-side-bar lhst_avatar_vertical-alignment-top lhst_desktop"></div>
     <div class="d-block lhst_main-section_mainmenu">
         <div class="lhst_building_ext_card lhst_inline image-parlax">
@@ -15,17 +17,17 @@
             <div>
                 <div class="lhst_inline lhst_building_card_left_part">
                     <div class="d-flex">
-                        <p class="lhst_card_properties">Coins: 100</p>
+                        <p class="lhst_card_properties">@Localizer["CoinsShopLabel"]</p>
                         <div class="lhst_tooltip lhst_cursor_help">
                             🛈
                                 <span class="lhst_tooltiptext">
-                                    Небольшая помощь на старте
+                                    @Localizer["SmallHelpTooltip"]
                                 </span>
                         </div>
                     </div>
                 </div>
                 <div class="lhst_inline">
-                    <input type="submit" class="lhst_btn_unit_recruit" value="Buy" />
+                    <input type="submit" class="lhst_btn_unit_recruit" value="@Localizer["ReceiveBonus"]" />
                 </div>
             </div>
         </div>
