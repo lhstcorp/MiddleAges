@@ -11,9 +11,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Text.Json;
 using MiddleAges.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MiddleAges.Controllers
 {
+    [Authorize]
     public class RatingController : Controller
     {
         private readonly ILogger<RatingController> _logger;

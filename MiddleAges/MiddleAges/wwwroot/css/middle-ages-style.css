@@ -17,8 +17,12 @@ body {
     margin: 0;*/
     background: var(--dark-theme);
     background-size: 100%;
-    margin: 0;
-    
+    margin: 0;    
+}
+
+button {
+    -webkit-appearance: none !important; /* Отключает стандартные стили Safari */
+    appearance: none !important; /* Отключает стандартные стили для других браузеров */
 }
 
 .header {
@@ -455,20 +459,23 @@ footer {
     color: var(--wheat-color);
     border-radius: 3px;
     font-weight: 700;
-    font-size: revert
+    font-size: revert;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-color: #666060;
 }
 
-    .lhst_btn_building_lvlup:hover {
-        background: radial-gradient(var(--green-color),black);
-        color: var(--yellow-color);
-        border-style: outset
-    }
+.lhst_btn_building_lvlup:hover {
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style: outset
+}
 
-    .lhst_btn_building_lvlup:active {
-        border-style: inset;
-        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
-    }
+.lhst_btn_building_lvlup:active {
+    border-style: inset;
+    transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
+}
 
 .lhst_btn_unit_recruit {
     background: radial-gradient(var(--add-color),black);
@@ -477,7 +484,10 @@ footer {
     overflow: hidden;
     width: 58px;
     height: 26.2px;
-    font-size: revert
+    font-size: revert;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-color: #666060;
 }
 
     .lhst_btn_unit_recruit:hover {
@@ -815,15 +825,15 @@ lhst_marquee {
 }
 
 .lhst_default_button {
-    /*background: radial-gradient(var(--add-color),black);
-    color: var(--wheat-color);
-    border-radius: 3px*/
     background: radial-gradient(var(--add-color), black);
     transition: .3s;
     color: #f4ebdb;
     border-radius: 5px;
     font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
     line-height: 1.2;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-color: #666060;
 }
 
 .lhst_default_button:hover {
@@ -1097,19 +1107,20 @@ lhst_marquee {
     display: none;
     width: 50px;
     height: 50px;
+    border-color: #666060;
 }
 
-    .dropdown-toggle:hover {
-        background: radial-gradient(var(--green-color) 0%,black);
-        color: var(--yellow-color);
-        border-style: outset
-    }
+.dropdown-toggle:hover {
+    background: radial-gradient(var(--green-color) 0%,black);
+    color: var(--yellow-color);
+    border-style: outset
+}
 
-    .dropdown-toggle:active {
-        border-style: inset;
-        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
-    }
+.dropdown-toggle:active {
+    border-style: inset;
+    transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
+}
 
 .dropdown-menu {
     display: none; /* скрыто по умолчанию */
@@ -1197,4 +1208,10 @@ lhst_marquee {
 
 svg {
     touch-action: none;
+}
+
+.lhst_iphone_border {
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-color: #666060;
 }
