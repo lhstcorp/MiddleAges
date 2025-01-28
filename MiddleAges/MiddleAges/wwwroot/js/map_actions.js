@@ -445,6 +445,44 @@ function showHeraldicIcons() {
     addHeraldicIcon('Novgorod-Siverskii', '../img/map-regions-icons-middle-ages/Novgorod-Siverskii.png');
     addHeraldicIcon('Priluki', '../img/map-regions-icons-middle-ages/Priluki.png');
 
+    addHeraldicIcon('Kraslava', '../img/map-regions-icons-middle-ages/Kraslava.png');
+    addHeraldicIcon('Daugavpils', '../img/map-regions-icons-middle-ages/Daugavpils.png');
+    addHeraldicIcon('Ludza', '../img/map-regions-icons-middle-ages/Ludza.png');
+    addHeraldicIcon('Rezekne', '../img/map-regions-icons-middle-ages/Rezekne.png');
+    addHeraldicIcon('Preili', '../img/map-regions-icons-middle-ages/Preili.png');
+    addHeraldicIcon('Livani', '../img/map-regions-icons-middle-ages/Livani.png');
+    addHeraldicIcon('Balvi', '../img/map-regions-icons-middle-ages/Balvi.png');
+    addHeraldicIcon('Aluksne', '../img/map-regions-icons-middle-ages/Aluksne.png');
+    addHeraldicIcon('Gulbene', '../img/map-regions-icons-middle-ages/Gulbene.png');
+    addHeraldicIcon('Varaklani', '../img/map-regions-icons-middle-ages/Varaklani.png');
+    addHeraldicIcon('Madona', '../img/map-regions-icons-middle-ages/Madona.png');
+    addHeraldicIcon('Jekabpils', '../img/map-regions-icons-middle-ages/Jekabpils.png');
+    addHeraldicIcon('Aizkraukle', '../img/map-regions-icons-middle-ages/Aizkraukle.png');
+    addHeraldicIcon('Bauska', '../img/map-regions-icons-middle-ages/Bauska.png')
+    addHeraldicIcon('Smiltene', '../img/map-regions-icons-middle-ages/Smiltene.png');
+    addHeraldicIcon('Valka', '../img/map-regions-icons-middle-ages/Valka.png');
+    addHeraldicIcon('Valmiera', '../img/map-regions-icons-middle-ages/Valmiera.png');
+    addHeraldicIcon('Cesis', '../img/map-regions-icons-middle-ages/Cesis.png');
+    addHeraldicIcon('Ogre', '../img/map-regions-icons-middle-ages/Ogre.png');
+    addHeraldicIcon('Limbazi', '../img/map-regions-icons-middle-ages/Limbazi.png');
+    addHeraldicIcon('Sigulda', '../img/map-regions-icons-middle-ages/Sigulda.png');
+    addHeraldicIcon('Saulkrasti', '../img/map-regions-icons-middle-ages/Saulkrasti.png');
+    addHeraldicIcon('Adazi', '../img/map-regions-icons-middle-ages/Adazi.png');
+    addHeraldicIcon('Ulbroka', '../img/map-regions-icons-middle-ages/Ulbroka.png');
+    addHeraldicIcon('Salaspils', '../img/map-regions-icons-middle-ages/Salaspils.png');
+    addHeraldicIcon('Kekava', '../img/map-regions-icons-middle-ages/Kekava.png');
+    addHeraldicIcon('Riga', '../img/map-regions-icons-middle-ages/Riga.png');
+    addHeraldicIcon('Olaine', '../img/map-regions-icons-middle-ages/Olaine.png');
+    addHeraldicIcon('Marupe', '../img/map-regions-icons-middle-ages/Marupe.png');
+    addHeraldicIcon('Jurmala', '../img/map-regions-icons-middle-ages/Jurmala.png');
+    addHeraldicIcon('Jelgava', '../img/map-regions-icons-middle-ages/Jelgava.png');
+    addHeraldicIcon('Dobele', '../img/map-regions-icons-middle-ages/Dobele.png');
+    addHeraldicIcon('Saldus', '../img/map-regions-icons-middle-ages/Saldus.png');
+    addHeraldicIcon('Tukums', '../img/map-regions-icons-middle-ages/Tukums.png');
+    addHeraldicIcon('Liepaja', '../img/map-regions-icons-middle-ages/Liepaja.png');
+    addHeraldicIcon('Kuldiga', '../img/map-regions-icons-middle-ages/Kuldiga.png');
+    addHeraldicIcon('Talsi', '../img/map-regions-icons-middle-ages/Talsi.png');
+    addHeraldicIcon('Ventspils', '../img/map-regions-icons-middle-ages/Ventspils.png');
     // Добавляйте гербы для других регионов
 }
 
