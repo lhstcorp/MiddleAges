@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Entities;
+using MiddleAges.Controllers;
 
 namespace MiddleAges.Areas.Identity.Pages.Account
 {
@@ -70,6 +71,11 @@ namespace MiddleAges.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
 
             ReturnUrl = returnUrl;
+
+            if (User.Identity.IsAuthenticated)
+            {
+                Response.Redirect(returnUrl);
+            }
         }
 
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)

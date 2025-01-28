@@ -62,11 +62,15 @@
     align-content: end;
     background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
+    font-family: 'Sitka Display', 'Arial', Arial, sans-serif;
     border-radius: 3px;
     width: -webkit-fill-available;
     margin-left: 3px;
     height: 26.2px;
-    font-size: revert
+    font-size: revert;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-color: #666060;
 }
 
 .lhst_tb_war_modal {

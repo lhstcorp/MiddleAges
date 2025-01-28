@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,6 +18,7 @@ using System.Threading.Tasks;
 
 namespace MiddleAges.Controllers
 {
+    [Authorize]
     public class SettingsController : Controller
     {
         private readonly ILogger<MainController> _logger;

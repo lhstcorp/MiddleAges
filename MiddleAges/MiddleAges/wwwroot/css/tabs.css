@@ -10,30 +10,34 @@
 
 .tab {
     overflow: hidden;
-    border: 1px solid #ccc;
+    border: 1px solid #4a4949;
+    border-radius: 3px;
     background-color: var(--add-color)
 }
 
-    .tab button {
-        background: radial-gradient(var(--add-color),black);
-        transition: .3s;
-        color: #f4ebdb;
-        border-radius: 5px;
-        font-family: 'Sitka Display','Arial',Arial,sans-serif;
-        line-height: 1.2
-    }
+.tab button {
+    background: radial-gradient(var(--add-color),black);
+    transition: .3s;
+    color: #f4ebdb;
+    border-radius: 5px;
+    font-family: 'Sitka Display','Arial',Arial,sans-serif;
+    line-height: 1.2;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-color: #666060;
+}
 
-        .tab button:hover {
-            background: radial-gradient(var(--green-color),black);
-            color: var(--yellow-color);
-            border-style: outset
-        }
+.tab button:hover {
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style: outset
+}
 
-        .tab button:active {
-            background: radial-gradient(var(--green-color),black);
-            color: var(--yellow-color);
-            border-style: inset
-        }
+.tab button:active {
+    background: radial-gradient(var(--green-color),black);
+    color: var(--yellow-color);
+    border-style: inset
+}
 
 .tabcontent {
     display: none
