@@ -4,6 +4,7 @@
 @using Microsoft.AspNetCore.Identity;
 @model MiddleAges.ViewModels.CountryInfoViewModel;
 @inject UserManager<Player> UserManager
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "middle ages";
@@ -23,27 +24,27 @@
 
             <div class="lhst_country_buttons_div lhst_scale">
                 @*ПЕРЕИМЕНОВАНИЕ*@
-                <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
+                <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">@Localizer["Rename"] </button>
                 @*ИЗМНЕНЕНИЕ ЦВЕТА*@
-                <button @disabled class="header-menu color-btn lhst_shadow_text lhst_law_btn" onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
+                <button @disabled class="header-menu color-btn lhst_shadow_text lhst_law_btn" onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">@Localizer["ChangeColor"] </button>
                 @*Смена столицы*@
-                <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
+                <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">@Localizer["ChangeCapital"] </button>
                 @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
-                <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer land</button>
+                <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">@Localizer["TransferLand"] </button>
                 @*  @*Установление налога*@
-                <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
+                <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">@Localizer["SetTaxes"] </button>
                 @*Смена правителя*@
-                <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
+                <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">@Localizer["ChangeRuler"] </button>
                 @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
-                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
+                <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">@Localizer["DeclareWar"] </button>
                 @*Назначить губернатора*@
-                <button @disabled class="header-menu appoint-governor-btn lhst_shadow_text lhst_law_btn" onclick="openAppointGovernorDialog()">Appoint a governor</button>
+                <button @disabled class="header-menu appoint-governor-btn lhst_shadow_text lhst_law_btn" onclick="openAppointGovernorDialog()">@Localizer["AppointGovernor"] </button>
                 @*Трансфер денег государства в лэнды*@
-                <button @disabled class="header-menu transfer-money-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingMoneyDialog()">Transfer money</button>
+                <button @disabled class="header-menu transfer-money-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingMoneyDialog()">@Localizer["TransferMoney"] </button>
                 @*поменять герб страны*@
-                <button @disabled class="header-menu banner-btn lhst_shadow_text lhst_law_btn" onclick="openChangingBannerCountryDialog()" id="openChangingBannerCountryDialog">Change banner</button>
+                <button @disabled class="header-menu banner-btn lhst_shadow_text lhst_law_btn" onclick="openChangingBannerCountryDialog()" id="openChangingBannerCountryDialog">@Localizer["ChangeBanner"] </button>
                 @*распустить страну*@
-                <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>                
+                <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">@Localizer["Disband"] </button>
             </div>
         </div>
     }
@@ -66,13 +67,13 @@
                 <div class="lhst_person-nav-container-inline mr-1">
                     <img class="lhst_king_nav-avatar-img" src="~/img/avatars/@(Model.Ruler.ImageURL)" alt="" loading="lazy" />
                 </div>
-                <p class="lhst_country_king_size ">King @Model.Ruler.UserName</p>
+                <p class="lhst_country_king_size ">@Localizer["King"] @Model.Ruler.UserName</p>
                 
             </div>
 
             <div class="row">
                 <div class="col-6 pl-0 pr-2">
-                    <p class="mt-2 text-left mb-1">People resources</p>
+                    <p class="mt-2 text-left mb-1">@Localizer["PeopleResources"]</p>
                     <div class="lhst_country_line mb-1">
                     </div>
                     <div>
@@ -92,7 +93,7 @@
                 </div>
 
                 <div class="col-6 pl-2 pr-0">
-                    <p class="mt-2 text-left mb-1">Treasure</p>
+                    <p class="mt-2 text-left mb-1">@Localizer["Treasure"]</p>
                     <div class="lhst_country_line mb-1">
                     </div>
                     <div>
@@ -104,7 +105,7 @@
                 </div>
             </div>
 
-            <p class="mt-2 text-left mb-1">Lands</p>
+            <p class="mt-2 text-left mb-1">@Localizer["Lands"]</p>
             <div class="lhst_country_line mb-1">
             </div>
             <div class="d-inline-block float-left">
@@ -124,27 +125,27 @@
 
                     <div class="lhst_country_buttons_div lhst_scale">
                         @*ПЕРЕИМЕНОВАНИЕ*@
-                        <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">Rename</button>
+                        <button @disabled class="header-menu rename-btn lhst_shadow_text lhst_law_btn" onclick="openRenamingCountryDialog()" id="openRenameCountryDialog">@Localizer["Rename"] </button>
                         @*ИЗМНЕНЕНИЕ ЦВЕТА*@
-                        <button @disabled class="header-menu color-btn lhst_shadow_text lhst_law_btn" onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">Change color</button>
+                        <button @disabled class="header-menu color-btn lhst_shadow_text lhst_law_btn" onclick="openRecoloringCountryDialog()" id="openRecolorCountryDialog">@Localizer["ChangeColor"] </button>
                         @*Смена столицы*@
-                        <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">Change capital</button>
+                        <button @disabled class="header-menu capital-btn lhst_shadow_text lhst_law_btn" onclick="openChangingCapitalCountryDialog()" id="openChangeCapitalCountryDialog">@Localizer["ChangeCapital"] </button>
                         @*ПЕРЕДАЧА ЛЭНДА ДРУГОМУ ГОСУ*@
-                        <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">Transfer land</button>
+                        <button @disabled class="header-menu transfer-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingLandCountryDialog()" id="openTransferLandCountryDialog">@Localizer["TransferLand"] </button>
                         @*  @*Установление налога*@
-                        <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">Set Taxes</button>
+                        <button @disabled class="header-menu taxes-btn lhst_shadow_text lhst_law_btn" onclick="openTaxesCountryDialog()" id="openTaxesCountryDialog">@Localizer["SetTaxes"] </button>
                         @*Смена правителя*@
-                        <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">Change ruler</button>
+                        <button @disabled class="header-menu ruler-btn lhst_shadow_text lhst_law_btn" onclick="openChangingRulerCountryDialog()" id="openChangeRulerCountryDialog">@Localizer["ChangeRuler"] </button>
                         @*ОБЪЯВЛЕНИЕ ВОЙНЫ*@
-                        <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">Declare War</button>
+                        <button @disabled class="header-menu war-btn lhst_shadow_text lhst_law_btn" onclick="openDeclaringWarCountryDialog()" id="openDeclareWarCountryDialog">@Localizer["DeclareWar"] </button>
                         @*Назначить губернатора*@
-                        <button @disabled class="header-menu appoint-governor-btn lhst_shadow_text lhst_law_btn" onclick="openAppointGovernorDialog()">Appoint a governor</button>
+                        <button @disabled class="header-menu appoint-governor-btn lhst_shadow_text lhst_law_btn" onclick="openAppointGovernorDialog()">@Localizer["AppointGovernor"] </button>
                         @*Трансфер денег государства в лэнды*@
-                        <button @disabled class="header-menu transfer-money-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingMoneyDialog()">Transfer money</button>
+                        <button @disabled class="header-menu transfer-money-btn lhst_shadow_text lhst_law_btn" onclick="openTransferingMoneyDialog()">@Localizer["TransferMoney"] </button>
                         @*поменять герб страны*@
-                        <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openChangingBannerCountryDialog()" id="openChangingBannerCountryDialog">Change banner</button>
+                        <button @disabled class="header-menu banner-btn lhst_shadow_text lhst_law_btn" onclick="openChangingBannerCountryDialog()" id="openChangingBannerCountryDialog">@Localizer["ChangeBanner"] </button>
                         @*распустить страну*@
-                        <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">Disband</button>                        
+                        <button @disabled class="header-menu disband-btn lhst_shadow_text lhst_law_btn" onclick="openDisbandingCountryDialog()" id="openDisbandCountryDialog">@Localizer["Disband"] </button>
                     </div>
                 </div>
         }
@@ -176,16 +177,16 @@
     <form asp-controller="Country" asp-action="Rename">
         <section>
             <p class="lhst_card_properties">
-                <label>Current name: @Model.Country.Name</label>
+                <label>@Localizer["CurrentName"] @Model.Country.Name</label>
             </p>
             <p class="lhst_card_properties">
-                New name
+                @Localizer["NewName"]
                 <input name="newName" class="lhst_dialog_rename_input" type="text" />
             </p>
         </section>
         <div class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
             </button>
         </div>
     </form>
@@ -199,17 +200,17 @@
     <form asp-controller="Country" asp-action="Recolor">
         <section>
             <p class="lhst_card_properties">
-                Current color: 
+                @Localizer["CurrentColor"]
                 <input class="lhst_color_picker" type="color" value="@Model.Country.Color" disabled>
             </p>
             <p class="lhst_card_properties">
-                New color: 
+                @Localizer["NewColor"]
                 <input name="newColor" class="lhst_color_picker" type="color" id="countrycolor" value="#ff0000">
             </p>
         </section>
         <div class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
             </button>
         </div>
     </form>
@@ -222,10 +223,10 @@
     <form asp-controller="Country" asp-action="ChangeCapital">
         <section>
             <p class="lhst_card_properties">
-                <label>Current capital: @Model.Country.CapitalId</label>
+                <label> @Localizer["CurrentCapital"]@Model.Country.CapitalId</label>
             </p>
             <p class="lhst_card_properties">
-                New capital
+                @Localizer["NewCapital"]
                 <select name="newcapital" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.Lands.Count; i++)
                     {
@@ -236,7 +237,7 @@
         </section>
         <menu class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 50</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 50</span></p>
             </button>
         </menu>
     </form>
@@ -249,10 +250,10 @@
     <form asp-controller="Country" asp-action="TransferLand" >
         <section>
             <p class="lhst_card_properties">
-                <label>Transfer Land</label>
+                <label>@Localizer["TransferLand"]</label>
             </p>
             <p class="lhst_card_properties">
-                Choose Land
+                @Localizer["ChooseLand"]
                 <select name="transferLand" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.LandsToTranfer.Count; i++)
                     {
@@ -261,7 +262,7 @@
                 </select>
             </p>
             <p class="lhst_card_properties">
-                Choose Country
+                @Localizer["ChooseCountry"]
                 <select name="toCountry" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.OtherCountries.Count(); i++)
                     {
@@ -272,7 +273,7 @@
         </section>
         <menu class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
             </button>
         </menu>
     </form>
@@ -285,10 +286,10 @@
     <form asp-controller="Country" asp-action="SetTaxes">
         <section>
             <p class="lhst_card_properties">
-                <label>Set Taxes</label>
+                <label>@Localizer["SetTaxes"]</label>
             </p>
             <p class="lhst_card_properties">
-                Choose Land
+                @Localizer["ChooseLand"]
                 <select name="landId" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.Lands.Count; i++)
                     {
@@ -297,17 +298,17 @@
                 </select>
             </p>
             <p class="lhst_card_properties">
-                Land Tax Value %
+                @Localizer["LandTax"]
                 <input name="landTaxValue" class="lhst_dialog_rename_input" type="number" max="100" min="0" />
             </p>
             <p class="lhst_card_properties">
-                State Tax Value %
+                @Localizer["StateTax"]
                 <input name="stateTaxValue" class="lhst_dialog_rename_input" type="number" max="100" min="0" />
             </p>
         </section>
         <menu class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 0</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 0</span></p>
             </button>
         </menu>
     </form>
@@ -320,10 +321,10 @@
     <form asp-controller="Country" asp-action="ChangeRuler">
         <section>
             <p class="lhst_card_properties">
-                <label>Current ruler: @Model.Ruler.UserName</label>
+                <label>@Localizer["CurrentRuler"]@Model.Ruler.UserName</label>
             </p>
             <p class="lhst_card_properties">
-                New ruler
+                @Localizer["NewRuler"]
                 <select name="newRulerName" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.OtherRulers.Count(); i++)
                     {
@@ -334,7 +335,7 @@
         </section>
         <menu class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
             </button>
         </menu>
     </form>
@@ -347,12 +348,12 @@
     <form asp-controller="Country" asp-action="AppointGovernor">
         <section>
             <p class="lhst_card_properties">
-                <label>Appoint a governor</label>
+                <label>@Localizer["AppointGovernor"]</label>
             </p>
 
-            <p class="lhst_card_properties">You can appoint someone who is currently in your country as governor.</p>
+            <p class="lhst_card_properties">@Localizer["GovernotDescr"]</p>
             <p class="lhst_card_properties">
-                Choose land
+                @Localizer["ChooseLand"]
                 <select name="landId" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.Lands.Count; i++)
                     {
@@ -361,7 +362,7 @@
                 </select>
             </p>
             <p class="lhst_card_properties">
-                Select governor
+                @Localizer["SelectGovernor"]
                 <select name="governorName" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.OtherRulers.Count(); i++)
                     {
@@ -372,7 +373,7 @@
         </section>
         <menu class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 10</span></p>
             </button>
         </menu>
     </form>
@@ -385,12 +386,12 @@
     <form asp-controller="Country" asp-action="TransferMoney">
         <section>
             <p class="w-100 flex-wrap mb-0 font-weight-normal">
-                Money in treasury:
+                @Localizer["MoneyInTreasure"]
                 <img class="ml-1 lhst_independent_land_description_money_icon lhst_clr-money" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> @Math.Round(Model.Country.Money, 2)</span>
             </p>
 
             <p class="lhst_card_properties">
-                Select land
+                @Localizer["ChooseLand"]
                 <select name="landId" class="lhst_dialog_select_input">
                     @for (int i = 0; i < Model.Lands.Count; i++)
                     {
@@ -400,13 +401,13 @@
             </p>
 
             <p class="lhst_card_properties">
-                Amount
+                @Localizer["Amount"]
                 <input name="amount" class="lhst_dialog_rename_input" type="number" min="0" max="@Model.Country.Money"/>
             </p>
         </section>
         <menu class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm</p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"]</p>
             </button>
         </menu>
     </form>
@@ -419,7 +420,7 @@
     <form asp-controller="Country" asp-action="DeclareWar" asp-route-player="@player" asp-route-country="@Model.Country">
         <section>
             <p class="lhst_card_properties">
-                <label>Declare war</label>
+                <label>@Localizer["DeclareWar"]</label>
             </p>
             <p class="lhst_card_properties">                
                 <select name="warCombination" class="lhst_dialog_select_input">
@@ -432,7 +433,7 @@
         </section>
         <menu class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 50</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 50</span></p>
             </button>
         </menu>
     </form>
@@ -445,15 +446,15 @@
     <form asp-controller="Country" asp-action="DisbandCountry">
         <section>
             <p class="lhst_card_properties">
-                <label>Your country: @Model.Country.Name</label>
+                <label>@Localizer["YourCountry"] @Model.Country.Name</label>
             </p>
             <p class="lhst_card_properties">
-                Are you sure to disband the country?
+                @Localizer["DisbandDescr"]
             </p>
         </section>
         <menu class="text-center pl-0">
             <button type="submit" class="lhst_btn_moveToRegion">
-                <p class="w-100 flex-wrap mb-1 font-weight-normal">Confirm <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 1</span></p>
+                <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["Confirm"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount"> 1</span></p>
             </button>
         </menu>
     </form>
@@ -475,18 +476,18 @@
 
     <form method="post" enctype="multipart/form-data" asp-controller="Country" asp-action="UploadBanner" >
         <div class="form-group mb-0">
-            <label class="lhst_labelFile_size mb-0" for="bannerFile">Load custom banner</label>
+            <label class="lhst_labelFile_size mb-0" for="bannerFile">@Localizer["LoadCustomBanner"]</label>
             <br>
             <input type="file" id="bannerFile" name="bannerFile" accept="image/*" onchange="validateCustomBannerFile()" class="lhst_form-control mt-2 mb-2" required />
             <label for="bannerFile" class="lhst_settings_button lhst_cursor_pointer">
-                Choose image
+                @Localizer["ChooseImage"]
             </label>
         </div>
 
         <button type="submit" class="mt-0 pt-1 lhst_settings_button">
-            <p class="w-100 flex-wrap mb-1 font-weight-normal">Upload banner (<img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -50</span>)</p>
+            <p class="w-100 flex-wrap mb-1 font-weight-normal">@Localizer["UploadBanner"] (<img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" /> <span class="lhst_clr-brown"> -50</span>)</p>
         </button>
         <div id="fileInfoBanner" class="file-info"></div>
-        <p id="fileErrorBanner" style="color:red; display:none;">Максимальный размер 512 KB. Допустимые форматы: jpg, jpeg, png, webp</p>
+        <p id="fileErrorBanner" style="color:red; display:none;">@Localizer["MaxSize"] </p>
     </form>
 </div>
