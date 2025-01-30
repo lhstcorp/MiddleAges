@@ -117,160 +117,118 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="OnlinePlayers" xml:space="preserve">
-    <value>Online players</value>
-    <comment>Label</comment>
+  <data name="Amount" xml:space="preserve">
+    <value>Сумма</value>
   </data>
-  <data name="ProdDescr" xml:space="preserve">
-    <value>Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</value>
-    <comment>Text</comment>
+  <data name="AppointGovernor" xml:space="preserve">
+    <value>Назначить губернатора</value>
   </data>
-  <data name="Production" xml:space="preserve">
-    <value>Production</value>
-    <comment>Label</comment>
+  <data name="ChangeBanner" xml:space="preserve">
+    <value>Изменить герб</value>
   </data>
-  <data name="StartProd" xml:space="preserve">
-    <value>Start production</value>
-    <comment>Button</comment>
+  <data name="ChangeCapital" xml:space="preserve">
+    <value>Перенести столицу</value>
   </data>
-  <data name="ProdNotStarted" xml:space="preserve">
-    <value>Production has not yet started</value>
-    <comment>Label</comment>
+  <data name="ChangeColor" xml:space="preserve">
+    <value>Изменить цвет</value>
   </data>
-  <data name="TodayEarnings" xml:space="preserve">
-    <value>Today's earnings:</value>
-    <comment>Label</comment>
+  <data name="ChangeRuler" xml:space="preserve">
+    <value>Сменить правителя</value>
   </data>
-  <data name="TodayEarningsDescr" xml:space="preserve">
-    <value>Amount of gold earned today:</value>
-    <comment>Label</comment>
+  <data name="ChooseCountry" xml:space="preserve">
+    <value>Выбрать страну</value>
   </data>
-  <data name="RestartProd" xml:space="preserve">
-    <value>Restart production</value>
-    <comment>Button</comment>
+  <data name="ChooseImage" xml:space="preserve">
+    <value>Выбрать изображение</value>
   </data>
-  <data name="EndTimeProd" xml:space="preserve">
-    <value>Production will end at: </value>
-    <comment>Label</comment>
+  <data name="ChooseLand" xml:space="preserve">
+    <value>Выбрать землю</value>
   </data>
-  <data name="TodayExpenses" xml:space="preserve">
-    <value>Today's expenses:</value>
-    <comment>Label</comment>
+  <data name="Confirm" xml:space="preserve">
+    <value>Подтвердить</value>
   </data>
-  <data name="TodayExpensesDescr" xml:space="preserve">
-    <value>Today's expenses:</value>
-    <comment>Label</comment>
+  <data name="CurrentCapital" xml:space="preserve">
+    <value>Текущая столица: </value>
   </data>
-  <data name="TodayBalance" xml:space="preserve">
-    <value>Today's balance:</value>
-    <comment>Label</comment>
+  <data name="CurrentColor" xml:space="preserve">
+    <value>Текущий цвет: </value>
   </data>
-  <data name="TodayBalanceDescr" xml:space="preserve">
-    <value>The difference between income and expenses</value>
-    <comment>Label</comment>
+  <data name="CurrentName" xml:space="preserve">
+    <value>Текущее название: </value>
   </data>
-  <data name="LandLimit" xml:space="preserve">
-    <value>Remaining land limit:</value>
-    <comment>Label</comment>
+  <data name="CurrentRuler" xml:space="preserve">
+    <value>Текущий правитель: </value>
   </data>
-  <data name="LandLimitDescr" xml:space="preserve">
-    <value>Gold reserves remaining in this land today</value>
-    <comment>Label</comment>
+  <data name="DeclareWar" xml:space="preserve">
+    <value>Объявить войну</value>
   </data>
-  <data name="ResidenceProdLand" xml:space="preserve">
-    <value>Residence prod land:</value>
-    <comment>Label</comment>
+  <data name="Disband" xml:space="preserve">
+    <value>Расформировать</value>
   </data>
-  <data name="ResidenceProdLandDescr" xml:space="preserve">
-    <value>The land on which the mining takes place</value>
-    <comment>Label</comment>
+  <data name="DisbandDescr" xml:space="preserve">
+    <value>Вы уверены, что хотите расформировать страну?</value>
   </data>
-  <data name="WorkingPeasants" xml:space="preserve">
-    <value>Working peasants:</value>
-    <comment>Label</comment>
+  <data name="GovernotDescr" xml:space="preserve">
+    <value>Вы можете назначить губернатором человека, который в настоящее время находится в вашей стране.</value>
   </data>
-  <data name="WorkingPeasantsDescr" xml:space="preserve">
-    <value>Amount of hired peasants</value>
-    <comment>Label</comment>
+  <data name="King" xml:space="preserve">
+    <value>Король</value>
   </data>
-  <data name="ProjectedDailyEarnings" xml:space="preserve">
-    <value>Projected daily earnings:</value>
-    <comment>Label</comment>
+  <data name="Lands" xml:space="preserve">
+    <value>Земли</value>
   </data>
-  <data name="ProjectedDailyEarningsDescr" xml:space="preserve">
-    <value>Projected daily earnings</value>
-    <comment>Label</comment>
+  <data name="LandTax" xml:space="preserve">
+    <value>Земельный налог %</value>
   </data>
-  <data name="ArmyMaintenance" xml:space="preserve">
-    <value>Army maintenance:</value>
-    <comment>Label</comment>
+  <data name="LoadCustomBanner" xml:space="preserve">
+    <value>Загрузить свой герб</value>
   </data>
-  <data name="ArmyMaintenanceDescr" xml:space="preserve">
-    <value>Daily expenses for maintaining an army</value>
-    <comment>Label</comment>
+  <data name="MaxSize" xml:space="preserve">
+    <value>Максимальный размер 512 КБ. Допустимые форматы: jpg, jpeg, png, webp.</value>
   </data>
-  <data name="ProjectedDailyBalance" xml:space="preserve">
-    <value>Projected daily balance:</value>
-    <comment>Label</comment>
+  <data name="MoneyInTreasure" xml:space="preserve">
+    <value>Сумма в казне:</value>
   </data>
-  <data name="ProjectedDailyBalanceDescr" xml:space="preserve">
-    <value>Projected daily profit</value>
-    <comment>Label</comment>
+  <data name="NewCapital" xml:space="preserve">
+    <value>Новая столица:</value>
   </data>
-  <data name="Taxes" xml:space="preserve">
-    <value>Taxes:</value>
-    <comment>Label</comment>
+  <data name="NewColor" xml:space="preserve">
+    <value>Новый цвет:</value>
   </data>
-  <data name="TaxesDescr" xml:space="preserve">
-    <value>Land taxes</value>
-    <comment>Label</comment>
+  <data name="NewName" xml:space="preserve">
+    <value>Новое название</value>
   </data>
-  <data name="Attributes" xml:space="preserve">
-    <value>Attributes</value>
-    <comment>Label</comment>
+  <data name="NewRuler" xml:space="preserve">
+    <value>Новый правитель</value>
   </data>
-  <data name="Management" xml:space="preserve">
-    <value>Management</value>
-    <comment>Label</comment>
+  <data name="PeopleResources" xml:space="preserve">
+    <value>Людские ресурсы</value>
   </data>
-  <data name="ManagementDescr" xml:space="preserve">
-    <value>increases the base income of peasants by 2% for each level</value>
-    <comment>Text</comment>
+  <data name="Rename" xml:space="preserve">
+    <value>Переименовать</value>
   </data>
-  <data name="Warfare" xml:space="preserve">
-    <value>Warfare</value>
-    <comment>Label</comment>
+  <data name="SelectGovernor" xml:space="preserve">
+    <value>Выбрать губернатора</value>
   </data>
-  <data name="WarfareDescr" xml:space="preserve">
-    <value>increases army strength by 2% per level</value>
-    <comment>Text</comment>
+  <data name="SetTaxes" xml:space="preserve">
+    <value>Установить налоги</value>
   </data>
-  <data name="Leadership" xml:space="preserve">
-    <value>Leadership</value>
-    <comment>Label</comment>
+  <data name="StateTax" xml:space="preserve">
+    <value>Государственный налог %</value>
   </data>
-  <data name="LeadershipDescr" xml:space="preserve">
-    <value>increases the chance of receiving an additional recruit by 2% per level</value>
-    <comment>Text</comment>
+  <data name="TransferLand" xml:space="preserve">
+    <value>Передать землю</value>
   </data>
-  <data name="ResetCost" xml:space="preserve">
-    <value>The cost of resetting one point is </value>
-    <comment>Text</comment>
+  <data name="TransferMoney" xml:space="preserve">
+    <value>Перевести деньги</value>
   </data>
-  <data name="LocalEvents" xml:space="preserve">
-    <value>Local Events</value>
-    <comment>Label</comment>
+  <data name="Treasure" xml:space="preserve">
+    <value>Казна</value>
   </data>
-  <data name="EventAssigned" xml:space="preserve">
-    <value>Event assigned</value>
-    <comment>Label</comment>
+  <data name="UploadBanner" xml:space="preserve">
+    <value>Загрузить</value>
   </data>
-  <data name="EventDuration" xml:space="preserve">
-    <value>If you don't select anything, the event will change to another one after 6 hours</value>
-    <comment>Text</comment>
-  </data>
-  <data name="BuildingsLabel" xml:space="preserve">
-    <value>Buildings</value>
-    <comment>Label</comment>
+  <data name="YourCountry" xml:space="preserve">
+    <value>Ваша страна:</value>
   </data>
 </root>

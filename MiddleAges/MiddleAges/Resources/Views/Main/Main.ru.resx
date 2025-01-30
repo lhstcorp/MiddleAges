@@ -231,4 +231,7 @@
   <data name="EventDuration" xml:space="preserve">
     <value>Если вы не выберете ни один из вариантов, событие изменится через 6 часов</value>
   </data>
+  <data name="BuildingsLabel" xml:space="preserve">
+    <value>Здания</value>
+  </data>
 </root>

@@ -318,7 +318,7 @@
 
 .lhst_settings_button {
     display: inline-block;
-    padding: 5px 7px 0 7px;
+    padding: 3px 7px 0 7px;
     height: 28px;
     background: radial-gradient(var(--add-color),black);
     color: var(--wheat-color);
