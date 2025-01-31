@@ -117,160 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="OnlinePlayers" xml:space="preserve">
-    <value>Online players</value>
-    <comment>Label</comment>
+  <data name="Actions" xml:space="preserve">
+    <value>Действия</value>
   </data>
-  <data name="ProdDescr" xml:space="preserve">
-    <value>Every hour money will flow into your treasury. The amount of money depends on the number of working peasants and land taxes.</value>
-    <comment>Text</comment>
+  <data name="Banners" xml:space="preserve">
+    <value>Включить гербы</value>
   </data>
-  <data name="Production" xml:space="preserve">
-    <value>Production</value>
-    <comment>Label</comment>
+  <data name="BordersWith" xml:space="preserve">
+    <value>Граничит с: </value>
   </data>
-  <data name="StartProd" xml:space="preserve">
-    <value>Start production</value>
-    <comment>Button</comment>
+  <data name="LandsCount" xml:space="preserve">
+    <value>Количество земель: </value>
   </data>
-  <data name="ProdNotStarted" xml:space="preserve">
-    <value>Production has not yet started</value>
-    <comment>Label</comment>
+  <data name="MoveTo" xml:space="preserve">
+    <value>Посетить</value>
   </data>
-  <data name="TodayEarnings" xml:space="preserve">
-    <value>Today's earnings:</value>
-    <comment>Label</comment>
+  <data name="SettleDown" xml:space="preserve">
+    <value>Переехать</value>
   </data>
-  <data name="TodayEarningsDescr" xml:space="preserve">
-    <value>Amount of gold earned today:</value>
-    <comment>Label</comment>
+  <data name="StartUprising" xml:space="preserve">
+    <value>Начать восстание</value>
   </data>
-  <data name="RestartProd" xml:space="preserve">
-    <value>Restart production</value>
-    <comment>Button</comment>
-  </data>
-  <data name="EndTimeProd" xml:space="preserve">
-    <value>Production will end at: </value>
-    <comment>Label</comment>
-  </data>
-  <data name="TodayExpenses" xml:space="preserve">
-    <value>Today's expenses:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="TodayExpensesDescr" xml:space="preserve">
-    <value>Today's expenses:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="TodayBalance" xml:space="preserve">
-    <value>Today's balance:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="TodayBalanceDescr" xml:space="preserve">
-    <value>The difference between income and expenses</value>
-    <comment>Label</comment>
-  </data>
-  <data name="LandLimit" xml:space="preserve">
-    <value>Remaining land limit:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="LandLimitDescr" xml:space="preserve">
-    <value>Gold reserves remaining in this land today</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ResidenceProdLand" xml:space="preserve">
-    <value>Residence prod land:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ResidenceProdLandDescr" xml:space="preserve">
-    <value>The land on which the mining takes place</value>
-    <comment>Label</comment>
-  </data>
-  <data name="WorkingPeasants" xml:space="preserve">
-    <value>Working peasants:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="WorkingPeasantsDescr" xml:space="preserve">
-    <value>Amount of hired peasants</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ProjectedDailyEarnings" xml:space="preserve">
-    <value>Projected daily earnings:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ProjectedDailyEarningsDescr" xml:space="preserve">
-    <value>Projected daily earnings</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ArmyMaintenance" xml:space="preserve">
-    <value>Army maintenance:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ArmyMaintenanceDescr" xml:space="preserve">
-    <value>Daily expenses for maintaining an army</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ProjectedDailyBalance" xml:space="preserve">
-    <value>Projected daily balance:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ProjectedDailyBalanceDescr" xml:space="preserve">
-    <value>Projected daily profit</value>
-    <comment>Label</comment>
-  </data>
-  <data name="Taxes" xml:space="preserve">
-    <value>Taxes:</value>
-    <comment>Label</comment>
-  </data>
-  <data name="TaxesDescr" xml:space="preserve">
-    <value>Land taxes</value>
-    <comment>Label</comment>
-  </data>
-  <data name="Attributes" xml:space="preserve">
-    <value>Attributes</value>
-    <comment>Label</comment>
-  </data>
-  <data name="Management" xml:space="preserve">
-    <value>Management</value>
-    <comment>Label</comment>
-  </data>
-  <data name="ManagementDescr" xml:space="preserve">
-    <value>increases the base income of peasants by 2% for each level</value>
-    <comment>Text</comment>
-  </data>
-  <data name="Warfare" xml:space="preserve">
-    <value>Warfare</value>
-    <comment>Label</comment>
-  </data>
-  <data name="WarfareDescr" xml:space="preserve">
-    <value>increases army strength by 2% per level</value>
-    <comment>Text</comment>
-  </data>
-  <data name="Leadership" xml:space="preserve">
-    <value>Leadership</value>
-    <comment>Label</comment>
-  </data>
-  <data name="LeadershipDescr" xml:space="preserve">
-    <value>increases the chance of receiving an additional recruit by 2% per level</value>
-    <comment>Text</comment>
-  </data>
-  <data name="ResetCost" xml:space="preserve">
-    <value>The cost of resetting one point is </value>
-    <comment>Text</comment>
-  </data>
-  <data name="LocalEvents" xml:space="preserve">
-    <value>Local Events</value>
-    <comment>Label</comment>
-  </data>
-  <data name="EventAssigned" xml:space="preserve">
-    <value>Event assigned</value>
-    <comment>Label</comment>
-  </data>
-  <data name="EventDuration" xml:space="preserve">
-    <value>If you don't select anything, the event will change to another one after 6 hours</value>
-    <comment>Text</comment>
-  </data>
-  <data name="BuildingsLabel" xml:space="preserve">
-    <value>Buildings</value>
-    <comment>Label</comment>
+  <data name="Textures" xml:space="preserve">
+    <value>Включить текстуры</value>
   </data>
 </root>

@@ -117,7 +117,121 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="OnlinePlayers" xml:space="preserve">
+    <value>В сети</value>
+  </data>
+  <data name="ProdDescr" xml:space="preserve">
+    <value>Каждый час деньги будут поступать в казну. Заработок зависит от количество работающих крестьян и процента налогов.</value>
+  </data>
   <data name="Production" xml:space="preserve">
     <value>Производство</value>
+  </data>
+  <data name="StartProd" xml:space="preserve">
+    <value>Запуск производства</value>
+  </data>
+  <data name="ProdNotStarted" xml:space="preserve">
+    <value>Производство не работает</value>
+  </data>
+  <data name="TodayEarnings" xml:space="preserve">
+    <value>Сегодняшний заработок:</value>
+  </data>
+  <data name="TodayEarningsDescr" xml:space="preserve">
+    <value>Количество денег, заработанное сегодня:</value>
+  </data>
+  <data name="RestartProd" xml:space="preserve">
+    <value>Перезапустить производство</value>
+  </data>
+  <data name="EndTimeProd" xml:space="preserve">
+    <value>Производство завершится:</value>
+  </data>
+  <data name="TodayExpenses" xml:space="preserve">
+    <value>Сегодняшние расходы:</value>
+  </data>
+  <data name="TodayExpensesDescr" xml:space="preserve">
+    <value>Сегодняшние расходы:</value>
+  </data>
+  <data name="TodayBalance" xml:space="preserve">
+    <value>Сегодняшний баланс:</value>
+  </data>
+  <data name="TodayBalanceDescr" xml:space="preserve">
+    <value>Разница между доходом и расходом</value>
+  </data>
+  <data name="LandLimit" xml:space="preserve">
+    <value>Оставшийся лимит земли:</value>
+  </data>
+  <data name="LandLimitDescr" xml:space="preserve">
+    <value>Золотой запас, оставшийся в данной земле</value>
+  </data>
+  <data name="ResidenceProdLand" xml:space="preserve">
+    <value>Место добычи:</value>
+  </data>
+  <data name="ResidenceProdLandDescr" xml:space="preserve">
+    <value>Земля, на которой производится добыча ресурсов</value>
+  </data>
+  <data name="WorkingPeasants" xml:space="preserve">
+    <value>Работающие крестьяне:</value>
+  </data>
+  <data name="WorkingPeasantsDescr" xml:space="preserve">
+    <value>Количество нанятых крестьян</value>
+  </data>
+  <data name="ProjectedDailyEarnings" xml:space="preserve">
+    <value>Прогнозируемый дневной доход:</value>
+  </data>
+  <data name="ProjectedDailyEarningsDescr" xml:space="preserve">
+    <value>Прогнозируемый дневной доход</value>
+  </data>
+  <data name="ArmyMaintenance" xml:space="preserve">
+    <value>Затраты на армию</value>
+  </data>
+  <data name="ArmyMaintenanceDescr" xml:space="preserve">
+    <value>Дневные затраты на содержание солдат</value>
+  </data>
+  <data name="ProjectedDailyBalance" xml:space="preserve">
+    <value>Дневной баланс</value>
+  </data>
+  <data name="ProjectedDailyBalanceDescr" xml:space="preserve">
+    <value>Разница между доходами и расходами</value>
+  </data>
+  <data name="Taxes" xml:space="preserve">
+    <value>Налоги:</value>
+  </data>
+  <data name="TaxesDescr" xml:space="preserve">
+    <value>Земельный налог</value>
+  </data>
+  <data name="Attributes" xml:space="preserve">
+    <value>Атрибуты</value>
+  </data>
+  <data name="Management" xml:space="preserve">
+    <value>Управление</value>
+  </data>
+  <data name="ManagementDescr" xml:space="preserve">
+    <value>повышает базовый доход от крестьян на 2% за каждый уровень</value>
+  </data>
+  <data name="Warfare" xml:space="preserve">
+    <value>Военное дело</value>
+  </data>
+  <data name="WarfareDescr" xml:space="preserve">
+    <value>повышает силу армии на 2% за каждый уровень</value>
+  </data>
+  <data name="Leadership" xml:space="preserve">
+    <value>Лидерство</value>
+  </data>
+  <data name="LeadershipDescr" xml:space="preserve">
+    <value>Повышает шанс получения дополнительного рекрута на 2%</value>
+  </data>
+  <data name="ResetCost" xml:space="preserve">
+    <value>Сумма сброса одного атрибута:</value>
+  </data>
+  <data name="LocalEvents" xml:space="preserve">
+    <value>Локальные события</value>
+  </data>
+  <data name="EventAssigned" xml:space="preserve">
+    <value>Событие началось</value>
+  </data>
+  <data name="EventDuration" xml:space="preserve">
+    <value>Если вы не выберете ни один из вариантов, событие изменится через 6 часов</value>
+  </data>
+  <data name="BuildingsLabel" xml:space="preserve">
+    <value>Здания</value>
   </data>
 </root>

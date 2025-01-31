@@ -1,4 +1,5 @@
 ﻿@using MiddleAges.Entities;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "middle ages";
@@ -16,10 +17,10 @@
         <div class="lhst_avatar_inline align-top lhst_tabs_div lhst_nav tab">
 
             <div class="row">
-                <button id="TotalBtn" class="tablinks" onclick="openRating('Total')">Total</button>
-                <button id="ExpBtn" class="tablinks" onclick="openRating('Exp')">XP</button>
-                <button id="MoneyBtn" class="tablinks" onclick="openRating('Money')">Money</button>
-                <button id="PowerBtn" class="tablinks" onclick="openRating('Power')">Power</button>
+                <button id="TotalBtn" class="tablinks" onclick="openRating('Total')">@Localizer["Total"]</button>
+                <button id="ExpBtn" class="tablinks" onclick="openRating('Exp')">@Localizer["XP"]</button>
+                <button id="MoneyBtn" class="tablinks" onclick="openRating('Money')">@Localizer["Money"]</button>
+                <button id="PowerBtn" class="tablinks" onclick="openRating('Power')">@Localizer["Power"]</button>
                 <div class="ml-1">
                     <input id="playerNameInput" class="lhst_rating-input" type="text" minlength="3" />
                     <img class="lhst_rating_loupe lhst_cursor_pointer" src="~/img/interface-icons/loupe.png" alt="" loading="lazy" onclick="findPlayer()" />
@@ -37,16 +38,16 @@
                         <img class="country_card-population-img" src="~/img/default-icon/players.png" alt="" title="Lords" loading="lazy" />
                     </div>
                     <div style="width: 100px">
-                        <p class="mb-0 mt-2" style="text-align: left">Player name</p>
+                        <p class="mb-0 mt-2" style="text-align: left">@Localizer["PlayerName"]</p>
                     </div>
                     <div class="lhst_rating-small-ints mr-2">
-                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/exp.png" alt="" title="Experience" loading="lazy" />
+                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/exp.png" alt="" title="@Localizer["Experience"]" loading="lazy" />
                     </div>
                     <div class="lhst_rating-small-ints mr-2">
-                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/money.png" alt="" title="Money" loading="lazy" />
+                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/money.png" alt="" title="@Localizer["Money"]" loading="lazy" />
                     </div>
                     <div class="lhst_rating-small-ints">
-                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/power.png" alt="" title="War Power" loading="lazy" />
+                        <img class="country_card-population-img lhst_rating-img" src="~/img/rating-icons/power.png" alt="" title="@Localizer["WarPower"]" loading="lazy" />
                     </div>
                 </div>
 
@@ -82,7 +83,7 @@
 
                 <div class="row mb-1" style="float: right; margin-right: 1rem !important">
                     <button id="pageLeft" class="tablinks" onclick="prevPage()">⮜</button>
-                    <p id="pageNum" data-page=1 class=" ml-2 mt-2 mr-2 mb-0">Page 1</p>
+                    <p id="pageNum" data-page=1 class=" ml-2 mt-2 mr-2 mb-0">@Localizer["Page"]</p>
                     <button id="pageRight" class="tablinks" onclick="nextPage()">⮞</button>
                 </div>
             </div>

@@ -3,6 +3,7 @@
 @using MiddleAges.ViewComponents
 
 @inject IAuthorizationService AuthorizationService
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 <!DOCTYPE html>
 <html lang="en">
@@ -57,7 +58,7 @@
                             <div id="menuContainer" class="dropdown-menu">
                                 <ul class="lhst_nav p-0 ">
                                     <li class="lhst_nav">
-                                        <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">Main</a>
+                                    <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">@Localizer["Main"]</a>
                                     </li>
                                     <li class="lhst_nav">
                                         <a class="nav-link text-dark header-menu lhst_nav map-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
@@ -210,7 +211,7 @@
                 &copy; 2023 - Grand Duchy - <a class="lhst_privacy-btn" asp-area="" asp-controller="Main" asp-action="Privacy">Privacy</a>
             </div>
             <div class="container align-self-center lhst_footer-text d-flex mt-3">
-                <p class="mr-1">Server time:</p>
+                <p class="mr-1">@Localizer["ServerTime"]</p>
                 <p id="serverTime"></p>
             </div>
             @* <script src="https://yastatic.net/share2/share.js"></script> *@

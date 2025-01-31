@@ -4,6 +4,7 @@
 @using System.Text.Json.Serialization;
 @using Newtonsoft.Json;
 @model List<MiddleAges.ViewModels.WarInfoViewModel>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "middle ages";
@@ -24,8 +25,8 @@
     <div class="lhst_left-side-bar lhst_vertical-alignment-top"></div>
     <div class="lhst_vertical-alignment-top lhst_main-section d-inline-block">
         <div class="lhst_wars_div tab">
-            <button id="countryWarsBtn" class="active" onclick="openCountryWarsTab()">Country Wars</button>
-            <button id="worldWarsBtn" onclick="openWorldWarsTab()">All Wars</button>
+            <button id="countryWarsBtn" class="active" onclick="openCountryWarsTab()">@Localizer["CountryWars"]</button>
+            <button id="worldWarsBtn" onclick="openWorldWarsTab()">@Localizer["AllWars"]</button>
             @* <div class="tabcontent lhst_inTab lhst_slider"> *@
             <div id="worldWarsTab" class="lhst_slider mt-2 warcontent d-none">
                 @for (int i = 0; i < allWars.Count; i++)
@@ -48,30 +49,30 @@
                         <div class="col-4 p-0">
                             <div class="row p-0">
                                 <div class="col-4 p-0 text-right">
-                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="Attackers Soldiers">@allWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
+                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="@Localizer["AttackSoldiers"]">@allWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="" loading="lazy">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="@Localizer["AttackSoldiers"]" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="" loading="lazy">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="@Localizer["DefenceSoldiers"]" alt="" loading="lazy">
                                 </div>
                                 <div class="col-4 p-0 text-left">
-                                    <p class="lhst_country_info_region_value" data-title="Defenders Soldiers">@allWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
+                                    <p class="lhst_country_info_region_value" data-title="@Localizer["DefenceSoldiers"]">@allWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
                                 </div>
                             </div>
                             <div class="row p-0">
                                 <div class="col-4 p-0 text-right">
-                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="Attackers Lords">@allWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
+                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="@Localizer["AttackLords"]">@allWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="" loading="lazy">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="@Localizer["AttackLords"]" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="" loading="lazy">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="@Localizer["DefenceLords"]" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0 text-left">
-                                    <p class="lhst_country_info_region_value" data-title="Defenders Lords">@allWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
+                                    <p class="lhst_country_info_region_value" data-title="@Localizer["DefenceLords"]">@allWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -131,30 +132,30 @@
                         <div class="col-4 p-0">
                             <div class="row p-0">
                                 <div class="col-4 p-0 text-right">
-                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="Attackers Soldiers">@countryWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
+                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="@Localizer["AttackersSoldiers"]">@countryWars[i].WarArmiesViewModel.AttackersSoldiersCount</p>
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Attackers Soldiers" alt="" loading="lazy">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="@Localizer["AttackersSoldiers"]" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="Defenders Soldiers" alt="" loading="lazy">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/knight.png" title="@Localizer["DefenceSoldiers"]" alt="" loading="lazy">
                                 </div>
                                 <div class="col-4 p-0 text-left">
-                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="Defenders Soldiers">@countryWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
+                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="@Localizer["DefenceSoldiers"]">@countryWars[i].WarArmiesViewModel.DefendersSoldiersCount</p>
                                 </div>
                             </div>
                             <div class="row p-0">
                                 <div class="col-4 p-0 text-right">
-                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="Attackers Lords">@countryWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
+                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="@Localizer["AttackLords"]">@countryWars[i].WarArmiesViewModel.AttackersArmies.Count</p>
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Attackers Lords" alt="" loading="lazy">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="@Localizer["AttackLords"]" alt="" loading="lazy">
                                 </div>
                                 <div class="col-2 p-0">
-                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="Defenders Lords" alt="" loading="lazy">
+                                    <img class="lhst_war_country_img" src="../img/default-icon/farmer.png" title="@Localizer["DefenceLords"]" alt="" loading="lazy">
                                 </div>
                                 <div class="col-4 p-0 text-left">
-                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="Defenders Lords">@countryWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
+                                    <p class="text-right lhst_country_info_region_value mb-0" data-title="@Localizer["DefenceLords"]">@countryWars[i].WarArmiesViewModel.DefendersArmies.Count</p>
                                 </div>
                             </div>
                             <div class="row">
@@ -167,15 +168,15 @@
                                         {
                                             leftTime = new DateTime(ts.Ticks).ToString("HH:mm:ss");
                                         }
-                                        <p class="float-right mr-2 lhst_country_info_region_value mb-0 mt-2">Left: @leftTime</p>
+                                        <p class="float-right mr-2 lhst_country_info_region_value mb-0 mt-2">@Localizer["Left"] @leftTime</p>
                                     }
                                     else if (!countryWars[i].War.IsEnded)
                                     {
-                                        <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">Started</p>
+                                        <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">@Localizer["Started"]</p>
                                     }
                                     else
                                     {
-                                        <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">Ended</p>
+                                        <p class="float-right lhst_country_info_region_value mb-0 mt-2 mr-2">@Localizer["Ended"]</p>
                                     }
                                 </div>
                                 <div class="col-6 float-left p-0">

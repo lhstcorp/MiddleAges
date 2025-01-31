@@ -1,7 +1,8 @@
 ﻿@model List<MiddleAges.Entities.Building>
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
     <div id="building-component">
-        <p class="lhst_possessions_titles">Buildings</p>
+    <p class="lhst_possessions_titles">@Localizer["BuildingsLabel"]</p>
         @for (int i = 0; i < Model.Count(); i++)
         {
             <div class="lhst_building_ext_card lhst_inline image-parlax">
@@ -10,7 +11,7 @@
                     <div class="back-side">
                         <div class="lhst_inline inner">
                             <img class="lhst_coins-img lhst_brightness" src="~/img/interface-icons/coins.png" alt="" />
-                            <p class="lhst_brightness">Price: @CommonLogic.getBuildingPrice(Model[i].Type, Model[i].Lvl)</p>
+                        <p class="lhst_brightness">@Localizer["Price"] @CommonLogic.getBuildingPrice(Model[i].Type, Model[i].Lvl)</p>
                         </div>
                     </div>
                 </div>
@@ -27,13 +28,13 @@
                                 @if(buildingName == "Estate")
                                 {
                                     <span class="lhst_tooltiptext">
-                                        Estates are intended to increase the peasants' limit. Each level increases the limit by 100
+                                        @Localizer["EstateDescr"]
                                     </span>
                                 }
                                 else
                                 {
                                     <span class="lhst_tooltiptext">
-                                        Barracks are intended to increase the soldiers' limit. Each level increases the limit by 100
+                                        @Localizer["BarracksDescr"]
                                     </span>
                                 }
                             </div>

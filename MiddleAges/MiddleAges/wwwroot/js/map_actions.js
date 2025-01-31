@@ -445,6 +445,44 @@ function showHeraldicIcons() {
     addHeraldicIcon('Novgorod-Siverskii', '../img/map-regions-icons-middle-ages/Novgorod-Siverskii.png');
     addHeraldicIcon('Priluki', '../img/map-regions-icons-middle-ages/Priluki.png');
 
+    addHeraldicIcon('Kraslava', '../img/map-regions-icons-middle-ages/Kraslava.png');
+    addHeraldicIcon('Daugavpils', '../img/map-regions-icons-middle-ages/Daugavpils.png');
+    addHeraldicIcon('Ludza', '../img/map-regions-icons-middle-ages/Ludza.png');
+    addHeraldicIcon('Rezekne', '../img/map-regions-icons-middle-ages/Rezekne.png');
+    addHeraldicIcon('Preili', '../img/map-regions-icons-middle-ages/Preili.png');
+    addHeraldicIcon('Livani', '../img/map-regions-icons-middle-ages/Livani.png');
+    addHeraldicIcon('Balvi', '../img/map-regions-icons-middle-ages/Balvi.png');
+    addHeraldicIcon('Aluksne', '../img/map-regions-icons-middle-ages/Aluksne.png');
+    addHeraldicIcon('Gulbene', '../img/map-regions-icons-middle-ages/Gulbene.png');
+    addHeraldicIcon('Varaklani', '../img/map-regions-icons-middle-ages/Varaklani.png');
+    addHeraldicIcon('Madona', '../img/map-regions-icons-middle-ages/Madona.png');
+    addHeraldicIcon('Jekabpils', '../img/map-regions-icons-middle-ages/Jekabpils.png');
+    addHeraldicIcon('Aizkraukle', '../img/map-regions-icons-middle-ages/Aizkraukle.png');
+    addHeraldicIcon('Bauska', '../img/map-regions-icons-middle-ages/Bauska.png')
+    addHeraldicIcon('Smiltene', '../img/map-regions-icons-middle-ages/Smiltene.png');
+    addHeraldicIcon('Valka', '../img/map-regions-icons-middle-ages/Valka.png');
+    addHeraldicIcon('Valmiera', '../img/map-regions-icons-middle-ages/Valmiera.png');
+    addHeraldicIcon('Cesis', '../img/map-regions-icons-middle-ages/Cesis.png');
+    addHeraldicIcon('Ogre', '../img/map-regions-icons-middle-ages/Ogre.png');
+    addHeraldicIcon('Limbazi', '../img/map-regions-icons-middle-ages/Limbazi.png');
+    addHeraldicIcon('Sigulda', '../img/map-regions-icons-middle-ages/Sigulda.png');
+    addHeraldicIcon('Saulkrasti', '../img/map-regions-icons-middle-ages/Saulkrasti.png');
+    addHeraldicIcon('Adazi', '../img/map-regions-icons-middle-ages/Adazi.png');
+    addHeraldicIcon('Ulbroka', '../img/map-regions-icons-middle-ages/Ulbroka.png');
+    addHeraldicIcon('Salaspils', '../img/map-regions-icons-middle-ages/Salaspils.png');
+    addHeraldicIcon('Kekava', '../img/map-regions-icons-middle-ages/Kekava.png');
+    addHeraldicIcon('Riga', '../img/map-regions-icons-middle-ages/Riga.png');
+    addHeraldicIcon('Olaine', '../img/map-regions-icons-middle-ages/Olaine.png');
+    addHeraldicIcon('Marupe', '../img/map-regions-icons-middle-ages/Marupe.png');
+    addHeraldicIcon('Jurmala', '../img/map-regions-icons-middle-ages/Jurmala.png');
+    addHeraldicIcon('Jelgava', '../img/map-regions-icons-middle-ages/Jelgava.png');
+    addHeraldicIcon('Dobele', '../img/map-regions-icons-middle-ages/Dobele.png');
+    addHeraldicIcon('Saldus', '../img/map-regions-icons-middle-ages/Saldus.png');
+    addHeraldicIcon('Tukums', '../img/map-regions-icons-middle-ages/Tukums.png');
+    addHeraldicIcon('Liepaja', '../img/map-regions-icons-middle-ages/Liepaja.png');
+    addHeraldicIcon('Kuldiga', '../img/map-regions-icons-middle-ages/Kuldiga.png');
+    addHeraldicIcon('Talsi', '../img/map-regions-icons-middle-ages/Talsi.png');
+    addHeraldicIcon('Ventspils', '../img/map-regions-icons-middle-ages/Ventspils.png');
     // Добавляйте гербы для других регионов
 }
 
@@ -694,6 +732,75 @@ var regionLinks = {
     'Lomza': 'https://pl.wikipedia.org/wiki/%C5%81om%C5%BCa',
     'Grajewo': 'https://pl.wikipedia.org/wiki/Grajewo',
     'Kolno': 'https://pl.wikipedia.org/wiki/Kolno',
+
+    'Kovel': 'https://uk.wikipedia.org/wiki/%D0%9A%D0%BE%D0%B2%D0%B5%D0%BB%D1%8C',
+    'Kamen-Kashirski': 'https://uk.wikipedia.org/wiki/%D0%9A%D0%B0%D0%BC%D1%96%D0%BD%D1%8C-%D0%9A%D0%B0%D1%88%D0%B8%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D0%B9',
+    'Volodimir': 'https://uk.wikipedia.org/wiki/%D0%92%D0%BE%D0%BB%D0%BE%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_(%D0%BC%D1%96%D1%81%D1%82%D0%BE)',
+    'Lutsk': 'https://travelua.com.ua/ukraine/volin/istoriya-lucka.html',
+
+    'Varash': 'https://uk.wikipedia.org/wiki/%D0%92%D0%B0%D1%80%D0%B0%D1%88',
+    'Sarni': 'https://uk.wikipedia.org/wiki/%D0%A1%D0%B0%D1%80%D0%BD%D0%B8',
+    'Rivne': 'https://uk.wikipedia.org/wiki/%D0%A0%D1%96%D0%B2%D0%BD%D0%B5',
+    'Dubno': 'https://uk.wikipedia.org/wiki/%D0%94%D1%83%D0%B1%D0%BD%D0%BE',
+
+    'Zvyagel': 'https://uk.wikipedia.org/wiki/%D0%97%D0%B2%D1%8F%D0%B3%D0%B5%D0%BB%D1%8C',
+    'Korosten': 'https://uk.wikipedia.org/wiki/%D0%9A%D0%BE%D1%80%D0%BE%D1%81%D1%82%D0%B5%D0%BD%D1%8C',
+    'Zhitomir': 'https://uk.wikipedia.org/wiki/%D0%86%D1%81%D1%82%D0%BE%D1%80%D1%96%D1%8F_%D0%96%D0%B8%D1%82%D0%BE%D0%BC%D0%B8%D1%80%D0%B0',
+    'Berdichiv': 'https://uk.wikipedia.org/wiki/%D0%86%D1%81%D1%82%D0%BE%D1%80%D1%96%D1%8F_%D0%91%D0%B5%D1%80%D0%B4%D0%B8%D1%87%D0%B5%D0%B2%D0%B0#:~:text=%D0%A2%D0%B5%D1%80%D0%B8%D1%82%D0%BE%D1%80%D1%96%D1%8F%2C%20%D0%BD%D0%B0%20%D1%8F%D0%BA%D1%96%D0%B9%20%D1%80%D0%BE%D0%B7%D0%BC%D1%96%D1%89%D0%B5%D0%BD%D0%B5%20%D0%BC%D1%96%D1%81%D1%82%D0%BE,%D0%B6%20%D0%B2%D1%96%D0%B4%20%D0%B2%D0%BB%D0%B0%D1%81%D0%BD%D0%BE%D0%B3%D0%BE%20%D1%96%D0%BC%D0%B5%D0%BD%D1%96%20%D0%91%D0%B5%D1%80%D0%B4%D0%B8%D1%87.',
+
+    'Vishgorod': 'https://uk.wikipedia.org/wiki/%D0%92%D0%B8%D1%88%D0%B3%D0%BE%D1%80%D0%BE%D0%B4',
+    'Bucha': 'https://uk.wikipedia.org/wiki/%D0%91%D1%83%D1%87%D0%B0',
+    'Fastiv': 'https://uk.wikipedia.org/wiki/%D0%A4%D0%B0%D1%81%D1%82%D1%96%D0%B2',
+    'Kyiv': 'https://uk.wikipedia.org/wiki/%D0%86%D1%81%D1%82%D0%BE%D1%80%D1%96%D1%8F_%D0%9A%D0%B8%D1%94%D0%B2%D0%B0',
+    'Brovari': 'https://uk.wikipedia.org/wiki/%D0%91%D1%80%D0%BE%D0%B2%D0%B0%D1%80%D0%B8',
+    'Borispil': 'https://uk.wikipedia.org/wiki/%D0%91%D0%BE%D1%80%D0%B8%D1%81%D0%BF%D1%96%D0%BB%D1%8C',
+    'Obuhiv': 'https://uk.wikipedia.org/wiki/%D0%9E%D0%B1%D1%83%D1%85%D1%96%D0%B2',
+    'Bila_Cerkva': 'https://uk.wikipedia.org/wiki/%D0%86%D1%81%D1%82%D0%BE%D1%80%D1%96%D1%8F_%D0%91%D1%96%D0%BB%D0%BE%D1%97_%D0%A6%D0%B5%D1%80%D0%BA%D0%B2%D0%B8',
+
+    'Nizhin': 'https://uk.wikipedia.org/wiki/%D0%9D%D1%96%D0%B6%D0%B8%D0%BD',
+    'Chernigiv': 'https://uk.wikipedia.org/wiki/%D0%86%D1%81%D1%82%D0%BE%D1%80%D1%96%D1%8F_%D0%A7%D0%B5%D1%80%D0%BD%D1%96%D0%B3%D0%BE%D0%B2%D0%B0',
+    'Korukivka': 'https://uk.wikipedia.org/wiki/%D0%9A%D0%BE%D1%80%D1%8E%D0%BA%D1%96%D0%B2%D0%BA%D0%B0#%D0%9F%D0%BE%D1%81%D0%B8%D0%BB%D0%B0%D0%BD%D0%BD%D1%8F',
+    'Novgorod-Siverskii': 'https://uk.wikipedia.org/wiki/%D0%9D%D0%BE%D0%B2%D0%B3%D0%BE%D1%80%D0%BE%D0%B4-%D0%A1%D1%96%D0%B2%D0%B5%D1%80%D1%81%D1%8C%D0%BA%D0%B8%D0%B9',
+    'Priluki': 'https://uk.wikipedia.org/wiki/%D0%9F%D1%80%D0%B8%D0%BB%D1%83%D0%BA%D0%B8',
+
+    'Kraslava': 'https://lv.wikipedia.org/wiki/Kr%C4%81slavas_v%C4%93sture',
+    'Daugavpils': 'https://lv.wikipedia.org/wiki/Daugavpils_v%C4%93sture',
+    'Ludza': 'https://lv.wikipedia.org/wiki/Ludzas_v%C4%93sture',
+    'Rezekne': 'https://lv.wikipedia.org/wiki/R%C4%93zeknes_v%C4%93sture#:~:text=R%C4%93zeknes%20v%C4%93sture%20rakstos%20ir%20izsekojama,Pils%C4%93tas%20ties%C4%ABbas%20ieguva%201773.',
+    'Preili': 'https://www.preili.lv/lv/vesture',
+    'Livani': 'https://www.livani.lv/lv/vesture',
+    'Balvi': 'https://lv.wikipedia.org/wiki/Balvu_v%C4%93sture',
+    'Aluksne': 'https://lv.wikipedia.org/wiki/Al%C5%ABksnes_v%C4%93sture',
+    'Gulbene': 'https://lv.wikipedia.org/wiki/Gulbene',
+    'Varaklani': 'https://lv.wikipedia.org/wiki/Varak%C4%BC%C4%81nu_v%C4%93sture',
+    'Madona': 'https://www.madona.lv/lat/madonas-pilsetas-vesture',
+    'Jekabpils': 'https://lv.wikipedia.org/wiki/J%C4%93kabpils_v%C4%93sture',
+    'Aizkraukle': 'https://lv.wikipedia.org/wiki/Aizkraukle',
+    'Bauska': 'https://lv.wikipedia.org/wiki/Bauskas_v%C4%93sture',
+    'Smiltene': 'https://www.smiltenesnovads.lv/lv/smiltenes-pilseta?utm_source=https%3A%2F%2Fwww.google.com%2F',
+    'Valka': 'https://lv.wikipedia.org/wiki/Valkas_v%C4%93sture',
+    'Valmiera': 'https://lv.wikipedia.org/wiki/Valmieras_v%C4%93sture',
+    'Cesis': 'https://lv.wikipedia.org/wiki/C%C4%93su_v%C4%93sture',
+    'Ogre': 'https://lv.wikipedia.org/wiki/Ogres_v%C4%93sture',
+    'Limbazi': 'https://lv.wikipedia.org/wiki/Limba%C5%BEu_v%C4%93sture',
+    'Sigulda': 'https://lv.wikipedia.org/wiki/Siguldas_v%C4%93sture',
+    'Saulkrasti': 'https://lv.wikipedia.org/wiki/Saulkrastu_v%C4%93sture',
+    'Adazi': 'https://old.adazi.lv/novads/adazu-vesture/',
+    'Ulbroka': 'https://www.ropazi.lv/lv/stopinu-pagasta-vesture?utm_source=https%3A%2F%2Fwww.google.com%2F',
+    'Salaspils': 'https://lv.wikipedia.org/wiki/Salaspils_v%C4%93sture',
+    'Kekava': 'https://kekava.lv/novada-vesture/#',
+    'Riga': 'https://lv.wikipedia.org/wiki/R%C4%ABgas_v%C4%93sture',
+    'Olaine': 'https://lv.wikipedia.org/wiki/Olaine',
+    'Marupe': 'https://lv.wikipedia.org/wiki/M%C4%81rupe',
+    'Jurmala': 'https://lv.wikipedia.org/wiki/J%C5%ABrmalas_v%C4%93sture',
+    'Jelgava': 'https://www.jelgava.lv/pilseta/par-jelgavu/vesture/vesture/',
+    'Dobele': 'https://lv.wikipedia.org/wiki/Dobeles_v%C4%93sture',
+    'Saldus': 'https://turisms.saldus.lv/par-mums/saldus/',
+    'Tukums': 'https://lv.wikipedia.org/wiki/Tukuma_v%C4%93sture',
+    'Liepaja': 'https://lv.wikipedia.org/wiki/Liep%C4%81jas_v%C4%93sture',
+    'Kuldiga': 'https://lv.wikipedia.org/wiki/Kuld%C4%ABgas_v%C4%93sture',
+    'Talsi': 'https://lv.wikipedia.org/wiki/Talsu_v%C4%93sture',
+    'Ventspils': 'https://lv.wikipedia.org/wiki/Ventspils_v%C4%93sture',
     
     // Добавляйте другие регионы здесь
 };
