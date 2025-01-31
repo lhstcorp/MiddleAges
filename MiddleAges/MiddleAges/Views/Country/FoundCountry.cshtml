@@ -1,4 +1,5 @@
 ﻿@model MiddleAges.Entities.Player
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "middle ages";    
@@ -8,20 +9,20 @@
     <div class="lhst_left-side-bar lhst_vertical-alignment-top"></div>
     <div class="lhst_vertical-alignment-top lhst_main-section lhst_main_section_padding">
         <div class="lhst_inline lhst_independent_land_description_divs lhst_independent_land_description_divs_align ml-1">
-            <h2 class="lhst_independent_land_description_h2">This land is independent</h2>
+            <h2 class="lhst_independent_land_description_h2">@Localizer["ThisLandIsIndependent"]</h2>
             <form asp-controller="Country" asp-action="FoundState" asp-route-playerId="@Model.Id">
                 <div>
-                    <label class="lhst_found_country_label" for="countryname">Enter country name:</label>
+                    <label class="lhst_found_country_label" for="countryname">@Localizer["EnterCountryName"]</label>
                     <br />
                     <input type="text" id="countryname" name="countryname" value="" maxlength="22"/>
                 </div>
                 <div>
-                    <label class="lhst_found_country_label" for="countrycolor">Select color for the country:</label>
+                    <label class="lhst_found_country_label" for="countrycolor">@Localizer["SelectCountryColor"]</label>
                     <br />
                     <input class="lhst_color_picker" type="color" id="countrycolor" name="countrycolor" value="#ff0000">
                 </div>
                 <div>
-                    <p class="lhst_independent_land_description lhst_mt_35">Pay <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount">300</span> solids and proclaim yourself the ruler of these lands. New state will be founded after this action.</p>
+                    <p class="lhst_independent_land_description lhst_mt_35">@Localizer["Pay"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount">300</span> @Localizer["PayDescr"]</p>
                 </div>
                 <input class="lhst_btn_found_state" type="submit" value="Become the ruler of these lands" />
             </form>
@@ -30,7 +31,7 @@
             <img class="lhst_independent_land_description_image myImg" src="../img/frescoes/knight-001.jpg" alt="" width="162" height="302" loading="lazy" />
         </div>
         <div class="lhst_inline lhst_independent_land_description_divs lhst_independent_land_description_divs_align">
-            <p class="lhst_independent_land_description">@Model.CurrentLand is independent. Rich residents have created their own administration and rule the region together. You can bribe the majority for <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount">300</span> solids and proclaim yourself the ruler of these lands.</p>
+            <p class="lhst_independent_land_description">@Model.CurrentLand @Localizer["FoundCountryDescr"] <img class="lhst_independent_land_description_money_icon" loading="lazy" src="~/img/interface-icons/coins.png" alt="" /><span class="lhst_independent_land_description_money_amount">300</span> @Localizer["FoundCountryDescr2"]</p>
         </div>        
     </div>
 </div>
