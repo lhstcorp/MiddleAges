@@ -163,7 +163,7 @@
     <value>Объявить войну</value>
   </data>
   <data name="Disband" xml:space="preserve">
-    <value>Расформировать</value>
+    <value>Распустить</value>
   </data>
   <data name="DisbandDescr" xml:space="preserve">
     <value>Вы уверены, что хотите расформировать страну?</value>
@@ -205,7 +205,7 @@
     <value>Людские ресурсы</value>
   </data>
   <data name="Rename" xml:space="preserve">
-    <value>Переименовать</value>
+    <value>Изменить название</value>
   </data>
   <data name="SelectGovernor" xml:space="preserve">
     <value>Выбрать губернатора</value>

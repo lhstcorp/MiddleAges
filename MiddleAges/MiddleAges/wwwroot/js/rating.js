@@ -93,7 +93,7 @@ function populateGrid(ratingList) {
         totalPlaceDiv.appendChild(totalPlaceP);
 
         const playerImgDiv = document.createElement("div");
-        playerImgDiv.classList.add("mr-2");
+        playerImgDiv.classList.add("mr-2", "lhst_scale");
         ratingNode.appendChild(playerImgDiv);
 
         const playerImg = document.createElement("img");
@@ -109,7 +109,7 @@ function populateGrid(ratingList) {
         ratingNode.appendChild(playerNameDiv);
 
         const playerNameP = document.createElement("p");
-        playerNameP.classList.add("mb-0", "mt-2", "lhst_cursor_pointer", "m_playerBtn");
+        playerNameP.classList.add("mb-0", "mt-2", "lhst_cursor_pointer", "m_playerBtn", "lhst_rating_username");
         playerNameP.dataset.playerid = ratingList.Ratings[i].Player.Id;
         playerNameP.innerText = ratingList.Ratings[i].Player.UserName;
         playerNameDiv.appendChild(playerNameP);

@@ -117,34 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Actions" xml:space="preserve">
-    <value>Действия</value>
+  <data name="Count" xml:space="preserve">
+    <value>Количество:</value>
   </data>
-  <data name="Banners" xml:space="preserve">
-    <value>Включить гербы</value>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Уволить</value>
   </data>
-  <data name="BordersWith" xml:space="preserve">
-    <value>Граничит с: </value>
+  <data name="PeasantDescr" xml:space="preserve">
+    <value>Крестьяне нужны для производства (золотодобычи). Чем больше крестьян, тем выше ваш доход.</value>
   </data>
-  <data name="LandsCount" xml:space="preserve">
-    <value>Количество земель: </value>
+  <data name="Price" xml:space="preserve">
+    <value>Цена:</value>
   </data>
-  <data name="Lords" xml:space="preserve">
-    <value>Лорды</value>
+  <data name="Recruit" xml:space="preserve">
+    <value>Нанять</value>
   </data>
-  <data name="MoveTo" xml:space="preserve">
-    <value>Посетить</value>
+  <data name="Recruits" xml:space="preserve">
+    <value>Рекруты:</value>
   </data>
-  <data name="Population" xml:space="preserve">
-    <value>Население</value>
+  <data name="SoldierDescr" xml:space="preserve">
+    <value>Солдаты нужны для сражений на войнах. Больше солдат — сильнее армия. Обратите внимание: солдаты требуют расходов!</value>
   </data>
-  <data name="SettleDown" xml:space="preserve">
-    <value>Переехать</value>
-  </data>
-  <data name="StartUprising" xml:space="preserve">
-    <value>Начать восстание</value>
-  </data>
-  <data name="Textures" xml:space="preserve">
-    <value>Включить текстуры</value>
+  <data name="Units" xml:space="preserve">
+    <value>Юниты</value>
   </data>
 </root>

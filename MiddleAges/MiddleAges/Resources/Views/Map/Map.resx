@@ -133,9 +133,17 @@
     <value>Lands count:</value>
     <comment>Label</comment>
   </data>
+  <data name="Lords" xml:space="preserve">
+    <value>Lords</value>
+    <comment>Title</comment>
+  </data>
   <data name="MoveTo" xml:space="preserve">
     <value>Move to</value>
     <comment>Button</comment>
+  </data>
+  <data name="Population" xml:space="preserve">
+    <value>Population</value>
+    <comment>Title</comment>
   </data>
   <data name="SettleDown" xml:space="preserve">
     <value>Settle down</value>
