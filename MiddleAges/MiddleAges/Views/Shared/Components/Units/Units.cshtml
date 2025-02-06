@@ -3,12 +3,13 @@
 @using Microsoft.AspNetCore.Identity
 @using MiddleAges.Enums;
 @using MiddleAges.Models;
+@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer Localizer
 
 
 <div id="units-component">
     <div class="d-flex">
-        <p class="lhst_possessions_titles lhst_unitRecruit_width">Units</p>
-        <p class="lhst_possessions_titles lhst_unitRecruit_width">Recruits: <span id="player-recruits">@Model.Player.RecruitAmount</span></p>
+        <p class="lhst_possessions_titles lhst_unitRecruit_width">@Localizer["Units"]</p>
+        <p class="lhst_possessions_titles lhst_unitRecruit_width">@Localizer["Recruits"] <span id="player-recruits">@Model.Player.RecruitAmount</span></p>
     </div>
     @for (int i = 0; i < Model.Units.Count(); i++)
     {
@@ -18,7 +19,7 @@
                 <div class="back-side">
                         <div class="lhst_inline inner">
                             <img class="lhst_coins-img lhst_brightness " src="~/img/interface-icons/coins.png" alt="" />
-                            <p class="lhst_brightness ">Price: @CommonLogic.getUnitPrice(Model.Units[i].Type)</p>
+                        <p class="lhst_brightness ">@Localizer["Price"] @CommonLogic.getUnitPrice(Model.Units[i].Type)</p>
                         </div>
                 </div>
             </div>
@@ -38,24 +39,24 @@
                             @if (Model.Units[i].Type == (int)UnitType.Peasant)
                             {
                                 <span class="lhst_tooltiptext ">
-                                    Peasants are needed for production (gold mining). The more peasants, the higher your income.
+                                    @Localizer["PeasantDescr"]
                                 </span>
                             }
                             else if (Model.Units[i].Type == (int)UnitType.Soldier)
                             {
                                 <span class="lhst_tooltiptext ">
-                                    Soldiers are needed to fight in wars. More soldiers means a stronger army. Please note: soldiers require expenses!
+                                    @Localizer["SoldierDescr"]
                                 </span>
                             }
                         </div>
                     </div>
-                    <p class="lhst_card_properties">Count: <span id=@unitspanCountId>@(Model.Units[i].Count)</span>/@(unitLimit)</p>
+                    <p class="lhst_card_properties">@Localizer["Count"] <span id=@unitspanCountId>@(Model.Units[i].Count)</span>/@(unitLimit)</p>
                 </div>
                 <div>
                 
                     <form asp-controller="Unit" asp-action="Recruit" asp-route-unitId="@Model.Units[i].UnitId" >
                         <input name="count" id="count" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@maxAvailable" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                        <input type="submit" class="lhst_btn_unit_recruit" value="Recruit" />
+                        <input type="submit" class="lhst_btn_unit_recruit" value="@Localizer["Recruit"]" />
                     </form>
 
                     <form asp-controller="Unit" asp-action="Dismiss" asp-route-unitId="@Model.Units[i].UnitId">
@@ -65,7 +66,7 @@
                           @*   <option value=10 />
                             <option value=100/> *@
                         </datalist>
-                        <input type="submit" class="lhst_btn_unit_recruit" value="Dismiss" />
+                        <input type="submit" class="lhst_btn_unit_recruit" value="@Localizer["Dismiss"]" />
                     </form>
                 </div>
             </div>

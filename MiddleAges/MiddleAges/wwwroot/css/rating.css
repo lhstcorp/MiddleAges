@@ -46,3 +46,15 @@
         transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
     }
+
+.lhst_rating_username {
+    color: wheat;
+    font-size: 14px;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Тень для текста */
+    filter: brightness(1.3)
+}
+
+    .lhst_rating_username:hover {
+        color: var(--yellow-color)
+    }

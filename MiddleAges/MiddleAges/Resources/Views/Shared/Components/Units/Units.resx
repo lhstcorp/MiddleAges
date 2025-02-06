@@ -117,34 +117,36 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Actions" xml:space="preserve">
-    <value>Действия</value>
+  <data name="Count" xml:space="preserve">
+    <value>Count:</value>
+    <comment>Label</comment>
   </data>
-  <data name="Banners" xml:space="preserve">
-    <value>Включить гербы</value>
+  <data name="Dismiss" xml:space="preserve">
+    <value>Dismiss</value>
+    <comment>Button</comment>
   </data>
-  <data name="BordersWith" xml:space="preserve">
-    <value>Граничит с: </value>
+  <data name="PeasantDescr" xml:space="preserve">
+    <value>Peasants are needed for production (gold mining). The more peasants, the higher your income.</value>
+    <comment>Title</comment>
   </data>
-  <data name="LandsCount" xml:space="preserve">
-    <value>Количество земель: </value>
+  <data name="Price" xml:space="preserve">
+    <value>Price:</value>
+    <comment>Label</comment>
   </data>
-  <data name="Lords" xml:space="preserve">
-    <value>Лорды</value>
+  <data name="Recruit" xml:space="preserve">
+    <value>Recruit</value>
+    <comment>Button</comment>
   </data>
-  <data name="MoveTo" xml:space="preserve">
-    <value>Посетить</value>
+  <data name="Recruits" xml:space="preserve">
+    <value>Recruits:</value>
+    <comment>Label</comment>
   </data>
-  <data name="Population" xml:space="preserve">
-    <value>Население</value>
+  <data name="SoldierDescr" xml:space="preserve">
+    <value>Soldiers are needed to fight in wars. More soldiers means a stronger army. Please note: soldiers require expenses!</value>
+    <comment>Title</comment>
   </data>
-  <data name="SettleDown" xml:space="preserve">
-    <value>Переехать</value>
-  </data>
-  <data name="StartUprising" xml:space="preserve">
-    <value>Начать восстание</value>
-  </data>
-  <data name="Textures" xml:space="preserve">
-    <value>Включить текстуры</value>
+  <data name="Units" xml:space="preserve">
+    <value>Units</value>
+    <comment>Label</comment>
   </data>
 </root>
