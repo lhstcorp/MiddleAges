@@ -29,6 +29,7 @@
                 int limitLeft = unitLimit - Model.Units[i].Count;
                 int maxAvailable = limitLeft > Model.Player.RecruitAmount ? Model.Player.RecruitAmount : limitLeft;
                 string unitspanCountId = "unit-" + i + "-count";
+                string recruitUnitInput = "recruitunitinput" + i;
             }
             <div >
                 <div class="lhst_unit_card_left_part">
@@ -55,12 +56,12 @@
                 <div>
                 
                     <form asp-controller="Unit" asp-action="Recruit" asp-route-unitId="@Model.Units[i].UnitId" >
-                        <input name="count" id="count" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@maxAvailable" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                        <input name="count" id="@recruitUnitInput" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@maxAvailable" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
                         <input type="submit" class="lhst_btn_unit_recruit" value="@Localizer["Recruit"]" />
                     </form>
 
                     <form asp-controller="Unit" asp-action="Dismiss" asp-route-unitId="@Model.Units[i].UnitId">
-                        <input name="dismissedCount" id="dismissedCount" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@Model.Units[i].Count" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+                        <input name="dismissedCount" list="values" class="lhst_tb_unit_recruit" type="number" value="1" max="@Model.Units[i].Count" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
                         <datalist id="values">
                             <option value=@Model.Units[i].Count />
                           @*   <option value=10 />

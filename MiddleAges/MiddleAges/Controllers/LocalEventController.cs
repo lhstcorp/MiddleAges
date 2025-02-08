@@ -398,8 +398,27 @@ namespace MiddleAges.Controllers
             Player player = _userManager.GetUserAsync(HttpContext.User).Result;
 
             List<Unit> units = _context.Units.Where(u => u.PlayerId == player.Id).ToList();
+            List<Building> buildings = _context.Buildings.Where(b => b.PlayerId == player.Id).ToList();
+                        
+            return Json(JsonSerializer.Serialize(
+                        new 
+                        { 
+                            Player = player, 
+                            Peasants = units[0], 
+                            Soldiers = units[1],
+                            PeasantsMaxAvailable = GetUnitMaxAvailable(player, units[0], buildings[0]),
+                            SoldiersMaxAvailable = GetUnitMaxAvailable(player, units[0], buildings[0]),
+                            ProgressbarExpNow = player.Exp - CommonLogic.GetRequiredExpByLvl(player.Lvl)                                
+                        }
+                ));
+        }
 
-            return Json(JsonSerializer.Serialize(new { Player = player, Peasants = units[0], Soldiers = units[1], ProgressbarExpNow = player.Exp - CommonLogic.GetRequiredExpByLvl(player.Lvl) }));
+        private int GetUnitMaxAvailable(Player player, Unit unit, Building building)
+        {
+            int unitLimit = CommonLogic.GetUnitLimit(building.Lvl);
+            int limitLeft = unitLimit - unit.Count;
+
+            return limitLeft > player.RecruitAmount ? player.RecruitAmount : limitLeft;
         }
     }
 }
