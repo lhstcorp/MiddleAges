@@ -148,8 +148,8 @@ function loadWars() {
 }
 
 function drawWarIcon(war, landFrom, landTo) {
-    const landFromPolygon = document.getElementById(landFrom.landId);
-    const landToPolygon = document.getElementById(landTo.landId);
+    const landFromPolygon = document.getElementById(landFrom.landId.replace(' ', '_'));
+    const landToPolygon = document.getElementById(landTo.landId.replace(' ', '_'));
 
     let landFromCenter = getPolygonCenter(landFromPolygon.animatedPoints);
     let landToCenter = getPolygonCenter(landToPolygon.animatedPoints);

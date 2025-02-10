@@ -159,7 +159,7 @@ namespace MiddleAges.Timed_Hosted_Services
 
         private void DoWarBackgroundLogic()
         {
-            List<War> wars = _context.Wars.Where(w => w.IsEnded == false && w.StartDateTime < DateTime.UtcNow).ToList();
+            List<War> wars = _context.Wars.Include(w => w.Player).Where(w => w.IsEnded == false && w.StartDateTime < DateTime.UtcNow).ToList();
 
             if (wars.Count > 0)
             {
@@ -459,9 +459,9 @@ namespace MiddleAges.Timed_Hosted_Services
         {
             Country country = new Country();
 
-            country.Name = "Rebel state";
+            country.Name = String.Format(CommonLogic.RebelStateName, war.Player.UserName);
             country.CapitalId = defeatLand.LandId;
-            country.Color = "#000000";
+            country.Color = CommonLogic.RebelStateColor;
             country.RulerId = war.RebelId;
 
             _context.Add(country);

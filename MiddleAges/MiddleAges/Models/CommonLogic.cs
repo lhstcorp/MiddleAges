@@ -22,6 +22,8 @@ namespace MiddleAges.Models
         public const double AttributePointResetCostMultiplier = 3.5;
         public const string IndependentLandsCountryId = "CAF6F518-3730-4692-AB56-FC755E7FF957";
         public const string AdminId = "04805b01-4ec4-4e98-ba9b-1b08c7054026";
+        public const string RebelStateName = "Rebel state of {0}";
+        public const string RebelStateColor = "#000000";
 
         public static string getBuildingNameByType(int _buildingType)
         {

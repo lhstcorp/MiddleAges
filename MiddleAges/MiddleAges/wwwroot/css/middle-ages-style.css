@@ -712,21 +712,6 @@ lhst_marquee {
     width: 100px
 }
 
-.lhst_background_image {
-    /* Основные размеры и центрирование */
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-
-    /* Более выраженный и контрастный градиент */
-    background: var(--dark-theme);
-    position: relative;
-}
-
-
 .lhst_cursor_pointer {
     cursor: pointer
 }

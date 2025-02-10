@@ -10,7 +10,9 @@
 
 .lhst_svg-map {
     position: fixed;
-    width: 100%
+    display: grid;
+    width: 100%;
+    height: 100%
 }
 
 #global_region_map {

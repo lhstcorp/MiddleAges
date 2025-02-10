@@ -148,6 +148,8 @@ function refreshPlayerData(obj) {
     $('#player-exp-progressbar').prop('title', parseFloat(obj.Player.Exp).toFixed(2) + " / " + progressbarTitleParts[1]);
     $('#unit-0-count').text(obj.Peasants.Count);
     $('#unit-1-count').text(obj.Soldiers.Count);
+    $('#recruitunitinput0').prop('max', parseInt(obj.PeasantsMaxAvailable));
+    $('#recruitunitinput1').prop('max', parseInt(obj.SoldiersMaxAvailable));
     
 }
 
