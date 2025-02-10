@@ -144,4 +144,7 @@
   <data name="Ended" xml:space="preserve">
     <value>Закончится:</value>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Подробнее</value>
+  </data>
 </root>

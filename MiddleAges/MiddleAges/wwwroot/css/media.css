@@ -36,9 +36,9 @@
 }
 
 @media screen and (max-height:850px) {
-    .lhst_tabs_div {
+/*    .lhst_tabs_div {
         max-height: calc(100vh - 212px)
-    }
+    }*/
 
     .lhst_wars_div {
         max-height: calc(100vh - 212px)
@@ -263,11 +263,12 @@
         height:30px;
     }
 
-    .lhst_country_history_div{
-        margin-left:0;
-        width:100%;
-        padding:5px;
-        height:300px;
+    .lhst_country_history_div {
+        margin-left: 0;
+        width: 100%;
+        padding: 5px;
+        height: 300px;
+        max-height: calc(100vh - 336px)
     }
     .lhst_btn_war_modal{
         font-size:7px;
@@ -283,9 +284,9 @@
     /*.lhst_country_history_img{
         height:30px;
     }*/
-    .lhst_country_history_comment{
+/*    .lhst_country_history_comment{
         height:35px;
-    }
+    }*/
     .lhst_country_history_text{
         font-size:10px;
     }
