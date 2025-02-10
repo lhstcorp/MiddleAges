@@ -153,4 +153,8 @@
     <value>Ended:</value>
     <comment>Label</comment>
   </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+    <comment>Button</comment>
+  </data>
 </root>
