@@ -46,7 +46,8 @@
 }
 
 .warcontent {
-    display: none
+    display: none;
+    max-height: calc(100vh - 252px)
 }
 
 .lhst_war_country_img {
@@ -83,3 +84,28 @@
     color: var(--wheat-color);
     border-radius: 3px
 }
+
+.lhst_btn_war_details {
+    background: radial-gradient(var(--add-color),black);
+    color: var(--wheat-color);
+    border-radius: 3px;
+    overflow: hidden;
+    width: auto;
+    height: 26.2px;
+    font-size: revert;
+    border-bottom-width: 0px;
+    border-right-width: 0px;
+    border-color: #666060;
+}
+
+    .lhst_btn_war_details:hover {
+        background: radial-gradient(var(--green-color) 0%,black);
+        color: var(--yellow-color);
+        border-style: outset
+    }
+
+    .lhst_btn_war_details:active {
+        border-style: inset;
+        transform: scale(0.95); /* Небольшое уменьшение размера при нажатии */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Тень, создающая ощущение вдавливания */
+    }
