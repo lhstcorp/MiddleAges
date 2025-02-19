@@ -407,7 +407,7 @@ namespace MiddleAges.Controllers
                             Peasants = units[0], 
                             Soldiers = units[1],
                             PeasantsMaxAvailable = GetUnitMaxAvailable(player, units[0], buildings[0]),
-                            SoldiersMaxAvailable = GetUnitMaxAvailable(player, units[0], buildings[0]),
+                            SoldiersMaxAvailable = GetUnitMaxAvailable(player, units[1], buildings[1]),
                             ProgressbarExpNow = player.Exp - CommonLogic.GetRequiredExpByLvl(player.Lvl)                                
                         }
                 ));
