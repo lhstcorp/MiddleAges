@@ -95,27 +95,101 @@ function onPointerUp() {
     viewBox.y = newViewBox.y;
 }
 
+//window.addEventListener("DOMContentLoaded", (event) => {
+//    const svg = document.querySelector('#lhst_svg_map');
+//    // zooming
+//    svg.onwheel = function (event) {
+//        event.preventDefault();
+//        // set the scaling factor (and make sure it's at least 10%)
+//        let scale = event.deltaY / 1000;
+//        scale = Math.abs(scale) < .1 ? .1 * event.deltaY / Math.abs(event.deltaY) : scale;
+//        // get point in SVG space
+//        let pt = new DOMPoint(event.clientX, event.clientY);
+//        pt = pt.matrixTransform(svg.getScreenCTM().inverse());
+//        // get viewbox transform
+//        let [x, y, width, height] = svg.getAttribute('viewBox').split(' ').map(Number);
+//        // get pt.x as a proportion of width and pt.y as proportion of height
+//        let [xPropW, yPropH] = [(pt.x - x) / width, (pt.y - y) / height];
+//        // calc new width and height, new x2, y2 (using proportions and new width and height)
+//        let [width2, height2] = [width + width * scale, height + height * scale];
+//        let x2 = pt.x - xPropW * width2;
+//        let y2 = pt.y - yPropH * height2;
+//        svg.setAttribute('viewBox', `${x2} ${y2} ${width2} ${height2}`);
+//        viewBox.x = x2;
+//        viewBox.y = y2;
+//    }
+//})
+
 window.addEventListener("DOMContentLoaded", (event) => {
     const svg = document.querySelector('#lhst_svg_map');
-    // zooming
+
+    // Инициализация переменных для отслеживания жеста
+    let lastTouchDistance = 0;
+
+    // Для масштабирования с колесом мыши
     svg.onwheel = function (event) {
         event.preventDefault();
-        // set the scaling factor (and make sure it's at least 10%)
         let scale = event.deltaY / 1000;
         scale = Math.abs(scale) < .1 ? .1 * event.deltaY / Math.abs(event.deltaY) : scale;
-        // get point in SVG space
+
         let pt = new DOMPoint(event.clientX, event.clientY);
         pt = pt.matrixTransform(svg.getScreenCTM().inverse());
-        // get viewbox transform
+
         let [x, y, width, height] = svg.getAttribute('viewBox').split(' ').map(Number);
-        // get pt.x as a proportion of width and pt.y as proportion of height
         let [xPropW, yPropH] = [(pt.x - x) / width, (pt.y - y) / height];
-        // calc new width and height, new x2, y2 (using proportions and new width and height)
+
         let [width2, height2] = [width + width * scale, height + height * scale];
         let x2 = pt.x - xPropW * width2;
         let y2 = pt.y - yPropH * height2;
+
         svg.setAttribute('viewBox', `${x2} ${y2} ${width2} ${height2}`);
         viewBox.x = x2;
         viewBox.y = y2;
+    };
+
+    // Масштабирование с помощью двух пальцев
+    let isTouching = false;
+    svg.addEventListener('touchstart', (event) => {
+        if (event.touches.length === 2) {
+            isTouching = true;
+            const touchDistance = getTouchDistance(event);
+            lastTouchDistance = touchDistance;
+        }
+    });
+
+    svg.addEventListener('touchmove', (event) => {
+        if (isTouching && event.touches.length === 2) {
+            const currentTouchDistance = getTouchDistance(event);
+            const scale = (currentTouchDistance - lastTouchDistance) / 100;
+
+            if (Math.abs(scale) > 0.1) {
+                // Получаем точку касания для вычисления новой области видимости
+                const pt = new DOMPoint(event.touches[0].clientX, event.touches[0].clientY);
+                let [x, y, width, height] = svg.getAttribute('viewBox').split(' ').map(Number);
+                let [xPropW, yPropH] = [(pt.x - x) / width, (pt.y - y) / height];
+
+                let [width2, height2] = [width + width * scale, height + height * scale];
+                let x2 = pt.x - xPropW * width2;
+                let y2 = pt.y - yPropH * height2;
+
+                svg.setAttribute('viewBox', `${x2} ${y2} ${width2} ${height2}`);
+                lastTouchDistance = currentTouchDistance;
+            }
+        }
+    });
+
+    svg.addEventListener('touchend', (event) => {
+        if (event.touches.length < 2) {
+            isTouching = false;
+        }
+    });
+
+    // Функция для вычисления расстояния между двумя пальцами
+    function getTouchDistance(event) {
+        const touch1 = event.touches[0];
+        const touch2 = event.touches[1];
+        const dx = touch2.clientX - touch1.clientX;
+        const dy = touch2.clientY - touch1.clientY;
+        return Math.sqrt(dx * dx + dy * dy);
     }
-})
+});

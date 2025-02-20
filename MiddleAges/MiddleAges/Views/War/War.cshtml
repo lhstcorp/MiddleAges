@@ -162,7 +162,7 @@
                                 <div class="col-6 float-right p-0">
                                     @if (countryWars[i].War.StartDateTime > DateTime.UtcNow)
                                     {
-                                        TimeSpan ts = allWars[i].War.StartDateTime - DateTime.UtcNow;
+                                        TimeSpan ts = countryWars[i].War.StartDateTime - DateTime.UtcNow;
                                         string leftTime = "";
                                         if (ts > TimeSpan.Zero)
                                         {
