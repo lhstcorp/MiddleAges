@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using MiddleAges.Data;
@@ -23,13 +24,14 @@ namespace MiddleAges.Controllers
         private readonly ILogger<MapController> _logger;
         private readonly ApplicationDbContext _context;
         private readonly UserManager<Player> _userManager;
+        private readonly IViewLocalizer _localizer;
 
-        public MapController(ILogger<MapController> logger, ApplicationDbContext context, UserManager<Player> userManager)
+        public MapController(ILogger<MapController> logger, ApplicationDbContext context, UserManager<Player> userManager, IViewLocalizer localizer)
         {
             _logger = logger;
             _context = context;
             _userManager = userManager;
-            _userManager = userManager;
+            _localizer = localizer;
         }
 
         public async Task<IActionResult> Index()
@@ -295,27 +297,41 @@ namespace MiddleAges.Controllers
 
         public async Task<IActionResult> UpdateLandBuilding(string landId, string landBuildingType)
         {
-            string result = "Error";
-
-            Player player = await _userManager.GetUserAsync(HttpContext.User);
-            LandBuilding landBuilding = await _context.LandBuildings.Include(lb => lb.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(lb => lb.LandId == landId && (int)lb.BuildingType == Convert.ToInt32(landBuildingType));
-            
-            double landBuildingPrice = GetLandBuildingPrice(landBuilding);
-
-            if (landBuilding != null
-             && landBuilding.Land.Money > landBuildingPrice
-             && (landBuilding.Land.GovernorId == player.Id
-              || landBuilding.Land.Country.RulerId == player.Id)) 
+            UpdateLandBuildingViewModel result = new UpdateLandBuildingViewModel
             {
-                landBuilding.Lvl += 1;
-                _context.Update(landBuilding);
+                Result = "The building has not been improved." //_localizer["UpdateLandBuildingCommonError"].Value
+            };
 
-                landBuilding.Land.Money -= landBuildingPrice;
-                _context.Update(landBuilding.Land);
+            War war = await _context.Wars.FirstOrDefaultAsync(w => (w.LandIdFrom == landId 
+                                                                 || w.LandIdTo == landId)
+                                                                && w.IsEnded == false);
+                      
+            if (war != null)
+            {
+                result.Result = "You cannot upgrade buildings in this region during a war."; //_localizer["UpdateLandBuildingWarExistingError"].Value;
+            }
+            else
+            { 
+                Player player = await _userManager.GetUserAsync(HttpContext.User);
+                LandBuilding landBuilding = await _context.LandBuildings.Include(lb => lb.Land).ThenInclude(l => l.Country).FirstOrDefaultAsync(lb => lb.LandId == landId && (int)lb.BuildingType == Convert.ToInt32(landBuildingType));
+            
+                double landBuildingPrice = GetLandBuildingPrice(landBuilding);
 
-                result = "OK";
+                if (landBuilding != null
+                 && landBuilding.Land.Money > landBuildingPrice
+                 && (landBuilding.Land.GovernorId == player.Id
+                  || landBuilding.Land.Country.RulerId == player.Id)) 
+                {
+                    landBuilding.Lvl += 1;
+                    _context.Update(landBuilding);
 
-                await _context.SaveChangesAsync();
+                    landBuilding.Land.Money -= landBuildingPrice;
+                    _context.Update(landBuilding.Land);
+
+                    result.Result = "OK";
+
+                    await _context.SaveChangesAsync();
+                }
             }
 
             return Json(JsonSerializer.Serialize(result));

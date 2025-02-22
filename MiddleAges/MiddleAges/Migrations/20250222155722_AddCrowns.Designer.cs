@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MiddleAges.Data;
 
 namespace MiddleAges.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250222155722_AddCrowns")]
+    partial class AddCrowns
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -704,37 +706,6 @@ namespace MiddleAges.Migrations
                     b.ToTable("Wars");
                 });
 
-            modelBuilder.Entity("MiddleAges.Entities.WarLog", b =>
-                {
-                    b.Property<Guid>("WarLogId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("AttackEfficiency")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("AttackLosses")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("CalculationTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("DefenceEfficiency")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DefenceLosses")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("WarId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("WarLogId");
-
-                    b.HasIndex("WarId");
-
-                    b.ToTable("WarLogs");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -979,17 +950,6 @@ namespace MiddleAges.Migrations
                         .HasForeignKey("RebelId");
 
                     b.Navigation("Player");
-                });
-
-            modelBuilder.Entity("MiddleAges.Entities.WarLog", b =>
-                {
-                    b.HasOne("MiddleAges.Entities.War", "War")
-                        .WithMany()
-                        .HasForeignKey("WarId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("War");
                 });
 #pragma warning restore 612, 618
         }
