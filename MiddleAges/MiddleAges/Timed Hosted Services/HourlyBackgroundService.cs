@@ -94,7 +94,7 @@ namespace MiddleAges.Timed_Hosted_Services
                 player.Money += hourIncome * (1 - (land.LandTax / 100.00));
                 player.MoneyProduced += hourIncome * (1 - (land.LandTax / 100.00));
 
-                player.Exp += Convert.ToInt64(Math.Floor(hourIncome));
+                player.Exp += Convert.ToInt64(Math.Ceiling(hourIncome));
 
                 _context.Update(player);
 
@@ -248,8 +248,8 @@ namespace MiddleAges.Timed_Hosted_Services
                 double cubeValueA = Convert.ToDouble(rnd.Next(-50, 51)) / 100.00;
                 double cubeValueD = Convert.ToDouble(rnd.Next(-50, 51)) / 100.00;
 
-                double attackersLossProportionPerc = defendersPerc + defendersPerc * cubeValueA;
-                double defendersLossProportionPerc = attackersPerc + attackersPerc * cubeValueD;
+                double attackersLossProportionPerc = defendersPerc + defendersPerc * cubeValueD;
+                double defendersLossProportionPerc = attackersPerc + attackersPerc * cubeValueA;
 
                 double deathCount = Math.Ceiling((attackersSoldiersCount + defendersSoldiersCount) * lossPerc);
 
@@ -262,6 +262,8 @@ namespace MiddleAges.Timed_Hosted_Services
                 {
                     CalculateArmy(army, defendersSoldiersCount, deathCount, defendersLossProportionPerc, attackersLossProportionPerc);
                 }
+
+                AddWarLog(war.WarId, cubeValueA, cubeValueD, deathCount, attackersLossProportionPerc, defendersLossProportionPerc);
 
                 TryEndWar(war);
             }
@@ -301,7 +303,7 @@ namespace MiddleAges.Timed_Hosted_Services
         {
             Player player = _context.Players.FirstOrDefault(p => p.Id == playerId);
 
-            player.Exp += Convert.ToInt64(soldiersLost * 1 + soldiersKilled * 2);
+            player.Exp += Convert.ToInt64(soldiersLost * 0.5 + soldiersKilled * 1) * player.Lvl;
 
             _context.Update(player);
         }
@@ -379,6 +381,7 @@ namespace MiddleAges.Timed_Hosted_Services
 
             DestroyBuildingsAfterWar(defeatLand);
             DisbandWarArmies(war);
+            DeleteWarLogs(war.WarId);
         }
 
         private void TransferLandToVictoryCountry(Land defeatLand, Country victoryCountry)
@@ -527,6 +530,31 @@ namespace MiddleAges.Timed_Hosted_Services
                 landBuildings[i].Lvl = (int)Math.Ceiling(Convert.ToDouble(landBuildings[i].Lvl) * CommonLogic.LandBuildingDestructionPercentage);
 
                 _context.Update(landBuildings[i]);
+            }
+        }
+
+        private void AddWarLog(Guid warId, double cubeA, double cubeD, double deathCount, double attackersLossProportionPerc, double defendersLossProportionPerc)
+        {
+            WarLog warLog = new WarLog
+            {
+                WarId = warId,
+                AttackEfficiency = (cubeA * 100).ToString(),
+                DefenceEfficiency = (cubeD * 100).ToString(),
+                AttackLosses = Convert.ToInt32(deathCount * attackersLossProportionPerc),
+                DefenceLosses = Convert.ToInt32(deathCount * defendersLossProportionPerc),
+                CalculationTime = DateTime.UtcNow
+            };
+
+            _context.Update(warLog);
+        }
+
+        private void DeleteWarLogs(Guid warId)
+        {
+            List<WarLog> warLogs = _context.WarLogs.Where(wl => wl.WarId == warId).ToList();
+
+            foreach (WarLog warLog in warLogs)
+            {
+                _context.Remove(warLog);
             }
         }
     }

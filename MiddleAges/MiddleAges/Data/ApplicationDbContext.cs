@@ -135,6 +135,11 @@ namespace MiddleAges.Data
                 .HasOne(q => q.Land)
                 .WithMany()
                 .HasForeignKey(q => q.LandId);
+
+            builder.Entity<WarLog>()
+                .HasOne(q => q.War)
+                .WithMany()
+                .HasForeignKey(q => q.WarId);
         }
 
         public DbSet<Player> Players { get; set; }
@@ -154,5 +159,6 @@ namespace MiddleAges.Data
         public DbSet<PlayerLocalEvent> PlayerLocalEvents { get; set; }
         public DbSet<LandBuilding> LandBuildings { get; set; }
         public DbSet<LandDevelopmentShare> LandDevelopmentShares { get; set; }
+        public DbSet<WarLog> WarLogs { get; set; }
     }
 }

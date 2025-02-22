@@ -16,6 +16,7 @@ namespace MiddleAges.Entities
         public int Lvl { get; set; }
         [DefaultValue(1000)]
         public double Money { get; set; }
+        public double Crowns { get; set; }
         public string ImageURL { get; set; }
         public string CurrentLand { get; set; }
         public string ResidenceLand { get; set; }
