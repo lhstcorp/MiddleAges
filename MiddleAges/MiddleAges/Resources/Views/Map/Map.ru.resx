@@ -147,4 +147,10 @@
   <data name="Textures" xml:space="preserve">
     <value>Включить текстуры</value>
   </data>
+  <data name="UpdateLandBuildingCommonError" xml:space="preserve">
+    <value>Здание не было улучшено</value>
+  </data>
+  <data name="UpdateLandBuildingWarExistingError" xml:space="preserve">
+    <value>Вы не можете улучшать здания в регионе во время войны.</value>
+  </data>
 </root>

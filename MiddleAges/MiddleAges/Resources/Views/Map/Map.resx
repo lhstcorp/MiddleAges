@@ -157,4 +157,12 @@
     <value>Turn on textures</value>
     <comment>Label</comment>
   </data>
+  <data name="UpdateLandBuildingCommonError" xml:space="preserve">
+    <value>The building has not been improved.</value>
+    <comment>ErrorMessage</comment>
+  </data>
+  <data name="UpdateLandBuildingWarExistingError" xml:space="preserve">
+    <value>You cannot upgrade buildings in this region during a war.</value>
+    <comment>ErrorMessage</comment>
+  </data>
 </root>

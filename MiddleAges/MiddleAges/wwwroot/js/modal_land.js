@@ -166,11 +166,11 @@ function m_land_updateBuildingClicked(landBuildingType) {
     })
         .done(function (data) {
             let obj = JSON.parse(data);
-            if (obj != 'Error') {
+            if (obj.Result == 'OK') {
                 m_land_refreshLandData();
             }
             else {
-                alert("The building has not been improved.");
+                alert(obj.Result);
             }
         })
         .fail(function (data) {
