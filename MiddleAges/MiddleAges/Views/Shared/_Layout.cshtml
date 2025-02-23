@@ -309,36 +309,65 @@
     </div>
 
     <div class="row p-0">
-        <div class="col-2 p-0">
-            <img id="imgFrom" class="lhst_war_country_img lhst_cursor_pointer m_landBtn" src="../img/map-regions-icons-middle-ages/Hrodna.png" loading="lazy" alt="">
-        </div>
-        <div class="col-2 p-0">
+        <div class="col-3 p-0">
             <p id="countryFromName" class="lhst_wars_country_text">CountryFrom</p>
             <p id="landFromName" class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn">LandFrom</p>
-            <div style="margin-bottom: 3px">
-                <img class="float-left" style="width: 24px; height: 24px" src="../img/interface-icons/war/army-strength.png" loading="lazy" data-title="Army strength" alt="">
-
-                <p id="attackersArmyStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
-                <div class="lhst_tooltip lhst_cursor_help ml-1 mb-0">
-                    ?
-                    <span class="lhst_tooltiptext">
-                        Army strength: average warfare of all participants
-                    </span>
-                </div>
-            </div>
-            <div class="lhst_inline">
-                <img class="float-left" style="width: 24px; height: 24px" src="../img/interface-icons/war/fortification-strength.png" loading="lazy" data-title="Army strength" alt="">
-
-                <p id="attackersFortificationStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
-                <div class="lhst_tooltip lhst_cursor_help ml-1 mb-0">
-                    ?
-                    <span class="lhst_tooltiptext">
-                        Fortification strength: this modifier is based on the level of land fortification
-                    </span>
-                </div>
-            </div>
+            <img id="imgFrom" class="lhst_war_country_img lhst_cursor_pointer m_landBtn" src="../img/map-regions-icons-middle-ages/Hrodna.png" loading="lazy" alt="">
+            <input id="soldiersCountLeftValue" name="unitsAmountLeftCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+            <button type="submit" class="lhst_btn_war_modal" onclick="sendTroopsLeftSide()">
+                Send
+            </button>
         </div>
-        <div class="col-4 p-0">
+
+        <div class="col-5 p-0 mt-5">
+            <div class="row p-0">
+                <div class="col-4 p-0 text-right">
+                    <img class="float-right" style="width: 24px; height: 24px" src="../img/interface-icons/war/army-strength.png" loading="lazy" data-title="Army strength" alt="">
+                </div>
+                <div class="col-2 p-0 ">
+                    <p id="attackersArmyStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
+                </div>
+               
+                <div class="col-2 p-0 ">
+                    <img class="float-left" style="width: 24px; height: 24px" src="../img/interface-icons/war/army-strength.png" loading="lazy" data-title="Army strength" alt="">
+                </div>
+                <div class="col-2 p-0">
+                    <p id="defendersArmyStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
+                </div>
+                <div class="col-2 p-0">
+                    <div class="lhst_tooltip lhst_cursor_help ml-1 mb-0">
+                        ?
+                        <span class="lhst_tooltiptext">
+                            Army strength: average warfare of all participants
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row p-0">
+                <div class="col-4 p-0 text-right">
+                    <img class="float-right" style="width: 24px; height: 24px" src="../img/interface-icons/war/fortification-strength.png" loading="lazy" data-title="Army strength" alt="">
+                </div>
+                <div class="col-2 p-0">
+                    <p id="attackersFortificationStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
+                </div>
+
+                <div class="col-2 p-0">
+                    <img class="float-left" style="width: 24px; height: 24px" src="../img/interface-icons/war/fortification-strength.png" loading="lazy" data-title="Army strength" alt="">
+                </div>
+                <div class="col-2 p-0">
+                    <p id="defendersFortificationStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
+                </div>
+                <div class="col-2 p-0">
+                    <div class="lhst_tooltip lhst_cursor_help ml-1 mb-0">
+                        ?
+                        <span class="lhst_tooltiptext">
+                            Fortification strength: this modifier is based on the level of land fortification
+                        </span>
+                    </div>
+                </div>
+            </div>
+
             <div class="row p-0">
                 <div class="col-4 p-0 text-right">
                     <p id="soldiersCountLeft" class="text-right lhst_country_info_region_value" data-title="Attackers Soldiers">937</p>
@@ -367,57 +396,21 @@
                     <p id="armiesCountRight" class="lhst_country_info_region_value" loading="lazy" data-title="Defenders Lords">12</p>
                 </div>
             </div>
-            <div class="row p-0">
-                <div class="col-3 p-0">
-                    <input id="soldiersCountLeftValue" name="unitsAmountLeftCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                </div>
-                <div class="col-3 p-0 text-right">
-                    <button type="submit" class="lhst_btn_war_modal" onclick="sendTroopsLeftSide()" >
-                        Send
-                    </button>
-                </div>
-                <div class="col-3 p-0">
-                    <button type="submit" class="lhst_btn_war_modal" onclick="sendTroopsRightSide()"> 
-                        Send
-                    </button>
-                </div>
-                <div class="col-3 p-0">
-                    <input id="soldiersCountRightValue" name="unitsAmountRightCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
-                </div>
-            </div>
         </div>
 
-        <div class="col-2 p-0 text-right">
+        <div class="col-3 p-0 text-right">
             <p id="countryToName" class="lhst_wars_country_text ">CountryTo</p>
             <p id="landToName" class="lhst_wars_lands_text lhst_geo_object lhst_cursor_pointer m_landBtn">LandTo</p>
-            <div style="margin-bottom: 3px">
-                <img class="float-right" style="width: 24px; height: 24px" loading="lazy" src="../img/interface-icons/war/army-strength.png" data-title="Army strength" alt="">
-                <p id="defendersArmyStrength" class="float-right mt-1 mb-0">0%</p>
-                <div class="lhst_tooltip lhst_cursor_help float-right mr-1 mt-1 mb-0">
-                    ?
-                    <span class="lhst_tooltiptext">
-                        Army strength: average warfare of all participants
-                    </span>
-                </div>
-            </div>
-            <div class="lhst_inline">
-                <img class="float-right" style="width: 24px; height: 24px" loading="lazy" src="../img/interface-icons/war/fortification-strength.png" data-title="Fortification strength" alt="">
-                <p id="defendersFortificationStrength" class="float-right mt-1 mb-0">0%</p>
-                <div class="lhst_tooltip lhst_cursor_help float-right mr-1 mb-0">
-                    ?
-                    <span class="lhst_tooltiptext">
-                        Fortification strength: this modifier is based on the level of land fortification
-                    </span>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-2 p-0 float-right">
             <img id="imgTo" class="lhst_war_country_img lhst_country_history_img lhst_cursor_pointer m_landBtn" loading="lazy" src="../img/map-regions-icons-middle-ages/Lahoisk.png" alt="">
+            <input id="soldiersCountRightValue" name="unitsAmountRightCountryWarInput" list="values" class="lhst_tb_war_modal" type="number" value="1" max="100" onkeyup="this.value = this.value.replace(/[^\d]/g,'');" />
+            <button type="submit" class="lhst_btn_war_modal" onclick="sendTroopsRightSide()">
+                Send
+            </button>
         </div>
 
-
+            
     </div>
+
     <div class="row p-0 overflow-auto">
         <div id="attackersDiv" class="col-6 p0 pt-3 lhst_slider">
         </div>
