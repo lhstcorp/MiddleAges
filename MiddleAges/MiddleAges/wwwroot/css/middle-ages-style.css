@@ -1189,6 +1189,7 @@ lhst_marquee {
     max-height: 250px;
     background-size: 50%;
     color: var(--wheat-color) #4c473d;
+    height: 200px;
 }
 
 svg {

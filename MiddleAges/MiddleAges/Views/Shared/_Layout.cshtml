@@ -6,7 +6,6 @@
 @inject IAuthorizationService AuthorizationService
 @inject IViewLocalizer Localizer
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>   
@@ -59,10 +58,10 @@
                             <div id="menuContainer" class="dropdown-menu">
                                 <ul class="lhst_nav p-0 ">
                                     <li class="lhst_nav">
-                                    <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">@Localizer["Main"]</a>
+                                        <a class="nav-link text-dark header-menu lhst_nav main-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Main" asp-action="Index">@Localizer["Main"]</a>
                                     </li>
                                     <li class="lhst_nav">
-                                        <a class="nav-link text-dark header-menu lhst_nav map-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Map" asp-action="Index">Map</a>
+                                        <a class="nav-link text-dark header-menu lhst_nav map-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Map" asp-action="Index">@Localizer["Map"]</a>
                                     </li>
                                     <li class="lhst_nav">
                                         <a class="nav-link text-dark header-menu lhst_nav state-btn lhst_shadow_text lhst_scale" asp-area="" asp-controller="Country" asp-action="Index">Country</a>
@@ -319,13 +318,13 @@
             </button>
         </div>
 
-        <div class="col-5 p-0 mt-5">
-            <div class="row p-0">
+        <div class="col-5 p-0 mt-5 mb-2">
+            <div class="row p-0">                
                 <div class="col-4 p-0 text-right">
-                    <img class="float-right" style="width: 24px; height: 24px" src="../img/interface-icons/war/army-strength.png" loading="lazy" data-title="Army strength" alt="">
+                    <p id="attackersArmyStrength" class="float-right mt-1 mb-0 lhst_cursor_help">0%</p>
                 </div>
                 <div class="col-2 p-0 ">
-                    <p id="attackersArmyStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
+                    <img class="float-right" style="width: 24px; height: 24px" src="../img/interface-icons/war/army-strength.png" loading="lazy" data-title="Army strength" alt="">
                 </div>
                
                 <div class="col-2 p-0 ">
@@ -344,12 +343,12 @@
                 </div>
             </div>
 
-            <div class="row p-0">
+            <div class="row p-0 mb-2 mt-1">                
                 <div class="col-4 p-0 text-right">
-                    <img class="float-right" style="width: 24px; height: 24px" src="../img/interface-icons/war/fortification-strength.png" loading="lazy" data-title="Army strength" alt="">
+                    <p id="attackersFortificationStrength" class="float-right mt-1 mb-0 lhst_cursor_help">0%</p>
                 </div>
-                <div class="col-2 p-0">
-                    <p id="attackersFortificationStrength" class="float-left mt-1 mb-0 lhst_cursor_help">0%</p>
+                <div class="col-2 p-0 ">
+                    <img class="float-right" style="width: 24px; height: 24px" src="../img/interface-icons/war/fortification-strength.png" loading="lazy" data-title="Army strength" alt="">
                 </div>
 
                 <div class="col-2 p-0">
@@ -368,7 +367,7 @@
                 </div>
             </div>
 
-            <div class="row p-0">
+            <div class="row p-0 mb-2">
                 <div class="col-4 p-0 text-right">
                     <p id="soldiersCountLeft" class="text-right lhst_country_info_region_value" data-title="Attackers Soldiers">937</p>
                 </div>
