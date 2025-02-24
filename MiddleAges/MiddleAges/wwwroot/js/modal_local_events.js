@@ -145,7 +145,7 @@ function refreshPlayerData(obj) {
     $('#player-exp-progressbar').val(obj.ProgressbarExpNow);
     let progressbarTitle = $('#player-exp-progressbar').prop('title');
     let progressbarTitleParts = progressbarTitle.split(" / ");
-    $('#player-exp-progressbar').prop('title', parseFloat(obj.Player.Exp).toFixed(2) + " / " + progressbarTitleParts[1]);
+    $('#player-exp-progressbar').prop('title', parseInt(obj.Player.Exp) + " / " + progressbarTitleParts[1]);
     $('#unit-0-count').text(obj.Peasants.Count);
     $('#unit-1-count').text(obj.Soldiers.Count);
     $('#recruitunitinput0').prop('max', parseInt(obj.PeasantsMaxAvailable));

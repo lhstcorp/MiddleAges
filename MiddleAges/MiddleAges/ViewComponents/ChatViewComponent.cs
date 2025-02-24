@@ -24,7 +24,7 @@ namespace MiddleAges.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            List<ChatMessage> chatMessages = await _context.ChatMessages.Include(p => p.Player).Where(m => m.ChatRoomType == (int) ChatRoomType.Global).ToListAsync();
+            List<ChatMessage> chatMessages = await _context.ChatMessages.Include(p => p.Player).Where(m => m.ChatRoomType == (int) ChatRoomType.Global).OrderByDescending(m =>m.PublishingDateTime).Take(50).OrderBy(m => m.PublishingDateTime).ToListAsync();
             return View("Chat", chatMessages);
         }
     }

@@ -8,7 +8,7 @@ function validate() {
         chatForm.globalChatMessageInput.setCustomValidity("Minimum 1 symbol");
     }
     if (chatForm.globalChatMessageInput.validity.tooLong) {
-        chatForm.globalChatMessageInput.setCustomValidity("Maximum 50 symblos");
+        chatForm.globalChatMessageInput.setCustomValidity("Maximum 200 symblos");
     }
     if (chatForm.globalChatMessageInput.validity.tooShort) {
         chatForm.globalChatMessageInput.setCustomValidity("Minimum 1 symbol");
